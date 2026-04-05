@@ -41,6 +41,8 @@ This profile is consistent with, and builds upon, the NIST AI RMF 1.0 (NIST AI 1
 
 Terminology in this document follows AI RMF 1.0 definitions. RFC 2119 normative language (MUST, SHOULD, MAY) is used in Section 5 (Component Taxonomy) to specify conformance requirements, consistent with established standards practice.
 
+**Development methodology.** This standard and its reference implementation were developed using a Human-Curated, AI-Enabled (HCAE) methodology. The human architect defined operational standards, curated behavioral corrections, and determined what "good" looks like across the component categories. The AI operator -- a large language model acting as a generalist operations engineer -- implemented, executed, and maintained the behavioral envelope under those standards. The standard itself is a direct artifact of operating under its own principles: the reference implementation is the system that was used to develop it.
+
 ---
 
 ## 1. Introduction
@@ -415,6 +417,8 @@ The OAgents behavioral envelope has been implemented as a reference system opera
 
 A sanitized snapshot of the reference implementation -- with credentials, internal addresses, and identifying information removed but with all structural artifacts, script logic, hook mechanisms, memory schemas, and log formats intact -- is published at https://github.com/ologos-corp/OAgents-standard/tree/main/reference. This snapshot constitutes the evidence artifacts that Appendix C requires conforming implementations to produce.
 
+The reference implementation was developed and operated using a **Human-Curated, AI-Enabled (HCAE)** methodology: a human architect defined operational standards, curated behavioral corrections, and determined conformance expectations; an AI operator implemented and maintained the behavioral envelope under those standards. This is not incidental to the standard's design -- it is the operational model the standard is built to support and constrain.
+
 ### 9.1 Reference Stack Summary
 
 The following table summarizes the implementation approach for each component category, the primary artifact type, and the corresponding reference file.
@@ -445,7 +449,7 @@ The following metrics are drawn from live operational logs of the reference impl
 | Total persistent memory entries | 49 | `memory/*.md` |
 | Hallucination catches logged | 2 | `ops/qa_log.json` |
 
-These figures demonstrate operational use, not empirical benchmarking. The 367 commits with associated hook enforcement events show the enforcement gate has been active across the full project lifetime. The 83 independent QA reviews -- each performed by a model instance from a different provider than the producing agent -- show the independent review mechanism has been exercised at meaningful volume. The 23 behavioral correction memories demonstrate that the lesson-to-enforcement pipeline has been exercised: failures have been captured, converted to memory entries, and made available for subsequent sessions.
+These figures demonstrate operational use, not empirical benchmarking. The 367 commits with associated hook enforcement events show the enforcement gate has been active across the full project lifetime. The 83 independent QA reviews -- each performed by a model instance from a different provider than the producing agent -- show the independent review mechanism has been exercised at meaningful volume. The 23 behavioral correction memories demonstrate that the lesson-to-enforcement pipeline has been exercised: failures have been captured, converted to memory entries, and made available for subsequent sessions. No repeat occurrence of the same failure pattern has been observed after enforcement installation -- the pipeline's primary design intent.
 
 ### 9.3 Scope and Limitations
 
@@ -453,7 +457,7 @@ The reference implementation demonstrates the architectural feasibility of all 2
 
 Systematic empirical validation -- measuring quality gate effectiveness across extended deployments, comparing behavioral consistency across model providers, and quantifying the lesson-to-enforcement pipeline's impact on failure recurrence rates -- is identified as community work. The conformance evidence criteria in Appendix C define what that measurement should look like. The community is invited to conduct that measurement using the reference implementation as a starting point and to contribute results for incorporation in subsequent revisions.
 
-This approach mirrors the development of successful infrastructure standards. The OAuth specification was not accompanied by empirical studies of token exchange effectiveness. It defined the protocol, demonstrated it was implementable, and invited the community to build on it. OAgents follows the same model: the taxonomy is defined, the reference implementation demonstrates feasibility, and systematic validation is the community's contribution.
+The appropriate sequence for a v1.0 specification is: define the taxonomy, demonstrate feasibility, invite community validation. That is the sequence this document follows. Adoption and empirical hardening come from community engagement with a specification that is rigorous enough to be worth engaging.
 
 ---
 
@@ -573,7 +577,7 @@ The taxonomy is open. The component definitions, compliance levels, AI RMF mappi
 
 We invite NIST, IEEE, OASIS, and the broader standards community to evaluate this taxonomy, contribute replication evidence, propose revisions, and engage in the public comment process as the standard matures. We specifically invite federal agencies operating under EO 14110 to evaluate OAgents as an implementation framework for the AI agent trustworthiness requirements the Executive Order mandates.
 
-The behavioral envelope is to operational AI agents what OAuth was to identity delegation -- not a product, but a trust layer that makes delegation safe. For high-autonomy agents in enterprise environments, that layer is what the industry needs. The model is a commodity. Trust is the product.
+The behavioral envelope is to operational AI agents what OAuth was to identity delegation -- not a product, but a trust layer that makes delegation safe. For high-autonomy agents in consequential enterprise roles, that layer is what responsible deployment requires. The model is a commodity. Trust is the product.
 
 ---
 
