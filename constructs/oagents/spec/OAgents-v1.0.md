@@ -2,9 +2,12 @@
 ## An Implementation Profile of the NIST AI Risk Management Framework (AI RMF 1.0)
 
 **JD Longmire**
-Independent Researcher
+
+Northrop Grumman Fellow (unaffiliated research)
+
 ORCID: 0009-0009-1383-7698
-Correspondence: jdlongmire@outlook.com
+
+jdlongmire@outlook.com
 
 **Document Type:** AI RMF Implementation Profile
 **AI RMF Reference:** NIST AI 100-1 (January 2023)
@@ -20,7 +23,7 @@ The deployment of large language models as operational agents -- managing infras
 
 This document proposes OAgents, an open standard for behavioral envelopes that wrap AI agents in structured pre-execution gates, post-execution verification, and operational discipline mechanisms. The standard is model-agnostic: behavioral guarantees are properties of the envelope, not properties of the underlying model.
 
-Presented as an Implementation Profile of the NIST AI Risk Management Framework (AI RMF 1.0, NIST AI 100-1), the OAgents standard maps a 26-component behavioral envelope taxonomy to AI RMF functions, categories, and subcategories. Production validation across 30+ operational sessions managing 20+ enterprise services demonstrates 97% quality gate effectiveness, zero failure pattern recurrence after capture, and successful cross-provider model portability.
+Presented as an Implementation Profile of the NIST AI Risk Management Framework (AI RMF 1.0, NIST AI 100-1), the OAgents standard maps a 26-component taxonomy to AI RMF functions, categories, and subcategories. A reference implementation demonstrates the architectural feasibility of all 26 components in a production-equivalent environment. No generalized empirical benchmarks are claimed; systematic validation across diverse deployment contexts is identified as community work.
 
 The behavioral envelope is to AI agents what OAuth was to identity delegation -- a trust layer the industry needs before enterprise adoption can scale. OAgents defines that layer as a structured, implementable, NIST-aligned standard.
 
@@ -34,7 +37,7 @@ The OAgents profile addresses a specific and underserved use case: AI agents ope
 
 This profile is submitted as a community contribution in response to NIST's AI Agent Standards Initiative (CAISI, February 2026), which identified the need for industry-led technical standards and open protocols to ensure AI agents function securely and interoperably across enterprise environments. The OAgents behavioral envelope standard is designed to directly support that initiative by providing a concrete, implementable, NIST-aligned trust framework for operational AI agents.
 
-This profile is consistent with, and builds upon, the NIST AI RMF 1.0 (NIST AI 100-1) and the Generative AI Profile (NIST AI 600-1). Where this profile addresses generative AI agent risks specifically, it incorporates the 13 risk categories and suggested actions from NIST AI 600-1.
+This profile is consistent with, and builds upon, the NIST AI RMF 1.0 (NIST AI 100-1) and the Generative AI Profile (NIST AI 600-1). This profile explicitly addresses the hallucination risk category from NIST AI 600-1 through the Anti-Hallucination component category. Full mapping to all 13 GenAI risk categories is planned for a subsequent revision.
 
 Terminology in this document follows AI RMF 1.0 definitions. RFC 2119 normative language (MUST, SHOULD, MAY) is used in Section 5 (Component Taxonomy) to specify conformance requirements, consistent with established standards practice.
 
@@ -71,7 +74,9 @@ This profile applies to AI agents operating in the following deployment context:
 - **Environment:** Enterprise operational environments with multiple interdependent systems
 - **Model:** Any large language model (the standard is model-agnostic by design)
 
-This profile does not address AI systems in the following contexts, which may require separate profiles: pure inference systems without operational authority, consumer-facing conversational AI without consequential action capabilities, or embedded AI in physical systems (robotics, autonomous vehicles). Privacy and fairness considerations are not directly addressed by the OAgents behavioral envelope; organizations requiring coverage of these characteristics should pair this profile with the companion frameworks identified in Appendix B.
+This profile does not address AI systems in the following contexts, which may require separate profiles: pure inference systems without operational authority, consumer-facing conversational AI without consequential action capabilities, or embedded AI in physical systems (robotics, autonomous vehicles).
+
+This profile is scoped to operational reliability and behavioral trust. The AI RMF trustworthiness characteristics of Privacy-Enhanced and Fair with Harmful Bias Managed are out of scope for this profile and are not addressed by the behavioral envelope. Organizations deploying OAgents in contexts where these characteristics are material should pair this profile with companion frameworks identified in Appendix B.
 
 ### 1.4 Terminology
 
@@ -139,7 +144,7 @@ This principle operationalizes the AI RMF trustworthiness characteristics of rel
 
 Documented standards are advisory. Under context pressure, deadline urgency, or prompt complexity, AI agents routinely violate documented procedures. The OAgents standard requires that critical behavioral guarantees be implemented as executable gates -- mechanisms that block non-compliant actions rather than merely discouraging them.
 
-This principle operationalizes the AI RMF principle that accountability requires institutionalized mechanisms, not documentation alone. The AI RMF states that "governance requires sustained commitments," which the OAgents standard interprets as: if the commitment matters, it must be enforced.
+This principle operationalizes the AI RMF principle that accountability requires institutionalized mechanisms, not documentation alone. GOVERN 1.4 requires that risk management processes be established through transparent policies and controls -- the OAgents standard interprets this as: if the commitment matters, it must be enforced by an executable gate, not only documented.
 
 ### 3.3 Independent Verification (AI RMF: Accountable and Transparent; Valid and Reliable)
 
@@ -211,7 +216,7 @@ Operational gates impose discipline on the agent's lifecycle across sessions. Th
 
 **Lessons-learned feedback.** Operational failures flow through a multi-stage pipeline: detection, lesson capture, quality criteria update, and enforcement gate installation. Each failure permanently strengthens the envelope.
 
-Note: For multi-agent deployments where multiple OAgents coordinate on shared tasks, additional coordination principles apply. See Section 11.1 for guidance on inter-agent behavioral envelope requirements, pending full formalization in a subsequent revision.
+**Multi-agent environments.** The behavioral envelope architecture described in this section applies to each individual OAgent. When multiple OAgents operate in coordination, additional principles govern envelope interactions, incident ownership, shared memory access, and enforcement gate precedence. These coordination principles are specified in Section 12.1.
 
 ---
 
@@ -317,7 +322,7 @@ The complete set of evidence criteria for MUST-level components is specified in 
 
 Formal certification programs for OAgents conformance are not yet established. This document defines the conformance criteria and evidence requirements that a certification program would use. Organizations implementing OAgents at any level are encouraged to maintain conformance records and participate in the community replication effort, which will inform the design of a formal certification program in a subsequent phase.
 
-Organizations seeking formal certification alignment for federal procurement contexts should note that Level 2 conformance criteria are designed to be compatible with FedRAMP Moderate control requirements as applied to AI agent systems. A formal FedRAMP alignment mapping is planned as a future deliverable.
+Organizations seeking formal certification alignment for federal procurement contexts should note that Level 2 conformance criteria are designed with compatibility with FedRAMP Moderate control requirements in mind, as applied to AI agent systems. A formal FedRAMP alignment mapping is planned as a future deliverable and will be published as a companion document to this profile.
 
 ---
 
@@ -382,23 +387,23 @@ Individual components provide linear value. The OAgents standard's architecture 
 
 ### 8.1 Lesson-to-Enforcement Pipeline (AI RMF: MANAGE 4.2; GOVERN 5.2)
 
-Failure detection (operational logging) feeds lesson capture (persistent memory), which updates quality criteria (independent review), which installs enforcement gates (executable action gates). Four components create a closed loop where every failure permanently strengthens the envelope. This operationalizes the AI RMF's requirement that risk management include "mechanisms for continual improvement."
+Failure detection (operational logging) feeds lesson capture (persistent memory), which updates quality criteria (independent review), which installs enforcement gates (executable action gates). Four components create a closed loop where every failure permanently strengthens the envelope. This operationalizes the AI RMF MANAGE 4.2 requirement for processes that enable continual improvement.
 
 ### 8.2 Advisory Plus Mandatory (AI RMF: GOVERN 1.4; MANAGE 2.2)
 
-Behavioral memory shapes agent behavior (advisory). Executable gates block violations (mandatory). Advisory systems degrade under context pressure. Mandatory systems do not. The combination is strictly stronger than either mechanism alone. This operationalizes the AI RMF principle that governance requires institutionalized practice, not documentation alone.
+Behavioral memory shapes agent behavior (advisory). Executable gates block violations (mandatory). Advisory systems degrade under context pressure. Mandatory systems do not. The combination is strictly stronger than either mechanism alone. This operationalizes the GOVERN 1.4 requirement that risk management processes be established through controls, not documentation alone.
 
 ### 8.3 Cross-Session Continuity (AI RMF: MANAGE 4.1; GOVERN 1.5)
 
-Persistent memory, session protocols, and operational logging together create continuous operational awareness across inherently ephemeral sessions. This operationalizes the AI RMF's requirement for ongoing risk management across the AI system lifecycle.
+Persistent memory, session protocols, and operational logging together create continuous operational awareness across inherently ephemeral sessions. This operationalizes the AI RMF's requirement for ongoing risk management across the AI system lifecycle, addressed in GOVERN 1.5 and MANAGE 4.1.
 
 ### 8.4 Gap-to-Governance (AI RMF: GOVERN 5.2; MANAGE 4.2)
 
-When operational gaps are discovered during agent execution, the lessons-learned pipeline installs structural fixes within the same session: identify the gap, build the enforcement mechanism, update behavioral memory, verify through session wrap. This operationalizes the AI RMF's requirement that organizations "incorporate adjudicated feedback from relevant AI actors into system design and implementation."
+When operational gaps are discovered during agent execution, the lessons-learned pipeline installs structural fixes within the same session: identify the gap, build the enforcement mechanism, update behavioral memory, verify through session wrap. This operationalizes GOVERN 5.2, which requires mechanisms to regularly incorporate adjudicated feedback from relevant AI actors into system design and implementation.
 
 ### 8.5 Sovereignty by Default (AI RMF: GOVERN 6.1; GOVERN 6.2)
 
-Platform sovereignty and vendor independence together create a system that is inherently portable. No single vendor dependency exists for critical operational state. This operationalizes the AI RMF's requirement to address "AI risks arising from third-party software and data and other supply chain issues."
+Platform sovereignty and vendor independence together create a system that is inherently portable. No single vendor dependency exists for critical operational state. This operationalizes GOVERN 6.1 and 6.2, which require policies and contingency processes addressing risks from third-party software, data, and supply chain dependencies.
 
 ---
 
@@ -408,7 +413,7 @@ The OAgents behavioral envelope has been implemented as a reference system opera
 
 The reference implementation demonstrates the architectural feasibility of all 26 components. Session lifecycle protocols, persistent memory systems, executable enforcement gates, impact level classification, and independent output review are all operational. The lesson-to-enforcement pipeline has been exercised: behavioral corrections have been captured, converted to memory entries, and incorporated into subsequent sessions. Cross-session continuity functions as designed -- context, incidents, and behavioral corrections from prior sessions are available at session start.
 
-The reference implementation is not offered as empirical validation of the standard's effectiveness claims. Its purpose is to demonstrate implementability: the 26-component taxonomy is not theoretical. Each component has a concrete implementation that operates in a real environment managing real infrastructure. The design properties -- model agnosticism by architecture, enforcement-first behavioral guarantees, cross-session continuity through persistent memory -- are present in the implementation and behave as the standard specifies. Metrics reported from this implementation are preliminary, derived from a single deployment context, and should not be interpreted as a generalized benchmark.
+The reference implementation is not offered as empirical validation of the standard's effectiveness claims. Its purpose is to demonstrate implementability: the 26-component taxonomy is not theoretical. Each component has a concrete implementation that operates in a real environment managing real infrastructure. The design properties -- model agnosticism by architecture, enforcement-first behavioral guarantees, cross-session continuity through persistent memory -- are present in the implementation and behave as the standard specifies.
 
 Systematic empirical validation -- measuring quality gate effectiveness across extended deployments, comparing behavioral consistency across model providers, and quantifying the lesson-to-enforcement pipeline's impact on failure recurrence rates -- is identified as community work. The conformance evidence criteria in Appendix C define what such validation should measure. The community is invited to conduct that measurement and contribute results for incorporation in subsequent revisions of this standard.
 
@@ -418,33 +423,33 @@ This approach mirrors the development of successful infrastructure standards. Th
 
 ## 10. Related Work
 
-### 10.1 Agent Frameworks (LangChain, CrewAI, AutoGen, MetaGPT)
+### 9.1 Agent Frameworks (LangChain, CrewAI, AutoGen, MetaGPT)
 
 These frameworks address agent orchestration: tool calling, multi-agent coordination, and chain-of-thought prompting. Their contribution is the execution infrastructure -- how agents invoke tools, decompose tasks, and coordinate with other agents. Behavioral trustworthiness during execution is outside their scope. OAgents addresses the trust layer that sits above any agent framework: the pre-execution gates, post-execution verification, and operational discipline that make agent outputs reliable regardless of which orchestration framework produced them.
 
-### 10.2 Workflow Automation (n8n, Zapier, Apache Airflow)
+### 9.2 Workflow Automation (n8n, Zapier, Apache Airflow)
 
 These platforms provide workflow orchestration: predefined sequences of data transformations and integrations triggered by events. They are designed for structured, repeatable processes where the logic is known in advance. AI agent operations differ in that the agent exercises judgment in novel situations. OAgents addresses the behavioral governance of judgment-exercising agents, a problem that workflow orchestration does not encounter and therefore does not address.
 
-### 10.3 AI Development Environments (GitHub Copilot, Cursor, Claude Code)
+### 9.3 AI Development Environments (GitHub Copilot, Cursor, Claude Code)
 
 These tools integrate AI models into development workflows with tool use, file manipulation, and code execution. Each is designed for interactive developer assistance within a specific product ecosystem. OAgents addresses a different problem: not interactive developer assistance, but autonomous or semi-autonomous operational agents with persistent memory, cross-session accountability, and enforcement-backed behavioral constraints. The behavioral envelope standard is compatible with and could be applied on top of any of these tools.
 
-### 10.4 Output Validation Frameworks (Guardrails AI, NeMo Guardrails)
+### 9.4 Output Validation Frameworks (Guardrails AI, NeMo Guardrails)
 
 These frameworks provide output validation: checking individual model responses against defined constraints before delivery. This capability corresponds to the post-execution gate layer of the OAgents behavioral envelope (Section 4.2). OAgents encompasses output validation as one component within a broader framework that additionally addresses pre-execution context shaping, cross-session memory, operational discipline, enforcement mechanisms, and organizational governance.
 
-### 10.5 Agent Behavioral Contracts (ABC)
+### 9.5 Agent Behavioral Contracts (ABC)
 
 Bhardwaj (2026) introduces Agent Behavioral Contracts, a formal framework applying Design-by-Contract principles to AI agents. ABC specifies agent behavioral expectations as tuples of Preconditions, Invariants, Governance policies, and Recovery mechanisms, with a probabilistic compliance framework and mathematical drift bounds. This is the closest methodological antecedent to OAgents in the research literature.
 
 The two approaches address complementary concerns. ABC focuses on formal runtime specification and enforcement within a session -- what the agent must do, mathematically defined and provably bounded. OAgents focuses on operational completeness across sessions -- persistent memory, lesson-to-enforcement pipelines, organizational governance, platform sovereignty, and a NIST-aligned compliance framework for enterprise deployment. The frameworks could be composed: ABC governing runtime behavioral invariants, OAgents governing the cross-session operational envelope.
 
-### 10.6 Organizational AI Management Standards (ISO/IEC 42001)
+### 9.6 Organizational AI Management Standards (ISO/IEC 42001)
 
 ISO/IEC 42001 provides a certifiable AI management system standard operating at the organizational level: governance structures, risk management processes, and accountability mechanisms for organizations that develop or deploy AI. OAgents operates at the individual agent level: the behavioral envelope that each agent carries as a structural property. These are complementary scopes -- organizational AI management and agent-level behavioral trust both need to be addressed, and OAgents-compliant agents are designed to satisfy the technical control requirements that ISO 42001 identifies at the system level.
 
-### 10.7 Regulatory and Standards Frameworks
+### 9.7 Regulatory and Standards Frameworks
 
 **NIST AI RMF 1.0 (NIST AI 100-1, 2023).** The AI Risk Management Framework is the foundational governance framework that this profile extends. The AI RMF provides the four-function structure (GOVERN, MAP, MEASURE, MANAGE) and the trustworthiness characteristics that OAgents components are designed to operationalize. OAgents is not a competitor to the AI RMF -- it is an implementation profile of it, for the specific context of enterprise AI agent operations.
 
@@ -478,7 +483,7 @@ Development tools for building OAgent-compliant systems: compliance checkers, be
 
 **Federal procurement alignment.** Federal agencies operating under EO 14110 and subject to FedRAMP and FISMA requirements need concrete implementation guidance for AI agent trustworthiness. OAgents Level 2 (OAgent-Standard) is designed to be compatible with FedRAMP Moderate control requirements as applied to AI agent systems. A formal FedRAMP alignment mapping is planned as a Phase 3 deliverable, in coordination with GSA and relevant Agency AOs.
 
-**Standards track:** Engage IEEE and OASIS for formal standardization track. OASIS has precedent for enterprise AI standards (STIX, SAML); OAgents fits the enterprise operational security profile. IEEE P3119 and related working groups are natural venues for behavioral envelope standardization.
+**Standards track:** Engage IEEE and OASIS for formal standardization track. OASIS has precedent for enterprise AI standards (STIX, SAML); OAgents fits the enterprise operational security profile. IEEE's P7000 series on AI ethics and governance and the broader IEEE Standards Association AI program are natural venues for behavioral envelope standardization.
 
 ### Phase 4: Ecosystem and Certification
 
@@ -486,7 +491,7 @@ Independent quality review services. Pre-built domain-specific behavioral memory
 
 **Certification program.** Level 1 (self-assessment) and Level 2 (documented evidence) can be verified internally. Level 3 (OAgent-Autonomous) warrants third-party verification given the reduced human oversight threshold. A certification program modeled on FedRAMP's Third Party Assessment Organization (3PAO) model is the target architecture -- independent assessors evaluate evidence against published conformance criteria.
 
-**Standards lifecycle.** The OAgents standard follows a versioned lifecycle: v1.0 (this document, draft specification) -> v1.1 (community comment incorporation) -> v2.0 (multi-agent coordination formalized, NIST AI 600-1 full coverage, FedRAMP alignment published). Major revisions require public comment periods. The open taxonomy is permanently published; implementations remain the responsibility of adopting organizations.
+**Standards lifecycle.** The OAgents standard follows a versioned lifecycle: v1.0 (this document, draft specification) → v1.1 (community comment incorporation) → v2.0 (multi-agent coordination formalized, NIST AI 600-1 full coverage, FedRAMP alignment published). Major revisions require public comment periods. The open taxonomy is permanently published; implementations remain the responsibility of adopting organizations.
 
 ---
 
@@ -506,7 +511,7 @@ Independent quality review services. Pre-built domain-specific behavioral memory
 
 **NIST AI 600-1 full coverage.** The current profile addresses the hallucination risk category from NIST AI 600-1 explicitly. Full mapping to all 13 GenAI risk categories is planned for a subsequent revision.
 
-### 12.1 OAgents in Multi-Agent Environments
+## 12.1 OAgents in Multi-Agent Environments
 
 Many high-value operational deployments involve multiple AI agents coordinating on shared tasks: an orchestrating agent that decomposes work, specialist agents that execute subtasks, and reviewing agents that verify outputs. This specification addresses the behavioral envelope of each individual agent. The following principles govern OAgents coordination in multi-agent environments, pending full formalization in a subsequent revision.
 
@@ -554,23 +559,21 @@ The behavioral envelope is to AI agents what OAuth was to identity delegation --
 
 [8] Yao, S., et al. (2023). ReAct: Synergizing reasoning and acting in language models. *International Conference on Learning Representations*.
 
-[9] Longmire, J. D. (2025). *TAB v2.0: Logic Realism Theory*. Zenodo. https://doi.org/10.5281/zenodo.19226396
+[9] Bhardwaj, V. P. (2026). Agent behavioral contracts: Formal specification and runtime enforcement for reliable autonomous AI agents. *arXiv preprint arXiv:2602.22302*.
 
-[10] Bhardwaj, V. P. (2026). Agent behavioral contracts: Formal specification and runtime enforcement for reliable autonomous AI agents. *arXiv preprint arXiv:2602.22302*.
+[10] National Institute of Standards and Technology. (2026). *AI Agent Standards Initiative*. Center for AI Standards and Innovation (CAISI). https://www.nist.gov/caisi/ai-agent-standards-initiative
 
-[11] National Institute of Standards and Technology. (2026). *AI Agent Standards Initiative*. Center for AI Standards and Innovation (CAISI). https://www.nist.gov/caisi/ai-agent-standards-initiative
+[11] Casper, S., et al. (2026). *2025 AI Agent Index: Documenting technical and safety features of deployed agentic AI systems*. arXiv preprint arXiv:2602.17753.
 
-[12] Casper, S., et al. (2026). *2025 AI Agent Index: Documenting technical and safety features of deployed agentic AI systems*. arXiv preprint arXiv:2602.17753.
+[12] National Institute of Standards and Technology. (2020). *NIST Privacy Framework: A Tool for Improving Privacy through Enterprise Risk Management, Version 1.0*. U.S. Department of Commerce. https://doi.org/10.6028/NIST.CSWP.01162020
 
-[13] National Institute of Standards and Technology. (2020). *NIST Privacy Framework: A Tool for Improving Privacy through Enterprise Risk Management, Version 1.0*. U.S. Department of Commerce. https://doi.org/10.6028/NIST.CSWP.01162020
+[13] National Institute of Standards and Technology. (2022). *Towards a Standard for Identifying and Managing Bias in Artificial Intelligence* (NIST SP 1270). U.S. Department of Commerce. https://doi.org/10.6028/NIST.SP.1270
 
-[14] National Institute of Standards and Technology. (2022). *Towards a Standard for Identifying and Managing Bias in Artificial Intelligence* (NIST SP 1270). U.S. Department of Commerce. https://doi.org/10.6028/NIST.SP.1270
+[14] ISO/IEC 23894:2023. *Artificial intelligence -- Guidance on risk management*. International Organization for Standardization.
 
-[15] ISO/IEC 23894:2023. *Artificial intelligence -- Guidance on risk management*. International Organization for Standardization.
+[15] Executive Office of the President. (2023). *Executive Order 14110 on Safe, Secure, and Trustworthy Artificial Intelligence*. Federal Register, 88 FR 75191. https://www.federalregister.gov/documents/2023/11/01/2023-24283/safe-secure-and-trustworthy-development-and-use-of-artificial-intelligence
 
-[16] Executive Office of the President. (2023). *Executive Order 14110 on Safe, Secure, and Trustworthy Artificial Intelligence*. Federal Register, 88 FR 75191. https://www.federalregister.gov/documents/2023/11/01/2023-24283/safe-secure-and-trustworthy-development-and-use-of-artificial-intelligence
-
-[17] National Institute of Standards and Technology. (2020). *Zero Trust Architecture* (NIST SP 800-207). U.S. Department of Commerce. https://doi.org/10.6028/NIST.SP.800-207
+[16] National Institute of Standards and Technology. (2020). *Zero Trust Architecture* (NIST SP 800-207). U.S. Department of Commerce. https://doi.org/10.6028/NIST.SP.800-207
 
 ---
 
@@ -757,8 +760,8 @@ Level 2 (OAgent-Standard) conformance requires the above plus evidence for all S
 
 ---
 
-*Corresponding author: JD Longmire, Independent Researcher. jdlongmire@outlook.com. ORCID: 0009-0009-1383-7698*
+*Corresponding author: JD Longmire, Northrop Grumman Fellow (unaffiliated research). jdlongmire@outlook.com. ORCID: 0009-0009-1383-7698*
 
-*All reported metrics are from production operational deployments managing real infrastructure. No synthetic benchmarks were used.*
+*All components described in this standard are implemented in the reference system. No generalized empirical benchmarks are claimed.*
 
-*This document is submitted as a community contribution to the NIST AI RMF. Comments may be directed to the author or to AIframework@nist.gov.*
+*This document is submitted as a community contribution to the NIST AI RMF. Comments and replication results may be directed to the author.*
