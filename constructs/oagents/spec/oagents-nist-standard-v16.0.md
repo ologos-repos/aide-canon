@@ -27,7 +27,7 @@ jdlongmire@outlook.com
                          intended to inform AI agent standards
                          development and public review
 
-  **DOI**                https://doi.org/10.5281/zenodo.19425021
+  **DOI**                https://doi.org/10.5281/zenodo.19425020
   -----------------------------------------------------------------------
 
 Submission Note
@@ -1069,7 +1069,7 @@ agent operations.
 
 **Phase 1 \-- Specification (Current).** Publish the component taxonomy,
 conformance levels, and AI RMF mapping as an open specification.
-Published via Zenodo (DOI: https://doi.org/10.5281/zenodo.19425021).
+Published via Zenodo (DOI: https://doi.org/10.5281/zenodo.19425020).
 Standards track: Share with NIST AI RMF community as an implementation
 profile example and with CAISI and NCCoE as a candidate technical
 framework for operational agent trust.
@@ -1823,7 +1823,7 @@ components will be specified in a subsequent revision of this profile.
 (unaffiliated research). jdlongmire@outlook.com. ORCID:
 0009-0009-1383-7698*
 
-*Published: https://doi.org/10.5281/zenodo.19425021*
+*Published: https://doi.org/10.5281/zenodo.19425020*
 
 *This document is offered as a community implementation profile aligned
 with the NIST AI RMF. Comments and replication results may be directed

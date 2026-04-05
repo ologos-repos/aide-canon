@@ -75,7 +75,7 @@ This draft is offered as a community contribution aligned with:
 - **NIST AI RMF 1.0** (NIST AI 100-1) -- as an implementation profile
 - **NIST AI 600-1** (Generative AI Profile) -- hallucination risk category addressed
 
-**DOI:** [10.5281/zenodo.19425021](https://doi.org/10.5281/zenodo.19425021)
+**DOI:** [10.5281/zenodo.19425020](https://doi.org/10.5281/zenodo.19425020)
 
 ## Author
 
