@@ -59,6 +59,7 @@ Published via [Zenodo](https://zenodo.org) for persistent DOI and citability.
 ## Author
 
 **JD Longmire**
+Northrop Grumman Fellow (unaffiliated research)
 ORCID: [0009-0009-1383-7698](https://orcid.org/0009-0009-1383-7698)
 
 ## License
