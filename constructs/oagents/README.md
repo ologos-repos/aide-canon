@@ -54,7 +54,9 @@ This specification is submitted as a community contribution to:
 - **NIST AI RMF** — as an Implementation Profile for enterprise AI agent operations
 - **NIST CAISI** — AI Agent Standards Initiative (February 2026)
 
-Published via [Zenodo](https://zenodo.org) for persistent DOI and citability.
+**DOI:** [10.5281/zenodo.19425021](https://doi.org/10.5281/zenodo.19425021)
+
+Published via Zenodo for persistent DOI and citability.
 
 ## Author
 
