@@ -58,7 +58,7 @@ Published via [Zenodo](https://zenodo.org) for persistent DOI and citability.
 
 ## Author
 
-**JD Longmire** — Ologos Corp
+**JD Longmire**
 ORCID: [0009-0009-1383-7698](https://orcid.org/0009-0009-1383-7698)
 
 ## License

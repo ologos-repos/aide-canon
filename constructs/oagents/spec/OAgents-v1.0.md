@@ -2,7 +2,7 @@
 ## An Implementation Profile of the NIST AI Risk Management Framework (AI RMF 1.0)
 
 **JD Longmire**
-Ologos Corp
+Independent Researcher
 ORCID: 0009-0009-1383-7698
 Correspondence: jdlongmire@outlook.com
 
@@ -757,7 +757,7 @@ Level 2 (OAgent-Standard) conformance requires the above plus evidence for all S
 
 ---
 
-*Corresponding author: JD Longmire, Ologos Corp. jdlongmire@outlook.com. ORCID: 0009-0009-1383-7698*
+*Corresponding author: JD Longmire, Independent Researcher. jdlongmire@outlook.com. ORCID: 0009-0009-1383-7698*
 
 *All reported metrics are from production operational deployments managing real infrastructure. No synthetic benchmarks were used.*
 
