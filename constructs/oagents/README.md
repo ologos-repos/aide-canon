@@ -1,68 +1,88 @@
-# OAgents: A Behavioral Envelope Standard for Trustworthy AI Agent Operations
+# OAgents: A Pre-Standardization Draft Profile for Operational AI Agent Trustworthiness
 
-**An Implementation Profile of the NIST AI Risk Management Framework (AI RMF 1.0)**
+*A Community-Authored Pre-Standardization Draft*
 
 ---
 
 ## What Is OAgents?
 
-OAgents is an open standard for behavioral envelopes that wrap AI agents in structured pre-execution gates, post-execution verification, and operational discipline mechanisms. The standard is model-agnostic: behavioral guarantees are properties of the envelope, not properties of the underlying model.
+OAgents is an open profile and candidate conformance framework for operational AI agent trustworthiness. It defines a behavioral envelope: a structured set of pre-execution gates, post-execution verification controls, and operational-discipline mechanisms that bound an AI agent's behavior.
 
-The behavioral envelope is to AI agents what OAuth was to identity delegation — a trust layer the industry needs before enterprise adoption can scale.
+The profile specifies 26 controls across 7 categories, 3 conformance levels, and observable evidence criteria. It is model-agnostic: behavioral guarantees are properties of the envelope, not properties of the underlying model.
+
+## Document Type
+
+This is a **community-authored pre-standardization draft** proposing a behavioral control and evidence profile for operational AI agents. It is not a NIST-issued publication, a consensus standard, or a formally adopted federal requirement. It is intended to inform AI agent standards development, implementation profiling, and public review, and to support routing into future NIST, NCCoE, IEEE, OASIS, IETF, or other voluntary consensus processes.
 
 ## Key Documents
 
-- **[OAgents v1.0 Specification](spec/OAgents-v1.0.md)** — Full standard with component taxonomy, compliance levels, AI RMF mapping, and conformance evidence criteria
-- **[NIST AI RMF Alignment](spec/OAgents-v1.0.md#2-ai-rmf-alignment-statement)** — How OAgents maps to GOVERN, MAP, MEASURE, MANAGE
-- **[Conformance Evidence (Appendix C)](spec/OAgents-v1.0.md#appendix-c-conformance-evidence)** — Observable criteria for compliance verification
+| Document | Format |
+|----------|--------|
+| [Current Specification](spec/oagents-nist-standard-v16.0.md) | Markdown |
+| [Current Specification](spec/oagents-nist-standard-v16.0.pdf) | PDF |
+| [Current Specification](spec/oagents-nist-standard-v16.0.docx) | Word |
+| [Reference Implementation](reference/) | Sanitized source |
+| [Prior Versions](spec/versions/) | Archive |
 
 ## At a Glance
 
-- **26 components** across 7 categories
-- **3 compliance levels**: Basic (supervised), Standard (production), Autonomous (minimal oversight)
-- **Model-agnostic by architecture** — works with any LLM provider
-- **NIST AI RMF 1.0 aligned** — maps to all four functions (GOVERN, MAP, MEASURE, MANAGE)
-- **Evidence-based conformance** — compliance demonstrated through observable artifacts, not assertions
+| Property | Value |
+|----------|-------|
+| Controls | 26 across 7 categories |
+| Conformance levels | 3 (Basic, Standard, Autonomous) |
+| Model dependency | None (model-agnostic by architecture) |
+| AI RMF alignment | All 4 functions (GOVERN, MAP, MEASURE, MANAGE) |
+| Conformance basis | Observable evidence artifacts, not assertions |
+| Reference implementation | Included (sanitized, 21 files) |
 
-## Compliance Levels
+## Conformance Levels
 
-| Level | Name | Oversight | Verification |
-|-------|------|-----------|-------------|
+| Level | Name | Oversight Model | Verification |
+|-------|------|----------------|-------------|
 | 1 | OAgent-Basic | Human oversight standard | Self-assessment |
 | 2 | OAgent-Standard | Exception-based oversight | Documented evidence review |
 | 3 | OAgent-Autonomous | Minimal oversight | Third-party verification |
 
-## Component Categories
+## Control Categories
 
-1. **Behavioral Shaping** — Feedback memory, failure mode catalogs, degradation detection
-2. **Quality Gates** — Independent review, process enforcement, security audit, schema validation
-3. **Operational Discipline** — Session protocols, impact levels, incident tracking, logging
-4. **Knowledge Injection** — Persistent memory, domain skills, lessons-learned pipeline
-5. **Enforcement Mechanisms** — Executable gates, escalation rules, compliance verification
-6. **Project Governance** — Work tracking, platform sovereignty, asset registry, vendor independence
-7. **Anti-Hallucination** — State verification, memory staleness detection, hallucination tracking
+1. **Behavioral Shaping** -- Persistent feedback memory, named failure mode catalogs, context degradation detection
+2. **Quality Gates** -- Independent output review, process enforcement gates, security audit, schema validation
+3. **Operational Discipline** -- Session lifecycle protocols, impact level classification, incident tracking, structured logging
+4. **Knowledge Injection** -- Persistent memory system, domain skill loading, lessons-learned pipeline
+5. **Enforcement Mechanisms** -- Executable action gates, severity escalation rules, protocol compliance verification
+6. **Project Governance** -- Centralized work tracking, platform sovereignty, asset registry, vendor independence
+7. **Anti-Hallucination** -- State verification protocol, memory staleness detection, hallucination tracking
+
+## Requested Reviewer Action
+
+The author requests feedback on four questions:
+
+1. Whether this document is appropriately structured as an AI RMF implementation profile for operational AI agents.
+2. Whether the behavioral-envelope taxonomy is technically coherent and materially distinct from existing identity, authorization, and agent-interoperability efforts.
+3. Which elements are best advanced through NIST or NCCoE guidance and which belong in voluntary consensus venues such as IEEE, OASIS, or IETF-adjacent workstreams.
+4. Which control definitions, conformance artifacts, or mappings should be revised before broader circulation.
 
 ## Getting Involved
 
-- **[Discussions](https://github.com/ologos-corp/OAgents-standard/discussions)** — Questions, feedback, implementation experiences
-- **[Issues](https://github.com/ologos-corp/OAgents-standard/issues)** — Bug reports, component proposals, conformance clarifications
-- **Replication** — Implement the standard and share your results
+- **[Discussions](https://github.com/ologos-corp/OAgents-standard/discussions)** -- Questions, feedback, implementation experiences
+- **[Issues](https://github.com/ologos-corp/OAgents-standard/issues)** -- Component proposals, conformance clarifications, mapping corrections
+- **Replication** -- Implement the profile and share conformance evidence
 
 ## Standards Track
 
-This specification is submitted as a community contribution to:
-- **NIST AI RMF** — as an Implementation Profile for enterprise AI agent operations
-- **NIST CAISI** — AI Agent Standards Initiative (February 2026)
+This draft is offered as a community contribution aligned with:
+- **NIST AI Agent Standards Initiative** (CAISI, February 2026)
+- **NIST AI RMF 1.0** (NIST AI 100-1) -- as an implementation profile
+- **NIST AI 600-1** (Generative AI Profile) -- hallucination risk category addressed
 
 **DOI:** [10.5281/zenodo.19425021](https://doi.org/10.5281/zenodo.19425021)
-
-Published via Zenodo for persistent DOI and citability.
 
 ## Author
 
 **JD Longmire**
 Northrop Grumman Fellow (unaffiliated research)
 ORCID: [0009-0009-1383-7698](https://orcid.org/0009-0009-1383-7698)
+Contact: jdlongmire@outlook.com
 
 ## License
 
