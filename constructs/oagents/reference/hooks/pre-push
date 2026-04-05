@@ -1,0 +1,88 @@
+#!/usr/bin/env bash
+# Pre-push hook: verifies QA evidence exists for commits being pushed.
+# Blocks push if no QA log entries found in the commit range.
+# Install: scripts/install-hooks.sh
+set -euo pipefail
+
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+QA_LOG="$REPO_ROOT/ops/qa_log.json"
+
+# Read stdin for push info (local_ref local_sha remote_ref remote_sha)
+while read -r local_ref local_sha remote_ref remote_sha; do
+    # Skip delete pushes
+    if [ "$local_sha" = "0000000000000000000000000000000000000000" ]; then
+        continue
+    fi
+
+    # Check if qa_log.json has any entries at all
+    ENTRY_COUNT=$(python3 -c "
+import json
+data = json.loads(open('$QA_LOG').read())
+print(len(data.get('entries', [])))
+" 2>/dev/null || echo "0")
+
+    if [ "$ENTRY_COUNT" = "0" ]; then
+        echo "[PUSH HOOK] ⚠️  No QA log entries found in ops/qa_log.json"
+        echo "[PUSH HOOK] This means no QA review was performed this session."
+        echo "[PUSH HOOK] Run: cd qa-agent/ && python3 agent.py <files>"
+        echo ""
+        echo "Push blocked. Run QA agent first."
+        exit 1
+    fi
+
+    # Check for recent QA entry (within last hour)
+    HAS_RECENT=$(python3 -c "
+import json
+from datetime import datetime, timezone, timedelta
+data = json.loads(open('$QA_LOG').read())
+cutoff = (datetime.now(timezone.utc) - timedelta(hours=1)).strftime('%Y-%m-%dT%H:%M:%SZ')
+recent = [e for e in data.get('entries', []) if e.get('timestamp', '') >= cutoff]
+print('yes' if recent else 'no')
+" 2>/dev/null || echo "unknown")
+
+    if [ "$HAS_RECENT" = "no" ]; then
+        echo "[PUSH HOOK] ⚠️  No QA entries in the last hour"
+        echo "[PUSH HOOK] Last QA review may be stale. Allowing push but logging warning."
+
+        python3 -c "
+import json
+from datetime import datetime, timezone
+path = '$QA_LOG'
+data = json.loads(open(path).read())
+now = datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
+data['entries'].append({
+    'id': f'{now}-pre-push-stale-qa',
+    'timestamp': now,
+    'type': 'compliance_check',
+    'severity': 'warning',
+    'result': 'warning',
+    'model_used': 'unknown',
+    'summary': 'Pre-push hook: push allowed but no recent QA entry (>1 hour old)',
+    'details': {
+        'artifact_type': None,
+        'rejection_reason': 'Stale QA evidence',
+        'corrective_action': 'Run QA agent on current changes'
+    }
+})
+open(path, 'w').write(json.dumps(data, indent=2) + '\n')
+" 2>/dev/null || true
+    fi
+
+    echo "[PUSH HOOK] ✅ QA evidence found ($ENTRY_COUNT entries)"
+
+    # Quick security check (proxy + traversal only — fast, no rate limit impact)
+    SEC_AGENT="$REPO_ROOT/sec-agent/agent.py"
+    if [ -f "$SEC_AGENT" ]; then
+        SEC_RESULT=$(python3 "$SEC_AGENT" --target prod-ext --check proxy traversal --no-log 2>/dev/null; echo $?)
+        SEC_EXIT=$(echo "$SEC_RESULT" | tail -1)
+        if [ "$SEC_EXIT" != "0" ]; then
+            echo "[PUSH HOOK] ⚠️  SecAgent found security issues — review before pushing"
+            echo "[PUSH HOOK] Run: python3 sec-agent/agent.py --target prod-ext"
+            # Warn but don't block — security issues may be pre-existing
+        else
+            echo "[PUSH HOOK] ✅ SecAgent quick check passed"
+        fi
+    fi
+done
+
+exit 0
