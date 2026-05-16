@@ -1,12 +1,12 @@
-# Example OSA Deployment Schema — illustrative only
+# Example OrdSA Deployment Schema — illustrative only
 #
 # This file demonstrates the DEPLOYMENT side of the two-schema model defined in
-# ADR-OSA-0003. The deployment validates against a specific construct version
-# (osa_construct: "0.2" → schema/osa-0.2.yaml).
+# ADR-ORDSA-0003. The deployment validates against a specific construct version
+# (ordsa_construct: "0.2" → schema/ordsa-0.2.yaml).
 #
 # This example is fictional. It exists to show the shape and field semantics.
 # Real deployments live in their own repositories and are owned by the
-# deploying organization, not by OSA itself.
+# deploying organization, not by OrdSA itself.
 #
 # Reading this file: each layer block describes the deployment's claim of
 # conformance with that ordinal layer. Artifacts, orchestrators, agents, tools,
@@ -14,8 +14,8 @@
 # explicit declarations that the deployment satisfies the construct's
 # required and recommended assertions.
 
-osa_construct: "0.2"
-schema_dialect: "osa-deployment-schema/0.2"
+ordsa_construct: "0.2"
+schema_dialect: "ordsa-deployment-schema/0.2"
 
 deployment:
   name: "ACME AI Operations Platform"

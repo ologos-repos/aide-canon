@@ -35,7 +35,7 @@ O6 is the **record**, not the decisions.
 
 ## The closed-loop property
 
-OSA is only complete if O6 evidence makes it back up to O0. Otherwise the architecture is open-loop: policy is set, action is taken, and the policy is never re-evaluated against what actually happened.
+OrdSA is only complete if O6 evidence makes it back up to O0. Otherwise the architecture is open-loop: policy is set, action is taken, and the policy is never re-evaluated against what actually happened.
 
 The expected flow:
 
@@ -45,7 +45,7 @@ The expected flow:
 4. Where policy is being violated, the policy is hardened or the lower-layer enforcement is fixed.
 5. Where policy is over-restrictive (high refusal rate on legitimate work), the policy is relaxed within risk appetite.
 
-That is the closed loop. Without it, OSA's promise — *evidence flows upward* — is unmet.
+That is the closed loop. Without it, OrdSA's promise — *evidence flows upward* — is unmet.
 
 ## Anti-patterns
 

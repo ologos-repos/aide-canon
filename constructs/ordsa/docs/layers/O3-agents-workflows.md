@@ -6,7 +6,7 @@
 
 The execution layer where agentic systems operate. Agents are **subordinate execution structures**. They do not define their own authority, access, or policy. They receive bounded tasks from O2 orchestrators and operate within those bounds.
 
-The single most important framing in OSA: **agents are workers, not governors.**
+The single most important framing in OrdSA: **agents are workers, not governors.**
 
 A capable agent is still a subordinate one. Capability is not a license to expand scope.
 
@@ -32,7 +32,7 @@ If an agent can "decide" to take an action that requires a higher authority, it 
 
 Each one has a declared specialty, a known orchestrator parent, and an authorization envelope that the parent sets per task.
 
-## What an agent looks like in OSA terms
+## What an agent looks like in OrdSA terms
 
 | Property | Source |
 |---|---|

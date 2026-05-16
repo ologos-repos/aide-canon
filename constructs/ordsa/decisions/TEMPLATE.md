@@ -1,6 +1,6 @@
-# ADR-OSA-NNNN — <title>
+# ADR-ORDSA-NNNN — <title>
 
-- **Status:** Proposed | Accepted | Superseded by ADR-OSA-NNNN
+- **Status:** Proposed | Accepted | Superseded by ADR-ORDSA-NNNN
 - **Date:** YYYY-MM-DD
 - **Author:** <name / handle>
 - **Reviewers:** <names>
@@ -9,7 +9,7 @@
 
 What problem does this ADR address? What is the situation today, and what about it requires a construct-level change rather than an ordinary content edit?
 
-Be specific about which OSA layers this ADR touches and what the current text says.
+Be specific about which OrdSA layers this ADR touches and what the current text says.
 
 ## Decision
 

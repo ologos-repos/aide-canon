@@ -1,8 +1,8 @@
-# OSA Reference Implementations
+# OrdSA Reference Implementations
 
-OSA is a vendor-neutral construct. It does not prescribe a single runtime, a single agent standard, or a single tool surface — it describes the **authority grammar** that any such implementation must satisfy.
+OrdSA is a vendor-neutral construct. It does not prescribe a single runtime, a single agent standard, or a single tool surface — it describes the **authority grammar** that any such implementation must satisfy.
 
-This file links to concrete implementations of OSA layers as they mature.
+This file links to concrete implementations of OrdSA layers as they mature.
 
 ## Status
 
@@ -12,19 +12,19 @@ This file links to concrete implementations of OSA layers as they mature.
 
 For an implementation to be linked here it must:
 
-1. **Implement one or more OSA layers (O0–O6)** in a way that respects the governance principle — authority flows downward, evidence flows upward, no lower layer expands its own authority.
+1. **Implement one or more OrdSA layers (O0–O6)** in a way that respects the governance principle — authority flows downward, evidence flows upward, no lower layer expands its own authority.
 2. **Be published** — code or specification — under a license that permits independent review.
-3. **Carry a documented OSA conformance statement** that names which layers it implements and how its authority boundaries align with this construct.
+3. **Carry a documented OrdSA conformance statement** that names which layers it implements and how its authority boundaries align with this construct.
 
-Implementations without an explicit conformance statement may still be useful examples, but they are not part of the OSA reference set listed here.
+Implementations without an explicit conformance statement may still be useful examples, but they are not part of the OrdSA reference set listed here.
 
 ## How to propose an implementation
 
 Open an issue describing:
 
 - The implementation's name, repo, and license
-- Which OSA layers it claims to cover (O0 through O6)
-- Its conformance statement — how each claimed layer's authority boundary maps to OSA's definition
+- Which OrdSA layers it claims to cover (O0 through O6)
+- Its conformance statement — how each claimed layer's authority boundary maps to OrdSA's definition
 - Any known divergences and the reasoning behind them
 
 Discussion happens on the issue. Accepted entries flow as PRs into this file with a short profile per implementation.

@@ -1,10 +1,10 @@
 # Ordinal Systems Architecture — Construct Schema
 #
-# This file is the canonical OSA construct definition for version 0.2 (draft).
-# Per ADR-OSA-0001, this YAML is the source of truth; all other representations
+# This file is the canonical OrdSA construct definition for version 0.2 (draft).
+# Per ADR-ORDSA-0001, this YAML is the source of truth; all other representations
 # (prose docs, ArchiMate models, SysML v2 source, UAF mappings) are renderings.
 #
-# Per ADR-OSA-0003, this file is the CONSTRUCT schema (immutable within a
+# Per ADR-ORDSA-0003, this file is the CONSTRUCT schema (immutable within a
 # version). Deployments validate against it; see schema/example-deployment.yaml
 # for the deployment-side shape.
 #
@@ -15,11 +15,11 @@
 # Construct identity
 # ──────────────────────────────────────────────────────────────────────────────
 
-osa:
+ordsa:
   version: "0.2"
   status: draft
   spec_revision: "2026-05-16"
-  schema_dialect: "osa-construct-schema/0.2"
+  schema_dialect: "ordsa-construct-schema/0.2"
 
   # The thesis. Verbatim from docs/concept.md. Authoritative here.
   thesis: |
@@ -35,7 +35,7 @@ osa:
 # ──────────────────────────────────────────────────────────────────────────────
 # Execution rights (the five-rung ladder applied at O4)
 # ──────────────────────────────────────────────────────────────────────────────
-# Per ADR-OSA-0005 / docs/layers/O4-tools-execution.md, every O4 tool
+# Per ADR-ORDSA-0005 / docs/layers/O4-tools-execution.md, every O4 tool
 # invocation runs under exactly one of these rights, declared in the
 # deployment's envelope per tool per task class.
 
@@ -229,13 +229,13 @@ osa:
     authors:
       - "JD Longmire (AI Enterprise Architect)"
       - "Micah Longmire (AI Enterprise Architect)"
-    canonical_repo: "https://github.com/osa-ai-org/osa-ai"
+    canonical_repo: "https://github.com/osa-ai-org/ordsa-ai"
     construct_doc: "docs/concept.md"
     layer_docs: "docs/layers/"
     governing_adrs:
-      - "ADR-OSA-0001 (schema-first canonical form)"
-      - "ADR-OSA-0002 (YAML + JSON Schema)"
-      - "ADR-OSA-0003 (construct vs deployment schemas)"
-      - "ADR-OSA-0004 (Python + pydantic reference tooling)"
-      - "ADR-OSA-0005 (ArchiMate via pyArchimate)"
+      - "ADR-ORDSA-0001 (schema-first canonical form)"
+      - "ADR-ORDSA-0002 (YAML + JSON Schema)"
+      - "ADR-ORDSA-0003 (construct vs deployment schemas)"
+      - "ADR-ORDSA-0004 (Python + pydantic reference tooling)"
+      - "ADR-ORDSA-0005 (ArchiMate via pyArchimate)"
     license: "CC-BY-4.0 (this schema is documentation per repository LICENSE)"
