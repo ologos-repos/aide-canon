@@ -66,7 +66,8 @@ See [`docs/relationship-to-frameworks.md`](docs/relationship-to-frameworks.md) f
 
 ## Read the Construct
 
-- **[`docs/concept.md`](docs/concept.md)** — canonical statement of the construct
+- **[`schema/`](schema/)** — **canonical OSA construct schema (source of truth per [ADR-OSA-0001](decisions/ADR-OSA-0001-schema-first-canonical-form.md))** — `osa-0.2.yaml` defines the construct; `example-deployment.yaml` shows the deployment-side shape; `schema/README.md` explains the two-schema model and validation flow
+- **[`docs/concept.md`](docs/concept.md)** — canonical statement of the construct in prose (companion to the schema)
 - **[`docs/layers/`](docs/layers/)** — one file per ordinal layer (O0 through O6)
 - **[`docs/relationship-to-frameworks.md`](docs/relationship-to-frameworks.md)** — OSA next to TOGAF, UAF, ArchiMate, NIST AI RMF
 - **[`docs/reference-implementations.md`](docs/reference-implementations.md)** — concrete implementations of OSA layers (forward placeholder; entries land as they mature)
@@ -79,7 +80,9 @@ See [`docs/relationship-to-frameworks.md`](docs/relationship-to-frameworks.md) f
 - v0.1 (2026-05-16): construct definition published as Markdown prose (seven layer files, framework positioning, governance principle).
 - v0.1.1: repositioned as unaffiliated research; Ologos-specific framing removed.
 - v0.1.2: PR-first ADR process formalized; `decisions/` directory and ADR index added.
-- v0.2 (in progress): founding ADRs 0001–0005 ratify the schema-first canonical form, YAML + JSON Schema representation, construct vs deployment schema shapes, Python + pydantic reference tooling, and ArchiMate-via-pyArchimate visual rendering pipeline. Schema sketch and reference tooling land next.
+- v0.1.3: founding ADRs 0001–0005 ratified the schema-first canonical form, YAML + JSON Schema representation, construct vs deployment schema shapes, Python + pydantic reference tooling, and ArchiMate-via-pyArchimate visual rendering pipeline.
+- v0.1.4 (this state): construct schema sketch landed at [`schema/osa-0.2.yaml`](schema/osa-0.2.yaml) with an illustrative deployment example. Schema is hand-reviewable; mechanical validation follows when the reference tooling lands.
+- v0.2 (in progress): reference tooling (Python+pydantic validator, JSON Schema emitter), first ArchiMate-rendered diagrams via pyArchimate, schema-side refinements based on the v0.1.4 sketch.
 
 Layer files remain intentionally brief; deep-dives, ArchiMate stereotype set, UAF mapping appendix, and worked examples follow in v0.2 and v0.3.
 
