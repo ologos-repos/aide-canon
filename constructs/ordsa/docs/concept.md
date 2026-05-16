@@ -4,11 +4,11 @@ This file is the canonical statement of the construct. Layer files in `layers/` 
 
 ---
 
-**Ordinal Systems Architecture (OSA)** is an enterprise architecture construct that orders AI systems by their governing rank in the enterprise, from strategy and policy down to domain orchestration, agent execution, tool use, data access, and observable outcomes.
+**Ordinal Systems Architecture (OrdSA)** is an enterprise architecture construct that orders AI systems by their governing rank in the enterprise, from strategy and policy down to domain orchestration, agent execution, tool use, data access, and observable outcomes.
 
 The point is simple: enterprise AI cannot be governed only by components. It must be governed by *order*.
 
-If *ordinal* means **ordered levels of authority, abstraction, risk, and execution**, then OSA is the construct that names those levels and the rules that connect them.
+If *ordinal* means **ordered levels of authority, abstraction, risk, and execution**, then OrdSA is the construct that names those levels and the rules that connect them.
 
 ## Status of the construct
 
@@ -18,7 +18,7 @@ There does not appear to be an established mainstream EA discipline called "Ordi
 - **ArchiMate** is designed to describe, analyze, and visualize relationships across business domains.
 - **NIST AI RMF** reinforces the need for AI governance functions — *govern*, *map*, *measure*, *manage* — which fit naturally with an ordered control model.
 
-OSA does not replace any of them. It supplies what they currently lack for Enterprise AI: a **control grammar** for authority across AI capability layers.
+OrdSA does not replace any of them. It supplies what they currently lack for Enterprise AI: a **control grammar** for authority across AI capability layers.
 
 ## The Ordinal Layers
 
@@ -107,11 +107,11 @@ That is the architectural core. Every other rule is a consequence.
 
 ## Why this matters
 
-The major advantage of OSA is that it prevents a common enterprise AI failure: **confusing intelligence with authority**.
+The major advantage of OrdSA is that it prevents a common enterprise AI failure: **confusing intelligence with authority**.
 
 A model may appear capable. That does not mean it should be authorized.
 
-OSA makes that distinction explicit.
+OrdSA makes that distinction explicit.
 
 ## Reference structure
 
@@ -140,13 +140,13 @@ O6  Outcome, Audit, and Feedback
 
 ## Positioning vs. existing frameworks
 
-OSA is **complementary** to TOGAF, UAF, ArchiMate, and NIST AI RMF, not a replacement:
+OrdSA is **complementary** to TOGAF, UAF, ArchiMate, and NIST AI RMF, not a replacement:
 
 - **TOGAF** gives you architecture method.
 - **ArchiMate** gives you modeling language.
 - **UAF** gives you systems-of-systems and mission alignment.
 - **NIST AI RMF** gives you risk management vocabulary.
-- **OSA** gives you the missing **control grammar** for enterprise AI authority.
+- **OrdSA** gives you the missing **control grammar** for enterprise AI authority.
 
 See [`relationship-to-frameworks.md`](relationship-to-frameworks.md) for the detailed crosswalk.
 

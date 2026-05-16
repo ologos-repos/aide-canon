@@ -1,24 +1,24 @@
-# Contributing to OSA
+# Contributing to OrdSA
 
 Thanks for reading the construct closely enough to want to contribute. A few notes on how contributions flow.
 
 ## Two kinds of change
 
-OSA distinguishes between **construct changes** and **content changes**, because they have different reversibility profiles.
+OrdSA distinguishes between **construct changes** and **content changes**, because they have different reversibility profiles.
 
-**Construct changes** modify the framework itself — adding a layer, removing a layer, redefining a layer's authority boundary, changing the governance principle, altering the relationship between OSA and an external framework. These changes are hard to retract once cited. They flow through ADRs as **PRs**:
+**Construct changes** modify the framework itself — adding a layer, removing a layer, redefining a layer's authority boundary, changing the governance principle, altering the relationship between OrdSA and an external framework. These changes are hard to retract once cited. They flow through ADRs as **PRs**:
 
 1. *(Optional)* If the change is contentious or you want community signal first, open a **Construct Q&A** discussion describing the question before authoring the ADR.
-2. Draft an ADR in `decisions/ADR-OSA-NNNN-<slug>.md` (numbering is sequential, append-only) using [`decisions/TEMPLATE.md`](decisions/TEMPLATE.md) as a starting point.
+2. Draft an ADR in `decisions/ADR-ORDSA-NNNN-<slug>.md` (numbering is sequential, append-only) using [`decisions/TEMPLATE.md`](decisions/TEMPLATE.md) as a starting point.
 3. Open a PR with the ADR. Apply the **`adr`** label. Discussion happens on the PR — the PR is the deliberation record, the merge is ratification.
 4. Ratification requires explicit sign-off from the maintainer (currently @jdlongmire) and a comment-out period of at least one calendar week, unless the ADR is purely editorial or part of a maintainer-batched founding set.
-5. Merged ADRs are immutable. A later ADR may supersede an earlier one; the earlier one stays in the tree marked `Superseded by ADR-OSA-NNNN`.
+5. Merged ADRs are immutable. A later ADR may supersede an earlier one; the earlier one stays in the tree marked `Superseded by ADR-ORDSA-NNNN`.
 
 See [`decisions/README.md`](decisions/README.md) for the navigable index of ratified ADRs.
 
 ### Why PRs (not Issues) for ADRs
 
-The PR *is* the ADR's lifecycle. Discussion on the PR is the deliberation, reviews are the consensus signal, the merge commit is the ratification timestamp, and the file at `decisions/ADR-OSA-NNNN-<slug>.md` is the durable record. Issues are reserved for **construct gaps**, **implementation work**, and **umbrella tracking of multi-ADR programs** — not for the decisions themselves.
+The PR *is* the ADR's lifecycle. Discussion on the PR is the deliberation, reviews are the consensus signal, the merge commit is the ratification timestamp, and the file at `decisions/ADR-ORDSA-NNNN-<slug>.md` is the durable record. Issues are reserved for **construct gaps**, **implementation work**, and **umbrella tracking of multi-ADR programs** — not for the decisions themselves.
 
 **Content changes** — clarifying wording in layer files, adding examples, fixing typos, expanding the framework-positioning doc, improving diagrams — flow as ordinary PRs. No ADR needed.
 
@@ -42,8 +42,8 @@ The PR *is* the ADR's lifecycle. Discussion on the PR is the deliberation, revie
 
 ## What this repo is not
 
-- It is **not** a product spec. OSA defines authority structure, not implementation.
-- It is **not** a model-evaluation framework. OSA assumes models are capable; it governs whether they're authorized.
+- It is **not** a product spec. OrdSA defines authority structure, not implementation.
+- It is **not** a model-evaluation framework. OrdSA assumes models are capable; it governs whether they're authorized.
 - It is **not** a wrapper around any single vendor's stack. The construct is vendor-neutral by design.
 
 If you have a question about whether your idea fits, open a **Construct Q&A** discussion before writing the PR. Cheaper than a rewrite.

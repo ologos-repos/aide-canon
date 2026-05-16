@@ -1,9 +1,9 @@
-# ADR-OSA-0006 — Rename construct abbreviation from OSA to OrdSA
+# ADR-ORDSA-0006 — Rename construct abbreviation from OSA to OrdSA
 
 - **Status:** Accepted
 - **Date:** 2026-05-16
 - **Author:** JD Longmire
-- **Bridge ADR:** This is the last ADR authored under the `ADR-OSA-NNNN` naming convention. It is renamed to `ADR-ORDSA-0006` as part of its own implementation. Future ADRs use `ADR-ORDSA-NNNN`.
+- **Bridge ADR:** This ADR was authored as `ADR-OSA-0006` and is the last ADR under the `ADR-OSA-NNNN` naming convention. It is renamed to `ADR-ORDSA-0006` as part of its own implementation (PR 2). Future ADRs use `ADR-ORDSA-NNNN`.
 
 ## Context
 
@@ -52,7 +52,7 @@ GitHub auto-redirects preserve old citation URLs for both org renames and repo r
 - **GitHub redirects soften the URL migration.** Old `osa-ai-org/osa-ai` links keep working via GitHub's automatic redirect for renamed repos and orgs. Citation degradation is gradual, not abrupt.
 - **The cross-fleet decision register at `ologos-corp/cross-ai`** does not yet reference OSA, so no register update is required by this ADR. When a future cross-fleet ADR ratifies OrdSA, that ADR cites the new abbreviation and the existence of this ADR as the rename precedent.
 - **Telegram and external announcements made under the OSA name** remain in history; they are not retroactively edited. A follow-up Telegram post announces the rename with the rationale and the new canonical URL.
-- **The ADR numbering convention shifts mid-stream.** `ADR-OSA-0001` through `ADR-OSA-0005` (the founding bundle) plus this `ADR-OSA-0006` rename to `ADR-ORDSA-NNNN` files in the migration PR. Future ADRs are authored as `ADR-ORDSA-0007`, `ADR-ORDSA-0008`, etc. — sequential numbering continues; only the prefix changes.
+- **The ADR numbering convention shifts mid-stream.** `ADR-OSA-0001` through `ADR-OSA-0005` (the founding bundle) plus this `ADR-OSA-0006` are renamed to `ADR-ORDSA-NNNN` files in the migration PR (PR 2). Future ADRs are authored as `ADR-ORDSA-0007`, `ADR-ORDSA-0008`, etc. — sequential numbering continues; only the prefix changes.
 - **decisions/README.md** is updated to reflect the new naming and to document the bridge: ADR 0006 is identified as the rename ADR. The "Founding bundle" callout for ADRs 0001–0005 stays as historical fact.
 - **No semantic change to the construct itself.** Layers, governance principle, execution rights, conformance assertions — all unchanged. This is purely a naming decision.
 
@@ -64,7 +64,7 @@ GitHub auto-redirects preserve old citation URLs for both org renames and repo r
 
 3. **Append a clarifying suffix** ("Ordinal Systems Architecture — OSA-O" or "OSA-Ord"). Rejected — half-measure that solves nothing; audiences still see `OSA` first and form the wrong association.
 
-4. **Scope B (hybrid) rename** — keep GitHub org/repo slugs as `osa-ai-org/osa-ai`, rename everything else. Rejected — "OSA inside, OrdSA outside" creates persistent low-grade confusion ("why does the repo URL say one thing and the content say another?") and isn't materially cheaper than Scope A given current scale.
+4. **Scope B (hybrid) rename** — keep GitHub org/repo slugs as `osa-ai-org/osa-ai`, rename everything else. Rejected — "OrdSA inside, OSA outside" creates persistent low-grade confusion ("why does the repo URL say one thing and the content say another?") and isn't materially cheaper than Scope A given current scale.
 
 5. **Scope C (content-only) rename** — keep all file names, ADR IDs, and schema strings as `osa-*`; only change prose. Rejected — locks in "OSA" in every machine-readable surface of the construct, which is precisely the surface adopters will encounter when validating their deployments against the schema. The schema dialect string would still say `osa-construct-schema/N.M`, defeating the disambiguation goal.
 
@@ -76,7 +76,7 @@ Implementation flows as **two PRs** for cleanness:
 
 ### PR 1 — This ADR (review and ratification)
 
-- Adds `decisions/ADR-OSA-0006-rename-construct-to-ordsa.md` (this file)
+- Adds `decisions/ADR-OSA-0006-rename-construct-to-ordsa.md` (this file, under its original name)
 - Adds index entry in `decisions/README.md` so the ADR is discoverable before the bulk migration
 - Does **not** rename existing files yet — that's PR 2
 - Label: `adr`
@@ -85,13 +85,14 @@ Implementation flows as **two PRs** for cleanness:
 ### PR 2 — Implementation (full rename)
 
 - Rename all `decisions/ADR-OSA-NNNN-*.md` to `decisions/ADR-ORDSA-NNNN-*.md` (including this ADR — becomes `decisions/ADR-ORDSA-0006-rename-construct-to-ordsa.md`)
-- Rename `schema/osa-0.2.yaml` to `schema/ordsa-0.2.yaml`; update `schema_dialect` and `osa_construct` fields throughout
-- Rename `schema/example-deployment.yaml`'s `osa_construct` field to `ordsa_construct`; update schema_dialect
-- Global content substitution: every prose reference to the abbreviation "OSA" updates to "OrdSA" (case-preserving)
+- Rename `schema/osa-0.2.yaml` to `schema/ordsa-0.2.yaml`; update `schema_dialect` and rename root key `osa:` → `ordsa:`
+- Rename `schema/example-deployment.yaml`'s `osa_construct` field to `ordsa_construct`; update `schema_dialect`
+- Global content substitution: every prose reference to the abbreviation "OSA" updates to "OrdSA" (case-sensitive); historical references inside this ADR that describe the rename FROM the OSA name remain as "OSA"
 - Update `decisions/README.md` to reflect new file names + numbering convention note
 - Update main `README.md` references throughout (Status section, Governance section, link targets)
 - Update `CONTRIBUTING.md` to reference the new ADR prefix
 - Update `schema/README.md` similarly
+- Bundle the canonical OrdSA architecture poster at `docs/marketing/ordsa-architecture-poster.png` as the README hero image
 
 ### Out-of-band steps (execution order actually used)
 
@@ -109,7 +110,7 @@ The early repo rename is a defensible deviation from the original sequencing: Gi
 
 ## References
 
-- [ADR-OSA-0001](ADR-OSA-0001-schema-first-canonical-form.md) through [ADR-OSA-0005](ADR-OSA-0005-archi-as-canonical-modeling-tool.md) — the founding bundle whose cross-references this rename touches
+- [ADR-ORDSA-0001](ADR-ORDSA-0001-schema-first-canonical-form.md) through [ADR-ORDSA-0005](ADR-ORDSA-0005-archi-as-canonical-modeling-tool.md) — the founding bundle whose cross-references this rename touches
 - [`../docs/concept.md`](../docs/concept.md) — full-name retention; abbreviation change reflected
-- [`../docs/relationship-to-frameworks.md`](../docs/relationship-to-frameworks.md) — the framework-positioning doc that names OSA's relationship to TOGAF, UAF, ArchiMate, NIST AI RMF; the abbreviation rename touches this doc
+- [`../docs/relationship-to-frameworks.md`](../docs/relationship-to-frameworks.md) — the framework-positioning doc that names OrdSA's relationship to TOGAF, UAF, ArchiMate, NIST AI RMF; the abbreviation rename touches this doc
 - DoD MOSA documentation — the primary naming-conflict source. Open Systems Architecture in defense acquisition is well-documented and operationally vocabularized; OrdSA must not be conflated with it.

@@ -19,7 +19,7 @@ A tool that takes an action without verifying the envelope is the architectural 
 
 ## The five execution rights, made concrete
 
-OSA distinguishes five execution rights, each of which is a **separate ordinal permission**:
+OrdSA distinguishes five execution rights, each of which is a **separate ordinal permission**:
 
 | Right | Effect | Typical use |
 |---|---|---|
