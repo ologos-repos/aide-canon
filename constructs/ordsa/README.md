@@ -69,7 +69,7 @@ See [`docs/relationship-to-frameworks.md`](docs/relationship-to-frameworks.md) f
 - **[`docs/concept.md`](docs/concept.md)** — canonical statement of the construct
 - **[`docs/layers/`](docs/layers/)** — one file per ordinal layer (O0 through O6)
 - **[`docs/relationship-to-frameworks.md`](docs/relationship-to-frameworks.md)** — OSA next to TOGAF, UAF, ArchiMate, NIST AI RMF
-- **[`docs/relationship-to-ologos.md`](docs/relationship-to-ologos.md)** — OSA next to Modus Primus and the OAgent framework
+- **[`docs/reference-implementations.md`](docs/reference-implementations.md)** — concrete implementations of OSA layers (forward placeholder; entries land as they mature)
 
 ## Status
 
@@ -85,4 +85,11 @@ Documentation is licensed under [CC-BY-4.0](LICENSE). Future code contributions 
 
 ## Authorship
 
-OSA is the work of **JD Longmire**, Chief Information Officer, Ologos Corp. Maintained under the `ologos-corp` GitHub organization.
+- **JD Longmire**, AI Enterprise Architect
+- **Micah Longmire**, AI Enterprise Architect
+
+Both authors carry OSA through its full development cycle.
+
+## Disclaimer
+
+JD Longmire is a Northrop Grumman Fellow. OSA is unaffiliated research conducted in a personal capacity; views are the authors' own and do not represent Northrop Grumman Corporation or any other employer.

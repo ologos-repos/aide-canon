@@ -64,4 +64,4 @@ To O0 (via O6): aggregate authorization decisions, refusal rates and reasons, mo
 
 - [O0 — Enterprise Intent](O0-enterprise-intent.md) — the policy O1 enforces
 - [O2 — Domain Orchestrators](O2-domain-orchestrators.md) — where O1 delegates
-- [`../relationship-to-ologos.md`](../relationship-to-ologos.md) — Modus Primus as a concrete O1+O2 reference implementation
+- [`../reference-implementations.md`](../reference-implementations.md) — concrete O1 implementations (forward placeholder)

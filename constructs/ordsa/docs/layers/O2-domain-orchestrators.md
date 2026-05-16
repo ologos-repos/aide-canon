@@ -58,4 +58,4 @@ To O1 (and via O1 to O0/O6): workflow completion rates, approval-chain timing, a
 
 - [O1 — Enterprise AI Orchestrator](O1-enterprise-ai-orchestrator.md) — the layer that delegates to O2
 - [O3 — Agents and Workflows](O3-agents-workflows.md) — what O2 governs
-- [`../relationship-to-ologos.md`](../relationship-to-ologos.md) — Modus Primus's per-domain orchestrators as O2 examples
+- [`../reference-implementations.md`](../reference-implementations.md) — concrete O2 implementations (forward placeholder)

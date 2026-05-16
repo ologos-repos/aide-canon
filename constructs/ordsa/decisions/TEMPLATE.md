@@ -23,7 +23,7 @@ What changes downstream if this ADR is accepted? Cover at minimum:
 
 - Effect on existing layer files
 - Effect on the relationship-to-frameworks doc (does any external-framework mapping need to change?)
-- Effect on the relationship-to-ologos doc (does any Ologos-internal construct positioning shift?)
+- Effect on the reference-implementations doc (does any conformance criterion shift?)
 - Migration burden for adopters who have already cited the prior version
 
 ## Alternatives considered
