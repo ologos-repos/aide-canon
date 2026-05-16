@@ -70,14 +70,28 @@ See [`docs/relationship-to-frameworks.md`](docs/relationship-to-frameworks.md) f
 - **[`docs/layers/`](docs/layers/)** — one file per ordinal layer (O0 through O6)
 - **[`docs/relationship-to-frameworks.md`](docs/relationship-to-frameworks.md)** — OSA next to TOGAF, UAF, ArchiMate, NIST AI RMF
 - **[`docs/reference-implementations.md`](docs/reference-implementations.md)** — concrete implementations of OSA layers (forward placeholder; entries land as they mature)
+- **[`decisions/README.md`](decisions/README.md)** — Architectural Decision Records (ADR index)
 
 ## Status
 
-**v0.1** — Construct definition published. Layer files are scaffolds, intentionally brief; deep-dives, ArchiMate/UAF mappings, and worked examples will follow in v0.2.
+**v0.1.x — construct stable, v0.2 in motion.**
+
+- v0.1 (2026-05-16): construct definition published as Markdown prose (seven layer files, framework positioning, governance principle).
+- v0.1.1: repositioned as unaffiliated research; Ologos-specific framing removed.
+- v0.1.2: PR-first ADR process formalized; `decisions/` directory and ADR index added.
+- v0.2 (in progress): founding ADRs 0001–0005 ratify the schema-first canonical form, YAML + JSON Schema representation, construct vs deployment schema shapes, Python + pydantic reference tooling, and ArchiMate-via-pyArchimate visual rendering pipeline. Schema sketch and reference tooling land next.
+
+Layer files remain intentionally brief; deep-dives, ArchiMate stereotype set, UAF mapping appendix, and worked examples follow in v0.2 and v0.3.
+
+## Governance
+
+OSA's construct-level decisions are captured as [Architectural Decision Records](decisions/README.md) — append-only records of what was decided, the alternatives considered, and the consequences accepted. The five **founding ADRs** establish the v0.2 baseline: schema-first canonical form ([0001](decisions/ADR-OSA-0001-schema-first-canonical-form.md)), YAML + JSON Schema ([0002](decisions/ADR-OSA-0002-schema-language-yaml-json-schema.md)), construct vs deployment schemas ([0003](decisions/ADR-OSA-0003-construct-vs-deployment-schemas.md)), Python + pydantic tooling ([0004](decisions/ADR-OSA-0004-reference-tooling-python-pydantic.md)), and ArchiMate via pyArchimate ([0005](decisions/ADR-OSA-0005-archi-as-canonical-modeling-tool.md)).
+
+Future construct changes flow as ADR PRs per the process in [`CONTRIBUTING.md`](CONTRIBUTING.md). See [`decisions/README.md`](decisions/README.md) for the full index and conventions.
 
 ## Contributing
 
-See [`CONTRIBUTING.md`](CONTRIBUTING.md). Substantive changes to the construct (new layers, layer redefinition, governance principle revision) go through ADRs; refinements and examples flow as ordinary PRs.
+See [`CONTRIBUTING.md`](CONTRIBUTING.md). Substantive changes to the construct (new layers, layer redefinition, governance principle revision) go through **ADRs as PRs** (label `adr`); refinements and examples flow as ordinary PRs. Pre-PR brainstorming happens in [GitHub Discussions](https://github.com/osa-ai-org/osa-ai/discussions) under the Construct Q&A category.
 
 ## License
 
