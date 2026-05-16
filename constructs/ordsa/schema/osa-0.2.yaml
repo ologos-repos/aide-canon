@@ -1,0 +1,241 @@
+# Ordinal Systems Architecture — Construct Schema
+#
+# This file is the canonical OSA construct definition for version 0.2 (draft).
+# Per ADR-OSA-0001, this YAML is the source of truth; all other representations
+# (prose docs, ArchiMate models, SysML v2 source, UAF mappings) are renderings.
+#
+# Per ADR-OSA-0003, this file is the CONSTRUCT schema (immutable within a
+# version). Deployments validate against it; see schema/example-deployment.yaml
+# for the deployment-side shape.
+#
+# Status: DRAFT (v0.2). The schema stabilizes at v1.0; until then, minor
+# versions may revise field names, allowed values, and conformance rules.
+
+# ──────────────────────────────────────────────────────────────────────────────
+# Construct identity
+# ──────────────────────────────────────────────────────────────────────────────
+
+osa:
+  version: "0.2"
+  status: draft
+  spec_revision: "2026-05-16"
+  schema_dialect: "osa-construct-schema/0.2"
+
+  # The thesis. Verbatim from docs/concept.md. Authoritative here.
+  thesis: |
+    Enterprise AI needs an ordinal architecture because agentic systems are
+    not merely applications. They are delegated actors inside a governed
+    enterprise.
+
+  governance_principle:
+    - "Authority flows downward across layer ordinals."
+    - "Evidence flows upward across layer ordinals."
+    - "No lower ordinal layer may expand its own authority."
+
+# ──────────────────────────────────────────────────────────────────────────────
+# Execution rights (the five-rung ladder applied at O4)
+# ──────────────────────────────────────────────────────────────────────────────
+# Per ADR-OSA-0005 / docs/layers/O4-tools-execution.md, every O4 tool
+# invocation runs under exactly one of these rights, declared in the
+# deployment's envelope per tool per task class.
+
+  execution_rights:
+    - id: read_only
+      ordinal: 1
+      effect: "No state change. Inspection, analysis, retrieval only."
+      requires_human_approval: false
+
+    - id: recommend_only
+      ordinal: 2
+      effect: "No state change. Produces candidate actions for higher-ordinal approval."
+      requires_human_approval: false
+
+    - id: draft_only
+      ordinal: 3
+      effect: "Creates inert proposals (PRs, change requests, plans). Does not enact."
+      requires_human_approval: false
+
+    - id: supervised
+      ordinal: 4
+      effect: "State change. Each action requires per-action approval by a human or higher-ordinal authority."
+      requires_human_approval: true
+
+    - id: autonomous
+      ordinal: 5
+      effect: "State change inside the envelope without per-action approval."
+      requires_human_approval: false
+
+# ──────────────────────────────────────────────────────────────────────────────
+# The seven ordinal layers
+# ──────────────────────────────────────────────────────────────────────────────
+
+  layers:
+    - id: "O0"
+      name: "Enterprise Intent"
+      what_it_governs: "Mission, strategy, policy, risk appetite, standards."
+      authority_role: "Sets the constraints all lower layers operate within. Mutated only by enterprise governance, never by AI activity."
+      delegates_to: ["O1"]
+      receives_evidence_from: ["O6"]
+      anti_patterns:
+        - aspirational_only_policy
+        - component_level_policy
+        - silent_o0_drift
+
+    - id: "O1"
+      name: "Enterprise AI Orchestrator"
+      what_it_governs: "Governance, routing, identity, model access, policy enforcement."
+      authority_role: "Translates O0 policy into enforceable runtime decisions. Single broker for cross-domain coordination."
+      delegates_to: ["O2"]
+      receives_evidence_from: ["O2", "O6"]
+      must_answer_per_invocation:
+        - "What may be done?"
+        - "By whom?"
+        - "With what model?"
+        - "Under what boundary?"
+        - "With what audit trail?"
+      anti_patterns:
+        - smart_router_no_policy_view
+        - agents_authenticate_directly
+        - implicit_identity
+        - policy_in_code_only
+
+    - id: "O2"
+      name: "Capability Domain Orchestrators"
+      what_it_governs: "Development, infrastructure, cybersecurity, mission engineering, business operations, digital engineering."
+      authority_role: "Domain-bounded delegation from O1. Each O2 instance operates within its declared domain envelope."
+      delegates_to: ["O3"]
+      receives_evidence_from: ["O3", "O6"]
+      anti_patterns:
+        - omnibus_orchestrator
+        - domain_bleed
+        - implicit_domain_boundaries
+        - domain_hierarchy_creep
+
+    - id: "O3"
+      name: "Agents and Workflows"
+      what_it_governs: "Task-specific AI workers under bounded delegation."
+      authority_role: "Subordinate execution structures. Agents do not define their own authority, access, or policy."
+      delegates_to: ["O4"]
+      receives_evidence_from: ["O4", "O5", "O6"]
+      key_invariant: "Agents are workers, not governors."
+      anti_patterns:
+        - general_agent_all_rights
+        - self_elevating_agents
+        - tool_affinities_as_authorization
+        - stateful_agents_without_governed_state
+
+    - id: "O4"
+      name: "Tools and Execution Channels"
+      what_it_governs: "APIs, scripts, automation, ITSM, CI/CD, cloud consoles, repositories."
+      authority_role: "Point-of-action enforcement. Every tool verifies the envelope before acting; refused actions emit evidence to O6."
+      delegates_to: []
+      receives_evidence_from: ["O5"]
+      execution_rights_declaration_required: true
+      anti_patterns:
+        - tools_that_trust_caller
+        - tools_without_refusal_evidence
+        - blanket_admin_tools
+        - tool_side_identity_disguise
+
+    - id: "O5"
+      name: "Data and Knowledge Substrate"
+      what_it_governs: "Documents, logs, CMDB, code, policies, telemetry, vector stores."
+      authority_role: "Governed retrieval surface. Every read is a context insertion attributable to an identity from O1."
+      delegates_to: []
+      receives_evidence_from: []
+      key_invariant: "Substrate is architecture — shadow retrieval pipelines are governance gaps."
+      anti_patterns:
+        - single_source_nobody_updates
+        - retrieval_without_provenance
+        - embedding_stores_as_side_channels
+        - domain_mingling_at_retrieval
+
+    - id: "O6"
+      name: "Outcome, Audit, and Feedback"
+      what_it_governs: "Evidence, metrics, decisions, incidents, drift, value realization."
+      authority_role: "Append-only record. Aggregates evidence from every layer; surfaces summaries back to O0 to close the policy loop."
+      delegates_to: []
+      receives_evidence_from: ["O0", "O1", "O2", "O3", "O4", "O5"]
+      key_invariant: "Evidence is append-only; corrections are new entries, never overwrites."
+      anti_patterns:
+        - evidence_in_too_many_places
+        - mutable_evidence
+        - outcome_metrics_decoupled_from_policy
+        - the_audit_log_we_never_read
+        - cherry_picked_rollups
+
+# ──────────────────────────────────────────────────────────────────────────────
+# Allowed cross-layer relationships
+# ──────────────────────────────────────────────────────────────────────────────
+
+  relationships:
+    authority_delegation:
+      direction: down
+      semantic: "Higher-ordinal layer delegates a bounded authority envelope to the next lower-ordinal layer."
+      constraint: "from.layer_ordinal == to.layer_ordinal - 1"
+      payload:
+        - tool_scope          # which O4 tools the envelope authorizes
+        - data_scope          # which O5 substrate is in scope
+        - impact_ceiling      # max impact level for state changes
+        - time_budget         # envelope expiry
+        - execution_rights    # one of the five rights per tool per task class
+
+    evidence_flow:
+      direction: up
+      semantic: "Lower-ordinal layer emits evidence about its activity to a higher-ordinal layer (typically O6 for aggregation)."
+      constraint: "from.layer_ordinal > to.layer_ordinal"
+      payload:
+        - actor_identity
+        - envelope_reference
+        - action_taken
+        - verdict             # accepted / refused / errored
+        - state_change_summary
+        - timestamp
+
+# ──────────────────────────────────────────────────────────────────────────────
+# Conformance assertions (what a conforming deployment must demonstrate)
+# ──────────────────────────────────────────────────────────────────────────────
+
+  conformance_assertions:
+    - id: layered_authority_only
+      statement: "Every cross-layer relationship in the deployment is either an authority_delegation (down by exactly one ordinal) or an evidence_flow (up by any amount)."
+      severity: required
+
+    - id: no_self_elevation
+      statement: "No element grants itself execution rights beyond its declared envelope. Self-elevation by an O3 agent is not representable in the deployment schema."
+      severity: required
+
+    - id: o4_execution_rights_declared
+      statement: "Every O4 tool entry declares one of the five execution_rights values for each task class it serves."
+      severity: required
+
+    - id: o6_evidence_loop_closed
+      statement: "Every state-changing action at O4 (rights 'supervised' or 'autonomous') has a documented evidence path to O6."
+      severity: required
+
+    - id: o0_to_o1_policy_translation
+      statement: "Every O0 policy element is referenced by at least one O1 enforcement element. Untranslated policies are flagged as gaps."
+      severity: recommended
+
+    - id: provenance_on_o5_retrieval
+      statement: "Every O5 retrieval interface exposed to AI invocations carries provenance metadata."
+      severity: recommended
+
+# ──────────────────────────────────────────────────────────────────────────────
+# Schema metadata
+# ──────────────────────────────────────────────────────────────────────────────
+
+  meta:
+    authors:
+      - "JD Longmire (AI Enterprise Architect)"
+      - "Micah Longmire (AI Enterprise Architect)"
+    canonical_repo: "https://github.com/osa-ai-org/osa-ai"
+    construct_doc: "docs/concept.md"
+    layer_docs: "docs/layers/"
+    governing_adrs:
+      - "ADR-OSA-0001 (schema-first canonical form)"
+      - "ADR-OSA-0002 (YAML + JSON Schema)"
+      - "ADR-OSA-0003 (construct vs deployment schemas)"
+      - "ADR-OSA-0004 (Python + pydantic reference tooling)"
+      - "ADR-OSA-0005 (ArchiMate via pyArchimate)"
+    license: "CC-BY-4.0 (this schema is documentation per repository LICENSE)"

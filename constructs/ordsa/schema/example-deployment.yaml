@@ -1,0 +1,202 @@
+# Example OSA Deployment Schema — illustrative only
+#
+# This file demonstrates the DEPLOYMENT side of the two-schema model defined in
+# ADR-OSA-0003. The deployment validates against a specific construct version
+# (osa_construct: "0.2" → schema/osa-0.2.yaml).
+#
+# This example is fictional. It exists to show the shape and field semantics.
+# Real deployments live in their own repositories and are owned by the
+# deploying organization, not by OSA itself.
+#
+# Reading this file: each layer block describes the deployment's claim of
+# conformance with that ordinal layer. Artifacts, orchestrators, agents, tools,
+# substrates, and outcomes populate the layer; conformance_assertions are the
+# explicit declarations that the deployment satisfies the construct's
+# required and recommended assertions.
+
+osa_construct: "0.2"
+schema_dialect: "osa-deployment-schema/0.2"
+
+deployment:
+  name: "ACME AI Operations Platform"
+  owner: "ACME AI Platform Team"
+  version: "2026.Q2"
+  last_revised: "2026-05-16"
+  contact: "ai-platform@example.com"
+
+  # ────────────────────────────────────────────────────────────────────────
+  # O0 — Enterprise Intent
+  # ────────────────────────────────────────────────────────────────────────
+  layers:
+    O0:
+      conformance: full
+      artifacts:
+        - id: ai-operating-principles-v2.3
+          type: policy
+          title: "ACME AI Operating Principles v2.3"
+          uri: "https://acme.example.com/policy/ai-operating-principles-v2.3"
+          summary: "Principles aligned with NIST AI RMF Govern/Map/Measure/Manage."
+        - id: risk-appetite-2026
+          type: risk_appetite
+          title: "AI Risk Appetite Statement, FY2026"
+          uri: "https://acme.example.com/policy/risk-appetite-2026"
+          categories: [financial, reputational, safety, compliance]
+        - id: approved-model-list-2026q2
+          type: approved_models
+          title: "Approved Models Roster, 2026-Q2"
+          uri: "https://acme.example.com/policy/models-2026q2"
+      conformance_assertions:
+        - assertion_id: o0_to_o1_policy_translation
+          status: satisfied
+          evidence: "Every entry in ai-operating-principles-v2.3 is referenced by at least one O1 enforcement rule (see policy_translation_map below)."
+
+  # ────────────────────────────────────────────────────────────────────────
+  # O1 — Enterprise AI Orchestrator
+  # ────────────────────────────────────────────────────────────────────────
+    O1:
+      conformance: full
+      orchestrators:
+        - id: acme-enterprise-orchestrator
+          name: "ACME Enterprise AI Orchestrator"
+          tech_stack: "Internal — built on OpenPolicyAgent + custom routing"
+          enforces_policies_from: [ai-operating-principles-v2.3, risk-appetite-2026]
+          authorized_models: [model-x-prod, model-y-prod, model-z-research-only]
+          identity_source: "ACME SSO (Keycloak) — propagates originating-actor identity to all lower layers"
+      conformance_assertions:
+        - assertion_id: layered_authority_only
+          status: satisfied
+          evidence: "Every authorization edge in acme-enterprise-orchestrator's audit log is either a delegation to an O2 domain orchestrator or an evidence emission to O6. Verified by automated audit job 'authority-shape-validator'."
+
+  # ────────────────────────────────────────────────────────────────────────
+  # O2 — Capability Domain Orchestrators
+  # ────────────────────────────────────────────────────────────────────────
+    O2:
+      conformance: full
+      domain_orchestrators:
+        - id: acme-dev-orchestrator
+          domain: software_development
+          delegated_by: acme-enterprise-orchestrator
+          authorized_agents: [code-review-agent, test-gen-agent, doc-agent]
+          authorized_tools: [github-api, internal-ci, jira-api]
+        - id: acme-infra-orchestrator
+          domain: infrastructure_operations
+          delegated_by: acme-enterprise-orchestrator
+          authorized_agents: [incident-triage-agent, capacity-planning-agent]
+          authorized_tools: [k8s-readonly, monitoring-api, pagerduty-api]
+        - id: acme-cyber-orchestrator
+          domain: cybersecurity
+          delegated_by: acme-enterprise-orchestrator
+          authorized_agents: [threat-enrichment-agent, vuln-triage-agent]
+          authorized_tools: [siem-readonly, ticketing-api, threat-intel-api]
+
+  # ────────────────────────────────────────────────────────────────────────
+  # O3 — Agents and Workflows
+  # ────────────────────────────────────────────────────────────────────────
+    O3:
+      conformance: full
+      agents:
+        - id: code-review-agent
+          parent_orchestrator: acme-dev-orchestrator
+          specialty: "Review pull requests for style, security patterns, and test coverage."
+          model: model-x-prod
+          envelope_template: "code-review-default-envelope-v1.2"
+        - id: incident-triage-agent
+          parent_orchestrator: acme-infra-orchestrator
+          specialty: "Classify and route incoming incident alerts."
+          model: model-x-prod
+          envelope_template: "incident-triage-envelope-v0.9"
+      conformance_assertions:
+        - assertion_id: no_self_elevation
+          status: satisfied
+          evidence: "Agent runtime ('acme-agent-host') refuses any execution-rights value not present in the envelope at dispatch time. Refusals are logged to O6 with category 'envelope_violation_attempt'."
+
+  # ────────────────────────────────────────────────────────────────────────
+  # O4 — Tools and Execution Channels
+  # ────────────────────────────────────────────────────────────────────────
+    O4:
+      conformance: full
+      tools:
+        - id: github-api
+          name: "GitHub REST + GraphQL API"
+          task_classes:
+            - id: list_pull_requests
+              execution_rights: read_only
+            - id: comment_on_pull_request
+              execution_rights: draft_only
+            - id: merge_pull_request
+              execution_rights: supervised
+              approver_role: human_or_org_owner
+          evidence_endpoint: "https://o6.acme.example.com/ingest/github-api"
+        - id: k8s-readonly
+          name: "Kubernetes API (RBAC: read-only)"
+          task_classes:
+            - id: get_pods
+              execution_rights: read_only
+            - id: get_events
+              execution_rights: read_only
+          evidence_endpoint: "https://o6.acme.example.com/ingest/k8s-readonly"
+      conformance_assertions:
+        - assertion_id: o4_execution_rights_declared
+          status: satisfied
+          evidence: "Every task_class in every O4 tool entry above carries one of the five execution_rights values. Validated by schema check."
+        - assertion_id: o6_evidence_loop_closed
+          status: satisfied
+          evidence: "Every O4 tool declares an evidence_endpoint; O6 verifies receipt for all rights ∈ {supervised, autonomous} actions within 60 seconds; lag exceptions raise PagerDuty incidents."
+
+  # ────────────────────────────────────────────────────────────────────────
+  # O5 — Data and Knowledge Substrate
+  # ────────────────────────────────────────────────────────────────────────
+    O5:
+      conformance: partial
+      substrates:
+        - id: engineering-knowledge-base
+          type: rag_index
+          source: "Confluence + GitHub docs + internal wiki"
+          governed_retrieval_interface: "acme-rag-gateway"
+          provenance_attached: true
+          freshness_contract: "max_age=14d for policy docs; max_age=7d for runbooks"
+        - id: incident-history-index
+          type: vector_store
+          source: "PagerDuty incident archive 2024-present"
+          governed_retrieval_interface: "acme-rag-gateway"
+          provenance_attached: true
+          freshness_contract: "rebuild_weekly"
+      conformance_assertions:
+        - assertion_id: provenance_on_o5_retrieval
+          status: satisfied
+          evidence: "All retrievals routed through acme-rag-gateway carry source_uri, retrieval_timestamp, and confidence_score. Direct substrate access is firewalled."
+      known_gaps:
+        - "Two legacy embedding stores (acme-old-kb, acme-archive-index) still exist outside acme-rag-gateway. Migration tracked in PROJ-1042; deprecation target 2026-Q3."
+
+  # ────────────────────────────────────────────────────────────────────────
+  # O6 — Outcome, Audit, and Feedback
+  # ────────────────────────────────────────────────────────────────────────
+    O6:
+      conformance: full
+      evidence_stores:
+        - id: acme-o6-ledger
+          type: append_only_log
+          retention: "7 years (per regulatory requirement)"
+          access_governed_by: acme-enterprise-orchestrator
+          aggregations_for_o0:
+            - authorization_decision_rates_monthly
+            - refusal_rate_by_category_weekly
+            - model_drift_indicators_per_release
+            - policy_violation_summary_quarterly
+      conformance_assertions:
+        - assertion_id: o6_evidence_loop_closed
+          status: satisfied
+          evidence: "Cross-referenced with O4 evidence_endpoints above. See acme-o6-ledger ingest dashboard."
+
+# ──────────────────────────────────────────────────────────────────────────────
+# Optional auxiliary maps — not required by construct, but illustrative
+# ──────────────────────────────────────────────────────────────────────────────
+
+policy_translation_map:
+  # Demonstrates how an adopter shows their O0 → O1 translation.
+  - o0_policy: "Production-impact AI actions require human approval"
+    o1_enforcement: "Tool entries with impact ≥ HIGH default to execution_rights: supervised"
+  - o0_policy: "AI must not access PII without GDPR-compliant consent path"
+    o1_enforcement: "Substrate IDs tagged 'contains_pii' require deployment-level consent assertion before authorization"
+  - o0_policy: "Only approved models per the 2026-Q2 roster"
+    o1_enforcement: "Orchestrator model registry restricts authorized_models to entries in approved-model-list-2026q2"

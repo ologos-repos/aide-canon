@@ -18,6 +18,16 @@ For the authoring process, see [`../CONTRIBUTING.md`](../CONTRIBUTING.md). For t
 
 ADRs 0001–0005 ratify the v0.2 baseline as a single coherent set: schema-first source of truth (0001), YAML + JSON Schema (0002), construct vs deployment shapes (0003), Python + pydantic for reference tooling (0004), and ArchiMate via pyArchimate for visual rendering (0005). Per [`../CONTRIBUTING.md`](../CONTRIBUTING.md), founding ADRs are exempt from the one-week comment-out period; future ADRs follow the standard cadence.
 
+### Where each ADR's artifacts live
+
+| ADR | Concrete artifact embodying the decision |
+|---|---|
+| 0001 (schema-first) | [`../schema/`](../schema/) — the directory holding the canonical schema |
+| 0002 (YAML + JSON Schema) | [`../schema/osa-0.2.yaml`](../schema/osa-0.2.yaml); JSON Schema emission deferred to reference-tooling PR |
+| 0003 (construct vs deployment) | [`../schema/osa-0.2.yaml`](../schema/osa-0.2.yaml) (construct) + [`../schema/example-deployment.yaml`](../schema/example-deployment.yaml) (deployment shape) |
+| 0004 (Python + pydantic) | `tools/osa-validator/` — not yet present; lands in a follow-up PR |
+| 0005 (ArchiMate via pyArchimate) | Rendering pipeline; first diagrams emerge with reference tooling |
+
 ## Conventions
 
 - **Numbering** is sequential and never reused: `ADR-OSA-0001`, `ADR-OSA-0002`, etc. A retracted-before-merge draft does not consume a number; ADRs are numbered at PR-open time and the number is held until merge or withdrawal.
