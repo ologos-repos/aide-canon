@@ -8,7 +8,15 @@ For the authoring process, see [`../CONTRIBUTING.md`](../CONTRIBUTING.md). For t
 
 | ADR | Status | Date | Title |
 |---|---|---|---|
-| _none yet_ | — | — | The founding ADRs (0001–0004) will land with the v0.2 schema PR. |
+| [0001](ADR-OSA-0001-schema-first-canonical-form.md) | Accepted | 2026-05-16 | Schema-first canonical form |
+| [0002](ADR-OSA-0002-schema-language-yaml-json-schema.md) | Accepted | 2026-05-16 | Schema language: YAML source + auto-emitted JSON Schema |
+| [0003](ADR-OSA-0003-construct-vs-deployment-schemas.md) | Accepted | 2026-05-16 | Construct schema vs deployment schema (two shapes) |
+| [0004](ADR-OSA-0004-reference-tooling-python-pydantic.md) | Accepted | 2026-05-16 | Reference tooling: Python + pydantic for v0.2 |
+| [0005](ADR-OSA-0005-archi-as-canonical-modeling-tool.md) | Accepted | 2026-05-16 | ArchiMate as canonical visual notation; pyArchimate as reference renderer |
+
+### Founding bundle
+
+ADRs 0001–0005 ratify the v0.2 baseline as a single coherent set: schema-first source of truth (0001), YAML + JSON Schema (0002), construct vs deployment shapes (0003), Python + pydantic for reference tooling (0004), and ArchiMate via pyArchimate for visual rendering (0005). Per [`../CONTRIBUTING.md`](../CONTRIBUTING.md), founding ADRs are exempt from the one-week comment-out period; future ADRs follow the standard cadence.
 
 ## Conventions
 
