@@ -24,7 +24,7 @@ OSA distinguishes between **construct changes** and **content changes**, because
 | Layer examples / anti-patterns / clarifications | `docs/layers/O*.md` | PR |
 | Worked scenarios | `docs/examples/` (not yet present in v0.1) | PR |
 | External-framework mapping | `docs/relationship-to-frameworks.md` | PR (or ADR if redefining the relationship) |
-| Ologos-internal mapping | `docs/relationship-to-ologos.md` | PR |
+| Reference implementations | `docs/reference-implementations.md` | Issue to propose, PR to add |
 | Reference impls / schemas | (future) `reference/` | PR (under Apache-2.0 — see LICENSE notes) |
 
 ## Style

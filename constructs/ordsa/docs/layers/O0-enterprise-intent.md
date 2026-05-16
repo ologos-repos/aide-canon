@@ -14,7 +14,7 @@ O0 is not an AI system. It is the **specification** every AI system below it mus
 - **Cannot be modified by:** any lower ordinal. Not by orchestrators, not by agents, not by tools.
 - **Modified by:** the enterprise governance process (executives, board, compliance, regulatory updates) — not by AI activity.
 
-In Ologos terms this is the **SARS** layer: Strategy, Architecture, Roadmaps, Standards.
+This layer is sometimes summarized as **SARS**: Strategy, Architecture, Roadmaps, Standards.
 
 ## What lives here
 

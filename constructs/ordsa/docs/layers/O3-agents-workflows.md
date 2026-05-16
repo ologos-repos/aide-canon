@@ -71,4 +71,4 @@ To O2 (and onward via O6): task completion / refusal, tool invocations attempted
 
 - [O2 — Domain Orchestrators](O2-domain-orchestrators.md) — the layer that delegates to O3
 - [O4 — Tools and Execution Channels](O4-tools-execution.md) — what O3 acts through
-- [`../relationship-to-ologos.md`](../relationship-to-ologos.md) — the OAgent framework as the agent standard at O3
+- [`../reference-implementations.md`](../reference-implementations.md) — concrete O3 agent standards (forward placeholder)
