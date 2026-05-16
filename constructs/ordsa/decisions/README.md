@@ -13,6 +13,7 @@ For the authoring process, see [`../CONTRIBUTING.md`](../CONTRIBUTING.md). For t
 | [0003](ADR-OSA-0003-construct-vs-deployment-schemas.md) | Accepted | 2026-05-16 | Construct schema vs deployment schema (two shapes) |
 | [0004](ADR-OSA-0004-reference-tooling-python-pydantic.md) | Accepted | 2026-05-16 | Reference tooling: Python + pydantic for v0.2 |
 | [0005](ADR-OSA-0005-archi-as-canonical-modeling-tool.md) | Accepted | 2026-05-16 | ArchiMate as canonical visual notation; pyArchimate as reference renderer |
+| [0006](ADR-OSA-0006-rename-construct-to-ordsa.md) | Accepted | 2026-05-16 | Rename construct abbreviation from OSA to OrdSA (disambiguation from Open Systems Architecture / MOSA) — last ADR under `ADR-OSA-NNNN` naming; future ADRs use `ADR-ORDSA-NNNN` |
 
 ### Founding bundle
 
