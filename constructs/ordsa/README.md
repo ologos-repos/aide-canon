@@ -3,7 +3,7 @@
 **A control-oriented enterprise architecture construct for Enterprise AI that orders AI capability by ordered authority, abstraction, execution rights, and evidence flow.**
 
 <p align="center">
-  <img src="docs/marketing/ordsa-architecture-poster.png" alt="OrdSA — Ordinal Systems Architecture: 7-layer authority stack with the governance principle (authority flows downward, evidence flows upward, no layer may expand its own authority) and alignment with TOGAF, ArchiMate, UAF, NIST AI RMF" width="640">
+  <img src="docs/marketing/OrdSA-Construct.png" alt="OrdSA — Ordinal Systems Architecture: 7-layer authority stack with the governance principle (authority flows downward, evidence flows upward, no layer may expand its own authority) and alignment with TOGAF, ArchiMate, UAF, NIST AI RMF" width="640">
 </p>
 
 > Enterprise AI needs an ordinal architecture because agentic systems are not merely applications. They are delegated actors inside a governed enterprise.
@@ -87,7 +87,7 @@ See [`docs/relationship-to-frameworks.md`](docs/relationship-to-frameworks.md) f
 - v0.1.3: founding ADRs 0001–0005 ratified the schema-first canonical form, YAML + JSON Schema representation, construct vs deployment schema shapes, Python + pydantic reference tooling, and ArchiMate-via-pyArchimate visual rendering pipeline.
 - v0.1.4: construct schema sketch landed at [`schema/ordsa-0.2.yaml`](schema/ordsa-0.2.yaml) with an illustrative deployment example. Schema is hand-reviewable; mechanical validation follows when the reference tooling lands.
 - v0.1.5: [ADR-ORDSA-0006](decisions/ADR-ORDSA-0006-rename-construct-to-ordsa.md) ratified — rename construct abbreviation from `OSA` to `OrdSA` (disambiguation from Open Systems Architecture / MOSA). Full name retained.
-- v0.1.6 (this state): full migration to OrdSA naming — file names, ADR IDs, schema dialect strings, citation fields, all prose. Architecture poster published at [`docs/marketing/ordsa-architecture-poster.png`](docs/marketing/ordsa-architecture-poster.png).
+- v0.1.6 (this state): full migration to OrdSA naming — file names, ADR IDs, schema dialect strings, citation fields, all prose. Architecture poster published at [`docs/marketing/OrdSA-Construct.png`](docs/marketing/OrdSA-Construct.png) (initial filename `ordsa-architecture-poster.png`; subsequently upgraded to higher resolution and renamed to match the brand convention).
 - v0.2 (in progress): reference tooling (Python+pydantic validator, JSON Schema emitter), first ArchiMate-rendered diagrams via pyArchimate, schema-side refinements based on the v0.1.4 sketch.
 
 Layer files remain intentionally brief; deep-dives, ArchiMate stereotype set, UAF mapping appendix, and worked examples follow in v0.2 and v0.3.
