@@ -1,0 +1,805 @@
+# Ologos Intelligence — Value-Added Component Catalog
+# Each component represents a behavioral guarantee that creates measurable
+# performance delta between a raw model and an Ologos-configured operator.
+#
+# Structure: category → component → properties
+#   - what: What it does
+#   - how: Mechanical implementation
+#   - prevents: What failure mode it eliminates
+#   - evidence: Where we proved this matters (incident, feedback, or observation)
+#   - packaging: How this ships to customers
+#   - status: built | partial | planned
+#   - source: Current implementation location(s)
+
+---
+# =============================================================================
+# 1. BEHAVIORAL SHAPING
+# Components that modify the model's default behavior toward operational
+# reliability. These are the highest-impact-per-byte interventions.
+# =============================================================================
+
+behavioral_shaping:
+
+  feedback_memory_system:
+    what: >
+      Persistent correction/confirmation store that survives across sessions.
+      Each memory captures a specific behavioral rule, why it exists, and
+      when to apply it.
+    how: >
+      Markdown files with YAML frontmatter, indexed in MEMORY.md, loaded into
+      every session context. Rules are structured as: directive + Why + How to apply.
+    prevents:
+      - Repeating mistakes across sessions
+      - Losing hard-won operational lessons when context resets
+      - Behavioral drift over long engagements
+    evidence: >
+      22 feedback memories accumulated over ~30 sessions. Each one prevents a
+      specific, observed failure. Examples: dev-first violation (#46), silent
+      failures in logging, direct-to-prod deploys, image reads crashing sessions.
+    packaging: >
+      Starter memory templates by domain (DevOps, security, content generation).
+      Customer memories accumulate automatically from operational corrections.
+      Memory authoring guide + schema.
+    status: built
+    source:
+      - memory/feedback_*.md
+      - MEMORY.md (index)
+
+  named_failure_modes:
+    what: >
+      Explicit catalog of known AI operator failure patterns, named and
+      described so the model can self-monitor for them.
+    how: >
+      Listed in skill files (sysadmin.md) as "Known Failure Modes" section.
+      Naming the pattern makes it detectable — models can catch behaviors
+      they've been told to watch for.
+    prevents:
+      - Over-confidence (claiming done without verifying)
+      - Stale references (acting on outdated memory)
+      - Hallucinated state (asserting things exist that don't)
+      - Prod-first impulse (skipping dev environment)
+      - Scope creep (fixing one thing, breaking another)
+      - Instruction drift (deviating from requirements over long sessions)
+      - Cache blindness (deploying changes users can't see)
+    evidence: >
+      Every failure mode in the list was observed in production. The catalog
+      has grown from 3 to 7 modes over ~20 sessions. Each addition correlates
+      with the cessation of that failure pattern.
+    packaging: >
+      Domain-specific failure mode catalogs (DevOps, content, infrastructure).
+      Customers add their own observed patterns. Framework for naming and
+      integrating new patterns.
+    status: built
+    source:
+      - skills/sysadmin.md (AI Operator Self-Awareness section)
+
+  context_degradation_awareness:
+    what: >
+      Self-monitoring for declining context quality during long sessions.
+      Model detects its own reliability drop and proactively recommends
+      session wrap before errors compound.
+    how: >
+      Checklist of degradation signals (edit failures, wrong directory,
+      repeated questions, incorrect assumptions). When 2+ signals appear,
+      model alerts user and recommends wrapping.
+    prevents:
+      - Compounding errors in late-session work
+      - Silent quality degradation the user doesn't notice
+      - Heroic but unreliable effort in degraded context
+    evidence: >
+      Multiple sessions where late-session errors (wrong file edits, stale
+      assumptions) required significant rework. The detection protocol was
+      added after a session where 3 commits had to be reverted.
+    packaging: >
+      Standard degradation detection module. Configurable signal thresholds.
+      Automatic session-wrap trigger at critical degradation level.
+    status: built
+    source:
+      - skills/sysadmin.md (Context Health Monitoring)
+      - skills/quality_assurance.md (Context Degradation Alert)
+
+  grounding_exemplars:
+    what: >
+      Philosophical anchors that shape reasoning style — precision over
+      vagueness, questioning assumptions, common-sense epistemology.
+    how: >
+      Named thinkers in CLAUDE.md whose reasoning patterns are invoked
+      as behavioral models (Aristotle for precision, Socrates for dialectic,
+      Reid for common sense, Van Til for examining presuppositions).
+    prevents:
+      - Vague, hand-wavy reasoning
+      - Accepting premises without examination
+      - Reducing self-evident truths to theoretical abstractions
+      - Lecturing instead of engaging
+    evidence: >
+      Subtle but measurable effect on reasoning quality. More impactful for
+      strategic/architectural discussions than for routine coding tasks.
+    packaging: >
+      Configurable reasoning anchors. Customers define their own epistemological
+      commitments. Domain-specific exemplar sets (legal, medical, engineering).
+    status: built
+    source:
+      - CLAUDE.md (Grounding Exemplars section)
+
+# =============================================================================
+# 2. QUALITY GATES
+# Executable checkpoints that prevent defective work from advancing.
+# The key principle: enforcement over documentation.
+# =============================================================================
+
+quality_gates:
+
+  pre_commit_qa_review:
+    what: >
+      Independent model reviews all changed files before every commit.
+      The operator does not QA their own work.
+    how: >
+      Git pre-commit hook calls qa-agent/agent.py against staged files.
+      QA agent runs a different model (GPT-4.1 Mini) than the operator.
+      Blocks commit on failure. Logs every review to ops/qa_log.json.
+    prevents:
+      - Self-review blindness (operator can't see own mistakes)
+      - Shipping code without any review
+      - Accumulating technical debt without detection
+    evidence: >
+      79 reviews logged, 3% fail rate. Failed reviews caught: placeholder
+      text in documents, missing error handling, credential exposure,
+      schema violations. Each catch prevented a defective artifact from shipping.
+    packaging: >
+      QA agent with pluggable review dimensions. Model-agnostic (any LLM
+      backend). Configurable severity thresholds. Pre-built dimension packs
+      by domain.
+    status: built
+    source:
+      - qa-agent/agent.py
+      - hooks/pre-commit
+      - ops/qa_log.json
+
+  pre_push_dev_first_check:
+    what: >
+      Blocks pushes to main that haven't been tested on dev branch first.
+      Enforces the dev-first workflow at the git level.
+    how: >
+      Git pre-push hook checks branch, reviews recent QA evidence in
+      ops/qa_log.json, and runs a quick security scan (proxy + traversal).
+      Blocks push if dev-first evidence is missing.
+    prevents:
+      - Direct-to-prod deployments
+      - Untested code reaching production
+      - Process shortcuts under time pressure
+    evidence: >
+      Built after incident #141 where code went directly to prod and broke
+      the chatbot. The hook has blocked 0 violations since installation
+      (which is the point — its existence prevents the behavior).
+    packaging: >
+      Configurable branch protection rules. Integrates with any Git hosting.
+      Policy-as-code for deployment workflows.
+    status: built
+    source:
+      - hooks/pre-push
+      - feedback_deploy_gate.md
+
+  security_audit:
+    what: >
+      Automated security scanner runs 18 checks across 7 categories against
+      all public endpoints. Runs daily and before every push.
+    how: >
+      sec-agent/agent.py with pluggable check modules. Categories: proxy,
+      traversal, sessions, wopi, ratelimit, ssrf, injection. Systemd timer
+      at 03:00 daily. Quick scan in pre-push hook.
+    prevents:
+      - Security regressions going undetected
+      - OWASP top 10 vulnerabilities in production
+      - Long gaps between security assessments
+    evidence: >
+      Caught path traversal attempt patterns, identified session handling
+      gaps, verified rate limiting effectiveness. Continuous scanning means
+      regressions are caught within 24 hours.
+    packaging: >
+      Pluggable security check framework. Pre-built check packs (web app,
+      API, infrastructure). Severity-based alerting. Compliance reporting.
+    status: built
+    source:
+      - sec-agent/agent.py
+      - ops/security_log.json
+      - ops/security_watchlist.json
+
+  schema_validation:
+    what: >
+      Structured output from QA agent and other tools is validated against
+      JSON schemas before being accepted.
+    how: >
+      qa-agent/validator.py checks model output structure. Rejects
+      malformed responses before they enter the pipeline.
+    prevents:
+      - Garbage-in from model hallucination
+      - Downstream failures from unexpected output shapes
+      - Silent data corruption
+    evidence: >
+      Catches ~5% of model responses that don't conform to expected schema.
+      Without validation, these would propagate as subtle bugs.
+    packaging: >
+      Schema validation library. Pre-built schemas for common output types.
+      Custom schema definition framework.
+    status: built
+    source:
+      - qa-agent/validator.py
+
+# =============================================================================
+# 3. OPERATIONAL DISCIPLINE
+# Protocols that impose structure on AI operator behavior across sessions.
+# These prevent the entropy that accumulates when an agent operates freely.
+# =============================================================================
+
+operational_discipline:
+
+  session_lifecycle:
+    what: >
+      Mandatory start and wrap protocols that bookend every operator session.
+      Start: discover state, check health, review context. Wrap: verify clean,
+      commit, push, log, brief next session.
+    how: >
+      scripts/session-start.py and scripts/session-wrap.py automate the
+      checklists. Session start runs health checks, reads watchlists, verifies
+      hooks. Session wrap verifies git clean, QA ran, ops logged, remotes pushed.
+    prevents:
+      - Starting work on a broken system without knowing
+      - Leaving uncommitted work at session end
+      - Losing operational context between sessions
+      - Forgetting to push to all remotes
+    evidence: >
+      Before session protocols: frequent "what happened last time?" confusion,
+      uncommitted work lost, ops logs stale. After: clean handoffs every session.
+    packaging: >
+      Configurable session protocol framework. Start/wrap scripts with
+      pluggable checks. Session briefing generator for team handoffs.
+    status: built
+    source:
+      - scripts/session-start.py
+      - scripts/session-wrap.py
+      - CLAUDE.md (Session Start/Wrap Protocol)
+
+  impact_level_framework:
+    what: >
+      5-level classification of action blast radius. Each level has defined
+      approval requirements and verification standards.
+    how: >
+      Levels 1-5 from read-only to external-facing/irreversible. Documented
+      in sysadmin.md. Operator evaluates every action against the framework
+      before executing.
+    prevents:
+      - Treating high-risk actions with low-risk caution
+      - Over-cautious behavior on safe actions (analysis paralysis)
+      - Unauthorized production changes
+      - Irreversible actions without confirmation
+    evidence: >
+      Framework calibrates behavior correctly. Level 1-2 actions execute
+      immediately (no friction). Level 4-5 actions get confirmation (safety).
+      Without it, every action gets the same treatment — either too cautious
+      or too reckless.
+    packaging: >
+      Customizable impact level framework. Pre-built level definitions by
+      industry (SaaS, healthcare, finance). Automatic level detection for
+      common operations.
+    status: built
+    source:
+      - skills/sysadmin.md (Ecosystem Impact Levels)
+
+  incident_lifecycle:
+    what: >
+      Structured incident tracking with cross-session persistence, recurrence
+      detection, and automatic severity escalation.
+    how: >
+      Incidents logged to ops/sysadmin_log.json with lifecycle states:
+      detected → diagnosed → fixed → verified. Recurrence tracked via
+      recurrence_of field. Fragile service detection after 3+ incidents
+      in 30 days.
+    prevents:
+      - Incidents forgotten between sessions
+      - Recurring problems treated as new each time
+      - Fragile services not getting preventive attention
+      - Root causes never identified (just symptoms patched)
+    evidence: >
+      SearXNG had 3 incidents in 2 weeks — fragile service detection flagged
+      it, leading to image pinning that resolved the root cause. Without
+      tracking, each incident would have been treated independently.
+    packaging: >
+      Incident management framework with lifecycle states, escalation rules,
+      fragile service detection. Integrates with any alerting system.
+    status: built
+    source:
+      - ops/sysadmin_log.json
+      - ops/sysadmin_watchlist.json
+      - scripts/ops-analyze.py
+
+  operational_logging:
+    what: >
+      Append-only JSON logs for every operational event. Separate logs for
+      sysadmin, QA, security, and promotion events.
+    how: >
+      Every deploy, health check, incident, QA review, and promotion logged
+      as structured JSON with timestamps. Watchlists track open concerns.
+      ops-analyze.py surfaces patterns at session start.
+    prevents:
+      - "What happened?" confusion
+      - Lost operational history
+      - Patterns going undetected (same failure recurring silently)
+      - Unauditable operations
+    evidence: >
+      ops/ logs are the institutional memory of the system. Without them,
+      every session starts from zero operational awareness.
+    packaging: >
+      Structured operational logging framework. Ring buffer metrics.
+      Pattern detection engine. Dashboard integration.
+    status: built
+    source:
+      - ops/sysadmin_log.json
+      - ops/qa_log.json
+      - ops/security_log.json
+      - ops/promotion_log.json
+      - ops/metrics_history.json
+
+# =============================================================================
+# 4. KNOWLEDGE INJECTION
+# Systems that load domain knowledge and operational context into the model's
+# working memory at the right time.
+# =============================================================================
+
+knowledge_injection:
+
+  memory_system:
+    what: >
+      File-based persistent memory with typed entries (user, feedback, project,
+      reference). Loaded at session start. Provides cross-session continuity.
+    how: >
+      Markdown files with YAML frontmatter in memory/. Indexed in MEMORY.md.
+      Types determine when memories are relevant and how they're used.
+      sync_memory.py maintains the index.
+    prevents:
+      - Losing context between sessions
+      - Re-explaining preferences every time
+      - Repeating resolved discussions
+      - Stale assumptions from prior sessions (with verification protocol)
+    evidence: >
+      40+ memories spanning user preferences, project state, infrastructure
+      details, and behavioral feedback. A new session with memory is productive
+      in under 60 seconds. Without memory, 10-15 minutes of re-orientation.
+    packaging: >
+      Memory management framework. Type system with customizable categories.
+      Auto-indexing. Staleness detection. Memory authoring guide.
+    status: built
+    source:
+      - memory/*.md
+      - MEMORY.md
+      - scripts/sync_memory.py
+
+  skill_files:
+    what: >
+      Domain-specific operational knowledge encoded as always-active skill
+      documents. Cover sysadmin procedures, QA standards, and service-specific
+      knowledge.
+    how: >
+      Markdown files in skills/. Referenced from CLAUDE.md as "always active."
+      Loaded into context for every session. Contain procedures, decision
+      frameworks, and standards.
+    prevents:
+      - Operator making uninformed infrastructure decisions
+      - Inconsistent QA standards across sessions
+      - Service-specific knowledge being lost
+    evidence: >
+      sysadmin.md alone contains: host architecture, service operations,
+      credential management, troubleshooting procedures, monitoring commands,
+      and the impact level framework. Without it, every infrastructure task
+      requires rediscovery.
+    packaging: >
+      Skill authoring framework. Pre-built skill packs by domain. Skill
+      composition (layering multiple skills). Context budget management.
+    status: built
+    source:
+      - skills/sysadmin.md
+      - skills/quality_assurance.md
+
+  lessons_learned_pipeline:
+    what: >
+      Operational failures flow through a pipeline: incident → feedback memory
+      → QA agent dimension → hook enforcement. Each lesson strengthens the
+      system permanently.
+    how: >
+      ops/lessons_learned.json captures failures. scripts/lessons-to-qa.py
+      updates the QA agent prompt. Feedback memories encode the behavioral
+      change. Hooks enforce at the git level.
+    prevents:
+      - Same failure occurring twice
+      - Lessons staying as documentation instead of becoming enforcement
+      - Knowledge remaining in one person's (or one session's) head
+    evidence: >
+      Direct-to-prod incident (#141) → feedback_deploy_gate.md → pre-push
+      hook (#46). Complete pipeline from failure to automated prevention.
+      This is the canonical example of the system working as designed.
+    packaging: >
+      Lessons-to-enforcement pipeline. Configurable stages. Auto-generation
+      of QA dimensions from incident patterns. The pipeline itself is product.
+    status: partial
+    source:
+      - ops/lessons_learned.json
+      - scripts/lessons-to-qa.py
+      - memory/feedback_*.md
+      - hooks/pre-push
+
+# =============================================================================
+# 5. ENFORCEMENT MECHANISMS
+# Components that make behavioral guarantees executable, not just documented.
+# The core principle: if it's important, it's enforced by code, not by trust.
+# =============================================================================
+
+enforcement:
+
+  git_hooks:
+    what: >
+      Pre-commit and pre-push hooks that enforce QA review, dev-first
+      workflow, and security scanning at the git level.
+    how: >
+      Shell scripts in hooks/. Installed by session-start.py. Pre-commit
+      runs QA agent. Pre-push checks dev-first evidence and runs quick
+      security scan. Block on failure.
+    prevents:
+      - Committing without QA review
+      - Pushing untested code to main
+      - Shipping security regressions
+    evidence: >
+      Hooks are the final enforcement layer. Everything else (memories,
+      skills, protocols) is advisory. Hooks are mandatory. The existence
+      of hooks changes behavior upstream — operators are more careful
+      knowing the hook will catch violations.
+    packaging: >
+      Hook installation framework. Pre-built hook library (QA, security,
+      branch protection, credential scanning). Custom hook authoring.
+    status: built
+    source:
+      - hooks/pre-commit
+      - hooks/pre-push
+
+  escalation_rules:
+    what: >
+      Automated severity escalation based on recurrence patterns. First
+      occurrence = warning, second = error, third = critical. Fragile
+      service detection after 3+ incidents in 30 days.
+    how: >
+      ops-analyze.py applies rules at session start. Watchlist items
+      auto-created for threshold violations. QA rejection rate >30%
+      triggers watchlist item.
+    prevents:
+      - Recurring problems staying at low severity
+      - Fragile services not getting attention
+      - Quality degradation going unnoticed
+    evidence: >
+      Escalation caught SearXNG as fragile service, leading to root
+      cause fix (image pinning) instead of repeated restarts.
+    packaging: >
+      Configurable escalation engine. Threshold definitions by domain.
+      Auto-escalation rules. Integration with alerting systems.
+    status: built
+    source:
+      - scripts/ops-analyze.py
+      - skills/quality_assurance.md (Escalation rules)
+
+  session_protocol_enforcement:
+    what: >
+      Session start and wrap scripts that verify operational readiness
+      and cleanliness. Not optional — compliance is checked.
+    how: >
+      session-start.py runs health checks, reads watchlists, verifies
+      hooks installed. session-wrap.py verifies git clean, QA ran, ops
+      logged, all remotes pushed. Reports PASS/FAIL verdict.
+    prevents:
+      - Starting work on a broken or dirty system
+      - Ending sessions with uncommitted work
+      - Skipping operational handoff to next session
+    evidence: >
+      Session wrap catches: unpushed remotes, uncommitted files, missing
+      QA reviews, stale ops logs. Each catch prevents data loss or
+      operational confusion in the next session.
+    packaging: >
+      Session protocol framework. Pluggable start/wrap checks.
+      Compliance reporting. Team handoff generator.
+    status: built
+    source:
+      - scripts/session-start.py
+      - scripts/session-wrap.py
+
+# =============================================================================
+# 6. PROJECT GOVERNANCE
+# Components that impose organizational discipline on multi-repo, multi-platform
+# operations. Without these, sprawl and entropy win.
+# =============================================================================
+
+project_governance:
+
+  org_level_backlog:
+    what: >
+      Single org-level project board spanning all repos, with structured
+      fields for priority, category, and product. Every piece of work is
+      visible in one place.
+    how: >
+      GitHub Projects V2 board at org level (ologos-corp). Custom fields:
+      Status (Backlog/Up Next/In Progress/In Review/Done), Priority (P0-P3),
+      Category (Engineering/Ops/Product/Business), Product (Intelligence/
+      Agentic Ops/Productivity Skills/Infrastructure/NG/Claude Web).
+      Reviewed and updated during every session wrap.
+    prevents:
+      - Work scattered across repos with no unified view
+      - Leadership unable to see what's in progress or blocked
+      - Priority conflicts going undetected
+      - Forgotten or orphaned issues
+      - "What should we work on next?" confusion
+    evidence: >
+      Before the board: work tracked in scattered GitHub issues, a memory
+      file, and conversation context. Priorities unclear, no categorization,
+      no product mapping. The absence was identified as a significant
+      operational gap on 2026-04-04 — a lesson learned in real time.
+    packaging: >
+      Board template with pre-configured fields. Setup script to create
+      and populate. Integration with session protocols (start: review board,
+      wrap: update board). Board-as-code definition for reproducibility.
+    status: built
+    source:
+      - https://github.com/orgs/ologos-corp/projects/1
+      - skills/sysadmin.md (Backlog Management section)
+      - CLAUDE.md (Session Wrap Protocol)
+
+  platform_sovereignty:
+    what: >
+      Dual-platform strategy where the primary platform (GitHub) is mirrored
+      to a self-hosted platform (Gitea) so the organization is never locked
+      into a single vendor.
+    how: >
+      Code: dual git push to GitHub + Gitea on every commit. Issues: one-way
+      sync from GitHub → Gitea via scripts/sync_issues.py (systemd timer,
+      every 6 hours). Gitea issues prefixed [GH#N] for tracking. GitHub is
+      authoritative today; swap to Gitea-primary is trivial because both
+      platforms always have current data.
+    prevents:
+      - Vendor lock-in to GitHub (pricing changes, policy changes, outages)
+      - Single point of failure for code hosting
+      - Painful migration if/when the org goes fully self-hosted
+      - Loss of issue history during platform transitions
+    evidence: >
+      Built after recognizing that n8n dependency (#48) was a vendor risk.
+      Same principle applied to code hosting: own your infrastructure,
+      mirror to the ecosystem. The sync script ran successfully on first
+      execution (50 issues, 0 failures, idempotent on re-run).
+    packaging: >
+      Sync framework for GitHub ↔ Gitea (or any Git forge with API).
+      Dual-push configuration. Migration playbook for swapping primary.
+      Platform-agnostic issue tracking abstraction.
+    status: built
+    source:
+      - scripts/sync_issues.py
+      - sync-issues.timer (systemd)
+      - ops/repo_registry.json
+
+  asset_registry:
+    what: >
+      Single source of truth for all repos, accounts, and platforms across
+      the organization. Tracks what exists where, what's mirrored, what's
+      orphaned, and what needs attention.
+    how: >
+      ops/repo_registry.json catalogs every repo with: platform locations
+      (GitHub/Gitea), visibility, product mapping, sync status, local paths,
+      and notes. Gaps section identifies: GitHub-only repos, Gitea-only repos,
+      repos needing review, repos needing mirrors. Updated during session
+      wrap when repo-level changes occur.
+    prevents:
+      - Repo sprawl going undetected (15 repos across 2 platforms discovered)
+      - Orphaned repos on one platform with no mirror
+      - Unknown repos of unclear purpose accumulating
+      - "Where is that repo?" confusion
+      - Mirroring gaps going unnoticed
+    evidence: >
+      First registry audit found: 6 GitHub-only repos, 3 Gitea-only repos,
+      5 repos of unknown status, 3 repos needing mirrors, 2 personal repos
+      that should be org repos. None of this was visible before the registry.
+    packaging: >
+      Registry schema with platform, product, and sync metadata. Audit
+      script that compares GitHub and Gitea org repos and flags gaps.
+      Integration with session wrap for ongoing maintenance.
+    status: built
+    source:
+      - ops/repo_registry.json
+      - skills/sysadmin.md (Repo Registry section)
+
+  vendor_independence:
+    what: >
+      Principle that product-critical automation must live in code you own,
+      not in third-party workflow tools. Eliminates invisible infrastructure
+      and vendor lock-in.
+    how: >
+      Automation follows the pattern: Python script + systemd timer + ops/
+      logging. No GUI workflow builders, no SaaS dependencies, no opaque
+      state. Everything version-controlled, testable, reviewable in PRs.
+      n8n retained only for non-critical internal glue, not load-bearing
+      product workflows.
+    prevents:
+      - Business logic living in a vendor tool (n8n, Zapier, etc.)
+      - Breaking changes from upstream tool updates
+      - Invisible infrastructure that can't be reviewed or tested
+      - Split-brain automation (some in code, some in tools)
+    evidence: >
+      Gap analysis (#48) showed n8n's real advantages (webhook ingestion,
+      retry logic, credential vault) are all buildable natively in ~500
+      lines of Python. The features n8n is famous for (visual builder,
+      400+ connectors) are irrelevant for a technical team with 5 integrations.
+    packaging: >
+      Automation pattern library (script + timer + logging). Decision
+      framework: when to build vs. when to buy. Migration guide from
+      n8n/Zapier to owned automation.
+    status: built
+    source:
+      - scripts/ (24 automation scripts)
+      - /etc/systemd/system/ (timers)
+      - intelligence/components.yml (this catalog)
+
+# =============================================================================
+# 7. ANTI-HALLUCINATION
+# Components that detect and prevent the model from asserting false things.
+# This is the trust layer — without it, nothing else matters.
+# =============================================================================
+
+anti_hallucination:
+
+  state_verification_protocol:
+    what: >
+      Before asserting any state claim (file exists, service running, code
+      works), the operator must verify against current reality.
+    how: >
+      Documented protocol in quality_assurance.md. Categories: state claims,
+      content claims, conversation claims, output claims. Each category has
+      specific verification commands.
+    prevents:
+      - Asserting files exist that don't
+      - Claiming services are running that aren't
+      - Referencing code that was deleted or moved
+      - Stating deploys succeeded without checking
+    evidence: >
+      Before this protocol: frequent "I already fixed that" claims that
+      turned out to be false (context compression lost the actual state).
+      After: verification rate ~95% for state claims.
+    packaging: >
+      Verification protocol framework. Domain-specific claim categories.
+      Auto-verification hooks (check before assert). Trust scoring.
+    status: built
+    source:
+      - skills/quality_assurance.md (Anti-Hallucination Checks)
+
+  memory_staleness_detection:
+    what: >
+      Memory entries are treated as claims about past state, not current
+      truth. Before acting on a memory, verify it against current reality.
+    how: >
+      Memory access protocol requires verification: if memory names a file,
+      check it exists. If memory names a function, grep for it. If acting
+      on a recommendation (not just history), verify first.
+    prevents:
+      - Acting on outdated memory (renamed files, removed functions)
+      - Recommending approaches that no longer apply
+      - Compounding stale information across sessions
+    evidence: >
+      Multiple instances of memories referencing files that had been
+      restructured. Verification protocol catches these before they
+      cause errors.
+    packaging: >
+      Memory verification layer. Auto-staleness scoring based on age
+      and referenced artifacts. Expiration policies by memory type.
+    status: built
+    source:
+      - Memory system instructions (auto memory section)
+
+  hallucination_tracking:
+    what: >
+      When a hallucination is caught, it's logged with the claim, the truth,
+      and how it was detected. Recurrence patterns trigger QA updates.
+    how: >
+      Logged in ops/qa_log.json with type: hallucination_catch. Watchlist
+      items created on second occurrence. QA prompt updated on pattern
+      detection. Resolution after 10+ clean reviews.
+    prevents:
+      - Same hallucination type recurring without detection
+      - Hallucination patterns going unaddressed
+      - Trust erosion from repeated false claims
+    evidence: >
+      Tracking revealed patterns: models hallucinate file contents more
+      than file existence, and hallucinate recent changes more than
+      stable code. Pattern detection improved QA catch rate.
+    packaging: >
+      Hallucination tracking and pattern detection. Recurrence analysis.
+      QA dimension auto-generation from patterns. Trust scoring by
+      claim category.
+    status: built
+    source:
+      - ops/qa_log.json
+      - skills/quality_assurance.md (Hallucination tracking lifecycle)
+
+# =============================================================================
+# 7. COMPOUNDING EFFECTS
+# The real product value isn't any single component — it's how they compound.
+# These are the cross-cutting pipelines that create multiplicative value.
+# =============================================================================
+
+compounding:
+
+  lesson_to_enforcement_pipeline:
+    what: >
+      Complete pipeline from operational failure to automated prevention.
+      Incident → memory → QA dimension → hook enforcement.
+    how: >
+      Each stage feeds the next. Failure is logged (ops/). Lesson is
+      captured (memory/). QA agent is updated (lessons-to-qa.py). Hook
+      enforces at git level (hooks/). Four layers of defense.
+    value: >
+      Every failure makes the system permanently stronger. Customers
+      accumulate operational intelligence over time. The system gets
+      better the longer it runs — the opposite of entropy.
+
+  feedback_plus_enforcement:
+    what: >
+      Behavioral corrections become executable gates, not just notes.
+      "Don't do X" becomes "can't do X."
+    how: >
+      Feedback memory changes model behavior (advisory). Git hook blocks
+      the action if the model ignores the feedback (mandatory). Two layers:
+      soft guidance + hard enforcement.
+    value: >
+      Advisory-only systems degrade under pressure — the model "forgets"
+      or deprioritizes feedback when context is full. Enforcement doesn't
+      degrade. The combination is strictly stronger than either alone.
+
+  cross_session_continuity:
+    what: >
+      Memory + session protocols + operational logs create continuous
+      operational awareness across ephemeral sessions.
+    how: >
+      Session wrap persists everything. Session start loads everything.
+      No operational context is lost between sessions. Next session
+      briefing ensures continuity of priorities.
+    value: >
+      AI operators are ephemeral by nature — each session starts fresh.
+      This pipeline makes them persistent. The operator "remembers"
+      everything it needs to. This is the fundamental unsolved problem
+      in AI operations, and this is our solution.
+
+  gap_to_governance_pipeline:
+    what: >
+      Operational gaps discovered during work become permanent governance
+      structures within the same session. Not "we should fix this later"
+      — fixed now, enforced now.
+    how: >
+      Gap identified → structural fix built → automation installed →
+      skill/protocol updated → feedback memory captured → session wrap
+      verifies. Complete pipeline from discovery to enforcement in one
+      session.
+    value: >
+      Most organizations discover operational gaps and create tickets.
+      Ologos Intelligence discovers gaps and closes them structurally
+      in the same session. The 2026-04-04 backlog gap is the canonical
+      example: no backlog existed → board created → sync script built →
+      timer installed → sysadmin skill updated → wrap protocol updated →
+      feedback memory captured. Six layers of governance from one
+      observation. This is the compounding effect that makes the system
+      anti-fragile — it gets stronger from discovering its own weaknesses.
+
+  sovereignty_by_default:
+    what: >
+      Every piece of infrastructure and automation is built with platform
+      independence as a first-class concern, not an afterthought.
+    how: >
+      Code mirrors to self-hosted Gitea. Issues sync automatically.
+      Automation lives in owned Python scripts, not vendor tools.
+      Backups go to owned storage. Credentials stay in local .env files.
+      Every external dependency has an exit strategy.
+    value: >
+      Most startups discover vendor lock-in when it's too late — during
+      a price increase, an outage, or a policy change. Ologos Intelligence
+      makes sovereignty continuous: every new capability is built with
+      the assumption that any vendor could disappear tomorrow. The cost
+      of sovereignty-by-default is near zero when built in from the start.
+      The cost of retrofitting sovereignty after lock-in is enormous.
