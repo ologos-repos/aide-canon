@@ -1,4 +1,4 @@
-# constructs/
+# constructs/ — Tier 3
 
 Peer methodological patterns, transverse to altitude. Four constructs sit at this tier; each patterns a different concern. None subsumes another; they compose.
 
