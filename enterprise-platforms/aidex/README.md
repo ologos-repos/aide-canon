@@ -2,6 +2,10 @@
 
 The worker-facing subdomain under AEON. The architecture that **expresses HCAE operationally** at the digital experience layer. One of nine peer subdomains.
 
+## Authors
+
+Co-authored by **JD Longmire** (ORCID [0009-0009-1383-7698](https://orcid.org/0009-0009-1383-7698)) and **Micah Longmire** (ORCID [0009-0006-7608-9322](https://orcid.org/0009-0006-7608-9322)) per [ADR-EA-0008](../../decisions/ADR-EA-0008-reframe-corpus-authorship.md). The published white paper + decks record the pre-reframe sole authorship.
+
 ## Canonical artifact
 
 [`docs/AIDEX-White-Paper.pdf`](docs/AIDEX-White-Paper.pdf) — eight-axis modularity (presentation, persona, role, authority, context, memory, modality, lineage); HCAE framework; multi-backend topology; Claude Cowork as deployed reference.

@@ -14,7 +14,7 @@ DEA is scoped to digitally-realized capabilities — those whose means of realiz
 
 ## Canonical artifact
 
-[`docs/Digital-Ecosystems-Architecture-Base.pdf`](docs/Digital-Ecosystems-Architecture-Base.pdf) — the foundational paper. Sole-authored by JD Longmire (ORCID [0009-0009-1383-7698](https://orcid.org/0009-0009-1383-7698)).
+[`docs/Digital-Ecosystems-Architecture-Base.pdf`](docs/Digital-Ecosystems-Architecture-Base.pdf) — the foundational paper. Co-authored by JD Longmire (ORCID [0009-0009-1383-7698](https://orcid.org/0009-0009-1383-7698)) and Micah Longmire (ORCID [0009-0006-7608-9322](https://orcid.org/0009-0006-7608-9322)) per [ADR-EA-0008](../../decisions/ADR-EA-0008-reframe-corpus-authorship.md); the published DOCX/PDF artifacts record the pre-reframe sole authorship.
 
 ## Layout
 

@@ -4,6 +4,10 @@ The corpus's enterprise-strategic positioning argument: pain-first framing, four
 
 This artifact occupies the **Strategy** slot of [VSOK](..) within [Vision-Strategy](../..) (Tier 0). It is the *positioning argument that bridges Vision to action* — the corpus's umbrella case for the enterprise-platforms it advocates.
 
+## Authors
+
+Co-authored by **JD Longmire** (ORCID [0009-0009-1383-7698](https://orcid.org/0009-0009-1383-7698)) and **Micah Longmire** (ORCID [0009-0006-7608-9322](https://orcid.org/0009-0006-7608-9322)) per [ADR-EA-0008](../../../decisions/ADR-EA-0008-reframe-corpus-authorship.md). The published strategic brief + companion deck record the pre-reframe sole authorship.
+
 ## Canonical artifacts
 
 | File | Description |

@@ -8,7 +8,7 @@ A draft proposal replacing RLHF (Reinforcement Learning from Human Feedback) wit
 |---|---|
 | **Status** | **In draft** — no Zenodo deposit yet |
 | **DOI** | (pending — deposits on author ratification) |
-| **Author** | JD Longmire (ORCID [0009-0009-1383-7698](https://orcid.org/0009-0009-1383-7698)) |
+| **Authors** | JD Longmire (ORCID [0009-0009-1383-7698](https://orcid.org/0009-0009-1383-7698)) · Micah Longmire (ORCID [0009-0006-7608-9322](https://orcid.org/0009-0006-7608-9322)) |
 
 ## Artifacts
 

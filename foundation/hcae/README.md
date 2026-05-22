@@ -10,7 +10,8 @@ A framework for reliable AI deployment grounded in human curation as the locus o
 |---|---|
 | **Status** | Published |
 | **DOI** | [`10.5281/zenodo.18368697`](https://doi.org/10.5281/zenodo.18368697) |
-| **Author** | JD Longmire (ORCID [0009-0009-1383-7698](https://orcid.org/0009-0009-1383-7698)) |
+| **Authors** | JD Longmire (ORCID [0009-0009-1383-7698](https://orcid.org/0009-0009-1383-7698)) · Micah Longmire (ORCID [0009-0006-7608-9322](https://orcid.org/0009-0006-7608-9322)) |
+| **Published-record authorship** | The Zenodo deposit records JD Longmire as author (deposit predates the canon's joint-authorship reframe). The canon-side authorship reflects the joint working pattern per [ADR-EA-0008](../../decisions/ADR-EA-0008-reframe-corpus-authorship.md). |
 | **License** | (per upstream Zenodo deposit terms) |
 
 ## Artifacts
