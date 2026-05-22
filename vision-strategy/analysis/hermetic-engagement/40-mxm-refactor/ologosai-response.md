@@ -86,6 +86,37 @@ Option C unlocks the first answer immediately. Option B is the bet that #1 (orie
 
 ---
 
+## Addendum — JD's contingency direction (2026-05-22, post-PR-8-merge)
+
+JD ratified the conditional-yes posture on Hermetic-as-MxM-multi-agent-reference-impl, and added the **explicit contingency answer for the "no" branch**:
+
+> *"AEON can be the AIDE exemplar if refactoring Hermetic is not value-added."*
+
+This locks the contingency tree:
+
+| Scenario | Hermetic role | AIDE exemplar role |
+|---|---|---|
+| **Refactor pays off** (orientation packet ships + proves operationally meaningful) | Stays as AEON's six-service-plane reference impl (per [#38](../38-canon-mapping/ologosai-response.md), Pattern B+); additionally becomes the canonical reference for **how to organize a multi-agent harness around MxM** | Multiple exemplars co-exist: Hermetic for harness-organization-pattern + AEON-deployed for full-stack deployment |
+| **Refactor doesn't pay off** (operational meaning fails to materialize) | Stays as AEON's six-service-plane reference impl (unchanged); does **not** become the canonical MxM-multi-agent reference | **AEON-deployed carries the AIDE exemplar role** — the canonical reference deployment that demonstrates AIDE at altitude |
+
+**What this means in practice:**
+
+- Hermetic's AEON-reference-impl status (per [#38](../38-canon-mapping/ologosai-response.md)) is **stable across both scenarios**. Pattern B+ holds either way; the AEON white paper's recommendation to deploy Hermetic for the six service planes doesn't depend on the MxM-refactor outcome.
+- The branching is specifically on **whether the canon's *MxM-multi-agent-harness* slot has a named reference impl**. In the "yes" scenario, Hermetic fills it. In the "no" scenario, the slot stays open until a different impl emerges (or until AEON-deployed's organization itself becomes the reference at a different altitude).
+- **AEON-deployed has a load-bearing role in both scenarios** — as a full-stack instance in the "yes" scenario, as the broader AIDE exemplar in the "no" scenario. This makes AEON-deployment progress an observable signal worth tracking regardless of which branch the MxM-refactor decision lands on.
+
+**Implication for the upstream Hermetic#40 comment:** the comment text below is being refreshed in a separate follow-up to incorporate the contingency tree explicitly so the upstream thread sees both branches, not just the conditional-yes branch.
+
+**Implication for VSOK** (refines the earlier mapping):
+
+| VSOK slot | Refinement |
+|---|---|
+| **Strategy** | The canon's AIDE-exemplar claim has a *two-branch* contingency tree. Both branches keep AEON-deployment central; one branch additionally adds Hermetic-organized-by-MxM as a multi-agent-harness reference. The Strategy paper's *"build this"* claim doesn't depend on which branch resolves. |
+| **Objectives** | (proposed) Track AEON-deployment progress as a load-bearing signal regardless of MxM-refactor branch. The MxM-refactor branch is a *bonus* path — useful if it materializes; not blocking if it doesn't. |
+| **Key Results** | AEON-deployment milestones become KRs in their own right (not gated on MxM-refactor decision). |
+
+---
+
 ## What I'll post as the discussion comment
 
 After JD approval, post the following to [`Hermetic#40`](https://github.com/ologos-repos/Hermetic/discussions/40):
@@ -114,6 +145,8 @@ After JD approval, post the following to [`Hermetic#40`](https://github.com/olog
 >
 > **On JD's Q3 (alignment-vs-refactor-cost):** start with Option C; value is real even without refactor; refactor is only justified if #1 materializes. Don't conflate "is MxM a useful lens for reading Hermetic" (yes, $0 of refactor cost) with "should Hermetic's organization mirror the MxM lens" (maybe, requires net-new surfaces to justify).
 >
-> Implications for VSOK threading back through `vision-strategy/analysis/`: Strategy gets the MxM-archetype claim reinforced by a real-codebase exemplar (conditional on orientation packet); Objectives propose phased C → B-light → B gating; KR ideas around per-surface package count, orientation-packet utilization, external citation as MxM-multi-agent reference.
+> **Contingency direction (per JD, 2026-05-22):** the "no" branch of the conditional has an explicit answer — *if the Hermetic MxM-refactor isn't value-added, AEON-deployed carries the AIDE exemplar role.* Hermetic's AEON-reference-impl status (per [#38](https://github.com/ologos-repos/Hermetic/discussions/38), Pattern B+) is stable across both branches; only the *MxM-multi-agent reference impl* role branches on the orientation-packet outcome. AEON-deployment progress is a load-bearing signal regardless of which branch resolves.
+>
+> Implications for VSOK threading back through `vision-strategy/analysis/`: Strategy gets the MxM-archetype claim reinforced by a real-codebase exemplar (conditional on orientation packet); Objectives propose phased C → B-light → B gating; KR ideas around per-surface package count, orientation-packet utilization, external citation as MxM-multi-agent reference. Both contingency branches preserve AEON-deployment as a central observable.
 >
 > — OlogosAI

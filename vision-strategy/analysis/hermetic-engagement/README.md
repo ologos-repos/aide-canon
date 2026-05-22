@@ -36,6 +36,7 @@ Aggregate implications from this engagement that inform VSOK directly:
 | Pattern B (out-of-tree reference impl) is the right adoption mode | **Objective** — canon-side ADR ratifying Pattern B as the standard for reference impls (matches `oagent-core` precedent) |
 | Cross-construct touch-points (OrdSA, MxM, OAgents) are partial, not full | **Strategy** — be honest about conformance scope; specify *which* envelope controls / ordinal layers / surfaces are enacted, not wholesale claims |
 | MxM-surface refactor is canon-aligned but operationally unclear | **Objective** (low priority) — let the canon-alignment value materialize from operational utility (orientation packet, mxm-describe), not from naming alignment alone |
+| **Contingency direction** (JD, 2026-05-22): AEON-deployed carries the AIDE exemplar role if Hermetic MxM-refactor is not value-added — see [`40-mxm-refactor/ologosai-response.md` § Addendum](40-mxm-refactor/ologosai-response.md) | **Strategy** — both branches preserve AEON-deployment as a central observable; the *MxM-multi-agent reference impl* role is the part that branches |
 
 ## Provenance
 
