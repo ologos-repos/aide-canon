@@ -49,6 +49,12 @@ constructs/mxm/
 └── spec/                          # reserved (buildable spec)
 ```
 
+## Citation
+
+[`10.5281/zenodo.20349200`](https://doi.org/10.5281/zenodo.20349200) — Longmire, J. D., & Longmire, M. (2026). *Mx-Modes: A Meta-Harness Framework for Multi-Mode AI Operation*. Zenodo.
+
+Deposited 2026-05-22 to the [AI Research & Philosophy community](https://zenodo.org/communities/ai-research-philosophy/). The corpus's first joint construct in the spine; co-authorship recorded on the artifact title page. License: CC BY 4.0.
+
 ## Provenance
 
 Sourced from `osa-ai-org/enterprise-ai/docs/` (snapshot copy). ADR-EA-0004 records the spine bundling decision; ADR-EA-0005 refines the altitude characterization to harness archetype.

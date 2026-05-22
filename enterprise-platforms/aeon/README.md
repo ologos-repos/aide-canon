@@ -31,6 +31,12 @@ Six service planes order the canon's three lower constructs:
 - OrdSA orders the authority and evidence planes within AEON
 - MxM is the harness archetype each AEON-bound agent instantiates
 
+## Citation
+
+[`10.5281/zenodo.20349194`](https://doi.org/10.5281/zenodo.20349194) — Longmire, J. D., & Longmire, M. (2026). *AEON: An Enterprise Control Plane Architecture for the Agentic Era*. Zenodo.
+
+Deposited 2026-05-22 to the [AI Research & Philosophy community](https://zenodo.org/communities/ai-research-philosophy/). Cites HCAE (`10.5281/zenodo.18368697`) and AIDK (`10.5281/zenodo.18316059`) as upstream foundation. License: CC BY 4.0.
+
 ## Provenance
 
 Sourced from `osa-ai-org/enterprise-ai/docs/` (snapshot copy).
