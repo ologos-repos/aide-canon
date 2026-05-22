@@ -26,13 +26,14 @@ Five content tiers stratified by altitude and role:
 | **3** | **[`constructs/`](constructs/)** | Peer methodological patterns, transverse to altitude | DEA · OrdSA · MxM · OAgents |
 | **4** | **[`enterprise-platforms/`](enterprise-platforms/)** | Enterprise-altitude instantiations of the constructs | AEON · AIDEX · OAAD |
 | *—* | **[`related-work/`](related-work/)** | Allied research that informs the canon without being part of its spine | Theseus |
+| *—* | **[`patterns/`](patterns/)** | Cross-cutting architectural patterns that traverse multiple tiers/constructs | digital-thread |
 
 Two cross-cutting directories:
 
 - **[`decisions/`](decisions/)** — canon-level Architecture Decision Records (umbrella + structural)
 - **[`infographics/`](infographics/)** — canon-level visuals (cross-construct, cross-platform)
 
-The tier numbering was introduced by [ADR-EA-0007](decisions/ADR-EA-0007-introduce-vsok-tier-0-and-mode-alpha.md) — it adds Vision-Strategy as Tier 0 above the synthesis and renames the synthesizing tier from *Master Thesis* to *Mode Alpha*. The shape preserves the four-tier intellectual content from [ADR-EA-0006](decisions/ADR-EA-0006-migrate-corpus-to-aide-canon.md) (foundation / constructs / enterprise-platforms / related-work) and lifts Strategy out of the enterprise-platforms tier into Vision-Strategy / VSOK / Strategy at Tier 0.
+The tier numbering was introduced by [ADR-EA-0007](decisions/ADR-EA-0007-introduce-vsok-tier-0-and-mode-alpha.md) — it adds Vision-Strategy as Tier 0 above the synthesis and renames the synthesizing tier from *Master Thesis* to *Mode Alpha*. The shape preserves the four-tier intellectual content from [ADR-EA-0006](decisions/ADR-EA-0006-migrate-corpus-to-aide-canon.md) (foundation / constructs / enterprise-platforms / related-work) and lifts Strategy out of the enterprise-platforms tier into Vision-Strategy / VSOK / Strategy at Tier 0. [ADR-EA-0009](decisions/ADR-EA-0009-introduce-digital-thread-pattern.md) adds the [`patterns/`](patterns/) tier alongside related-work for cross-cutting architectural patterns; the digital-thread pattern is the first entry.
 
 ---
 
