@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+
+# Editor artifacts
+*~
+*.swp
+.vscode/
+.idea/
+
+# LibreOffice / Office lock files
+.~lock.*#
+~$*
+
+# Local-only render outputs
+*.tmp.pdf
