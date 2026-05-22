@@ -26,13 +26,14 @@ Five content tiers stratified by altitude and role:
 | **3** | **[`constructs/`](constructs/)** | Peer methodological patterns, transverse to altitude | DEA · OrdSA · MxM · OAgents |
 | **4** | **[`enterprise-platforms/`](enterprise-platforms/)** | Enterprise-altitude instantiations of the constructs | AEON · AIDEX · OAAD |
 | *—* | **[`related-work/`](related-work/)** | Allied research that informs the canon without being part of its spine | Theseus |
+| *—* | **[`patterns/`](patterns/)** | Cross-cutting architectural patterns that traverse multiple tiers/constructs | digital-thread |
 
 Two cross-cutting directories:
 
 - **[`decisions/`](decisions/)** — canon-level Architecture Decision Records (umbrella + structural)
 - **[`infographics/`](infographics/)** — canon-level visuals (cross-construct, cross-platform)
 
-The tier numbering was introduced by [ADR-EA-0007](decisions/ADR-EA-0007-introduce-vsok-tier-0-and-mode-alpha.md) — it adds Vision-Strategy as Tier 0 above the synthesis and renames the synthesizing tier from *Master Thesis* to *Mode Alpha*. The shape preserves the four-tier intellectual content from [ADR-EA-0006](decisions/ADR-EA-0006-migrate-corpus-to-aide-canon.md) (foundation / constructs / enterprise-platforms / related-work) and lifts Strategy out of the enterprise-platforms tier into Vision-Strategy / VSOK / Strategy at Tier 0.
+The tier numbering was introduced by [ADR-EA-0007](decisions/ADR-EA-0007-introduce-vsok-tier-0-and-mode-alpha.md) — it adds Vision-Strategy as Tier 0 above the synthesis and renames the synthesizing tier from *Master Thesis* to *Mode Alpha*. The shape preserves the four-tier intellectual content from [ADR-EA-0006](decisions/ADR-EA-0006-migrate-corpus-to-aide-canon.md) (foundation / constructs / enterprise-platforms / related-work) and lifts Strategy out of the enterprise-platforms tier into Vision-Strategy / VSOK / Strategy at Tier 0. [ADR-EA-0009](decisions/ADR-EA-0009-introduce-digital-thread-pattern.md) adds the [`patterns/`](patterns/) tier alongside related-work for cross-cutting architectural patterns; the digital-thread pattern is the first entry.
 
 ---
 
@@ -56,12 +57,12 @@ RLEG sits adjacent to HCAE: HCAE prescribes human curation of AI output at the p
 
 Four methodological constructs sit at the same tier, each patterning a different concern. None subsumes another; they compose:
 
-| Construct | What it patterns | Canonical artifact |
-|---|---|---|
-| **[DEA](constructs/dea/)** | EA coherence — three-baseline architecture frame (Digital Capability / Digital Technical / Digital Operational baselines, owned by EA / Systems / Solutions architecture disciplines) | `Digital-Ecosystems-Architecture-Base.pdf` |
-| **[OrdSA](constructs/ordsa/)** | Authority and evidence — seven-ordinal layering (O0 Enterprise Intent → O6 Outcome/Audit/Feedback). Schema-first canonical (`schema/ordsa-0.2.yaml`); prose is companion | `schema/ordsa-0.2.yaml` + concept paper |
-| **[MxM](constructs/mxm/)** | Harness — five-surface composition archetype (Mind / Morals / Mission / Memory / Means); applies at any harness altitude, not just per-agent | `Mx-Modes-Technical-Reference.pdf` |
-| **[OAgents](constructs/oagents/)** | Agent — behavioral envelope standard + reference implementation; specifies what an agent **is** as a typed object. Schema-first canonical (`spec/oagents-nist-standard-v16.0.md`); paper is companion | `spec/oagents-nist-standard-v16.0.md` |
+| Construct | What it patterns | Canonical artifact | DOI |
+|---|---|---|---|
+| **[DEA](constructs/dea/)** | EA coherence — three-baseline architecture frame (Digital Capability / Digital Technical / Digital Operational baselines, owned by EA / Systems / Solutions architecture disciplines) | `Digital-Ecosystems-Architecture-Base.pdf` (+ UAF + DIB Compliance positioning papers) | [`10.5281/zenodo.20349198`](https://doi.org/10.5281/zenodo.20349198) |
+| **[OrdSA](constructs/ordsa/)** | Authority and evidence — seven-ordinal layering (O0 Enterprise Intent → O6 Outcome/Audit/Feedback). Schema-first canonical (`schema/ordsa-0.2.yaml`); prose is companion | `schema/ordsa-0.2.yaml` + concept paper | [`10.5281/zenodo.20334233`](https://doi.org/10.5281/zenodo.20334233) |
+| **[MxM](constructs/mxm/)** | Harness — five-surface composition archetype (Mind / Morals / Mission / Memory / Means); applies at any harness altitude, not just per-agent | `Mx-Modes-Technical-Reference.pdf` (JD + Micah Longmire) | [`10.5281/zenodo.20349200`](https://doi.org/10.5281/zenodo.20349200) |
+| **[OAgents](constructs/oagents/)** | Agent — behavioral envelope standard + reference implementation; specifies what an agent **is** as a typed object. Schema-first canonical (`spec/oagents-nist-standard-v16.0.md`); paper is companion | `spec/oagents-nist-standard-v16.0.md` | [`10.5281/zenodo.19425021`](https://doi.org/10.5281/zenodo.19425021) |
 
 The enterprise-platforms below become **enterprise-altitude instantiations** of these patterns — what you get when you compose MxM (harness) ordered by OrdSA (authority/evidence) within DEA (EA coherence) at enterprise scale, with OAgents as the domain object.
 
@@ -69,11 +70,11 @@ The enterprise-platforms below become **enterprise-altitude instantiations** of 
 
 ## Enterprise platforms — instantiations at the enterprise altitude
 
-| Platform | Stands for | What it is |
-|---|---|---|
-| **[AEON](enterprise-platforms/aeon/)** | AI Enterprise Orchestration Nexus | The enterprise control plane for the agentic era. Six service planes: identity, authority, evidence, integration, capability composition, orchestration runtime |
-| **[AIDEX](enterprise-platforms/aidex/)** | AI Digital Experience | The worker-facing subdomain under AEON. Architectural expression of HCAE operationally at the digital experience layer |
-| **[OAAD](enterprise-platforms/oaad/)** | Open Source Software Agentic AI DevSecOps | A platform thesis: OSS + agentic AI + DevSecOps governance replaces the COTS business capability stack |
+| Platform | Stands for | What it is | DOI |
+|---|---|---|---|
+| **[AEON](enterprise-platforms/aeon/)** | AI Enterprise Orchestration Nexus | The enterprise control plane for the agentic era. Six service planes: identity, authority, evidence, integration, capability composition, orchestration runtime | [`10.5281/zenodo.20349194`](https://doi.org/10.5281/zenodo.20349194) |
+| **[AIDEX](enterprise-platforms/aidex/)** | AI Digital Experience | The worker-facing subdomain under AEON. Architectural expression of HCAE operationally at the digital experience layer | [`10.5281/zenodo.20349196`](https://doi.org/10.5281/zenodo.20349196) |
+| **[OAAD](enterprise-platforms/oaad/)** | Open Source Software Agentic AI DevSecOps | A platform thesis: OSS + agentic AI + DevSecOps governance replaces the COTS business capability stack | [`10.5281/zenodo.20349202`](https://doi.org/10.5281/zenodo.20349202) |
 
 **Strategy is not at this tier.** *Enterprise Agentic AI Platform Strategy* — the positioning argument that bridges Vision to the platforms below — lives at [`vision-strategy/vsok/strategy/`](vision-strategy/vsok/strategy/) (Tier 0). It is umbrella prose, not a buildable platform peer. See [ADR-EA-0007](decisions/ADR-EA-0007-introduce-vsok-tier-0-and-mode-alpha.md).
 

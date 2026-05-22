@@ -26,16 +26,12 @@ Each analysis artifact follows a consistent shape:
 
 ## Current contents
 
-| Subfolder | What it holds |
+| Item | What it holds |
 |---|---|
+| [`aide-vocabulary-map.md`](aide-vocabulary-map.md) | AIDE-canonical vocabulary reference. Established 2026-05-22 per JD's direction during PR #10 review: AIDE vocabulary is the canon's source of truth; external systems map *to* AIDE with explicit mapping types (synonym / partial / orthogonal / nested / N-A). Initial coverage: AIDE × Hermetic. Grows as SOTA survey populates. |
 | [`hermetic-engagement/`](hermetic-engagement/) | Analysis tied to the Hermetic discussion threads ([#38](https://github.com/ologos-repos/Hermetic/discussions/38) canon-mapping audit, [#39](https://github.com/ologos-repos/Hermetic/discussions/39) means inventory, [#40](https://github.com/ologos-repos/Hermetic/discussions/40) MxM refactor). Hermetic positioned as a concrete AEON exemplar. |
-
-## Reserved (future analysis tracks)
-
-These subfolders will appear as the corresponding work begins:
-
-- `sota-survey/` — SOTA research program covering vendor stacks (MS, AWS, GCP, Salesforce, etc.), OSS frameworks (LangGraph, OpenHands, AutoGen, ADK, etc.), standards bodies (NIST AI RMF, MCP, A2A, ANP), and analyst frames (Gartner, Forrester). Gap analysis vs current AIDE architecture.
-- `exemplar-tracking/` — Hermetic + AEON-deployed as concrete exemplars; observable progress signals over time; what the exemplars prove out about Vision feasibility.
+| [`sota-survey/`](sota-survey/) | SOTA research program (scaffolded 2026-05-22) — five slices: vendor-stacks / oss-frameworks / standards-bodies / analyst-frames / academic. Each finding classified as *AIDE ahead* / *AIDE behind* / *in flight elsewhere* — the operational link to [Doerr OKR Objective shapes](../../decisions/ADR-EA-0010-adopt-doerr-okr-methodology.md). |
+| [`exemplar-tracking/`](exemplar-tracking/) | Hermetic + AEON-deployed as concrete AIDE exemplars; observable progress signals over time. Hermetic tracking populated from existing engagement artifacts; AEON-deployed remains placeholder until deployment is named. |
 
 ## Bidirectional pointer pattern
 
