@@ -109,10 +109,10 @@ Documentation is licensed under [CC-BY-4.0](LICENSE). Future code contributions 
 
 ## Authorship
 
-- **JD Longmire**, AI Enterprise Architect
-- **Micah Longmire**, AI Enterprise Architect
+- **JD Longmire**, AI Enterprise Architect — ORCID [0009-0009-1383-7698](https://orcid.org/0009-0009-1383-7698)
+- **Micah Longmire**, Sr. AI Architect — ORCID [0009-0006-7608-9322](https://orcid.org/0009-0006-7608-9322)
 
-Both authors carry OrdSA through its full development cycle.
+Both authors carry OrdSA through its full development cycle. Consistent with the canon-level joint authorship recorded in [ADR-EA-0008](../../decisions/ADR-EA-0008-reframe-corpus-authorship.md).
 
 ## Disclaimer
 
