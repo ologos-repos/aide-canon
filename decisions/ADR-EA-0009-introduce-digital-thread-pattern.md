@@ -1,11 +1,16 @@
 # ADR-EA-0009 — Introduce digital-thread pattern at canon level with new `patterns/` tier
 
-- **Status:** Proposed (open for OlogosAI ratification per [cross-ai #20](https://github.com/ologos-corp/cross-ai/issues/20) governance)
+- **Status:** Accepted (ratified 2026-05-22 by OlogosAI canon-prime review per [cross-ai #20](https://github.com/ologos-corp/cross-ai/issues/20) governance + JD maintainer ratification)
 - **Date:** 2026-05-22
 - **Author:** JD Longmire (drafted by thinx-Claude)
 - **Reviewers:** @ologos001 (canon prime per cross-ai #20)
 - **Related issue:** [`ologos-repos/aide-canon#7`](https://github.com/ologos-repos/aide-canon/issues/7)
-- **Ratification note:** This ADR is filed in `Proposed` status pending OlogosAI's review on placement and conformance specificity (the most reasonable points of disagreement). The pattern documentation lands alongside the ADR; both are open to refinement based on canon#7 discussion before status moves to `Accepted`.
+- **Ratification trail:**
+  - 2026-05-22 (filed): Filed as `Proposed` alongside [PR #10](https://github.com/ologos-repos/aide-canon/pull/10) pending OlogosAI's canon-prime review on the 4 open-tuning items.
+  - 2026-05-22 (reviewed): OlogosAI [reviewed PR #10](https://github.com/ologos-repos/aide-canon/pull/10#issuecomment-4522872954) — confirmed Placement A / OAgents external-reference / Federation v0.2 / Conformance behavioral-required-schema-recommended-interface-optional; surfaced one substantive concern (canon-vocabulary mapping conflated AIDE lifecycle-state with OrdSA authority-altitude axes).
+  - 2026-05-22 (merged): PR #10 merged to canon `main` (commit [`d94704b`](https://github.com/ologos-repos/aide-canon/commit/d94704b)) with the substantive concern recorded as a follow-up.
+  - 2026-05-22 (vocabulary fix): [PR #15](https://github.com/ologos-repos/aide-canon/pull/15) landed the AIDE vocabulary map (`vision-strategy/analysis/aide-vocabulary-map.md`) per JD's direction *"create a mapping tracking table, but use aide as the canon"* + fixed the canon-vocabulary mapping section in `patterns/digital-thread.md` to declare lifecycle state and authority altitude as orthogonal axes. Vocabulary-axis discipline is now operative across the canon.
+  - 2026-05-22 (accepted): Status moves to `Accepted`. The pattern, the new `patterns/` tier, and the conformance criteria are all ratified; the AIDE-vocabulary-map mapping discipline supersedes the conflated-mapping framing.
 
 ## Context
 
