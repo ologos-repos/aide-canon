@@ -4,6 +4,27 @@
 
 ---
 
+## Position in the AIDE canon
+
+OAgents is one of four peer methodological constructs in the AIDE canon's `constructs/` tier (alongside [DEA](../dea/), [OrdSA](../ordsa/), [MxM](../mxm/)). It patterns the **agent domain model** — what an agent *is* as a typed object with behavioral envelope constraints.
+
+**Schema-first canonical artifact:** [`spec/oagents-nist-standard-v16.0.md`](spec/oagents-nist-standard-v16.0.md). Paper-format publications (Zenodo deposits below) are companions to the spec, not substitutes for it.
+
+**Bibliographic anchors:**
+
+| DOI | Title | Role |
+|---|---|---|
+| [`10.5281/zenodo.19425021`](https://doi.org/10.5281/zenodo.19425021) | *OAgents: A Behavioral Envelope Standard for Trustworthy AI Agent Operations* — NIST AI RMF Implementation Profile (2026-04-05) | Published standard, citable |
+| [`10.5281/zenodo.19427785`](https://doi.org/10.5281/zenodo.19427785) | *OAgents: A Pre-Standardization Draft Profile for Operational AI Agent Trustworthiness* (2026-05-05) | Pre-standardization draft, citable |
+
+(The README below cites `10.5281/zenodo.19425020` as the OAgents-standard concept DOI per Zenodo's versioning model — version DOIs above are the per-deposit citation targets.)
+
+**Reference implementation:** [`ologos-corp/oagent-core`](https://github.com/ologos-corp/oagent-core) (BSL-1.1, Pre-Alpha) implements this standard but is hosted separately, not absorbed into the canon (Theseus-pattern decoupling).
+
+**Adopter-facing scaffold:** [`reference/`](reference/) ships an example agent harness (CLAUDE.md, hooks, qa-agent, sec-agent, scripts, skills, memory templates) that adopters can use as a starting point.
+
+---
+
 ## What Is OAgents?
 
 OAgents is an open profile and candidate conformance framework for operational AI agent trustworthiness. It defines a behavioral envelope: a structured set of pre-execution gates, post-execution verification controls, and operational-discipline mechanisms that bound an AI agent's behavior.
