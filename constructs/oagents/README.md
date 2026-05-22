@@ -98,12 +98,18 @@ This draft is offered as a community contribution aligned with:
 
 **DOI:** [10.5281/zenodo.19425020](https://doi.org/10.5281/zenodo.19425020)
 
-## Author
+## Authors
 
 **JD Longmire**
 Northrop Grumman Fellow (unaffiliated research)
 ORCID: [0009-0009-1383-7698](https://orcid.org/0009-0009-1383-7698)
 Contact: jdlongmire@outlook.com
+
+**Micah Longmire**
+Sr. AI Architect (unaffiliated research)
+ORCID: [0009-0006-7608-9322](https://orcid.org/0009-0006-7608-9322)
+
+Joint authorship reflects the canon-level reframe per [ADR-EA-0008](../../decisions/ADR-EA-0008-reframe-corpus-authorship.md). The published Zenodo deposit records (`19425021`, `19427785`, `19425020`) retain JD as sole author per the original deposit metadata.
 
 ## License
 
