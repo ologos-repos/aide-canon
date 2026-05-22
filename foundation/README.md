@@ -1,4 +1,4 @@
-# foundation/
+# foundation/ — Tier 2
 
 The upstream cognitive-theory and training-methodology grounding for the AIDE architecture. Pre-AIDEX, pre-OrdSA: the arguments these artifacts develop are what the rest of the canon presumes.
 

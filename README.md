@@ -1,10 +1,10 @@
 # aide-canon
 
-**AI-centric Digital Ecosystem (AIDE)** — the canonical home for the AIDE corpus. Independent research by **James D. Longmire** (Northrop Grumman Fellow, Chief Architect – Digital Ecosystems; ORCID [0009-0009-1383-7698](https://orcid.org/0009-0009-1383-7698)). One construct in the corpus, **Mx-Modes**, is co-authored with **Micah Longmire** ([ORCID 0009-0006-7608-9322](https://orcid.org/0009-0006-7608-9322)); attribution is recorded per-construct.
+**AI-centric Digital Ecosystem (AIDE)** — the canonical home for the AIDE corpus. Independent research by **James D. Longmire** (Northrop Grumman Fellow, Chief Architect – Digital Ecosystems; ORCID [0009-0009-1383-7698](https://orcid.org/0009-0009-1383-7698)) and **Micah Longmire** (Sr. AI Architect; ORCID [0009-0006-7608-9322](https://orcid.org/0009-0006-7608-9322)).
 
 This canon consolidates the foundational, methodological, enterprise-altitude, and related work into a single navigable structure. The canon's identity is **AI-centric Digital Ecosystem (AIDE)** — the architectural surface a digitally-realized enterprise must compose to operate trustworthy AI at scale.
 
-> *This canon presents independent research and reflects the views of the author(s). It does not represent the position of any employer or program.*
+> *This canon presents independent research and reflects the views of the authors. It does not represent the position of any employer or program.*
 
 ---
 
@@ -16,21 +16,23 @@ This canon consolidates the foundational, methodological, enterprise-altitude, a
 
 ## Canon structure
 
-Four content tiers stratified by altitude and role:
+Five content tiers stratified by altitude and role:
 
-| Tier | What it holds | Members |
-|---|---|---|
-| **[`foundation/`](foundation/)** | Upstream cognitive-theory + training-methodology grounding for the AIDE architecture | HCAE · AIDK · RLEG |
-| **[`constructs/`](constructs/)** | Peer methodological patterns, transverse to altitude | DEA · OrdSA · MxM · OAgents |
-| **[`enterprise-platforms/`](enterprise-platforms/)** | Enterprise-altitude instantiations of the constructs | Strategy · AEON · AIDEX · OAAD |
-| **[`related-work/`](related-work/)** | Allied research that informs the canon without being part of its spine | Theseus |
+| Tier | Directory | What it holds | Members |
+|---|---|---|---|
+| **0** | **[`vision-strategy/`](vision-strategy/)** | Umbrella concept — the corpus's enterprise-strategic frame. VSOK is the structured artifact (V/S/O/K methodology) within it | VSOK (Vision · Strategy · Objectives · Key Results) |
+| **1** | **[`mode-alpha/`](mode-alpha/)** | The corpus's primary orientation mode — synthesizing argument tying the umbrella to the methodological tiers below (forthcoming) | *AI-centric Digital Ecosystem* synthesis |
+| **2** | **[`foundation/`](foundation/)** | Upstream cognitive-theory + training-methodology grounding for the AIDE architecture | HCAE · AIDK · RLEG |
+| **3** | **[`constructs/`](constructs/)** | Peer methodological patterns, transverse to altitude | DEA · OrdSA · MxM · OAgents |
+| **4** | **[`enterprise-platforms/`](enterprise-platforms/)** | Enterprise-altitude instantiations of the constructs | AEON · AIDEX · OAAD |
+| *—* | **[`related-work/`](related-work/)** | Allied research that informs the canon without being part of its spine | Theseus |
 
 Two cross-cutting directories:
 
 - **[`decisions/`](decisions/)** — canon-level Architecture Decision Records (umbrella + structural)
 - **[`infographics/`](infographics/)** — canon-level visuals (cross-construct, cross-platform)
 
-A reserved **`thesis/`** directory will hold the master thesis once the constituent DOIs mint and synthesis lands.
+The tier numbering was introduced by [ADR-EA-0007](decisions/ADR-EA-0007-introduce-vsok-tier-0-and-mode-alpha.md) — it adds Vision-Strategy as Tier 0 above the synthesis and renames the synthesizing tier from *Master Thesis* to *Mode Alpha*. The shape preserves the four-tier intellectual content from [ADR-EA-0006](decisions/ADR-EA-0006-migrate-corpus-to-aide-canon.md) (foundation / constructs / enterprise-platforms / related-work) and lifts Strategy out of the enterprise-platforms tier into Vision-Strategy / VSOK / Strategy at Tier 0.
 
 ---
 
@@ -69,10 +71,11 @@ The enterprise-platforms below become **enterprise-altitude instantiations** of 
 
 | Platform | Stands for | What it is |
 |---|---|---|
-| **[Strategy](enterprise-platforms/strategy/)** | (umbrella) | The enterprise-platform strategy — pain-first framing, four-plane architecture, staged maturity. Positioning prose, not a software target |
 | **[AEON](enterprise-platforms/aeon/)** | AI Enterprise Orchestration Nexus | The enterprise control plane for the agentic era. Six service planes: identity, authority, evidence, integration, capability composition, orchestration runtime |
 | **[AIDEX](enterprise-platforms/aidex/)** | AI Digital Experience | The worker-facing subdomain under AEON. Architectural expression of HCAE operationally at the digital experience layer |
 | **[OAAD](enterprise-platforms/oaad/)** | Open Source Software Agentic AI DevSecOps | A platform thesis: OSS + agentic AI + DevSecOps governance replaces the COTS business capability stack |
+
+**Strategy is not at this tier.** *Enterprise Agentic AI Platform Strategy* — the positioning argument that bridges Vision to the platforms below — lives at [`vision-strategy/vsok/strategy/`](vision-strategy/vsok/strategy/) (Tier 0). It is umbrella prose, not a buildable platform peer. See [ADR-EA-0007](decisions/ADR-EA-0007-introduce-vsok-tier-0-and-mode-alpha.md).
 
 HCAE is **not** an enterprise-platform peer — it sits at `foundation/hcae/` upstream of AIDEX in the argument lineage. AIDEX is the architectural expression at the experience layer; HCAE is the practice discipline AIDEX expresses.
 
@@ -102,9 +105,9 @@ The migration from `osa-ai-org/enterprise-ai` to this canon is recorded in [ADR-
 
 For readers walking the canon top-down:
 
-1. **Foundation** — read [HCAE](foundation/hcae/) and [AIDK](foundation/aidk/) first; they establish why human curation is structurally necessary
-2. **Constructs (foundation methodology)** — [DEA](constructs/dea/) for general-EA coherence; [OrdSA](constructs/ordsa/) for authority/evidence layering
-3. **Strategy** — [Enterprise Agentic AI Platform Strategy](enterprise-platforms/strategy/) for the platform thesis at altitude
+1. **Vision-Strategy** — read [Strategy](vision-strategy/vsok/strategy/) first for the umbrella positioning argument (pain-first framing, four-plane architecture, staged maturity)
+2. **Foundation** — [HCAE](foundation/hcae/) and [AIDK](foundation/aidk/) establish why human curation is structurally necessary
+3. **Constructs (foundation methodology)** — [DEA](constructs/dea/) for general-EA coherence; [OrdSA](constructs/ordsa/) for authority/evidence layering
 4. **Enterprise platforms** — [AEON](enterprise-platforms/aeon/) (the control plane), [AIDEX](enterprise-platforms/aidex/) (the experience subdomain), [OAAD](enterprise-platforms/oaad/) (the capability platform)
 5. **Constructs (harness + agent)** — [MxM](constructs/mxm/) for per-harness orientation; [OAgents](constructs/oagents/) for the agent domain model
 6. **Related work** — [Theseus](related-work/theseus/) for the cognitive-architecture context
@@ -119,4 +122,6 @@ The canon is licensed under [Creative Commons Attribution 4.0 International (CC 
 
 Cite individual artifacts by their published DOI where available (foundation tier; per-platform/per-construct Zenodo records as they mint). For the canon as a whole, cite:
 
-> Longmire, J. D. (2026). *AI-centric Digital Ecosystem (AIDE) canon* [Software/corpus]. https://github.com/ologos-repos/aide-canon
+> Longmire, J. D., & Longmire, M. (2026). *AI-centric Digital Ecosystem (AIDE) canon* [Software/corpus]. https://github.com/ologos-repos/aide-canon
+
+Per-artifact authorship may differ from corpus-level authorship — some artifacts are sole-authored by one of the co-authors, others jointly. Authorship at the artifact level is recorded at the artifact's location (see e.g. [`constructs/mxm/`](constructs/mxm/) where joint authorship is explicit). See [ADR-EA-0008](decisions/ADR-EA-0008-reframe-corpus-authorship.md) for the corpus-vs-artifact authorship discipline.

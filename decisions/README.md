@@ -10,6 +10,7 @@ Canon-level Architecture Decision Records (ADRs) for the AIDE corpus. Append-onl
 | [ADR-EA-0002](ADR-EA-0002-reframe-as-ordsa-exemplar.md) | Reframe enterprise-ai as the canonical enterprise-scale OrdSA exemplar | Accepted |
 | [ADR-EA-0006](ADR-EA-0006-migrate-corpus-to-aide-canon.md) | Migrate corpus to `ologos-repos/aide-canon` as the canonical home | Accepted |
 | [ADR-EA-0007](ADR-EA-0007-introduce-vsok-tier-0-and-mode-alpha.md) | Introduce Vision-Strategy at Tier 0 (VSOK as artifact) and rename Tier 1 to Mode Alpha | Accepted |
+| [ADR-EA-0008](ADR-EA-0008-reframe-corpus-authorship.md) | Reframe corpus authorship as JD Longmire and Micah Longmire (co-authored) | Accepted |
 
 ## Per-construct ADRs
 
