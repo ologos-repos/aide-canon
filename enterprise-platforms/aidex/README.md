@@ -33,7 +33,7 @@ HCAE pre-exists AIDEX (its own published Zenodo DOI), and AIDEX explicitly cites
 
 ## Citation
 
-[`10.5281/zenodo.20349196`](https://doi.org/10.5281/zenodo.20349196) — Longmire, J. D., & Longmire, M. (2026). *AIDEX: An Architecture for Human-Curated, AI-Enabled Knowledge Work*. Zenodo.
+[`10.5281/zenodo.20349597`](https://doi.org/10.5281/zenodo.20349597) — Longmire, J. D., & Longmire, M. (2026). *AIDEX: An Architecture for Human-Curated, AI-Enabled Knowledge Work*. Zenodo.
 
 Deposited 2026-05-22 to the [AI Research & Philosophy community](https://zenodo.org/communities/ai-research-philosophy/). Bundles the white paper with the AIDEX standalone deck and the AIDEX-in-AEON positioning deck. Derives from HCAE (`10.5281/zenodo.18368697`); cites AIDK (`10.5281/zenodo.18316059`). License: CC BY 4.0.
 
