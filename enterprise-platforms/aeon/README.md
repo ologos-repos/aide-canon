@@ -36,6 +36,12 @@ Six service planes order the canon's three lower constructs:
 - **Reference impl** (proposed): [`ologos-repos/Hermetic`](https://github.com/ologos-repos/Hermetic) — see [`aide-canon#5`](https://github.com/ologos-repos/aide-canon/issues/5). Hermetic's three architectural layers (Task Queue + Oracle Bus + Signal/Gate Dispatch) plus its Worker Roster, Eidolon PLM, Sub-Prime Federation, and Nous memory map to AEON's six service planes; see the issue for the per-plane mapping.
 - **Operational pattern produced by the evidence service plane:** the **[digital-thread pattern](../../patterns/digital-thread.md)** (per [ADR-EA-0009](../../decisions/ADR-EA-0009-introduce-digital-thread-pattern.md)) — a six-layer FK-linked traceability chain (requirements → tasks → phases → artifacts → reviews → audit-log) that names what AEON's evidence plane operationally produces. The pattern is cross-cutting; AEON's evidence plane is its primary canon-side surface.
 
+## Citation
+
+[`10.5281/zenodo.20349194`](https://doi.org/10.5281/zenodo.20349194) — Longmire, J. D., & Longmire, M. (2026). *AEON: An Enterprise Control Plane Architecture for the Agentic Era*. Zenodo.
+
+Deposited 2026-05-22 to the [AI Research & Philosophy community](https://zenodo.org/communities/ai-research-philosophy/). Cites HCAE (`10.5281/zenodo.18368697`) and AIDK (`10.5281/zenodo.18316059`) as upstream foundation. License: CC BY 4.0.
+
 ## Provenance
 
 Sourced from `osa-ai-org/enterprise-ai/docs/` (snapshot copy).

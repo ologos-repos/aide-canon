@@ -29,6 +29,12 @@ enterprise-platforms/oaad/
 
 OAAD is the **capability platform** in the AIDE argument lineage. Where AEON is the orchestration nexus and AIDEX is the experience subdomain, OAAD answers what *capabilities* the platform provides — and argues that those capabilities should be OSS-built and agentic-AI-composed rather than COTS-bought.
 
+## Citation
+
+[`10.5281/zenodo.20349202`](https://doi.org/10.5281/zenodo.20349202) — Longmire, J. D., & Longmire, M. (2026). *The Next Shape of the IT Business Capability Model: From Vendor Substrate to Owned Agentic Platforms*. Zenodo.
+
+Deposited 2026-05-22 to the [AI Research & Philosophy community](https://zenodo.org/communities/ai-research-philosophy/). Bundles the capability-model paper with the OAAD Strategic Brief v5 deck. License: CC BY 4.0.
+
 ## Provenance
 
 Sourced from `osa-ai-org/enterprise-ai/docs/` (snapshot copy).
