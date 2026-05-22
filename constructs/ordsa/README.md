@@ -74,6 +74,7 @@ See [`docs/relationship-to-frameworks.md`](docs/relationship-to-frameworks.md) f
 - **[`docs/concept.md`](docs/concept.md)** — canonical statement of the construct in prose (companion to the schema)
 - **[`docs/layers/`](docs/layers/)** — one file per ordinal layer (O0 through O6)
 - **[`docs/relationship-to-frameworks.md`](docs/relationship-to-frameworks.md)** — OrdSA next to TOGAF, UAF, ArchiMate, NIST AI RMF
+- **[`docs/examples/`](docs/examples/)** — worked OrdSA-conformant deployments at varying scales (enterprise-scale exemplar live; single-agent exemplar forthcoming)
 - **[`docs/reference-implementations.md`](docs/reference-implementations.md)** — concrete implementations of OrdSA layers (forward placeholder; entries land as they mature)
 - **[`decisions/README.md`](decisions/README.md)** — Architectural Decision Records (ADR index)
 
