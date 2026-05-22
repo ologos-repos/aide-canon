@@ -62,18 +62,20 @@ The traversal is closed — every audit-log entry traces uniquely (or to a small
 
 ## Canon-vocabulary mapping
 
-How the six-layer chain connects to existing canon concepts:
+How the six-layer chain connects to existing canon concepts. Each row identifies the AIDE-canonical construct(s) that the layer enacts. AIDE vocabulary is the canon's source of truth; external implementation terminology (e.g., Hermetic's "phases") maps *to* AIDE vocabulary per the [AIDE vocabulary map](../vision-strategy/analysis/aide-vocabulary-map.md).
 
-| Layer | Canon mapping |
+| Layer | Canon mapping (AIDE-canonical) |
 |---|---|
 | **Requirements** | Tier 0 *[Vision-Strategy](../vision-strategy/)* concrete down-flow — intent expressed at the operational altitude |
 | **Tasks** | [MxM](../constructs/mxm/) *MISSION* surface enactment — scoped task definitions are what MxM-oriented agents act on |
-| **Phases** | [OrdSA](../constructs/ordsa/) O0–O6 authority-layer progression — phase transitions move work between ordinal authority altitudes |
+| **Phases** | AIDE *lifecycle state* — the canonical work-in-progress state of an entity (`draft → review → approved/rejected` or equivalent state machine). This is a distinct axis from OrdSA authority altitude; see the worked example in the [AIDE vocabulary map](../vision-strategy/analysis/aide-vocabulary-map.md#worked-example--lifecycle-phases-vs-ordsa-authority-altitudes). |
 | **Artifacts** | [OAgents](../constructs/oagents/) evidence-emission — schema-validated, integrity-proofed deliverables OAgents-conformant agents produce |
 | **Reviews** | [MxM](../constructs/mxm/) *MORALS* surface enforcement — gate decisions enact the constraint layer that orients agent action |
 | **Audit log** | [OAgents](../constructs/oagents/) evidence-trail standard + [OrdSA](../constructs/ordsa/) O6 outcome-audit layer |
 
 The pattern is the *vertical slice* that connects these horizontal decompositions for a single piece of work.
+
+**Orthogonal authority-altitude trace.** OrdSA's O0–O6 authority altitude (Enterprise Intent → Outcome Audit) is a *separate, orthogonal axis* from the lifecycle state captured in the Phases row above. A single work item has both: a lifecycle state (where-in-its-life) *and* an authority altitude (which-altitude-of-authority). A `draft`-phase artifact and a `review`-phase artifact can both be operating at O4 (Tactical); a single work item can move through `draft → review → approved` while staying at one O-layer or crossing several. Conformant impls maintain both axes independently. See [AIDE vocabulary map § Lifecycle vs. authority altitude](../vision-strategy/analysis/aide-vocabulary-map.md#worked-example--lifecycle-phases-vs-ordsa-authority-altitudes) for the canonical disambiguation.
 
 ## Conformance criteria
 
