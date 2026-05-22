@@ -103,6 +103,12 @@ Future construct changes flow as ADR PRs per the process in [`CONTRIBUTING.md`](
 
 See [`CONTRIBUTING.md`](CONTRIBUTING.md). Substantive changes to the construct (new layers, layer redefinition, governance principle revision) go through **ADRs as PRs** (label `adr`); refinements and examples flow as ordinary PRs. Pre-PR brainstorming happens in [GitHub Discussions](https://github.com/osa-ai-org/ordsa-ai/discussions) under the Construct Q&A category.
 
+## Citation
+
+[`10.5281/zenodo.20334233`](https://doi.org/10.5281/zenodo.20334233) — Longmire, J. D., & Longmire, M. (2026). *Ordinal Systems Architecture: A Control Grammar for Enterprise AI Authority*. Zenodo.
+
+Deposited 2026-05-22 to the [AI Research & Philosophy community](https://zenodo.org/communities/ai-research-philosophy/). The OrdSA prime paper; cites HCAE (`10.5281/zenodo.18368697`) and AIDK (`10.5281/zenodo.18316059`) as upstream foundation. License: CC BY 4.0.
+
 ## License
 
 Documentation is licensed under [CC-BY-4.0](LICENSE). Future code contributions will be dual-licensed Apache-2.0; that addition will be called out explicitly when introduced.

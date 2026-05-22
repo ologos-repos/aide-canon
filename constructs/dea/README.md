@@ -40,6 +40,12 @@ constructs/dea/
 2. [`docs/DEA-UAF-Positioning.pdf`](docs/DEA-UAF-Positioning.pdf) — positions DEA above UAF on the governance axis, below UAF on the description axis. Read after the base paper if your organization has invested in UAF.
 3. [`docs/DEA-DIB-Compliance-Positioning.pdf`](docs/DEA-DIB-Compliance-Positioning.pdf) — positions DEA beneath the DoD / CMMC / NIST compliance regime as a service layer. Read if you operate in defense or other regulated contexts.
 
+## Citation
+
+[`10.5281/zenodo.20349198`](https://doi.org/10.5281/zenodo.20349198) — Longmire, J. D., & Longmire, M. (2026). *Digital Ecosystems Architecture: A Three-Baseline Framework for Coherent Digital Realization*. Zenodo.
+
+Deposited 2026-05-22 to the [AI Research & Philosophy community](https://zenodo.org/communities/ai-research-philosophy/). One record bundles the Base paper with the UAF Positioning and DIB Compliance Positioning companions (6 files: pdf + docx for each). License: CC BY 4.0.
+
 ## Provenance
 
 Sourced from `osa-ai-org/enterprise-ai/docs/` (snapshot copy). ADR-EA-0003 records the construct's addition to the corpus.
