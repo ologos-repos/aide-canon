@@ -59,7 +59,7 @@ Four methodological constructs sit at the same tier, each patterning a different
 
 | Construct | What it patterns | Canonical artifact | DOI |
 |---|---|---|---|
-| **[DEA](constructs/dea/)** | EA coherence — three-baseline architecture frame (Digital Capability / Digital Technical / Digital Operational baselines, owned by EA / Systems / Solutions architecture disciplines) | `Digital-Ecosystems-Architecture-Base.pdf` (+ UAF + DIB Compliance positioning papers) | [`10.5281/zenodo.20349198`](https://doi.org/10.5281/zenodo.20349198) |
+| **[DEA](constructs/dea/)** | EA coherence — three-baseline architecture frame (Digital Capability / Digital Technical / Digital Operational baselines, owned by EA / Systems / Solutions architecture disciplines) | `Digital-Ecosystems-Architecture-Base.pdf` (+ UAF + DIB Compliance positioning papers) | [`10.5281/zenodo.20349598`](https://doi.org/10.5281/zenodo.20349598) |
 | **[OrdSA](constructs/ordsa/)** | Authority and evidence — seven-ordinal layering (O0 Enterprise Intent → O6 Outcome/Audit/Feedback). Schema-first canonical (`schema/ordsa-0.2.yaml`); prose is companion | `schema/ordsa-0.2.yaml` + concept paper | [`10.5281/zenodo.20334233`](https://doi.org/10.5281/zenodo.20334233) |
 | **[MxM](constructs/mxm/)** | Harness — five-surface composition archetype (Mind / Morals / Mission / Memory / Means); applies at any harness altitude, not just per-agent | `Mx-Modes-Technical-Reference.pdf` (JD + Micah Longmire) | [`10.5281/zenodo.20349200`](https://doi.org/10.5281/zenodo.20349200) |
 | **[OAgents](constructs/oagents/)** | Agent — behavioral envelope standard + reference implementation; specifies what an agent **is** as a typed object. Schema-first canonical (`spec/oagents-nist-standard-v16.0.md`); paper is companion | `spec/oagents-nist-standard-v16.0.md` | [`10.5281/zenodo.19425021`](https://doi.org/10.5281/zenodo.19425021) |
@@ -72,9 +72,9 @@ The enterprise-platforms below become **enterprise-altitude instantiations** of 
 
 | Platform | Stands for | What it is | DOI |
 |---|---|---|---|
-| **[AEON](enterprise-platforms/aeon/)** | AI Enterprise Orchestration Nexus | The enterprise control plane for the agentic era. Six service planes: identity, authority, evidence, integration, capability composition, orchestration runtime | [`10.5281/zenodo.20349194`](https://doi.org/10.5281/zenodo.20349194) |
-| **[AIDEX](enterprise-platforms/aidex/)** | AI Digital Experience | The worker-facing subdomain under AEON. Architectural expression of HCAE operationally at the digital experience layer | [`10.5281/zenodo.20349196`](https://doi.org/10.5281/zenodo.20349196) |
-| **[OAAD](enterprise-platforms/oaad/)** | Open Source Software Agentic AI DevSecOps | A platform thesis: OSS + agentic AI + DevSecOps governance replaces the COTS business capability stack | [`10.5281/zenodo.20349202`](https://doi.org/10.5281/zenodo.20349202) |
+| **[AEON](enterprise-platforms/aeon/)** | AI Enterprise Orchestration Nexus | The enterprise control plane for the agentic era. Six service planes: identity, authority, evidence, integration, capability composition, orchestration runtime | [`10.5281/zenodo.20349596`](https://doi.org/10.5281/zenodo.20349596) |
+| **[AIDEX](enterprise-platforms/aidex/)** | AI Digital Experience | The worker-facing subdomain under AEON. Architectural expression of HCAE operationally at the digital experience layer | [`10.5281/zenodo.20349597`](https://doi.org/10.5281/zenodo.20349597) |
+| **[OAAD](enterprise-platforms/oaad/)** | Open Source Software Agentic AI DevSecOps | A platform thesis: OSS + agentic AI + DevSecOps governance replaces the COTS business capability stack | [`10.5281/zenodo.20349601`](https://doi.org/10.5281/zenodo.20349601) |
 
 **Strategy is not at this tier.** *Enterprise Agentic AI Platform Strategy* — the positioning argument that bridges Vision to the platforms below — lives at [`vision-strategy/vsok/strategy/`](vision-strategy/vsok/strategy/) (Tier 0). It is umbrella prose, not a buildable platform peer. See [ADR-EA-0007](decisions/ADR-EA-0007-introduce-vsok-tier-0-and-mode-alpha.md).
 
