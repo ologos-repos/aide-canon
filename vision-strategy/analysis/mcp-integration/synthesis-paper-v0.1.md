@@ -393,3 +393,29 @@ Pending Q1–Q10 resolution. Sketched here for shape only:
 ---
 
 *Draft v0.1 closes here. Next revision driven by Micah's responses to §9. Diagrams in [`diagrams/`](diagrams/).*
+
+---
+
+## Appendix A: MCP Integration Synthesis — Visual Overview
+
+![MCP Integration Synthesis Poster v0.1](mcp-synthesis-poster-v0.1.jpg)
+
+*Poster by JD — a single-page visual companion to this paper, mapping the synthesis across eight sections.*
+
+The poster distills this paper's analysis into a visual reference suitable for print or screen review. Its eight sections correspond to the paper's major threads:
+
+1. **Why This Paper Exists** — The three converging threads (canon names the MCP gap, Hermetic engagement recommends the gateway, NG-AIDE-01 build went bespoke) that motivated this synthesis. Corresponds to §2.
+
+2. **Micah's MCP Corpus — 10 Repositories** — Visual inventory of the ten repos spanning specification, commercial product, infrastructure, and domain-specific MCP servers. The four most architecturally substantive sources (Model-Based-MCP, Legate.Studio, Oracle-MCP, Hermetic) are highlighted. Corresponds to §3.
+
+3. **Cross-Source Design Language Patterns** — The six shared design-language elements distilled across the four deep-read sources: namespace registration, schema-first declarations, catalog/cache separation, `~/.rhode/` as agent home, provenance fields on results, and graceful degradation. Corresponds to §5.
+
+4. **MCP in AEON Service Plane Mapping** — The core integration table mapping each AEON service plane (Identity, Authority, Evidence, Integration, Capability Composition, Orchestration Runtime) to Micah's reference implementation and the recommended adoption pattern. Corresponds to §6.
+
+5. **Bespoke vs. MCP-Native — What Changes** — Side-by-side comparison of the current bespoke HTTP-JSON dispatch (shipped 2026-05-23) against the proposed MCP-native target across nine dimensions: transport, discovery, auth, adapter declaration, catalog, cross-AIDEX calls, external client compatibility, altitude semantics, and evidence emission. Corresponds to §7.
+
+6. **Draft Recommendation** — The high-level recommendation to adopt MCP as AEON's primary tool-transport substrate, retaining bespoke HTTP only for non-tool surfaces (health, metrics, admin). Corresponds to §8.
+
+7. **Implementation Roadmap (High Level)** — The four-phase migration sketch from canon analysis (Phase 0) through ratified ADR (Phase 1) to MCP-native v0.2 build (Phase 3) and bespoke deprecation (Phase 4). Corresponds to §10.
+
+8. **Authorial Alignment Questions** — Summary of the ten open questions for Micah's direction, with the critical next step: Micah's review drives the paper from draft to canon position. Corresponds to §9.
