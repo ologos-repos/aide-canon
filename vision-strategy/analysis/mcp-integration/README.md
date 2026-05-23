@@ -20,8 +20,8 @@ JD's question during the NG-AIDE-01 build session (*"have we taken into account 
 
 ## Cross-links
 
-- [Discussion thread](https://github.com/ologos-repos/aide-canon/discussions) — conversational alignment surface (link added once thread opens)
-- Open PR — paper landing in canon (link added once PR opens)
+- [Discussion #25 — authorial alignment thread](https://github.com/ologos-repos/aide-canon/discussions/25) — conversational alignment surface
+- [PR #24 — paper landing in canon](https://github.com/ologos-repos/aide-canon/pull/24)
 - [`standards-bodies/README.md`](../sota-survey/standards-bodies/README.md) — canon's pre-existing acknowledgement that *"AIDE behind on first-party MCP support"*
 - [`hermetic-engagement/39-means-inventory/discussion-source.md`](../hermetic-engagement/39-means-inventory/discussion-source.md) — Galley as recommended-impl reference
 
