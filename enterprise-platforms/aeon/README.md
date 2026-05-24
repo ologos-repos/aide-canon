@@ -50,7 +50,7 @@ The seven planes (per [ADR-EA-0015](../../decisions/ADR-EA-0015-introduce-infere
 
 ## Citation
 
-[`10.5281/zenodo.20349194`](https://doi.org/10.5281/zenodo.20349194) — Longmire, J. D., & Longmire, M. (2026). *AEON: An Enterprise Control Plane Architecture for the Agentic Era*. Zenodo.
+[`10.5281/zenodo.20349596`](https://doi.org/10.5281/zenodo.20349596) — Longmire, J. D., & Longmire, M. (2026). *AEON: An Enterprise Control Plane Architecture for the Agentic Era*. Zenodo.
 
 Deposited 2026-05-22 to the [AI Research & Philosophy community](https://zenodo.org/communities/ai-research-philosophy/). Cites HCAE (`10.5281/zenodo.18368697`) and AIDK (`10.5281/zenodo.18316059`) as upstream foundation. License: CC BY 4.0.
 

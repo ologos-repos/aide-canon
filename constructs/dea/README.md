@@ -42,7 +42,7 @@ constructs/dea/
 
 ## Citation
 
-[`10.5281/zenodo.20349198`](https://doi.org/10.5281/zenodo.20349198) — Longmire, J. D., & Longmire, M. (2026). *Digital Ecosystems Architecture: A Three-Baseline Framework for Coherent Digital Realization*. Zenodo.
+[`10.5281/zenodo.20349598`](https://doi.org/10.5281/zenodo.20349598) — Longmire, J. D., & Longmire, M. (2026). *Digital Ecosystems Architecture: A Three-Baseline Framework for Coherent Digital Realization*. Zenodo.
 
 Deposited 2026-05-22 to the [AI Research & Philosophy community](https://zenodo.org/communities/ai-research-philosophy/). One record bundles the Base paper with the UAF Positioning and DIB Compliance Positioning companions (6 files: pdf + docx for each). License: CC BY 4.0.
 
