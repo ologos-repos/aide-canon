@@ -14,6 +14,16 @@ The **harness archetype** — five governing surfaces that compose an AI operati
 
 A root file activates the operating posture; the model executes within the envelope the four discipline-bearing surfaces establish. Means implements; it does not grant permission.
 
+### The root file (the activator) — per [ADR-EA-0013](decisions/ADR-EA-0013-define-mxm-root-file-mode-element.md)
+
+The root file is the **harness-attach point and operating-mode activator** — the element an instantiation may name `mode.md`, and for which Claude Code's `CLAUDE.md` is the canonical example. It is **not a sixth surface and not a governing altitude.** It has three roles, none of them governance:
+
+1. **Harness-attach / entry** — harness-specific and swappable (`CLAUDE.md` under Claude Code, another bootstrap under another harness). It isolates harness-specificity so the five surfaces stay harness-agnostic.
+2. **Operating-mode / posture activation** — sets the mode the surfaces apply under (advisory / read-only / operational / degraded) and the autonomy posture (how much an agent self-directs before surfacing a decision). This is the "Mx-*Modes*" the construct's name refers to.
+3. **Routing** — points the agent into the five surfaces.
+
+**The root file and Means *bracket* the four discipline surfaces** — the root file is the swappable seam at the *attach* end, Means the swappable seam at the *execution* end, and Mind/Morals/Mission/Memory the durable, harness-agnostic core. Swap the root file to move harnesses; swap Means to move substrates; keep the governance.
+
 ## The architectural claim
 
 > **AI behavior should be oriented before it is executed.**
