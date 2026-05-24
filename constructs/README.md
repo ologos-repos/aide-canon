@@ -10,7 +10,7 @@ Peer methodological patterns, transverse to altitude. Five constructs sit at thi
 | [`ordsa/`](ordsa/) | Authority and evidence (seven-ordinal layering) | `schema/ordsa-0.2.yaml` (schema-first; prose companion) |
 | [`mxm/`](mxm/) | Harness composition (five-surface archetype) | `docs/Mx-Modes-Technical-Reference.pdf` |
 | [`oagents/`](oagents/) | Agent domain model (behavioral envelope standard) | `spec/oagents-nist-standard-v16.0.md` (schema-first; paper companion) |
-| [`aicp/`](aicp/) | Portable agent identity (Card + phase-gated tool injection + attestations) | [`ologos-repos/AICP`](https://github.com/ologos-repos/AICP) `spec/AICP-v0.1.md` (spec-first; referenced, MIT) |
+| [`aicp/`](aicp/) | Portable agent identity (Card + phase-gated tool injection + attestations) | `spec/AICP-v0.1.md` (spec-first, MIT; vendored snapshot — living source [`ologos-repos/AICP`](https://github.com/ologos-repos/AICP)) |
 
 ## Composition
 

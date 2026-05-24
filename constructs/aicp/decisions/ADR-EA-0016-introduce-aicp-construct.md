@@ -27,7 +27,7 @@ Admitting a new construct is an ADR-worthy, non-waivable trigger under the canon
 
 3. **Authorship is sole Micah Longmire.** Consistent with the Theseus thesis and the `ologos-repos/AICP` repository (Ologos LLC / Micah Longmire). This differs from the corpus-level co-authorship and from MxM's and OAgents' joint authorship; per [ADR-EA-0008](../../../decisions/ADR-EA-0008-reframe-corpus-authorship.md), artifact-level authorship is recorded at the artifact and may differ from corpus authorship.
 
-4. **Canonical artifact is referenced, not vendored.** AICP's authoritative spec + schemas live and are maintained in the public MIT repo `ologos-repos/AICP`. The canon's `constructs/aicp/README.md` points to that repo as the canonical artifact (mirroring how DOIs are referenced, not re-hosted). The `constructs/aicp/spec/` directory is **reserved** per Pattern α; whether to vendor a versioned snapshot of the MIT spec into the CC-BY canon is deferred to Micah (a license-interaction choice for the author to make), and is **out of scope** for this ADR.
+4. **Canonical artifact is a vendored snapshot with a living upstream source.** A pinned, verbatim snapshot of the AICP spec + JSON schemas is vendored at `constructs/aicp/spec/` (AICP v0.1.0 Draft, `ologos-repos/AICP@f85a76c`), carrying the upstream **MIT** `LICENSE` in the construct directory — the embedded-license convention OrdSA and OAgents already use, which isolates it from the canon's CC BY 4.0. The **living source** remains the public repo `ologos-repos/AICP`; the snapshot may lag it. Vendoring was authorized by the author (full-use approval, 2026-05-24); MIT permits redistribution with attribution. This gives full OAgents parity (canon-resident, offline/air-gap-readable spec) while pinning manages drift.
 
 5. **Reference implementation stays decoupled.** CrewPort (the reference implementation, private, All-Rights-Reserved) is referenced as the reference implementation and **not absorbed** into the canon — the same "Theseus-pattern decoupling" OAgents uses with `oagent-core` ([`constructs/oagents/README.md`](../../oagents/README.md)).
 
@@ -36,11 +36,12 @@ Admitting a new construct is an ADR-worthy, non-waivable trigger under the canon
 ### Concrete changes this PR carries
 
 - New `constructs/aicp/README.md` (construct entry, modeled on `constructs/oagents/README.md`) + this ADR + a `decisions/README.md` index entry.
+- Vendored AICP spec snapshot at `constructs/aicp/spec/` (`AICP-v0.1.md` + 5 schemas + `spec/README.md` provenance) and the MIT `constructs/aicp/LICENSE` (§4).
 - Top-level [README](../../../README.md): constructs tier-table row (`DEA · OrdSA · MxM · OAgents` → `· AICP`); the "four peer methodological patterns" detailed table gains an AICP row ("four" → "five"); reading-order "Constructs (harness + agent)" gains AICP (identity).
 - [`constructs/README.md`](../../README.md): "Four constructs" → "Five"; AICP row in the Members table; composition note.
 - [`related-work/theseus/README.md`](../../../related-work/theseus/README.md): cross-reference AICP's new construct home.
 
-It does **not**: vendor the AICP spec/schemas (§4); absorb CrewPort (§5); mint a Zenodo deposit (deposits are thinx-Claude's lane); change the canon's CC-BY license or governance process; or integrate AICP into any NG-AIDE-01 build (a separate, later decision).
+It does **not**: absorb CrewPort (§5); mint a Zenodo deposit (deposits are thinx-Claude's lane); change the canon's governance process; or integrate AICP into any NG-AIDE-01 build (tracked separately).
 
 ## Consequences
 
@@ -56,7 +57,7 @@ It does **not**: vendor the AICP spec/schemas (§4); absorb CrewPort (§5); mint
 
 2. **Fold AICP under AEON's Identity plane (Tier 4, enterprise-platforms).** Rejected: AEON's Identity plane is *in-plane authority* (local, short-TTL, symmetric); AICP is *cross-platform identity/reputation* (portable, asymmetric, third-party-verifiable). Folding AICP into AEON conflates the portable passport with the local visa and strips AICP of its standing as an independent standard that non-AEON platforms can implement. AEON *consumes* AICP; it does not *contain* it.
 
-3. **Vendor the AICP spec + schemas into `constructs/aicp/spec/` now (full OAgents parity).** Deferred, not rejected: it is a reasonable end-state, but it mixes MIT content into the CC-BY canon and risks drift from the actively-maintained upstream repo. Whether/when to snapshot is the author's (Micah's) call; this ADR admits the construct by reference and leaves the vendoring decision open.
+3. **Vendor the AICP spec + schemas into `constructs/aicp/spec/` (full OAgents parity).** **Adopted** (this PR), following the author's full-use approval (2026-05-24). A pinned MIT snapshot is vendored with its own per-directory `LICENSE`, isolating it from the canon's CC BY 4.0; the living source stays upstream. Drift is managed by pinning the snapshot to a version + commit. (Initially this ADR admitted the construct by reference only; the snapshot was added once the author cleared the license-interaction question.)
 
 4. **Admit AICP as a new pattern under `patterns/` (like digital-thread).** Rejected: `patterns/` holds cross-cutting patterns that traverse tiers/constructs (e.g., digital-thread, epistemic-integrity-floor). AICP is a self-contained methodological standard with its own spec and conformance levels — the constructs tier is the correct altitude, peer to OAgents.
 

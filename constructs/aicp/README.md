@@ -10,7 +10,7 @@ AICP is one of **five peer methodological constructs** in the AIDE canon's `cons
 
 Where **OAgents** answers *what an agent is* (a typed object with a behavioral envelope), **AICP** answers *who an agent is across platforms, and what it has earned*. The two are peers; neither subsumes the other. Admitted to the constructs tier by [ADR-EA-0016](decisions/ADR-EA-0016-introduce-aicp-construct.md).
 
-**Canonical artifact (referenced, not vendored):** the authoritative AICP specification and JSON schemas live in the public MIT repository [`ologos-repos/AICP`](https://github.com/ologos-repos/AICP) — `spec/AICP-v0.1.md` plus `spec/schemas/{card,attestation,agreement,audit-event,platform-capability}.schema.json`. The canon references this repo as the source of truth; the local [`spec/`](spec/) directory is **reserved** (per the constructs Pattern α) pending an authorship decision on whether to vendor a versioned snapshot (a CC-BY/MIT license-interaction choice for the author).
+**Canonical artifact:** a pinned, verbatim **snapshot** of the AICP spec + JSON schemas is vendored at [`spec/`](spec/) (`spec/AICP-v0.1.md` plus `spec/schemas/*.json`) — AICP v0.1.0 Draft, `ologos-repos/AICP@f85a76c`, MIT-licensed (the [`LICENSE`](LICENSE) in this directory governs it, per the canon's embedded-license convention). The **living source** remains the public repo [`ologos-repos/AICP`](https://github.com/ologos-repos/AICP); the snapshot may lag it. This mirrors how OAgents vendors its pinned spec while the living standard evolves.
 
 **Reference implementation (decoupled):** [CrewPort](https://crewport.ai) (Ologos LLC) implements AICP as an AI-agent crew marketplace. Like `oagent-core` for OAgents, it is hosted separately and **not absorbed** into the canon ("Theseus-pattern decoupling").
 
@@ -69,10 +69,10 @@ Conformance levels (`AICP-Core` through `AICP-Full`) let platforms adopt increme
 | **Author** | Micah Longmire (sole) — [bobbyhiddn](https://github.com/bobbyhiddn); ORCID [0009-0006-7608-9322](https://orcid.org/0009-0006-7608-9322) |
 | **Protocol repository** | [`ologos-repos/AICP`](https://github.com/ologos-repos/AICP) — spec + schemas, **MIT License**, Ologos LLC |
 | **Reference implementation** | [CrewPort](https://crewport.ai) (Ologos LLC) — private; referenced, not absorbed |
-| **Relation to canon license** | The canon is CC BY 4.0. AICP's spec/schemas are MIT in their own repo and are *referenced* here; no MIT content is vendored into the CC-BY tree by [ADR-EA-0016](decisions/ADR-EA-0016-introduce-aicp-construct.md). Any future vendored snapshot would carry its own LICENSE in this directory. |
+| **Relation to canon license** | The canon is CC BY 4.0. AICP's vendored spec/schemas are **MIT** — the [`LICENSE`](LICENSE) in this directory governs `spec/`, overriding the canon's CC BY 4.0 for those files (per the top-level README's embedded-license convention, as with OrdSA and OAgents). |
 
 ## Further reading
 
-- **[AICP specification](https://github.com/ologos-repos/AICP/blob/main/spec/AICP-v0.1.md)** — the normative protocol definition (v0.1.0 Draft)
+- **[AICP specification](spec/AICP-v0.1.md)** — the normative protocol definition (v0.1.0 Draft; vendored snapshot — living source at [`ologos-repos/AICP`](https://github.com/ologos-repos/AICP))
 - **[The Theseus Agent Thesis](../../related-work/theseus/)** — the theory paper that introduces AICP as an archetype
 - **[AICP deep-dive analysis](https://github.com/ologos-repos/ng-aide-01/blob/main/docs/research/aicp-deep-dive.md)** — the AICP↔AEON-Identity comparison + canon-placement analysis
