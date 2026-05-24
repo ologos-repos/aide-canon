@@ -58,7 +58,7 @@ Three threads converge:
 
 **Hermetic engagement notes single out the MCP gateway as a recommended-impl reference.** [`hermetic-engagement/39-means-inventory/discussion-source.md`](../hermetic-engagement/39-means-inventory/discussion-source.md) item #7: *"MCP gateway (Galley) — tool catalog with semantic search via Ollama embeddings. AEON integration plane connects to external tools; Galley is the catalog/proxy. Reference as the recommended pattern."* Canon already points toward this path, but ratification still requires an explicit ADR.
 
-**Recent NG-AIDE-01 build went bespoke, not MCP.** The 2026-05-23 build of Runtime plane v0.1 + agentic chat loop on NG-InfOps ([ng-aeon#5](https://github.com/ologos-corp/ng-aeon/pull/5), [ng-infops#4](https://github.com/ologos-corp/ng-infops/pull/4)) implements capability dispatch as bespoke HTTP-JSON over a custom `/api/v1/runtime/invoke` endpoint. The capability YAML uses an `adapter: <URL>` field with `adapter_method: GET|POST`. No MCP server, no MCP client, no MCP discovery. The bespoke pattern works end-to-end (live-tested against Tracy's LM Studio) but diverges from Micah's established design language.
+**Recent NG-AIDE-01 build went bespoke, not MCP.** The 2026-05-23 build of Runtime plane v0.1 + agentic chat loop on NG-InfOps ([ng-aeon#5](https://github.com/ologos-repos/ng-aeon/pull/5), [ng-infops#4](https://github.com/ologos-repos/ng-infops/pull/4)) implements capability dispatch as bespoke HTTP-JSON over a custom `/api/v1/runtime/invoke` endpoint. The capability YAML uses an `adapter: <URL>` field with `adapter_method: GET|POST`. No MCP server, no MCP client, no MCP discovery. The bespoke pattern works end-to-end (live-tested against Tracy's LM Studio) but diverges from Micah's established design language.
 
 This paper is the survey + draft recommendation layer that closes the gap at the canon level. Final direction must be Micah's per his authorship discipline; the analysis here is offered as the substrate for his decision.
 
@@ -342,7 +342,7 @@ Adopting MCP as AEON's primary tool-transport substrate is the right architectur
 | R7 | **Backward compatibility for existing bespoke /runtime/invoke consumers** — NG-InfOps AIDEX `/chat/stream` already calls bespoke `/runtime/invoke`. Cut-over requires either dual-shipping the endpoint or migrating callers atomically. | Low | Dual-ship for one minor version; deprecation warning in bespoke endpoint response; remove in v0.3 after callers migrate. Documented in §12 migration plan. |
 | R8 | **Failure-mode differences between direct HTTP and MCP gateway dispatch** — bespoke errors are HTTP status codes; MCP errors are protocol-level `isError: true` results. Caller-side error handling needs both paths until migration is complete. | Low | Adapter layer in AEON gateway translates MCP errors to a normalized internal error type; callers see one shape. |
 | R9 | **Embedding-provider dependency for semantic tool search** — if AEON's gateway uses local embeddings (Ollama or similar) for `search_tools`, an unreachable embedding service degrades discovery to keyword search. This is a *Means-implementation choice*, not an inherited dependency (per ADR-EA-0011, AEON builds its own gateway from the MCP standard). | Low | Graceful degradation to keyword search (a generic pattern); for AEON deployment, run an embedding replica per host or fall through to a hosted embedding provider. Provider is pluggable; not tied to any contributor component. |
-| R10 | **Coordination risk between MCP adoption and ongoing NG-AIDE-01 v0.1 PRs** — three bespoke-dispatch PRs are in flight ([ng-aeon#5](https://github.com/ologos-corp/ng-aeon/pull/5), [ng-infops#4](https://github.com/ologos-corp/ng-infops/pull/4), and earlier). Merging them lock-in bespoke patterns we're about to deprecate. | Low | §12 staging: merge v0.1 PRs as-is for Tracy's review; v0.2 explicitly retrofits to MCP-native. Acceptable because (a) v0.1 ships first, (b) deprecation path is documented, (c) ~3 hours of bespoke code is a small migration cost. |
+| R10 | **Coordination risk between MCP adoption and ongoing NG-AIDE-01 v0.1 PRs** — three bespoke-dispatch PRs are in flight ([ng-aeon#5](https://github.com/ologos-repos/ng-aeon/pull/5), [ng-infops#4](https://github.com/ologos-repos/ng-infops/pull/4), and earlier). Merging them lock-in bespoke patterns we're about to deprecate. | Low | §12 staging: merge v0.1 PRs as-is for Tracy's review; v0.2 explicitly retrofits to MCP-native. Acceptable because (a) v0.1 ships first, (b) deprecation path is documented, (c) ~3 hours of bespoke code is a small migration cost. |
 
 ### 9.2 Tradeoffs
 
@@ -491,8 +491,8 @@ Surveyed (inventory only, not deep-read):
 
 ### NG-AIDE-01 context (this gap surfaced from)
 - [ng-aide-01#1](https://github.com/ologos-repos/ng-aide-01/issues/1) — NG-AIDE-01 umbrella
-- [ng-aeon#5](https://github.com/ologos-corp/ng-aeon/pull/5) — Runtime plane v0.1 (bespoke dispatch)
-- [ng-infops#4](https://github.com/ologos-corp/ng-infops/pull/4) — Agentic loop (bespoke chat)
+- [ng-aeon#5](https://github.com/ologos-repos/ng-aeon/pull/5) — Runtime plane v0.1 (bespoke dispatch)
+- [ng-infops#4](https://github.com/ologos-repos/ng-infops/pull/4) — Agentic loop (bespoke chat)
 - [aide-canon#23](https://github.com/ologos-repos/aide-canon/issues/23) — Inference plane 7th-plane proposal
 
 ---
