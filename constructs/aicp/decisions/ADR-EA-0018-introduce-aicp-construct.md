@@ -1,4 +1,4 @@
-# ADR-EA-0016 — Introduce AICP (Agent Identity Card Protocol) as a Tier-3 construct
+# ADR-EA-0018 — Introduce AICP (Agent Identity Card Protocol) as a Tier-3 construct
 
 - **Status:** Proposed
 - **Date:** 2026-05-24

@@ -8,7 +8,7 @@
 
 AICP is one of **five peer methodological constructs** in the AIDE canon's `constructs/` tier (alongside [DEA](../dea/), [OrdSA](../ordsa/), [MxM](../mxm/), [OAgents](../oagents/)). It patterns **portable agent identity and reputation** — the platform-issued *Card* as the unit of identity, phase-gated tool injection as the access model, and (federation profile) cryptographically-verifiable, cross-platform attestations as portable reputation.
 
-Where **OAgents** answers *what an agent is* (a typed object with a behavioral envelope), **AICP** answers *who an agent is across platforms, and what it has earned*. The two are peers; neither subsumes the other. Admitted to the constructs tier by [ADR-EA-0016](decisions/ADR-EA-0016-introduce-aicp-construct.md).
+Where **OAgents** answers *what an agent is* (a typed object with a behavioral envelope), **AICP** answers *who an agent is across platforms, and what it has earned*. The two are peers; neither subsumes the other. Admitted to the constructs tier by [ADR-EA-0018](decisions/ADR-EA-0018-introduce-aicp-construct.md).
 
 **Canonical artifact:** a pinned, verbatim **snapshot** of the AICP spec + JSON schemas is vendored at [`spec/`](spec/) (`spec/AICP-v0.1.md` plus `spec/schemas/*.json`) — AICP v0.1.0 Draft, `ologos-repos/AICP@f85a76c`, MIT-licensed (the [`LICENSE`](LICENSE) in this directory governs it, per the canon's embedded-license convention). The **living source** remains the public repo [`ologos-repos/AICP`](https://github.com/ologos-repos/AICP); the snapshot may lag it. This mirrors how OAgents vendors its pinned spec while the living standard evolves.
 
