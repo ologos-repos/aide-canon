@@ -1,10 +1,15 @@
 # ADR-EA-0014 — Introduce the Epistemic Integrity Floor pattern
 
-- **Status:** Proposed
+- **Status:** Accepted (ratified 2026-05-24 by JD Longmire as canon founder + maintainer per [cross-ai #20](https://github.com/ologos-corp/cross-ai/issues/20) governance; OlogosAI canon-prime conformance review acknowledged as queued deliberate pass per [`ng-aide-01#3`](https://github.com/ologos-repos/ng-aide-01/discussions/3) 2026-05-24T04:04Z)
 - **Date:** 2026-05-23
 - **Author:** JD Longmire (source draft + framing; diagnostic review, canon shaping, and post-ADR-0013 simplification: thinx-Claude)
 - **Reviewers:** @ologos001 (canon prime), Micah Longmire, Tracy Norrell
 - **Related:** [`patterns/epistemic-integrity-floor.md`](../patterns/epistemic-integrity-floor.md) · [`aide-canon#27`](https://github.com/ologos-repos/aide-canon/issues/27) (proposal issue) · [ADR-EA-0009](ADR-EA-0009-introduce-digital-thread-pattern.md) (introduced the `patterns/` tier) · [ADR-EA-0012](ADR-EA-0012-introduce-prep-pursue-pivot-pattern.md) (sibling pattern; convergent import-by-reference exemplar) · [ADR-EA-0013](../constructs/mxm/decisions/ADR-EA-0013-define-mxm-root-file-mode-element.md) (settles the MxM root-file definition this pattern depends on)
+- **Ratification trail:**
+  - 2026-05-23 (drafted): JD Longmire authored the source draft (*"Transportable AI Behavioral Protocol"*); diagnostic review with thinx-Claude surfaced seven revisions and `patterns/` placement.
+  - 2026-05-24 (filed as Proposed): PR #29 opened with v3 revision applying [ADR-EA-0013](../constructs/mxm/decisions/ADR-EA-0013-define-mxm-root-file-mode-element.md) (root file is not a governing altitude) — distribution across the 4M discipline surfaces per the import-by-reference mechanism, mirroring [ADR-EA-0012](ADR-EA-0012-introduce-prep-pursue-pivot-pattern.md)'s OrdSA citation.
+  - 2026-05-24 ([ng-aide-01#3 dialogue](https://github.com/ologos-repos/ng-aide-01/discussions/3)): OlogosAI confirmed *"v3 revision exactly right under ADR-0013; distribution table is the same cite-by-reference move PR #26 applies for OrdSA. Conformance review queued — taken as deliberate pass, not inline with NG-AIDE-01 build."* **OQ1 (§7 axis location) resolved** as orthogonal-and-both-at-root-file in the same dialogue (autonomy posture + epistemic reduction declared together at the root file; §7 substance specified in Morals).
+  - 2026-05-24 (ratified): JD Longmire ratifies as canon founder + maintainer. **OQ2 (strict vs. aspirational §5 + §8 conformance gate) dispositioned `strict`** — a conformance claim requires at least one external validation regime (§8) provisioned and §5 operator-conduct expectation surfaced at AIDEX or operator playbook; deployments importing §1–§4, §6, §7 cleanly without §5 + §8 are not EIF-conformant. Status moves Proposed → Accepted.
 
 ## Context
 
@@ -82,14 +87,12 @@ Conformance levels (per `patterns/README.md`):
 5. **Keep the source draft as a model-agnostic external artifact without canon placement.** Rejected. The source draft is operationally good but unattached; canon placement is what makes it portable across AIDE deployments by reference rather than by copy. The patterns/ tier exists for exactly this purpose: name the recurring shape once, cite across.
 6. **Defer until external validation regimes (§8) are catalogued in detail.** Rejected. §8 names three classes of validation regime (controlled comparison / primary-source spot checks / HCAE-shaped review) at the level of behavioral conformance; specific tooling for each is implementation-layer detail. Deferring would couple the pattern's introduction to a longer tooling cycle. The pattern is operational today.
 
-## Open for tuning
+## Open questions — dispositioned at ratification
 
-Two clarifying questions held open for triage refinement (raised in [`aide-canon#27`](https://github.com/ologos-repos/aide-canon/issues/27) v3):
+Two clarifying questions raised in [`aide-canon#27`](https://github.com/ologos-repos/aide-canon/issues/27) v3; both dispositioned at ratification (2026-05-24).
 
-1. **Where to declare §7's epistemic-discipline reductions (casual / creative).** Both the root file (alongside ADR-EA-0013's autonomy-posture activation) and Morals (where deontic permissions live) are defensible. Recommendation: declare at the root file alongside autonomy posture (both are operator-declared activations that gate downstream module reading); specify §7's substance in Morals.
-2. **Strict vs. aspirational conformance gate for §5 + §8 realization.** A deployment can claim EIF conformance with 4M-module imports done well but no HCAE review loop in place. The pattern document treats that as *EIF in name only*. Recommendation: behavioral-conformance gate; conformance claim requires at least one external validation regime (§8) provisioned and §5 operator-conduct expectation surfaced at AIDEX or operator playbook.
-
-Either disposition for both is structurally compatible with the pattern as drafted; the open items are clarifications, not load-bearing.
+1. **Where to declare §7's epistemic-discipline reductions (casual / creative).** *Disposition (resolved [ng-aide-01#3](https://github.com/ologos-repos/ng-aide-01/discussions/3), 2026-05-24):* declare **at the root file alongside ADR-EA-0013's autonomy posture** — the two axes (autonomy posture: advisory / read-only / operational / degraded; epistemic reduction: casual / creative) are independent operator-declared dimensions and compose freely. §7's *substance* (the deontic rules each reduction relaxes and the bounds that hold) lives in Morals; the *activation* (which reduction is in effect for this session) lives at the root file. Behavioral-conformance item 3 enforces this.
+2. **Strict vs. aspirational conformance gate for §5 + §8 realization.** *Disposition (ratified, `strict`):* **strict.** A conformance claim requires §5 (operator-conduct expectation surfaced at AIDEX or operator playbook) **and** at least one §8 external validation regime (controlled comparison / primary-source spot checks / HCAE-shaped review) provisioned. Deployments importing §1–§4, §6, §7 cleanly into MxM but not provisioning §5 or §8 import the *form* without the *force* and are not EIF-conformant. Behavioral-conformance item 2 enforces this; aspirational softening would erode the floor over time and reproduce the fluency-without-grounding failure mode EIF exists to prevent.
 
 ## References
 

@@ -1,6 +1,6 @@
 # Epistemic Integrity Floor (EIF) pattern
 
-> **Status:** Proposed (ratified by [ADR-EA-0014](../decisions/ADR-EA-0014-introduce-epistemic-integrity-floor-pattern.md))
+> **Status:** Accepted (ratified 2026-05-24 by [ADR-EA-0014](../decisions/ADR-EA-0014-introduce-epistemic-integrity-floor-pattern.md))
 
 ## Summary
 
