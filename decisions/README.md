@@ -21,6 +21,7 @@ Per Pattern α, construct-internal ADRs live with their construct:
 - [ADR-EA-0003](../constructs/dea/decisions/ADR-EA-0003-expand-corpus-to-include-dea.md) — Expand corpus to include DEA (now at [`constructs/dea/decisions/`](../constructs/dea/decisions/))
 - [ADR-EA-0004](../constructs/mxm/decisions/ADR-EA-0004-add-mx-modes-as-spine-construct.md) — Add Mx-Modes as a spine construct (now at [`constructs/mxm/decisions/`](../constructs/mxm/decisions/))
 - [ADR-EA-0005](../constructs/mxm/decisions/ADR-EA-0005-clarify-mxm-archetype.md) — Clarify MxM as the harness archetype across all levels (now at [`constructs/mxm/decisions/`](../constructs/mxm/decisions/))
+- [ADR-EA-0016](../constructs/aicp/decisions/ADR-EA-0016-introduce-aicp-construct.md) — Introduce AICP as a Tier-3 construct (Proposed; at [`constructs/aicp/decisions/`](../constructs/aicp/decisions/))
 
 ## Numbering
 
