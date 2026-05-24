@@ -41,7 +41,7 @@ The seven planes (per [ADR-EA-0015](../../decisions/ADR-EA-0015-introduce-infere
 4. **Capability Composition** — registry; lifecycle staging (only operational dispatches)
 5. **Integration** — MCP gateway; cross-domain workflow composition; the inbound external surface
 6. **Orchestration Runtime** — the dispatch loop; tie-point for the other planes
-7. **Inference** — provider+model routing; per-principal binding; classification-environment filter; runtime switching
+7. **Inference** — provider+model routing; per-principal binding; classification-environment filter; runtime switching. Catalog contract mandates `context_window` + `tokenizer` per model entry (per [ADR-EA-0020](../../decisions/ADR-EA-0020-amend-inference-plane-catalog-contract.md)), so the model-agnostic harness can budget context against truth-from-the-plane per the [Governed Context Management pattern](../../patterns/governed-context-management.md) §2.
 
 ## Reference implementation and operational patterns
 
