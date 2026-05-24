@@ -114,6 +114,60 @@ A work item occupies exactly one cell in this grid at any moment. Treating "phas
 - This map's "Lifecycle vs. authority altitude" section above documents the AIDE-canonical relationship between the two axes
 - Future implementations get the correct guidance: build the lifecycle state machine and the authority-altitude layering as orthogonal concerns
 
+## AIDE-canonical terms for AI systems (per [ADR-EA-0016](../../decisions/ADR-EA-0016-adopt-ai-aide-as-canon-vocabulary.md))
+
+The canon's source-of-truth vocabulary for AI systems operating within AIDE governance uses **two terms in two positions**:
+
+- **AI-aide** (the class noun, etymology aide-de-camp) — for canon prose, taxonomy, papers, READMEs. Public, taxonomic, etymologically transparent. Use: *"AIDE deploys AI-aides under HCAE curation."*
+- **MyAide** (the operator-perspective possessive / personal-address form) — for principal-facing surfaces. Personal, instance-level, conversational. Use: *"Hey MyAide, please summarize..."*; *"my aide drafted the runbook."*
+
+See [ADR-EA-0016](../../decisions/ADR-EA-0016-adopt-ai-aide-as-canon-vocabulary.md) for the full decision, the class/instance rationale, and the structural mapping to aide-de-camp's historical role.
+
+### AI-aide × external terms (class-noun mappings)
+
+| AIDE concept | External term | Mapping type | Notes |
+|---|---|---|---|
+| **AI-aide** (the role-class: AI system operating under a principal's authority within an MxM harness, per OrdSA / HCAE / EIF discipline) | AI assistant (generic) | **partial** | *Assistant* is flat-authority; *AI-aide* names the principal-subordinate authority structure. *Assistant* prose maps to *AI-aide* when the context is AIDE governance; otherwise it remains a generic external term |
+|  | AI copilot (Microsoft and generalized) | **partial** | *Copilot* implies peer altitude; *AI-aide* is explicitly subordinate. Trademark adjacency makes *copilot* an external-mapping term, not an AIDE-canonical term |
+|  | AI agent (casual usage) | **orthogonal** | The canon reserves *agent* for the OAgents-conformant formal-spec primitive — a typed object with behavioral envelope, evidence emission, audit trail. An AI-aide instantiates one or more agents; an agent is a formal-spec primitive, not the role-class. Casual *AI agent* prose maps to *AI-aide* in the canon's source-of-truth |
+|  | AI agent (OAgents-conformant) | **N/A** | Different concept entirely — see [`constructs/oagents/`](../../constructs/oagents/) |
+|  | AI worker | **partial** | *Worker* names execution capacity but not authority structure or curation discipline; closer than *assistant*, still missing the principal-subordinate framing |
+|  | AI tool | **orthogonal** | *Tool* is Means-layer (what an AI-aide uses, per MxM Means surface); not the role-class |
+|  | aide-de-camp (historical military) | **synonym** (structural, not literal) | The etymological root and the structural analog. Aide-de-camp historically: subordinate officer attached to a principal, executing within delegated authority, reporting observations upward. AI-aide structurally |
+|  | chatbot | **partial** | Chatbot names a *surface* (chat-style operator interaction); an AI-aide may present at a chatbot surface (per AIDEX), but the role-class persists across surfaces |
+
+### MyAide × external terms (operator-perspective mappings)
+
+| AIDE concept | External term | Mapping type | Notes |
+|---|---|---|---|
+| **MyAide** (the operator's specific AI-aide instance, addressable in personal/possessive form) | "My ChatGPT" / "my Claude" / "my Copilot" | **partial** | All three are vendor-bound personal-instance forms. *MyAide* is substrate-agnostic — the operator's MyAide may be Claude in one deployment and Llama in another (per Inference plane per-principal binding); the personal-instance address persists across substrates |
+|  | "Hey Siri" / "Hey Alexa" / "OK Google" | **partial** | Voice-assistant address forms. *MyAide* is the AIDE-canon analog — same personal-address-of-a-specific-instance position, but the instance is governed (OrdSA / HCAE / EIF / digital-thread), not just convenience-routed |
+|  | "Agent Smith" / named-instance forms (e.g., Hermetic's 24 Greek-named workers) | **partial** | Named-instance forms are name-as-address; *MyAide* is relationship-as-address (the operator's possessive). They are not in tension — an operator's MyAide may have a name; the operator may address it by either form |
+|  | Anthropomorphized AI (e.g., "Jarvis," "Cortana") | **partial** | Character-named instance forms. *MyAide* leaves the naming question open (operator-named, deployment-named, or unnamed); the structural relationship (principal-aide) is what's invariant |
+|  | (no equivalent in OAgents construct) | **N/A** | OAgents speaks at agent-spec altitude; *MyAide* speaks at operator-relational altitude. Different layers; neither subsumes the other |
+
+The capitalization `MyAide` (one word, capital M + capital A) is the canon's preferred address-form spelling. The lower-case form *my aide* is the prose possessive. UI labels, conversational openers, and operator-facing UX use `MyAide`; sentences about an operator's aide use *my aide* or *the aide* depending on register.
+
+### Why these two rows matter
+
+The canon was operating with mixed vocabulary (*AI assistant / AI copilot / AI agent / AI tool*) until 2026-05-24 when ADR-EA-0016 ratified the canon source-of-truth terms. Three failure modes the unified vocabulary addresses:
+
+1. **Conflation with the OAgents formal-spec meaning of *agent***. Casual prose using *AI agent* for the role-class collides with the formal-spec meaning and damages OAgents' precision.
+2. **Authority-structure flattening**. *Assistant* and *copilot* suggest peer collaboration, not the principal-subordinate-with-delegated-execution-and-evidence-upward structure OrdSA requires.
+3. **Vendor-trademark adjacency**. *Copilot* and *Assistants* carry vendor-product connotation; the canon's source-of-truth term should not subordinate the canon to a vendor's marketing surface.
+
+The AIDE ↔ AI-aide recursion (corpus name and role name sharing the etymological root) is intentional and structural, not pun: AIDE is the ecosystem AI-aides operate within; the same authority-down / evidence-up ordering shapes both.
+
+The AI-aide ↔ MyAide pairing preserves the **class / addressed-instance distinction** the canon already enforces in other domains (`agent` vs. `agentic capability`; `construct` vs. `construct instantiation`; `plane` vs. `plane service`). One taxonomic term, one personal-relational term — neither sufficient alone.
+
+### Going-forward discipline
+
+- **Canon prose** uses *AI-aide* for the role-class going forward. New content adopts the term immediately.
+- **Operator-facing surfaces** (AIDEX chat, operator playbooks, deployed-instance docs, conversational consoles, AIDEX UX labels) adopt *MyAide* for the principal's personal-address / possessive form for their specific instance.
+- **Existing canon artifacts** retain their current vocabulary until next revision (paper revisions gate on the relevant authorship discipline per ADR-EA-0008; non-paper artifacts update opportunistically).
+- **OAgents-conformant *agent* references** remain unchanged — that boundary is preserved, not collapsed.
+- **External-mapping prose** (this map, SOTA survey columns) uses the external term for the column and *AI-aide* (or *MyAide* where the operator-perspective is in scope) for the AIDE source-of-truth column.
+
 ## Future external systems to map
 
 The initial scope is AIDE × Hermetic (above). As the SOTA survey populates [`sota-survey/`](sota-survey/), columns get added here for:
