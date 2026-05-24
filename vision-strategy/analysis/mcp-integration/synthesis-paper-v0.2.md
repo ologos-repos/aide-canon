@@ -23,7 +23,7 @@ For new contributors. Acronym density in this paper is high; insiders can skip t
 |---|---|
 | **AIDE** | AI-centric Digital Ecosystem — the canon corpus this paper lives in ([`vision-strategy/`](../../)) |
 | **AEON** | The canonical enterprise architecture pattern in AIDE: six service planes (Identity, Authority, Evidence, Integration, Capability Composition, Orchestration Runtime), plus proposed 7th Inference plane per [aide-canon#23](https://github.com/ologos-repos/aide-canon/issues/23). White paper at [`enterprise-platforms/aeon/docs/AEON-White-Paper.pdf`](../../../enterprise-platforms/aeon/docs/) |
-| **NG-AIDE-01** | The first AIDE-instantiated agentic platform program; umbrella issue [ng-aide-01#15](https://github.com/ologos-corp/ng-aide-01/issues/15). Comprises four subdomain orchestrators (NG-AEON, NG-DevSecOps, NG-Cyber, NG-InfOps) |
+| **NG-AIDE-01** | The first AIDE-instantiated agentic platform program; umbrella issue [ng-aide-01#1](https://github.com/ologos-corp/ng-aide-01/issues/1). Comprises four subdomain orchestrators (NG-AEON, NG-DevSecOps, NG-Cyber, NG-InfOps) |
 | **AIDEX** | The user-facing interface surface for each orchestrator in NG-AIDE-01 (e.g., `ng-infops/aidex/`). Browser-based; Thinx look/feel |
 | **OrdSA** | Ordinal Systems Architecture — **JD + Micah co-authored** authority-layering framework. *"Authority flows downward, evidence flows upward."* Public at [osa-ai-org/ordsa-ai](https://github.com/osa-ai-org/ordsa-ai) |
 | **MCP** | Model Context Protocol — Anthropic-proposed tool/context interface for AI agents. Spec at [modelcontextprotocol.io](https://modelcontextprotocol.io). Current protocol version this paper references: `2025-06-18` |
@@ -490,7 +490,7 @@ Surveyed (inventory only, not deep-read):
 | [`bobbyhiddn/Agnostic`](https://github.com/bobbyhiddn/Agnostic) | `c8b61b0` | Adjacent — model-agnostic tool loop |
 
 ### NG-AIDE-01 context (this gap surfaced from)
-- [ng-aide-01#15](https://github.com/ologos-corp/ng-aide-01/issues/15) — NG-AIDE-01 umbrella
+- [ng-aide-01#1](https://github.com/ologos-corp/ng-aide-01/issues/1) — NG-AIDE-01 umbrella
 - [ng-aeon#5](https://github.com/ologos-corp/ng-aeon/pull/5) — Runtime plane v0.1 (bespoke dispatch)
 - [ng-infops#4](https://github.com/ologos-corp/ng-infops/pull/4) — Agentic loop (bespoke chat)
 - [aide-canon#23](https://github.com/ologos-repos/aide-canon/issues/23) — Inference plane 7th-plane proposal
