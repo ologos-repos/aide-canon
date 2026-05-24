@@ -20,6 +20,7 @@ A pattern in this directory is **not** a construct (it does not define a methodo
 |---|---|---|
 | [digital-thread.md](digital-thread.md) | Proposed (see [ADR-EA-0009](../decisions/ADR-EA-0009-introduce-digital-thread-pattern.md)) | Six-layer FK-linked traceability chain (requirements → tasks → phases → artifacts → reviews → audit-log) for end-to-end AI task work |
 | [prep-pursue-pivot.md](prep-pursue-pivot.md) | Proposed (see [ADR-EA-0012](../decisions/ADR-EA-0012-introduce-prep-pursue-pivot-pattern.md)) | Three-faculty governed agent-cognition loop (prep / pursue / pivot = before / during / after) with a governance gradient (approve / bounded-autonomy / governed-decision) and a milestone→inchstone work hierarchy |
+| [epistemic-integrity-floor.md](epistemic-integrity-floor.md) | Proposed (see [ADR-EA-0014](../decisions/ADR-EA-0014-introduce-epistemic-integrity-floor-pattern.md)) | Eight-section agent-side behavioral floor — calibrated confidence labels, three-tier defeater rules, introspection-as-hypothesis, cross-turn drift handling, bounded operator-declared exit clauses — imported by reference into MxM Mind/Morals/Memory + realized at HCAE/AIDEX |
 
 ## Adding a new pattern
 
