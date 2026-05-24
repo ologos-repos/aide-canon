@@ -160,6 +160,27 @@ The AIDE ↔ AI-aide recursion (corpus name and role name sharing the etymologic
 
 The AI-aide ↔ MyAide pairing preserves the **class / addressed-instance distinction** the canon already enforces in other domains (`agent` vs. `agentic capability`; `construct` vs. `construct instantiation`; `plane` vs. `plane service`). One taxonomic term, one personal-relational term — neither sufficient alone.
 
+### Principal-altitudes (per [ADR-EA-0017](../../decisions/ADR-EA-0017-ai-aide-principal-altitudes.md))
+
+AI-aide principals sit at different altitudes. The canon recognizes the following:
+
+| Principal-altitude | Principal | Currently-instantiated aide(s) | OrdSA altitude of principal-intent | Aide's primary responsibility |
+|---|---|---|---|---|
+| **Operator-altitude** | A specific human directing their instance | thinx-Claude (principal: JD Longmire) | O3 (Tactical) / O4 (Operational Execution) | Read findings through-principal-perspective; review/approve under principal-direction; surface decisions for principal curation |
+| **Corpus-altitude** | The AIDE corpus / framework / model itself | OlogosAI (principal: the AIDE corpus) | O0 (Enterprise Intent) / O1 (Strategic Intent) | Drive canon-coherence decisions; maintain corpus-altitude vocabulary, governance, and reference-impl alignment; act as canon prime |
+
+The two altitudes are **complementary, not redundant**. The [cross-ai #20](https://github.com/ologos-corp/cross-ai/issues/20) governance pattern (*OlogosAI = prime; thinx-Claude = review/approve with JD in the loop*) is the corpus-altitude / operator-altitude complementarity in action. Neither subsumes the other; both are necessary for the canon-prime ↔ review-approve loop to function.
+
+**Note on the MyAide form:** *MyAide* (per [ADR-EA-0016](../../decisions/ADR-EA-0016-adopt-ai-aide-as-canon-vocabulary.md)) is the operator-altitude personal-address form. A corpus-altitude AI-aide is not a MyAide — there is no personal-possessive form for *"the corpus's aide"* in the same way *"my aide"* works at operator altitude. Corpus-altitude aides are addressed by their proper name (*OlogosAI*) and their role (*canon prime AI-aide*, *the AIDE corpus's AI-aide*).
+
+**Future principal-altitudes** (illustrative, not exhaustive — see ADR-EA-0017 for the future-admit clause):
+
+- Institutional principal (e.g., a department / research program / chartered body)
+- Regulatory principal (e.g., a NIST RMF profile / sovereign-cloud authority)
+- Joint / shared principal (e.g., a consortium / standards body)
+
+Future principal-altitudes are filed as ADR refinements of ADR-EA-0017 when an AI-aide of that altitude is instantiated, named, and granted standing within the canon's governance.
+
 ### Going-forward discipline
 
 - **Canon prose** uses *AI-aide* for the role-class going forward. New content adopts the term immediately.
