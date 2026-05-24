@@ -4,7 +4,7 @@
 - **Date:** 2026-05-23
 - **Author:** JD Longmire (drafted by OlogosAI)
 - **Reviewers:** Micah Longmire (co-author of the constructs this ADR builds on + owner of the components it protects), @ologos001 (canon prime), Tracy Norrell (NG-AIDE-01 lead operator)
-- **Related:** [`aide-canon` Discussion #25](https://github.com/ologos-repos/aide-canon/discussions/25) (MCP integration synthesis) · [`vision-strategy/analysis/mcp-integration/synthesis-paper-v0.2.md`](../vision-strategy/analysis/mcp-integration/synthesis-paper-v0.2.md) · [ng-aide-01#1](https://github.com/ologos-corp/ng-aide-01/issues/1)
+- **Related:** [`aide-canon` Discussion #25](https://github.com/ologos-repos/aide-canon/discussions/25) (MCP integration synthesis) · [`vision-strategy/analysis/mcp-integration/synthesis-paper-v0.2.md`](../vision-strategy/analysis/mcp-integration/synthesis-paper-v0.2.md) · [ng-aide-01#1](https://github.com/ologos-repos/ng-aide-01/issues/1)
 - **Ratification trail:**
   - 2026-05-23 (filed): Filed as `Proposed`. The IP-boundary question surfaced during the NG-AIDE-01 build when an MCP-integration synthesis recommended referencing a contributor-owned component (Hermetic's galley) as a canon-level dependency. Micah, the component owner, flagged the boundary directly (NG-AIDE thread, 2026-05-23): *"please don't bring hermetic to NG until I have open sourced it properly. The NG prefix here scares me a bit."* This ADR generalizes the resolution.
 
@@ -89,7 +89,7 @@ A product namespace prefix (e.g., `NG-`) on an instantiation of a co-owned const
 - [`vision-strategy/analysis/mcp-integration/synthesis-paper-v0.2.md`](../vision-strategy/analysis/mcp-integration/synthesis-paper-v0.2.md) — the synthesis paper this ADR revises (§7, §9, §10)
 - [ADR-EA-0008 — reframe corpus authorship](ADR-EA-0008-reframe-corpus-authorship.md) — establishes co-authorship attribution discipline this ADR extends to product instantiations
 - [ADR-EA-0009 — digital-thread pattern](ADR-EA-0009-introduce-digital-thread-pattern.md) — names the pattern Hermetic's Eidolon enacts; this ADR clarifies that naming the pattern ≠ depending on the component
-- [ng-aide-01#1](https://github.com/ologos-corp/ng-aide-01/issues/1) — NG-AIDE-01 program umbrella
+- [ng-aide-01#1](https://github.com/ologos-repos/ng-aide-01/issues/1) — NG-AIDE-01 program umbrella
 - Micah's MCP corpus (contributor-owned components): [`ologos-repos/Hermetic`](https://github.com/ologos-repos/Hermetic), [`ologos-repos/Legate.Studio`](https://github.com/ologos-repos/Legate.Studio), [`bobbyhiddn/Oracle-MCP`](https://github.com/bobbyhiddn/Oracle-MCP)
 - Constructs (co-owned): AEON (`enterprise-platforms/aeon/`), OrdSA (`constructs/ordsa/`)
 - The 4M + Means harness-agnostic principle (`mode > meta-harness > means`) — agent-harness-engineering reference architecture
