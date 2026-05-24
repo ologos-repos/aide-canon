@@ -13,6 +13,8 @@ Canon-level Architecture Decision Records (ADRs) for the AIDE corpus. Append-onl
 | [ADR-EA-0008](ADR-EA-0008-reframe-corpus-authorship.md) | Reframe corpus authorship as JD Longmire and Micah Longmire (co-authored) | Accepted |
 | [ADR-EA-0009](ADR-EA-0009-introduce-digital-thread-pattern.md) | Introduce digital-thread pattern at canon level with new `patterns/` tier | Accepted |
 | [ADR-EA-0010](ADR-EA-0010-adopt-doerr-okr-methodology.md) | Adopt John Doerr OKR methodology for VSOK Objectives + Key Results | Accepted |
+| [ADR-EA-0016](ADR-EA-0016-adopt-ai-aide-as-canon-vocabulary.md) | Adopt AI-aide / MyAide as canon vocabulary | Accepted |
+| [ADR-EA-0017](ADR-EA-0017-ai-aide-principal-altitudes.md) | AI-aide principal altitudes (operator/corpus distinction) | Accepted |
 
 ## Per-construct ADRs
 
@@ -21,6 +23,7 @@ Per Pattern α, construct-internal ADRs live with their construct:
 - [ADR-EA-0003](../constructs/dea/decisions/ADR-EA-0003-expand-corpus-to-include-dea.md) — Expand corpus to include DEA (now at [`constructs/dea/decisions/`](../constructs/dea/decisions/))
 - [ADR-EA-0004](../constructs/mxm/decisions/ADR-EA-0004-add-mx-modes-as-spine-construct.md) — Add Mx-Modes as a spine construct (now at [`constructs/mxm/decisions/`](../constructs/mxm/decisions/))
 - [ADR-EA-0005](../constructs/mxm/decisions/ADR-EA-0005-clarify-mxm-archetype.md) — Clarify MxM as the harness archetype across all levels (now at [`constructs/mxm/decisions/`](../constructs/mxm/decisions/))
+- [ADR-EA-0018](../constructs/aicp/decisions/ADR-EA-0018-introduce-aicp-construct.md) — Introduce AICP as a Tier-3 construct (Proposed; at [`constructs/aicp/decisions/`](../constructs/aicp/decisions/))
 
 ## Numbering
 

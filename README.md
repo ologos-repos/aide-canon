@@ -23,7 +23,7 @@ Five content tiers stratified by altitude and role:
 | **0** | **[`vision-strategy/`](vision-strategy/)** | Umbrella concept — the corpus's enterprise-strategic frame. VSOK is the structured artifact (V/S/O/K methodology) within it | VSOK (Vision · Strategy · Objectives · Key Results) |
 | **1** | **[`mode-alpha/`](mode-alpha/)** | The corpus's primary orientation mode — synthesizing argument tying the umbrella to the methodological tiers below (forthcoming) | *AI-centric Digital Ecosystem* synthesis |
 | **2** | **[`foundation/`](foundation/)** | Upstream cognitive-theory + training-methodology grounding for the AIDE architecture | HCAE · AIDK · RLEG |
-| **3** | **[`constructs/`](constructs/)** | Peer methodological patterns, transverse to altitude | DEA · OrdSA · MxM · OAgents |
+| **3** | **[`constructs/`](constructs/)** | Peer methodological patterns, transverse to altitude | DEA · OrdSA · MxM · OAgents · AICP |
 | **4** | **[`enterprise-platforms/`](enterprise-platforms/)** | Enterprise-altitude instantiations of the constructs | AEON · AIDEX · OAAD |
 | *—* | **[`related-work/`](related-work/)** | Allied research that informs the canon without being part of its spine | Theseus |
 | *—* | **[`patterns/`](patterns/)** | Cross-cutting architectural patterns that traverse multiple tiers/constructs | digital-thread |
@@ -53,9 +53,9 @@ RLEG sits adjacent to HCAE: HCAE prescribes human curation of AI output at the p
 
 ---
 
-## Constructs — four peer methodological patterns
+## Constructs — five peer methodological patterns
 
-Four methodological constructs sit at the same tier, each patterning a different concern. None subsumes another; they compose:
+Five methodological constructs sit at the same tier, each patterning a different concern. None subsumes another; they compose:
 
 | Construct | What it patterns | Canonical artifact | DOI |
 |---|---|---|---|
@@ -63,8 +63,9 @@ Four methodological constructs sit at the same tier, each patterning a different
 | **[OrdSA](constructs/ordsa/)** | Authority and evidence — seven-ordinal layering (O0 Enterprise Intent → O6 Outcome/Audit/Feedback). Schema-first canonical (`schema/ordsa-0.2.yaml`); prose is companion | `schema/ordsa-0.2.yaml` + concept paper | [`10.5281/zenodo.20334233`](https://doi.org/10.5281/zenodo.20334233) |
 | **[MxM](constructs/mxm/)** | Harness — five-surface composition archetype (Mind / Morals / Mission / Memory / Means); applies at any harness altitude, not just per-agent | `Mx-Modes-Technical-Reference.pdf` (JD + Micah Longmire) | [`10.5281/zenodo.20349200`](https://doi.org/10.5281/zenodo.20349200) |
 | **[OAgents](constructs/oagents/)** | Agent — behavioral envelope standard + reference implementation; specifies what an agent **is** as a typed object. Schema-first canonical (`spec/oagents-nist-standard-v16.0.md`); paper is companion | `spec/oagents-nist-standard-v16.0.md` | [`10.5281/zenodo.19425021`](https://doi.org/10.5281/zenodo.19425021) |
+| **[AICP](constructs/aicp/)** | Identity — Agent Identity Card Protocol; platform-issued Card, phase-gated tool injection, portable cross-platform attestations. Specifies **who** an agent is across platforms and what it has earned. Spec-first (vendored snapshot, MIT) | `constructs/aicp/spec/AICP-v0.1.md` (living source [`ologos-repos/AICP`](https://github.com/ologos-repos/AICP)) | MIT spec; no Zenodo deposit |
 
-The enterprise-platforms below become **enterprise-altitude instantiations** of these patterns — what you get when you compose MxM (harness) ordered by OrdSA (authority/evidence) within DEA (EA coherence) at enterprise scale, with OAgents as the domain object.
+The enterprise-platforms below become **enterprise-altitude instantiations** of these patterns — what you get when you compose MxM (harness) ordered by OrdSA (authority/evidence) within DEA (EA coherence) at enterprise scale, with OAgents as the domain object and AICP as its portable identity.
 
 ---
 
@@ -110,7 +111,7 @@ For readers walking the canon top-down:
 2. **Foundation** — [HCAE](foundation/hcae/) and [AIDK](foundation/aidk/) establish why human curation is structurally necessary
 3. **Constructs (foundation methodology)** — [DEA](constructs/dea/) for general-EA coherence; [OrdSA](constructs/ordsa/) for authority/evidence layering
 4. **Enterprise platforms** — [AEON](enterprise-platforms/aeon/) (the control plane), [AIDEX](enterprise-platforms/aidex/) (the experience subdomain), [OAAD](enterprise-platforms/oaad/) (the capability platform)
-5. **Constructs (harness + agent)** — [MxM](constructs/mxm/) for per-harness orientation; [OAgents](constructs/oagents/) for the agent domain model
+5. **Constructs (harness + agent + identity)** — [MxM](constructs/mxm/) for per-harness orientation; [OAgents](constructs/oagents/) for the agent domain model; [AICP](constructs/aicp/) for portable agent identity
 6. **Related work** — [Theseus](related-work/theseus/) for the cognitive-architecture context
 
 ---

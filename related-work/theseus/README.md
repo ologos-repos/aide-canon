@@ -26,7 +26,7 @@ A reader working through the AI EA corpus benefits from having this paper at han
 | **Canonical source** | [legate.studio/pub/bobbyhiddn/the-theseus-agent-thesis](https://legate.studio/pub/bobbyhiddn/the-theseus-agent-thesis) |
 | **Disclaimer** | The author is employed at Accenture Federal Services; the research was conducted independently and in a personal capacity. Full disclaimer appears at the end of the paper. |
 | **Copyright** | © Micah Longmire 2026. The snapshot here is a verbatim archival copy with attribution; for citation, license inquiries, or reuse, refer to the canonical source. |
-| **Related protocol** | The Agent Identity Card Protocol (AICP) is a separate artifact published by Ologos LLC under the MIT License at [`ologos-repos/AICP`](https://github.com/ologos-repos/AICP). |
+| **Related protocol** | The Agent Identity Card Protocol (AICP) is a separate artifact published by Ologos LLC under the MIT License at [`ologos-repos/AICP`](https://github.com/ologos-repos/AICP). AICP is canonized as a Tier-3 construct at [`constructs/aicp/`](../../constructs/aicp/) (per [ADR-EA-0018](../../constructs/aicp/decisions/ADR-EA-0018-introduce-aicp-construct.md)); this thesis remains allied related-work — the theory, not the protocol. |
 | **Relation to this repo's license** | This repo's CC BY 4.0 license applies to JD-authored content in the AI EA corpus only. Materials in this subdirectory remain under the author's terms. |
 
 ## How this differs from the AI EA corpus
