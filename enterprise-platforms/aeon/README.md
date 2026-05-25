@@ -43,10 +43,24 @@ The seven planes (per [ADR-EA-0015](../../decisions/ADR-EA-0015-introduce-infere
 6. **Orchestration Runtime** — the dispatch loop; tie-point for the other planes
 7. **Inference** — provider+model routing; per-principal binding; classification-environment filter; runtime switching. Catalog contract mandates `context_window` + `tokenizer` per model entry (per [ADR-EA-0020](../../decisions/ADR-EA-0020-amend-inference-plane-catalog-contract.md)), so the model-agnostic harness can budget context against truth-from-the-plane per the [Governed Context Management pattern](../../patterns/governed-context-management.md) §2.
 
-## Reference implementation and operational patterns
+## Reference implementations and operational patterns
 
-- **Reference impl** (proposed): [`ologos-repos/Hermetic`](https://github.com/ologos-repos/Hermetic) — see [`aide-canon#5`](https://github.com/ologos-repos/aide-canon/issues/5). Hermetic's three architectural layers (Task Queue + Oracle Bus + Signal/Gate Dispatch) plus its Worker Roster, Eidolon PLM, Sub-Prime Federation, and Nous memory map to AEON's six service planes; see the issue for the per-plane mapping.
-- **Operational pattern produced by the evidence service plane:** the **[digital-thread pattern](../../patterns/digital-thread.md)** (per [ADR-EA-0009](../../decisions/ADR-EA-0009-introduce-digital-thread-pattern.md)) — a six-layer FK-linked traceability chain (requirements → tasks → phases → artifacts → reviews → audit-log) that names what AEON's evidence plane operationally produces. The pattern is cross-cutting; AEON's evidence plane is its primary canon-side surface.
+AEON reference implementations are governed by **Pattern B+** (out-of-tree cite + conformance-anchored manifest when spec lands) per [ADR-EA-0022](../../decisions/ADR-EA-0022-pattern-bplus-and-canonical-aeon-refimpls.md). Two canonical AEON reference implementations are currently recognized, role-differentiated:
+
+### Hermetic — production-maturity exemplar
+
+[`ologos-repos/Hermetic`](https://github.com/ologos-repos/Hermetic). Production system (295 Go files, MIT, Ologos LLC, used in production via [Rhode](https://github.com/bobbyhiddn/Rhode)). Implements the AEON service planes — Worker Roster (Identity), Oracle Bus + Ordinal Escalation L0–L3 (Authority), Eidolon PLM phase-gates + audit log + SHA-256 artifact tracking (Evidence), Sub-Prime Federation + Telegram bridge (Integration), worker affinity + capability tags + auto_delegate routing (Capability Composition), Prime main loop + dispatch loop + TUI (Orchestration Runtime). The 7th plane (Inference, per [ADR-EA-0015](../../decisions/ADR-EA-0015-introduce-inference-plane.md)) lands in the manifest as Hermetic's model-routing surface matures against the [Inference catalog contract](../../decisions/ADR-EA-0020-amend-inference-plane-catalog-contract.md). Conformance manifest: [`docs/canon-mapping.md`](https://github.com/ologos-repos/Hermetic/blob/main/docs/canon-mapping.md) (per [`Hermetic#37`](https://github.com/ologos-repos/Hermetic/issues/37)).
+
+### NG-AIDE-01 — canon-fidelity exemplar
+
+[`ologos-repos/ng-aide-01`](https://github.com/ologos-repos/ng-aide-01). Built under the latest canon batch (ADRs 0013 / 0015 / 0017 / 0019 / 0020) with explicit traceability of every plane to current ADRs. Six AEON service planes v0.1 (stdlib-Go services mirroring AEON spec idioms) + [Inference plane scope](https://github.com/ologos-repos/ng-aide-01/pull/22) (ADRs 0015 / 0019 / 0020) + three domains v0.1 (InfOps / DevSecOps / Cyber) + [AICP attestation ingress at the verify-only floor](https://github.com/ologos-repos/ng-aide-01/pull/19) (per [ADR-EA-0018](../../constructs/aicp/decisions/ADR-EA-0018-introduce-aicp-construct.md)) + OpenCode runtime harness wired to the AEON MCP gateway. Conformance manifest: `docs/canon-mapping.md` (forthcoming, same shape as Hermetic's).
+
+The two roles are complementary, not redundant — Hermetic's production-maturity is the empirical proof that the AEON pattern works at scale; NG-AIDE-01's canon-fidelity is the formal proof that the current-vintage canon is buildable. Future canon-conformant AEON impls may be added under the same Pattern B+ discipline per [ADR-EA-0022](../../decisions/ADR-EA-0022-pattern-bplus-and-canonical-aeon-refimpls.md) §Part 4.
+
+### Operational patterns
+
+- **The [digital-thread pattern](../../patterns/digital-thread.md)** (per [ADR-EA-0009](../../decisions/ADR-EA-0009-introduce-digital-thread-pattern.md)) — a six-layer FK-linked traceability chain (requirements → tasks → phases → artifacts → reviews → audit-log) that names what AEON's evidence plane operationally produces. The pattern is cross-cutting; AEON's evidence plane is its primary canon-side surface.
+- **The [Governed Context Management pattern](../../patterns/governed-context-management.md)** (per [ADR-EA-0019](../../decisions/ADR-EA-0019-introduce-governed-context-management-pattern.md)) — distributes context-management discipline across the Inference plane (catalog contract per [ADR-EA-0020](../../decisions/ADR-EA-0020-amend-inference-plane-catalog-contract.md)), Orchestration Runtime (compaction), and Evidence plane (`context.compacted` audit events). The model-agnostic AEON harness consumes this pattern; both canonical reference impls realize it.
 
 ## Citation
 
