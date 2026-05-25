@@ -23,6 +23,7 @@ Canon-level Architecture Decision Records (ADRs) for the AIDE corpus. Append-onl
 | [ADR-EA-0021](ADR-EA-0021-mxm-ordsa-boundary-citation.md) | MxM↔OrdSA boundary: discipline surfaces cite peer constructs by reference (refines ADR-EA-0013) | Accepted |
 | [ADR-EA-0022](ADR-EA-0022-pattern-bplus-and-canonical-aeon-refimpls.md) | Pattern B+ adoption discipline; Hermetic and NG-AIDE-01 as canonical AEON reference implementations | Accepted |
 | [ADR-EA-0023](ADR-EA-0023-thinx-discipline-refinements.md) | Reference-impl-derived discipline refinements + canonical-ref-impl pin (founder-override pattern + GCM §8 + EIF §6 operationalization + thinx canonical MxM/EIF pin) | Proposed |
+| [ADR-EA-0024](ADR-EA-0024-governed-context-management-hook-mediated-tier.md) | Governed Context Management §8 hook-mediated tier: mechanized re-grounding where the host harness exposes compaction-lifecycle hooks (refines §8) | Proposed |
 
 ## Per-construct ADRs
 

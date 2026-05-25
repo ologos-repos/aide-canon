@@ -137,7 +137,7 @@ This composes with [EIF §7](epistemic-integrity-floor.md) operator-declared epi
 
 §3 + §4 specify *harness-owned* deterministic compaction with audited `context.compacted` events. The canon's intent is that AEON (the harness) owns the compaction loop and emits the events. This is the **structural realization** of context-management governance.
 
-When a deployment runs **on another harness** rather than running its own (a reference impl on Claude Code, a tool-based deployment on a closed-source agent platform, etc.), the deployment cannot directly realize §3 (compaction loop) or §4 (event emission). Compaction is automatic and opaque from inside; there is no PreCompaction hook to wire. §1's governance pin handles the structural side (canonical sources reload across compaction), but in-flight reasoning chains and recent message-buffer content can be summarized in ways that drop nuance the next turn needs.
+When a deployment runs **on another harness** rather than running its own (a reference impl on Claude Code, a tool-based deployment on a closed-source agent platform, etc.), the deployment cannot directly realize §3 (compaction loop) or §4 (event emission). Compaction is automatic and opaque from inside; there is no PreCompaction hook to wire. §1's governance pin handles the structural side (canonical sources reload across compaction), but in-flight reasoning chains and recent message-buffer content can be summarized in ways that drop nuance the next turn needs. *(Refinement per [ADR-EA-0024](../decisions/ADR-EA-0024-governed-context-management-hook-mediated-tier.md): this holds for a* pre*-compaction hook. Where a host exposes* compaction-lifecycle *hooks — a session-entry hook and a post-compaction hook — §1+§8 re-grounding can be **mechanized** deterministically rather than left to behavioral vigilance; see the §8-hook tier below.)*
 
 The **behavioral discipline that complements §3/§4** has two halves:
 
@@ -156,6 +156,22 @@ The **behavioral discipline that complements §3/§4** has two halves:
 **Behavioral conformance — §8.** A deployment whose compaction is not harness-owned is §8-conformant if:
 1. **Prevention** — auto-flush discipline fires after significant decisions in-session (not deferred to session-end batch). Substantive work commits before the next turn.
 2. **Recovery** — compaction-suspect signals trigger durable-record query rather than confabulation. The discipline is documented at the agent's reasoning-layer surface (Mind) so the procedure is enactable.
+
+### §8 realization tiers — the hook-mediated tier (per [ADR-EA-0024](../decisions/ADR-EA-0024-governed-context-management-hook-mediated-tier.md))
+
+The not-harness-owned case is not a single behavioral mode. Where the host harness exposes **compaction-lifecycle hooks**, §1+§8 re-grounding can be *mechanized* — a third realization tier between harness-owned (§3/§4) and behavioral. The tiers form a **deterministic-grounding gradient** (not a single total order — tier 2 leads tier 3 on grounding but cannot realize §4 audit, which is tier-1-only):
+
+| Tier | Condition | Realization | §-coverage |
+|---|---|---|---|
+| **1 — harness-owned** | owns its harness + compaction loop | deterministic compaction **+ audited `context.compacted` (§4)** | §1 + §3 + §4 (full) |
+| **2 — hook-mediated** | host owns compaction **and exposes compaction-lifecycle hooks** | **deterministically re-injects the §1 pin + durable grounding on the hook** (cannot run the loop or emit §4) | §1 + §8 re-grounding, mechanized |
+| **3 — behavioral** | host owns compaction, **no** lifecycle hooks | vigilance (the discipline above) | §8, behavioral |
+
+A deployment realizes the strongest grounding tier its substrate supports; tier 3 remains the floor (it still applies at tier 2 for nuance the capsule cannot reconstruct). Tier 2 is the §1 pin's re-load guarantee **delegated to a host hook** rather than to in-context attention — it does not weaken §1; it mechanizes its intent where §3/§4 can't be owned. Determinism beats vigilance precisely because §8-recovery leans on the introspective surface [EIF §4](epistemic-integrity-floor.md) says is unreliable.
+
+**Read-only by construction (HCAE boundary).** The hook layer **observes, grounds, and suggests — it never commits, pushes, deploys, runs QA, posts, or resets.** Governing principle: *automation may create the continuity conditions; the human keeps every consequential decision.* A hook that *acted* on a re-ground would be an ungoverned action path of the class §0/§1 exist to prevent. Depth/drift conditions are surfaced (e.g. an optional clean-slate suggestion), never acted on; downgrade stays §7 + operator-decided.
+
+**Behavioral conformance — §8-hook tier.** A deployment riding a hook-exposing host is §8-hook-conformant if: (1) a session-lifecycle hook deterministically re-grounds session entry from the durable record, **bounded** against a hang; (2) a compaction-lifecycle hook deterministically re-injects a **lean** §1-pin + durable-grounding capsule (by reference, per §1's lean discipline) on every compaction; (3) both hooks are read-only; (4) the §8-behavioral floor is retained and §4 audit is not claimed (tier-1-only).
 
 ## Distribution across the canon's discipline surfaces
 
