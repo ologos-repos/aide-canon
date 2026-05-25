@@ -22,6 +22,7 @@ Canon-level Architecture Decision Records (ADRs) for the AIDE corpus. Append-onl
 | [ADR-EA-0020](ADR-EA-0020-amend-inference-plane-catalog-contract.md) | Inference plane catalog contract amendment: mandatory `context_window` + `tokenizer` (refines ADR-EA-0015) | Accepted |
 | [ADR-EA-0021](ADR-EA-0021-mxm-ordsa-boundary-citation.md) | MxM↔OrdSA boundary: discipline surfaces cite peer constructs by reference (refines ADR-EA-0013) | Accepted |
 | [ADR-EA-0022](ADR-EA-0022-pattern-bplus-and-canonical-aeon-refimpls.md) | Pattern B+ adoption discipline; Hermetic and NG-AIDE-01 as canonical AEON reference implementations | Accepted |
+| [ADR-EA-0023](ADR-EA-0023-thinx-discipline-refinements.md) | Reference-impl-derived discipline refinements + canonical-ref-impl pin (founder-override pattern + GCM §8 + EIF §6 operationalization + thinx canonical MxM/EIF pin) | Proposed |
 
 ## Per-construct ADRs
 

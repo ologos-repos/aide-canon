@@ -131,6 +131,32 @@ Downgrade rule:
 
 This composes with [EIF §7](epistemic-integrity-floor.md) operator-declared epistemic-reductions — those are two independent operator-declared axes; this is a harness-enforced integrity-degraded axis. The three axes compose without collision.
 
+### §8 Behavioral recovery side (when compaction is not harness-owned)
+
+*Added per [ADR-EA-0023](../decisions/ADR-EA-0023-thinx-discipline-refinements.md), surfaced from thinx reference-impl operation.*
+
+§3 + §4 specify *harness-owned* deterministic compaction with audited `context.compacted` events. The canon's intent is that AEON (the harness) owns the compaction loop and emits the events. This is the **structural realization** of context-management governance.
+
+When a deployment runs **on another harness** rather than running its own (a reference impl on Claude Code, a tool-based deployment on a closed-source agent platform, etc.), the deployment cannot directly realize §3 (compaction loop) or §4 (event emission). Compaction is automatic and opaque from inside; there is no PreCompaction hook to wire. §1's governance pin handles the structural side (canonical sources reload across compaction), but in-flight reasoning chains and recent message-buffer content can be summarized in ways that drop nuance the next turn needs.
+
+The **behavioral discipline that complements §3/§4** has two halves:
+
+**Prevention — compaction-resilience flush:**
+- Auto-flush after every significant decision, not just at session-end. Trigger heuristic: *"would the deployment be poorer if compaction fired this turn?"* If yes, flush before the next turn.
+- Substantive work commits to the durable record (git, evidence store, equivalent) before the next conversation turn proceeds.
+- The principle: durable record current at every turn boundary, not just the last one.
+
+**Recovery — compaction-suspect detection + grounding:**
+- Detectable signals (any of): cannot recall a load-bearing user statement that should be recallable; peer references a recent decision not remembered; expected prior turns appear missing from apparent recall; reaching for plausible-sounding generalities where specifics should exist.
+- Recovery procedure: re-read the durable record (audit log / meta-context / version-control history / standing-instructions store) before reasoning forward. Per [EIF §4](epistemic-integrity-floor.md) (introspection-as-hypothesis), inability to detect a gap from inside is real; the discipline is to *proactively query the durable record* when signals appear.
+- **Do not confabulate.** If a peer-AI references something the agent "should know" and doesn't, lean toward suspecting compaction over assuming the peer is wrong.
+
+**Composition with §3/§4.** When harness-owned compaction is available, §3/§4 (the structural mechanism) dominates and §8 (the behavioral discipline) is the fallback for cases the structural mechanism misses. When harness-owned compaction is not available, §8 *is* the realization.
+
+**Behavioral conformance — §8.** A deployment whose compaction is not harness-owned is §8-conformant if:
+1. **Prevention** — auto-flush discipline fires after significant decisions in-session (not deferred to session-end batch). Substantive work commits before the next turn.
+2. **Recovery** — compaction-suspect signals trigger durable-record query rather than confabulation. The discipline is documented at the agent's reasoning-layer surface (Mind) so the procedure is enactable.
+
 ## Distribution across the canon's discipline surfaces
 
 | Section | Primary surface | What that surface owns |
