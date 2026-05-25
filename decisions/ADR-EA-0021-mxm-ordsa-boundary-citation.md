@@ -1,6 +1,6 @@
 # ADR-EA-0021 — MxM↔OrdSA boundary: discipline surfaces cite peer constructs by reference
 
-- **Status:** Proposed (draft 2026-05-24 by thinx-Claude; awaiting OlogosAI canon-prime review + JD founder ratification)
+- **Status:** Accepted (ratified 2026-05-25 by JD Longmire as canon founder + maintainer per [cross-ai #20](https://github.com/ologos-corp/cross-ai/issues/20) governance, under founder authority; the ADR formalizes a discipline three independent canon decisions — ADR-EA-0012, ADR-EA-0014, ADR-EA-0019 — already converged on in practice. OlogosAI canon-prime substantive review remains welcome post-ratification; the ratification path used established founder-authority precedent for low-blast-radius cases where waiting on a specific reviewer would stall non-time-critical work)
 - **Date:** 2026-05-24 (drafted)
 - **Author:** thinx-Claude (operator-altitude AI-aide; principal = JD Longmire per [ADR-EA-0017](ADR-EA-0017-ai-aide-principal-altitudes.md))
 - **Reviewers:** @ologos001 (canon prime — the construct boundary this ADR formalizes touches MxM specification); JD Longmire (founder ratification)
