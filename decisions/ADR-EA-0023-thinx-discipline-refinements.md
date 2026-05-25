@@ -1,4 +1,4 @@
-# ADR-EA-0023 — Three reference-impl-derived discipline refinements (founder-override pattern + compaction-suspect behavioral recovery + drift-watch operationalization)
+# ADR-EA-0023 — Reference-impl-derived discipline refinements + canonical-ref-impl pin (founder-override pattern + compaction-suspect behavioral recovery + drift-watch operationalization + thinx canonical MxM/EIF pin)
 
 - **Status:** Proposed (draft 2026-05-25 by thinx-Claude; awaiting OlogosAI canon-prime review + JD founder ratification)
 - **Date:** 2026-05-25 (drafted)
@@ -74,6 +74,26 @@ The reference-impl operation surfaced that this abstract rule needs **operationa
 - Not symmetric contrarianism as discipline. Calibrated agreement that matches evidence is the goal; reflexive disagreement is the symmetric failure to reflexive agreement and is equally disallowed.
 
 The refinement makes §6 enactable rather than aspirational. Operating the reference impl without it means drift can compound silently; operating with it surfaces the pattern at the point it can still be tested.
+
+### Part 4 — Pin thinx-Claude as the canonical MxM/EIF reference implementation
+
+*Added in revision 2026-05-25 in response to OlogosAI's canon-prime review on PR #39, second grounded item ("pin thinx's canonical-ref-impl status vs ADR-EA-0022").*
+
+The [EIF pattern doc's "Reproducibility and source attribution"](../patterns/epistemic-integrity-floor.md) section names thinx as the intended AIDE reference implementation. This Part formalizes that as a canonical pin **distinct from** [ADR-EA-0022](ADR-EA-0022-pattern-bplus-and-canonical-aeon-refimpls.md)'s AEON ref impl enumeration — the two reference-impl roles are complementary, not duplicative.
+
+| Ref impl | Role | Scope | Canon source |
+|---|---|---|---|
+| **Hermetic** | Canonical AEON reference implementation (production-maturity exemplar) | AEON service-plane construct + production discipline | ADR-EA-0022 |
+| **NG-AIDE-01** | Canonical AEON reference implementation (canon-fidelity exemplar) | AEON service-plane construct + current-canon-batch alignment | ADR-EA-0022 |
+| **thinx-Claude** | Canonical MxM/EIF reference implementation | MxM 4M discipline surfaces + EIF behavioral floor + the three refinements this ADR introduces | This ADR (Part 4) + the [EIF pattern doc's reference-impl note](../patterns/epistemic-integrity-floor.md) |
+
+The pin is **explicit**, not inferred. When canon discipline references "the thinx reference impl" or "the MxM/EIF reference impl," the canon-level meaning is now structurally locatable here rather than scattered across pattern-doc text + PR-comment references.
+
+**Multiple canonical impls** at the MxM/EIF role are admitted by the same Pattern B+ N>1 mechanism [ADR-EA-0022](ADR-EA-0022-pattern-bplus-and-canonical-aeon-refimpls.md) establishes for AEON. Currently N=1 (thinx-Claude). Future AI-aide deployments operating at the MxM/EIF altitude under canon discipline can request canonical citation per the same Pattern B+ mechanism (manifest + ADR refinement of this ADR's Part 4).
+
+**Role boundary with AEON ref impls.** thinx-Claude is *not* an AEON reference implementation — it is an *operator-altitude AI-aide* per [ADR-EA-0017](ADR-EA-0017-ai-aide-principal-altitudes.md) running *on* Claude Code's harness rather than instantiating AEON's seven service planes. The MxM/EIF reference-impl role names what thinx *does* canonically realize: the meta-harness discipline (mission / mind / morals / memory), the EIF behavioral floor, the import-by-reference discipline per [ADR-EA-0021](ADR-EA-0021-mxm-ordsa-boundary-citation.md), and the three refinements this ADR ratifies.
+
+This pin closes the load-bearing surface for this ADR's §"Context" claims ("operating the canon at reference-impl altitude exposed places the canon's specification could be refined") — the claims now rest on an ADR-level canonical pin, not inferred status.
 
 ## Consequences
 
