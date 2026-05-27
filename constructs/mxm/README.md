@@ -1,8 +1,8 @@
 # MxM — Mx-Modes (Multi-mode Meta-harness)
 
-The **harness archetype** — five governing surfaces that compose an AI operating envelope at any altitude (per-agent, multi-agent, enterprise-scale). MxM is co-authored with **Micah Longmire** ([ORCID 0009-0006-7608-9322](https://orcid.org/0009-0006-7608-9322), Sr. AI Architect); the corpus's first joint construct in the spine.
+The **harness archetype** — six governing surfaces that compose an AI operating envelope at any altitude (per-agent, multi-agent, enterprise-scale). MxM is co-authored with **Micah Longmire** ([ORCID 0009-0006-7608-9322](https://orcid.org/0009-0006-7608-9322), Sr. AI Architect); the corpus's first joint construct in the spine.
 
-## The five surfaces
+## The six surfaces
 
 | Surface | Concern |
 |---|---|
@@ -10,19 +10,28 @@ The **harness archetype** — five governing surfaces that compose an AI operati
 | **MORALS** | Permission boundaries — permissions, prohibitions, obligations, process gates |
 | **MISSION** | Purpose and scope — telos, team, infrastructure, session protocols |
 | **MEMORY** | Continuity and reference — what persists across sessions, how priors form |
+| **METHODS** | Tradecraft — codified best-practice and rigor; how a kind of work is done to a standard. Recommends; does not grant permission (Morals) or implement (Means) |
 | **MEANS** | Execution surface — tools, skills, workflows. Implements; does not grant permission |
 
-A root file activates the operating posture; the model executes within the envelope the four discipline-bearing surfaces establish. Means implements; it does not grant permission.
+A root file activates the operating posture; the model executes within the envelope the five discipline-bearing surfaces establish. Means implements; it does not grant permission.
 
 ### The root file (the activator) — per [ADR-EA-0013](decisions/ADR-EA-0013-define-mxm-root-file-mode-element.md)
 
-The root file is the **harness-attach point and operating-mode activator** — the element an instantiation may name `mode.md`, and for which Claude Code's `CLAUDE.md` is the canonical example. It is **not a sixth surface and not a governing altitude.** It has three roles, none of them governance:
+The root file is the **harness-attach point and operating-mode activator** — the element an instantiation may name `mode.md`, and for which Claude Code's `CLAUDE.md` is the canonical example. It is **not a seventh surface and not a governing altitude.** It has three roles, none of them governance:
 
-1. **Harness-attach / entry** — harness-specific and swappable (`CLAUDE.md` under Claude Code, another bootstrap under another harness). It isolates harness-specificity so the five surfaces stay harness-agnostic.
+1. **Harness-attach / entry** — harness-specific and swappable (`CLAUDE.md` under Claude Code, another bootstrap under another harness). It isolates harness-specificity so the six surfaces stay harness-agnostic.
 2. **Operating-mode / posture activation** — sets the mode the surfaces apply under (advisory / read-only / operational / degraded) and the autonomy posture (how much an agent self-directs before surfacing a decision). This is the "Mx-*Modes*" the construct's name refers to.
-3. **Routing** — points the agent into the five surfaces.
+3. **Routing** — points the agent into the six surfaces.
 
-**The root file and Means *bracket* the four discipline surfaces** — the root file is the swappable seam at the *attach* end, Means the swappable seam at the *execution* end, and Mind/Morals/Mission/Memory the durable, harness-agnostic core. Swap the root file to move harnesses; swap Means to move substrates; keep the governance.
+**The root file and Means *bracket* the five discipline surfaces** — the root file is the swappable seam at the *attach* end, Means the swappable seam at the *execution* end, and Mind/Morals/Mission/Memory/Methods the durable, harness-agnostic core. Swap the root file to move harnesses; swap Means to move substrates; keep the governance.
+
+### The methods surface — per [ADR-EA-0026](decisions/ADR-EA-0026-introduce-methods-surface.md)
+
+**METHODS** is the harness's **tradecraft** — the codified, evidenced, reusable procedures and rigor disciplines for doing a kind of work *to a standard*. It answers *"how do we do this well?"* It **recommends**; it does not constrain (that's Morals), implement (that's Means), or reason (that's Mind).
+
+- **Boundary vs. Morals = enforcement/obligation.** Morals holds the *obligatory, enforced* disciplines (violation is a breach); Methods holds *recommended craft* (departure is suboptimal). A method **graduates** when it earns enforcement: `practice → method → moral → means` — one discipline can project across surfaces (the *technique* of QA is a Method, the *duty* a Moral, the *hook* Means).
+- **Relation to the [`patterns/`](../../patterns/) tier = altitude.** Patterns are *architecture*-level (how the system is shaped); Methods is *operator*-level (how the agent works). Peers; Methods may cite patterns.
+- **Entry bar:** a method qualifies only if evidenced (proven through repetition), named/reusable, and carrying its rationale — not a junk drawer.
 
 ## The architectural claim
 

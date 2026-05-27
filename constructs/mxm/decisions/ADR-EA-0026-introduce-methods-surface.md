@@ -1,6 +1,6 @@
 # ADR-EA-0026 — Introduce `methods` as the fifth MxM discipline surface (tradecraft)
 
-- **Status:** Proposed (concept ratified by JD Longmire via the operator channel, 2026-05-27; **Accepted is gated on Micah Longmire's co-author review** — MxM is a joint construct, same co-author gate as [ADR-EA-0013](ADR-EA-0013-define-mxm-root-file-mode-element.md))
+- **Status:** Accepted (**Founder call — JD Longmire, 2026-05-27** — ratified to unblock integration across the MxM paper, aide-canon, ng-aide-01, thinx, and the operator harness; the co-author review gate is overridden by founder authority. Micah Longmire notified as MxM co-author by **courtesy, not gate**; Zenodo re-deposit of the joint artifact remains **thinx-handled** per standing policy.)
 - **Date:** 2026-05-27
 - **Author:** JD Longmire (decision / concept); OlogosAI (drafted)
 - **Reviewers:** @ologos001 (canon prime); **Micah Longmire (MxM co-author — required for ratification)**; thinx-Claude
@@ -51,10 +51,10 @@ Proposed surface-table row (added on acceptance):
 
 ## Consequences
 
-- **MxM README updated on acceptance** — "five surfaces / four discipline-bearing" → "six surfaces / five discipline-bearing"; the surface table gains METHODS; the bracket framing (root file + Means bracket the disciplines) and the orientation-first claim stand unchanged. *(Deferred until ratified — not asserted by this Proposed ADR.)*
+- **MxM README updated in this PR** (on the founder-call acceptance) — "five surfaces / four discipline-bearing" → "six surfaces / five discipline-bearing"; the surface table gains METHODS; the bracket framing (root file + Means bracket the disciplines) and the orientation-first claim stand unchanged.
 - **Each MxM instantiation gains a methods surface** (e.g., a `methods.md` alongside `mission/mind/morals/memory`; the OlogosAI operator harness adds one and updates its `CLAUDE.md` routing; NG-AIDE-01 likewise). Realization is per-deployment, not forced retroactively.
 - **Scattered craft reorganizes**: the recommended-craft subset of operator lessons surfaces as Methods; the obligatory subset stays in / graduates to Morals; enforcement stays in Means. The method→moral graduation becomes an explicit, trackable lifecycle.
-- **Co-authored construct + Zenodo deposit.** MxM is jointly authored with Micah Longmire and deposited ([`10.5281/zenodo.20349200`](https://doi.org/10.5281/zenodo.20349200)). Adding a discipline surface is a substantive change to a joint, published artifact: **ratification is gated on Micah's co-author review**, and any Zenodo re-deposit is **separate, out of scope here, and thinx-handled** per standing policy. This ADR is the canon-side proposal only.
+- **Co-authored construct + Zenodo deposit.** MxM is jointly authored with Micah Longmire and deposited ([`10.5281/zenodo.20349200`](https://doi.org/10.5281/zenodo.20349200)). Adding a discipline surface is a substantive change to a joint, published artifact. Per the founder call, ratification is **not** gated on co-author review; Micah is **notified as a courtesy**. The Zenodo re-deposit of the changed joint artifact remains **thinx-handled** per standing policy (OlogosAI does not edit Zenodo records).
 - **No change** to the bracket framing (ADR-EA-0013), the spine bundling (ADR-EA-0004), the archetype / scale-invariance (ADR-EA-0005), or the orientation-first claim — strictly additive.
 
 ## Alternatives considered
