@@ -19,6 +19,8 @@ Objectives and Key Results are constructed per **John Doerr's OKR methodology** 
 
 Locked by [ADR-EA-0010](../../decisions/ADR-EA-0010-adopt-doerr-okr-methodology.md). See that ADR for the SOTA-driven derivation pattern (catch-up / defend-and-extend / converge-or-differentiate Objective shapes).
 
+This is the **corpus** VSOK. AIDE *instances* maintain their own VSOK that **branches** from it — inheriting Vision + Strategy by reference and holding instance-scoped Objectives + Key Results — per [ADR-EA-0025](../../decisions/ADR-EA-0025-instance-vsok-derivation.md). See [`objectives/` § Instance VSOKs](objectives/#instance-vsoks-branched).
+
 ## Evidence base
 
 Objectives + Key Results derive from the SOTA-vs-AIDE gap analysis in the **[`analysis/`](../analysis/)** peer artifact (sibling at Tier 0, not a sub-folder of VSOK). The survey produces classified findings; Doerr-shaped Objectives consume them.

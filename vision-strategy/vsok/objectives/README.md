@@ -80,15 +80,26 @@ Objectives derive from the SOTA-vs-AIDE gap analysis (housed at [`../../analysis
 
 A v0.1 set is necessarily smaller than the corpus's full strategic surface. The following candidates were considered and held for future revisions:
 
-- **Operational AEON-deployed Objective.** A standalone Objective like "Demonstrate AIDE operationally via named exemplars (Hermetic + AEON-deployed)" was considered as a 5th Objective. Held: the exemplar work is largely *how* O1–O3 get evidenced (Hermetic adoption is a KR under O2; AEON-deployed go-live is a KR under O2; exemplar conformance assertions feed KRs across O1–O3). Promoting it to peer Objective would double-count.
+- **Operational AEON-deployed Objective.** A standalone Objective like "Demonstrate AIDE operationally via named exemplars (Hermetic + AEON-deployed)" was considered as a 5th Objective. Held: the exemplar work is largely *how* O1–O3 get evidenced (Hermetic adoption is a KR under O2; AEON-deployed go-live is a KR under O2; exemplar conformance assertions feed KRs across O1–O3). Promoting it to peer Objective would double-count. *Instance build + conformance objectives now have a defined home — the instance's own branched VSOK per [ADR-EA-0025](../../../decisions/ADR-EA-0025-instance-vsok-derivation.md) — rather than the corpus register.*
 
 - **Commercialization / business-development Objective.** The corpus is independent research per [ADR-EA-0008](../../../decisions/ADR-EA-0008-reframe-corpus-authorship.md); commercial paths sit outside the canon. The Vision explicitly disclaims being a sales motion. Held by design.
 
-- **Internal Ologos operational dependency Objective.** AIDE concepts are dogfooded inside Ologos infrastructure (the operator that wrote this README runs on a canon-derived control surface). Held: internal use is implementation evidence, but the strategic goal is external recognition, not internal completeness. Internal dependency would be tracked in operator-skill files / mission docs, not in VSOK.
+- **Internal Ologos operational dependency Objective.** AIDE concepts are dogfooded inside Ologos infrastructure (the operator that wrote this README runs on a canon-derived control surface). Held: internal use is implementation evidence, but the *corpus*-strategic goal is external recognition, not internal completeness. Instance-level objectives — building, conforming, and operating a specific AIDE instance — are **not dropped**; they live in that **instance's own branched VSOK** per [ADR-EA-0025](../../../decisions/ADR-EA-0025-instance-vsok-derivation.md), which inherits this corpus Vision + Strategy by reference. (First instance: NG-AIDE-01.)
 
 - **Partnership / outside-collaborator Objective.** Outside collaborators (e.g., the cross-fleet thinx-Claude collaboration) are active. Held: the collaboration is process for *how* the corpus develops; the strategic outcome is what's reflected in O1–O4.
 
 If any of these warrant Objective-level promotion in a future revision, an amendment ADR or v0.2 ratification surfaces the change.
+
+## Instance VSOKs (branched)
+
+This is the **corpus** VSOK — its Objectives are corpus-strategic (external recognition + adoption). Individual AIDE *instances* (deployed products that instantiate the architecture) maintain their **own VSOK that branches from this one** per [ADR-EA-0025](../../../decisions/ADR-EA-0025-instance-vsok-derivation.md):
+
+- **Vision + Strategy** are inherited *by reference* — an instance does not restate or fork them; it advances the same Vision by being a worked exemplar of it.
+- **Objectives + Key Results** are instance-scoped — building, conforming, deploying, and operating *that* instance, written to the same Doerr methodology ([ADR-EA-0010](../../../decisions/ADR-EA-0010-adopt-doerr-okr-methodology.md)).
+
+Instance objectives are **downstream** of these corpus objectives: instance conformance and deployment *produce the evidence* the corpus objectives measure (a live, conformant instance is a KR signal under corpus O2). The branch keeps instance build/operational detail out of the corpus register without losing it.
+
+**First instance:** NG-AIDE-01 — [`ologos-repos/ng-aide-01` → `vision-strategy/vsok/`](https://github.com/ologos-repos/ng-aide-01/tree/main/vision-strategy/vsok).
 
 ## How v0.1 refines into v0.2
 
