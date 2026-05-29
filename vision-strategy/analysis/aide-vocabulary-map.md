@@ -199,7 +199,7 @@ The [cross-ai #20](https://github.com/ologos-corp/cross-ai/issues/20) governance
 **Cross-entity federation contract** — when two AI-aides under different entities coordinate (thinx ↔ Ologos ecosystem, Ologos ↔ NG-AIDE-01-when-deployed, NG-AIDE-01 ↔ thinx, future-AIDE-deployment ↔ canon), the contract carries explicit **`entity_id × principal_chain × verb_class`** semantics:
 
 - **observe + recommend** cross entity boundaries freely
-- **direct** (drive / steer / halt / approve, etc.) requires the receiving entity's principal-chain attestation; absent that, refused at the contract layer
+- **direct** (the prose superset; **`drive`** at the contract-layer token level per `ng-aide-01#59` §6.3 #9 — covers steer / halt / approve, etc.) requires the receiving entity's principal-chain attestation; absent that, refused at the contract layer
 
 See [ng-aide-01 PR #59 §6.3 #9](https://github.com/ologos-repos/ng-aide-01/pull/59) for the contract's working specification — that PR is the source-of-truth for the protocol shape; this section captures the canon-level framing. The discipline applies symmetrically across all currently-instantiated and future-instantiated entity pairs.
 

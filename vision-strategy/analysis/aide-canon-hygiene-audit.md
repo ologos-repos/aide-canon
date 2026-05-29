@@ -2,7 +2,7 @@
 
 **Status:** PREP-phase audit (2026-05-29). Lands together with PURSUE-1 edits in the same PR.
 **Scope:** Audit aide-canon's markdown corpus for conflations against the 2026-05-29 entity-distinction clarifications (Ologos ecosystem ≠ NG-AIDE-01 ≠ thinx; NG-AIDE-01 has its own AEON; cross-entity federation, not within-fleet altitude composition). Vocabulary corrections (Skill/Tool/Workflow/Capability/Envelope per [ng-aide-01 PR #59](https://github.com/ologos-repos/ng-aide-01/pull/59) §5.1) are **deferred** to a post-ratification PURSUE-2 pass.
-**Files audited:** 126 markdown files under `aide-canon:main`.
+**Files audited:** 126 markdown files under `aide-canon:main` (count from `find . -maxdepth 5 -type f -name "*.md" -not -path "./.git/*" | wc -l`).
 **Companion to:** [ng-aide-01#60](https://github.com/ologos-repos/ng-aide-01/pull/60) — same audit pattern applied instance-side first.
 
 ---
