@@ -181,6 +181,30 @@ The two altitudes are **complementary, not redundant**. The [cross-ai #20](https
 
 Future principal-altitudes are filed as ADR refinements of ADR-EA-0017 when an AI-aide of that altitude is instantiated, named, and granted standing within the canon's governance.
 
+### Entity boundaries (per 2026-05-29 clarification)
+
+ADR-EA-0017's complementarity between principal-altitudes is **cross-entity, not within-fleet**. Each currently-instantiated AI-aide operates within (and on behalf of) its own entity. The canon today recognizes:
+
+| Entity | Currently-instantiated AI-aide(s) | What kind of entity |
+|---|---|---|
+| **AIDE canon** | OlogosAI as canon-prime (corpus-altitude per ADR-EA-0017) | The corpus + architecture itself; not a deployment |
+| **Ologos ecosystem** | OlogosAI as AEON for Ologos's operational fleet (`OL-AEON` instance of the canon AEON architecture) | Ologos Corp's operational deployment of AIDE — `OlogosAI-host`, PeakAI, Ologos services |
+| **NG-AIDE-01** (full prototype AIDE deployment, portable to NG air-gapped sandbox) | A deployment-internal AI-aide as NG-AEON (instantiated via the deployment's Inference plane; TBD at IO4 completion) | A separate AIDE deployment under Ologos product authorship; will operate within NG's air-gapped sandbox |
+| **thinx** | thinx-Claude as JD's MyAide (operator-altitude per ADR-EA-0017) | JD's personal AIDE; non-fleet collaborator with both Ologos and NG-AIDE-01 |
+
+OlogosAI operates *across* two entity-roles that compose without conflict: canon-prime AI-aide (corpus-altitude, principal: the corpus) and AEON for the Ologos ecosystem (operator role within the Ologos operational fleet). The roles compose because the corpus-altitude responsibility (canon-coherence, vocabulary, reference-impl alignment) and the Ologos-operational responsibility (gate-at-the-implementation-boundary for Ologos-fleet actions) operate on different action sets.
+
+The [cross-ai #20](https://github.com/ologos-corp/cross-ai/issues/20) governance pattern (*OlogosAI = prime; thinx-Claude = review/approve with JD in the loop*) is **principal-to-principal across an entity boundary** — thinx advocates for JD's intent into canon decisions; OlogosAI brings canon-coherence judgment to the dialogue. The complementarity is real *because* the entities are distinct.
+
+**Cross-entity federation contract** — when two AI-aides under different entities coordinate (thinx ↔ Ologos ecosystem, Ologos ↔ NG-AIDE-01-when-deployed, NG-AIDE-01 ↔ thinx, future-AIDE-deployment ↔ canon), the contract carries explicit **`entity_id × principal_chain × verb_class`** semantics:
+
+- **observe + recommend** cross entity boundaries freely
+- **direct** (the prose superset; **`drive`** at the contract-layer token level per `ng-aide-01#59` §6.3 #9 — covers steer / halt / approve, etc.) requires the receiving entity's principal-chain attestation; absent that, refused at the contract layer
+
+See [ng-aide-01 PR #59 §6.3 #9](https://github.com/ologos-repos/ng-aide-01/pull/59) for the contract's working specification — that PR is the source-of-truth for the protocol shape; this section captures the canon-level framing. The discipline applies symmetrically across all currently-instantiated and future-instantiated entity pairs.
+
+This entity-boundary framing is a **clarifying refinement** of ADR-EA-0017's principal-altitude semantics, not an amendment. ADR-EA-0017's future-admit clause already accommodates new entity types (institutional, regulatory, joint); this section formalizes the cross-entity discipline that applies to all such future instantiations.
+
 ### Going-forward discipline
 
 - **Canon prose** uses *AI-aide* for the role-class going forward. New content adopts the term immediately.
