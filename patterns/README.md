@@ -29,7 +29,7 @@ A pattern in this directory is **not** a construct (it does not define a methodo
 A new pattern enters this directory when:
 
 1. **It cuts across multiple tiers, constructs, or service planes** — not contained within one. If a candidate pattern fits entirely inside a single construct (e.g., OrdSA), document it inside that construct's directory instead.
-2. **It has at least one reference implementation** in the broader Ologos/Hermit ecosystem or in an open-source impl that can be cited. Patterns documented in the abstract without a working impl belong in `docs/`, not here.
+2. **It has at least one reference implementation** in the broader Ologos/Hermetic ecosystem or in an open-source impl that can be cited. Patterns documented in the abstract without a working impl belong in `docs/`, not here.
 3. **It has been ratified via an ADR** in the canon's [`decisions/`](../decisions/) directory. The ADR records placement reasoning + conformance criteria.
 
 The pattern document itself follows a recommended shape — see `digital-thread.md` as the in-tree exemplar — but variation is permitted when the pattern's structure warrants it.
