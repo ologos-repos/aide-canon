@@ -9,6 +9,7 @@
   - 2026-06-01 (filed): Filed as `Proposed` alongside the design-gate PR [#45](https://github.com/ologos-repos/aide-canon/pull/45) introducing [`patterns/workflow-orchestration.md`](../patterns/workflow-orchestration.md).
   - 2026-06-01 (QA): Cross-vendor QA via `qa_pr_via_gemini.py` (Gemini 2.5 Pro, observer altitude) returned **PASS with NITs** — 0 BLOCKERs; 1 NIT (premature "ratified" status line on the pattern doc — fixed); 1 NOTE (commended the §5.1-sequencing hygiene). No canon-fidelity, cross-reference, or decision-record findings.
   - 2026-06-01 (ratified): JD-Founder ratified all seven forks as-proposed (F-A … F-G; the leans below are now the accepted decision). Status → `Accepted`. Pattern doc becomes normative. Peer-AI second opinion to thinx-Claude follows post-ratify (canon-altitude trigger), threaded to cross-ai #61.
+  - 2026-06-01 (refinement, post-ratify): thinx-Claude returned a "sound-with-notes" second opinion on [cross-ai #62](https://github.com/ologos-repos/cross-ai/discussions/62). Four notes folded into the pattern doc (v0.1.1) under the "open for tuning" clause, all additive-strengthening (no direction change, no re-ratification required): (1) **`⊑` defined per-limb** across all three OAgents envelope limbs — permissions ⊆, gates ⊇, post-execution verification at-least-as-strong, operational discipline inherited-or-tighter — closing the *under-verification = silent escalation* hole; (2) **multi-level closure** — `⊑` composes transitively at every nesting depth, with bounded-resource enforced per level ("depth is where escalation launders itself"); (3) **evidence parent-FK upgraded to MUST** (`parent_evidence_id` / `orchestration_run_id`) with the per-spawn gate-decision as a first-class field — the shared OAgents evidence-schema convergence point with FOrCE/eval; (4) **O2-delegation clarified** — the workflow is an O3 `Agent` whose orchestration authority is delegated from O2 (no O3 self-orchestration). Behavioral conformance grew from five criteria to six. thinx's three open questions answered on #62 (per-limb: yes; parent-FK MUST + gate-decision as first-class field: yes; dynamic authority: ⊑ the parent's *standing* envelope, intersective).
 
 ## Context
 
@@ -52,7 +53,7 @@ A child's envelope is always a refinement (⊆ permissions, ⊇ gates) of the or
 
 ### 5. Conformance: behavioral (required) + schema (recommended) + interface (optional)
 
-Matches the ADR-EA-0009 conformance shape. Five behavioral criteria (deterministic orchestration, envelope refinement, gate-at-the-deterministic-layer, evidence aggregation, bounded resource envelope); schema-level descriptor + invocation + operator + journal recommendations; optional structured-output contract + OTel-mappable observability stream.
+Matches the ADR-EA-0009 conformance shape. Six behavioral criteria (deterministic orchestration; per-limb envelope refinement; multi-level closure; gate-at-the-deterministic-layer; evidence aggregation with enforced parent-FK; bounded resource envelope — criteria 2/3/5 sharpened per the 2026-06-01 thinx refinement); schema-level descriptor + invocation + operator + journal + shared-evidence-record recommendations; optional structured-output contract + OTel-mappable observability stream.
 
 ### 6. Register Claude Code Workflow as a named exemplar
 

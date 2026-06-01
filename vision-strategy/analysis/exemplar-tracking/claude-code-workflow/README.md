@@ -29,13 +29,14 @@ The workflow-orchestration pattern is cross-cutting; the exemplar instantiates p
 
 ## Conformance assertions
 
-Against the five behavioral criteria in [`patterns/workflow-orchestration.md`](../../../../patterns/workflow-orchestration.md):
+Against the six behavioral criteria in [`patterns/workflow-orchestration.md`](../../../../patterns/workflow-orchestration.md) (criteria sharpened by the 2026-06-01 thinx refinement):
 
 1. **Deterministic orchestration** — ✅ `resumeFromRunId` returns cached results for the unchanged prefix; same script + same args → 100% cache hit. Date/random are blocked in scripts precisely to preserve replay determinism.
-2. **Envelope refinement** — ⚠️ **partial.** Per-spawn refinement of model (`opts.model`), tools (`opts.agentType`), and output (`opts.schema`) is supported and conventional, but the harness does not *enforce* that a child's authority is a provable subset of the orchestrator's. This is the canon-motivating gap (see below).
-3. **Gate-at-the-deterministic-layer** — ✅ `budget` throws in the control program; schema validation retries at the tool layer; concurrency is capped at `min(16, cores−2)`; a lifetime agent cap backstops runaway loops.
-4. **Evidence aggregation** — ✅ partial-to-solid: per-agent transcripts + the run journal are recoverable; structured-output schemas make per-step evidence machine-readable. Formal digital-thread FK-linking of child evidence to the orchestration record is conventional, not schema-enforced.
-5. **Bounded resource envelope** — ✅ token budget (`budget.total`), concurrency cap, and lifetime agent cap.
+2. **Per-limb envelope refinement** — ⚠️ **partial.** Per-spawn refinement of model (`opts.model`), tools (`opts.agentType`), and output (`opts.schema`) is supported and conventional, but the harness does not *enforce* a child's authority as a provable subset on every limb — in particular post-execution verification is not held at-least-as-strong. This is the canon-motivating gap (see below).
+3. **Multi-level closure** — ⚠️ **partial.** Nesting is one level by construction (`workflow()` inside a child throws), which sidesteps deep recursion, but the harness does not enforce transitive `⊑` for the nesting it does allow.
+4. **Gate-at-the-deterministic-layer** — ✅ `budget` throws in the control program; schema validation retries at the tool layer; concurrency is capped at `min(16, cores−2)`; a lifetime agent cap backstops runaway loops.
+5. **Evidence aggregation (enforced FK)** — ⚠️ **partial.** Per-agent transcripts + the run journal are recoverable and structured-output schemas make per-step evidence machine-readable, but `parent_evidence_id` / `orchestration_run_id` and the gate-decision record are not enforced fields — aggregation is recoverable-by-convention, not FK-guaranteed.
+6. **Bounded resource envelope** — ✅ token budget (`budget.total`), concurrency cap, and lifetime agent cap.
 
 ## The canon-motivating gap
 

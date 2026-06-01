@@ -25,7 +25,7 @@ A workflow is **not a single-slot canon object.** Its parts distribute across th
 
 | Workflow element | What it is | Canon home (enacted) |
 |---|---|---|
-| **Orchestration program** (the control flow + its descriptor) | deterministic sequencing/fan-out/iteration spec | AEON **Meta-Orchestration** plane · MxM **MEANS** · OrdSA **O2/O3** orchestrator |
+| **Orchestration program** (the control flow + its descriptor) | deterministic sequencing/fan-out/iteration spec | AEON **Meta-Orchestration** plane · MxM **MEANS** · OrdSA **O3 agent with O2-delegated orchestration authority** |
 | **Agent invocation** (spawn a sub-agent for a step) | instantiation of a judgment-exercising worker | OAgents **`Agent`** primitive · OrdSA **O3** agent |
 | **Composition operators** (pipeline / parallel / loop / nest) | rules under which agents chain, delegate, iterate | AEON **Composition Plane** (composability gates) |
 | **Structured output** (forced typed result per step) | schema-validated deliverable from a step | OAgents **evidence emission** · digital-thread **artifacts** |
@@ -47,15 +47,30 @@ This is the pattern's load-bearing claim and the part that closes the OAgents §
 envelope(child_agent)  ⊑  envelope(orchestrator)
 ```
 
-A spawned agent's envelope is always a **refinement** of the orchestrator's: a subset of its permissions and a superset of its gates. A workflow may *narrow* authority for a step (fewer tools, a cheaper model, a tighter output schema, a stricter gate) but may **never broaden** a child's authority beyond what the orchestrator itself holds.
+A spawned agent's envelope is always a **refinement** of the orchestrator's. Refinement is defined **per OAgents envelope limb** — the envelope is *pre-execution gates + post-execution verification + operational discipline*, and `⊑` must order over **all three**, not just permissions:
+
+| Envelope limb | Refinement direction (`child ⊑ parent`) |
+|---|---|
+| **Permissions** (tools, scopes, reachable surfaces) | child ⊆ parent — fewer, never more |
+| **Pre-execution gates** | child ⊇ parent — at least as many, never fewer |
+| **Post-execution verification** | child's verification is **at least as strong** as parent's — never weaker |
+| **Operational discipline** (resource ceiling, audit emission, escalation rules) | child inherits, may tighten, never loosen |
+
+Defining `⊑` on permissions/gates alone would let a child run with *weaker post-execution verification* than its parent — a **silent escalation** (the dangerous output passes because the check was relaxed at the spawn). All four directions must hold for `envelope(child) ⊑ envelope(parent)` to be true. A workflow may *narrow* authority for a step but may **never broaden or under-verify** it.
+
+**Multi-level (recursion is bounded by the partial order).** Because a workflow *is* an Agent and an Agent can *be* a workflow, nesting is unbounded by construction — and depth is where escalation launders itself. `⊑` is a **partial order**, so it composes transitively: `envelope(grandchild) ⊑ envelope(child) ⊑ envelope(orchestrator)`. Every level must satisfy refinement on all four limbs **and** the bounded-resource criterion — there is no depth at which a descendant may hold authority its lineage did not.
+
+**Dynamic authority (mid-run grants).** If a gate grants a child a capability mid-run on runtime evidence, that grant must still be `⊑` the **parent's standing envelope** — intersective, never additive. A runtime grant can only *realize* authority already within the lineage's standing envelope; it can never mint new authority.
 
 Three guarantees follow, and together they are what makes orchestration *governable* rather than an escalation vector:
 
-1. **No privilege escalation by orchestration.** You cannot spawn an agent that does what the orchestrator could not. Composition strictly contracts authority; it never expands it. (This is AEON's Composition-Plane *composability gate*, made precise.)
-2. **Evidence aggregation along the digital thread.** Each child emits OAgents evidence; the orchestrator's evidence record is the parent into which the children's evidence FK-links. An orchestration produces one [digital-thread](digital-thread.md) with the orchestrator as the task/phase parent and each agent invocation as a child artifact + audit entry.
-3. **Gate inheritance.** Pre-execution and post-execution gates on the orchestrator apply to every child by default; a child step may add gates but cannot remove inherited ones.
+1. **No privilege escalation by orchestration.** You cannot spawn (at any depth) an agent that does what its lineage could not. Composition strictly contracts authority; it never expands it. (This is AEON's Composition-Plane *composability gate*, made precise.)
+2. **Evidence aggregation along the digital thread (MUST).** Each child emits OAgents evidence carrying an **enforced** `parent_evidence_id` / `orchestration_run_id` linking it to the orchestration record — a required FK, not a convention. Without it, aggregation is *correlated logs, not recoverable evidence*. An orchestration produces one [digital-thread](digital-thread.md) with the orchestrator as the task/phase parent and each agent invocation as a child artifact + audit entry. The per-spawn **gate-decision record** (authorized / refused / escalated, plus the envelope-delta applied) is a first-class field of this evidence.
+3. **Gate inheritance.** Pre-execution gates, post-execution verification, and operational discipline on the orchestrator apply to every descendant by default; a step may tighten them but cannot remove or weaken inherited ones.
 
-The short form: **a workflow is an agent that orchestrates agents under envelope refinement.** That single sentence is the canon's answer to "does workflow orchestration encounter the trust problem?" — yes, and the answer is the refinement lattice.
+The short form: **a workflow is an agent that orchestrates agents under per-limb envelope refinement.** That single sentence is the canon's answer to "does workflow orchestration encounter the trust problem?" — yes, and the answer is the refinement lattice.
+
+> **Orchestration authority is delegated, not self-asserted.** OrdSA places orchestration authority at **O2** and forbids an O3 agent from orchestrating itself. A workflow is an O3 `Agent` whose orchestration authority is **delegated from O2** — it does not self-orchestrate. This is what licenses it to spawn O3 children: the authority to compose comes from above, and `⊑` guarantees it only ever flows down and narrows.
 
 ## Contribution 2 — The determinism boundary is the gate-attachment surface (principle)
 
@@ -77,7 +92,7 @@ How the pattern connects to existing canon concepts. AIDE vocabulary is the cano
 | Workflow concept | Canon mapping (AIDE-canonical) |
 |---|---|
 | **Workflow** (the primitive) | OrdSA **O3** *"Agents and Workflows"* — the workflow is the orchestration object at O3; distinct from a **Tool** (atomic invocation, O4 / MEANS) and a **Skill** (temporally-extended instructional procedure, MEANS). Feeds the in-flight §5.1 ontology (see ADR-EA-0027 §Open-for-tuning). |
-| **Orchestrator** | AEON **Meta-Orchestration plane**; an OAgents `Agent` at orchestration altitude |
+| **Orchestrator** | AEON **Meta-Orchestration plane**; an OAgents `Agent` at orchestration altitude whose orchestration authority is **delegated from OrdSA O2** (an O3 agent does not self-orchestrate) |
 | **Composition operators** | AEON **Composition Plane** composability gates |
 | **Envelope refinement** (`⊑`) | OAgents **behavioral envelope** + AEON Composition-Plane escalation rules — the composition law (Contribution 1) |
 | **Structured-output step** | OAgents **evidence emission**; digital-thread **artifact** |
@@ -94,10 +109,11 @@ The pattern is the *vertical slice* that binds these horizontal decompositions f
 An implementation is **workflow-orchestration-conformant** if and only if all of the following hold:
 
 1. **Deterministic orchestration.** The control flow (sequencing, fan-out, iteration, branching) is deterministic and replayable: given the same inputs and the same agent outputs, it issues the same sequence of agent invocations. (A journal/resume mechanism that returns cached prior-run results is the canonical evidence of this.)
-2. **Envelope refinement.** Every spawned agent runs under an envelope that refines — never relaxes — the orchestrator's: `envelope(child) ⊑ envelope(parent)`. No orchestration-induced privilege escalation. An impl MUST document how it bounds a child's authority to a subset of the orchestrator's.
-3. **Gate-at-the-deterministic-layer.** Pre-execution authorization, post-execution verification, and resource ceilings are enforced in the deterministic control layer, not delegated to the judgment of spawned agents.
-4. **Evidence aggregation.** The orchestration emits an audit/evidence record, and each spawned agent's evidence links to it (digital-thread parent ← child). An orchestration is not a black box: per-step evidence is recoverable.
-5. **Bounded resource envelope.** The orchestration runs under a declared, deterministically-enforced resource ceiling (token, agent-count, and/or wall-clock budget). Unbounded fan-out is not conformant.
+2. **Per-limb envelope refinement.** Every spawned agent runs under an envelope that refines — never relaxes — the orchestrator's on **all** OAgents envelope limbs: `child.permissions ⊆ parent.permissions` **and** `child.pre-execution-gates ⊇ parent's` **and** `child.post-execution-verification` at least as strong as the parent's **and** operational discipline inherited-or-tighter. Refinement on permissions/gates alone is *not* sufficient — under-verification is a silent escalation. No orchestration-induced privilege escalation. An impl MUST document how it bounds a child's authority to a refinement of the orchestrator's on every limb.
+3. **Multi-level closure.** Refinement holds transitively at every nesting depth (`envelope(grandchild) ⊑ envelope(child) ⊑ envelope(parent)`), and criteria 2 + 5 are enforced **at each level**, not just the first spawn. A runtime/mid-run authority grant to a descendant must be `⊑` the parent's *standing* envelope (intersective, never additive).
+4. **Gate-at-the-deterministic-layer.** Pre-execution authorization, post-execution verification, and resource ceilings are enforced in the deterministic control layer, not delegated to the judgment of spawned agents.
+5. **Evidence aggregation (enforced FK).** The orchestration emits an audit/evidence record, and each spawned agent's evidence carries a **required** `parent_evidence_id` / `orchestration_run_id` linking it to that record — a MUST, not a convention (without it, aggregation is correlated logs, not recoverable evidence). The per-spawn gate-decision (authorized / refused / escalated + envelope-delta applied) is recorded as a first-class field. An orchestration is not a black box: per-step evidence is recoverable end-to-end.
+6. **Bounded resource envelope.** The orchestration runs under a declared, deterministically-enforced resource ceiling (token, agent-count, and/or wall-clock budget), enforced at every nesting level. Unbounded fan-out or unbounded depth is not conformant.
 
 ### Schema-level recommendations (interop)
 
@@ -107,6 +123,7 @@ Implementations that follow these interoperate at the descriptor level; divergen
 - **Agent-invocation shape:** per-step `label`, `phase`, optional `schema` (structured-output contract), optional `model` / `isolation` overrides.
 - **Composition operators:** named `pipeline` (per-item staged, no barrier), `parallel` (barrier), and bounded iteration (loop-until-condition with a declared cap).
 - **Journal record:** `(invocation, inputs, result)` per step, keyed by a run identifier, sufficient to replay an unchanged prefix.
+- **Evidence record (shared OAgents schema):** per spawned agent — `orchestration_run_id`, `parent_evidence_id` (both required, criterion 5), and a `gate_decision` object `{outcome: authorized|refused|escalated, envelope_delta, at: spawn|runtime}`. This is the convergence field for an external gate/eval layer (e.g. a FOrCE consequential-action gate) to emit into the same evidence object.
 
 ### Interface conformance (optional)
 
