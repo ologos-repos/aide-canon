@@ -1,12 +1,14 @@
 # ADR-EA-0027 — Introduce workflow-orchestration pattern; specify envelope-composition + the determinism gate-surface
 
-- **Status:** Proposed (design-gate; pending dual-vendor QA + JD-Founder ratification)
+- **Status:** Accepted (ratified 2026-06-01 by JD-Founder; cross-vendor QA passed pre-ratify)
 - **Date:** 2026-06-01
 - **Author:** OlogosAI (canon-prime, corpus-altitude per ADR-EA-0017)
-- **Reviewers:** JD Longmire (Founder ratification); cross-vendor QA (Gemini, pre-ratify); thinx-Claude (peer-AI second opinion — invited post-ratify, canon-altitude trigger)
-- **Related issue:** TBD (open on ratification, mirroring the per-pattern tuning-issue convention of ADR-EA-0009 / `aide-canon#7`)
+- **Reviewers:** JD Longmire (Founder ratification, 2026-06-01); cross-vendor QA (Gemini 2.5 Pro, pre-ratify — PASS with NITs); thinx-Claude (peer-AI second opinion — invited post-ratify, canon-altitude trigger)
+- **Related issue:** TBD (open for tuning, mirroring the per-pattern tuning-issue convention of ADR-EA-0009 / `aide-canon#7`)
 - **Ratification trail:**
-  - 2026-06-01 (filed): Filed as `Proposed` alongside the design-gate PR introducing [`patterns/workflow-orchestration.md`](../patterns/workflow-orchestration.md). Forks held open for JD ratification are listed under *Open for tuning*.
+  - 2026-06-01 (filed): Filed as `Proposed` alongside the design-gate PR [#45](https://github.com/ologos-repos/aide-canon/pull/45) introducing [`patterns/workflow-orchestration.md`](../patterns/workflow-orchestration.md).
+  - 2026-06-01 (QA): Cross-vendor QA via `qa_pr_via_gemini.py` (Gemini 2.5 Pro, observer altitude) returned **PASS with NITs** — 0 BLOCKERs; 1 NIT (premature "ratified" status line on the pattern doc — fixed); 1 NOTE (commended the §5.1-sequencing hygiene). No canon-fidelity, cross-reference, or decision-record findings.
+  - 2026-06-01 (ratified): JD-Founder ratified all seven forks as-proposed (F-A … F-G; the leans below are now the accepted decision). Status → `Accepted`. Pattern doc becomes normative. Peer-AI second opinion to thinx-Claude follows post-ratify (canon-altitude trigger), threaded to cross-ai #61.
 
 ## Context
 
@@ -85,9 +87,9 @@ New tracking subfolder `vision-strategy/analysis/exemplar-tracking/claude-code-w
 4. **Defer until §5.1 ontology ratifies.** Rejected — the §5.1 work needs the Workflow *definition* this pattern supplies; sequencing the pattern first feeds the ontology rather than blocking on it. The pattern marks its §5.1-feeding status explicitly.
 5. **Behavioral-only conformance (no envelope-refinement requirement).** Rejected — without criterion 2 (envelope refinement) the pattern would permit privilege-escalation-by-orchestration, which is precisely the trust failure the pattern exists to prevent.
 
-## Open for tuning (forks — proposed leans shown; held open for JD ratification)
+## Ratified decisions (forks — all ratified as-proposed 2026-06-01; held open for later tuning)
 
-The design-gate PR carries these as a forks table. Proposed leans are this ADR's recommended decision; JD ratifies or redirects.
+All seven forks were **ratified as-proposed** by JD-Founder on 2026-06-01. The leans below are now the accepted decision; they remain documented here as the canonical record and stay open for later tuning per the `aide-canon#7`-style convention if an exemplar or downstream impl surfaces cause.
 
 1. **Placement (F-A).** *Lean:* `patterns/` tier (this ADR). Alt: AEON Composition Plane / OAgents extension.
 2. **Envelope-composition semantics (F-B).** *Lean:* refinement lattice `envelope(child) ⊑ envelope(parent)` (intersection of constraints). Alt: inheritance-only (no per-step tightening) / per-agent-independent envelopes.

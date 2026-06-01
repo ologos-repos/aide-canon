@@ -1,6 +1,6 @@
 # Workflow-orchestration pattern
 
-> **Status:** Proposed (introduced by [ADR-EA-0027](../decisions/ADR-EA-0027-introduce-workflow-orchestration-pattern.md) — itself pending JD-Founder ratification; this pattern doc is normative only once ADR-EA-0027 is Accepted)
+> **Status:** Accepted — normative (ratified 2026-06-01 by JD-Founder via [ADR-EA-0027](../decisions/ADR-EA-0027-introduce-workflow-orchestration-pattern.md); open for tuning per the `aide-canon#7`-style convention)
 
 ## Summary
 
