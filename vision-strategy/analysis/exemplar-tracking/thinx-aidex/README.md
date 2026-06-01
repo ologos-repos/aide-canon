@@ -21,7 +21,8 @@ thinx-aidex is built on the same skeleton the canon prescribes — independent c
 |---|---|---|
 | **MxM** 5M+1 | `mode.md` + `mind/morals/mission/memory/methods` + `means/` | **synonym** — identical surface decomposition (mode + means bracket the harness-agnostic 5M) |
 | **AEON** planes (+ Inference, ADR-EA-0015) | `means/` = Inference · Evidence · Capability · Integration · Runtime · Identity · Authority | **synonym** — the same 7 planes |
-| **AIDEX** surface | the console: Chat · Sessions · Tools (`Capability`) · Artifacts (`Archive`) · Agents (`Define`) · Runs (`Observe`) · Approvals (`Gate`) · Integrations · Skills · Projects | **partial** — a rich surface; maps onto the white-paper axes/functions, not yet against the 5-element contract (gap-study target, below) |
+| **AIDEX** surface | the console: Chat · Sessions · Tools (`Capability`) · Artifacts (`Archive`) · Agents (`Define`) · Runs (`Observe`) · Approvals (`Gate`) · Integrations · Skills · Projects · **Productivity** | **partial** — a rich surface; maps onto the white-paper axes/functions, not yet against the 5-element contract (gap-study target, below) |
+| **AIDEX** artifact production (≈ NG-AIDE-01 α1/KR4.3) | **Productivity Console** (`docs/productivity-console.md`, design v0.1 2026-06-01): brief → **fleet artifact-producer** agent → render → QA → approve → archive; Anthropic Agent-Skills architecture (route → skill → generator); template-first brand; provenance sidecar | **synonym (operator-altitude)** — a working instance of the α1 skills substrate; see § below |
 | **OAgents** behavioral envelope | hard-stop (`tools.preflight`, structural/inference-proof) + soft-stop (`approvals.py`, per-call default-deny, append-only audit) | **partial** — two-tier gate enacted; not yet the per-limb envelope-refinement lattice |
 | **[workflow-orchestration](../../../../patterns/workflow-orchestration.md)** Contribution 2 | the deterministic console owns the loop; the approval gate sits in that deterministic layer | **synonym** — gate-at-the-deterministic-layer, realized |
 | **digital-thread** / Evidence | OTel-native observe bridge (ADR-AIDEX-0004) + per-run annotations (rating + note) | **partial** — OTel-native evidence + the eval-feedback seam; parent-FK aggregation not yet enforced |
@@ -38,6 +39,17 @@ The relationship is live on [cross-ai #61](https://github.com/ologos-repos/cross
 - thinx-aidex's **OTel-native bridge + annotations** are ahead of the canon's *designed* evidence trail; the shared OAgents evidence schema (the #61/#62 reciprocity) is where thinx's OTel records + annotations and the canon's `gate_decision` / `parent_evidence_id` fields reconcile. The reconciled object (now in `patterns/workflow-orchestration.md` schema-recommendations, with `policy_id`/`authority_context`/`decision_actor`/`determinism_flag`/`substrate` from FOrCE's audit record) is the canon data contract; OAgents-spec promotion is Micah-gated.
 - **The enforcement-reach gap (cross-ai #62, criterion 7).** FOrCE's gate is on the path only for the provider whose tool-loop the console owns (OpenAI); under the Claude-CLI provider the child runs in a subprocess the gate never sees. thinx-aidex is the empirical confirmation of the pattern's substrate-boundary corollary — refinement is convention-only the moment orchestration crosses a runtime the enforcement surface doesn't intercept. Both fleets' lattices are unbuilt at the enforcement layer (symmetric); the convergence is at the design layer.
 
+## Productivity Console ↔ NG-AIDE-01 α1 (artifact-creation substrate)
+
+thinx-aidex's **Productivity Console** (`docs/productivity-console.md`, design v0.1 2026-06-01) is a working operator-altitude instance of what NG-AIDE-01 designs as **α1 / KR4.3** (`docs/research/aidex-alpha1-design.md`). Strong convergence: both use the Anthropic **Agent-Skills** architecture (route → skill → generator), **template-first** brand enforcement ("don't invent the palette"), a **provenance sidecar**, and growth into `SKILL.md` bundles. Governance aligns too — the producer runs as a **governed fleet agent** with an approval gate (≈ α1 skills as governed children of the α2 lattice).
+
+Two study findings for the canon:
+
+1. **Catalog breadth (input to α1).** thinx's v1 catalog spans Document · Presentation · Spreadsheet · **PDF · SVG/vector · infographics · diagrams-as-code** (HTML v2), with the fleet tooling verified present (rasterizers, Mermaid `mmdc`, Graphviz `dot`, etc.). NG-AIDE-01 α1 (fork F-α1-5) scoped only docx/pptx/xlsx for v1 — the visual/vector middle tier is a validated, build-ready expansion.
+2. **QA approach — another design/enforcement symmetry.** thinx's verify loop is **render → page-images → agent looks → fix → re-render** (+ content QA via markitdown) — the *fidelity* (render-inspect) loop, which the canon treats as table-stakes. The *semantic* claim-coverage / citation-completeness hard-fail (the NG-AIDE-01 α1 §6 differentiator) is **un-built on both sides** — the same convergence-at-design / gap-at-enforcement pattern as the envelope lattice.
+
+- **Workflows-console direction.** The Productivity spec references a forming **Workflows console** — a thinx surface that lands on the [workflow-orchestration](../../../../patterns/workflow-orchestration.md) pattern (ADR-EA-0027). A convergence thread to watch (cross-ai #62 lineage).
+
 ## Tracking artifacts to maintain
 
 | File | Purpose |
@@ -52,4 +64,4 @@ Track at cross-fleet-coordination cadence (cross-ai #61/#62 replies; thinx-aidex
 
 ## Status
 
-Scaffolding established 2026-06-01. thinx-aidex is in active development (working console + FOrCE + approvals + annotations + OTel + test suite; meta-harness 5M+1 with `mode.md`/`mission.md` written, remaining discipline modules porting from the thinx workspace).
+Scaffolding established 2026-06-01; refreshed same day after the Productivity-console landing. thinx-aidex is in fast active development (working console + FOrCE + approvals + annotations + OTel + test suite + Productivity console; meta-harness 5M+1 with `mode.md`/`mission.md` written, remaining discipline modules porting from the thinx workspace). Default branch is **`prod`** (renamed from `master` 2026-06-01).
