@@ -29,7 +29,7 @@ The workflow-orchestration pattern is cross-cutting; the exemplar instantiates p
 
 ## Conformance assertions
 
-Against the six behavioral criteria in [`patterns/workflow-orchestration.md`](../../../../patterns/workflow-orchestration.md) (criteria sharpened by the 2026-06-01 thinx refinement):
+Against the seven behavioral criteria in [`patterns/workflow-orchestration.md`](../../../../patterns/workflow-orchestration.md) (criteria sharpened + criterion 7 added by the 2026-06-01 thinx refinements):
 
 1. **Deterministic orchestration** — ✅ `resumeFromRunId` returns cached results for the unchanged prefix; same script + same args → 100% cache hit. Date/random are blocked in scripts precisely to preserve replay determinism.
 2. **Per-limb envelope refinement** — ⚠️ **partial.** Per-spawn refinement of model (`opts.model`), tools (`opts.agentType`), and output (`opts.schema`) is supported and conventional, but the harness does not *enforce* a child's authority as a provable subset on every limb — in particular post-execution verification is not held at-least-as-strong. This is the canon-motivating gap (see below).
@@ -37,6 +37,7 @@ Against the six behavioral criteria in [`patterns/workflow-orchestration.md`](..
 4. **Gate-at-the-deterministic-layer** — ✅ `budget` throws in the control program; schema validation retries at the tool layer; concurrency is capped at `min(16, cores−2)`; a lifetime agent cap backstops runaway loops.
 5. **Evidence aggregation (enforced FK)** — ⚠️ **partial.** Per-agent transcripts + the run journal are recoverable and structured-output schemas make per-step evidence machine-readable, but `parent_evidence_id` / `orchestration_run_id` and the gate-decision record are not enforced fields — aggregation is recoverable-by-convention, not FK-guaranteed.
 6. **Bounded resource envelope** — ✅ token budget (`budget.total`), concurrency cap, and lifetime agent cap.
+7. **Enforcement reach** — ✅ *reachable* (the orchestrator owns the subagent loop in-harness — spawned agents execute through the same Claude Code surface, so a gate would be on the path), but ⚠️ the `⊑` check it would enforce is still convention (criterion 2). Contrast thinx-aidex, whose Claude-CLI provider path runs children in a subprocess the gate can't reach — the failure criterion 7 names.
 
 ## The canon-motivating gap
 

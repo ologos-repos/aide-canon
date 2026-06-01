@@ -70,6 +70,8 @@ Three guarantees follow, and together they are what makes orchestration *governa
 
 The short form: **a workflow is an agent that orchestrates agents under per-limb envelope refinement.** That single sentence is the canon's answer to "does workflow orchestration encounter the trust problem?" — yes, and the answer is the refinement lattice.
 
+> **The lattice is a specification, not yet a realized guarantee — anywhere.** As of this writing the enforced `⊑` subset-check is unbuilt across known implementations: Claude Code Workflow refines a child's model/tools/schema *by convention* (not a checkable subset), and thinx-aidex's FOrCE gates *per-action-type* (regex → allow/approve/deny) with no actor-scoped envelope to refine (cross-ai #62). The convergence is real at the **design** layer; the **enforcement** layer is unbuilt on both sides. The canon states the lattice as the target an enforcement surface (e.g. a FOrCE consequential-action gate upgraded to a subset-test) must meet — it does **not** claim any current system enforces it. Stating this plainly is what keeps the pattern honest.
+
 > **Orchestration authority is delegated, not self-asserted.** OrdSA places orchestration authority at **O2** and forbids an O3 agent from orchestrating itself. A workflow is an O3 `Agent` whose orchestration authority is **delegated from O2** — it does not self-orchestrate. This is what licenses it to spawn O3 children: the authority to compose comes from above, and `⊑` guarantees it only ever flows down and narrows.
 
 ## Contribution 2 — The determinism boundary is the gate-attachment surface (principle)
@@ -114,6 +116,7 @@ An implementation is **workflow-orchestration-conformant** if and only if all of
 4. **Gate-at-the-deterministic-layer.** Pre-execution authorization, post-execution verification, and resource ceilings are enforced in the deterministic control layer, not delegated to the judgment of spawned agents.
 5. **Evidence aggregation (enforced FK).** The orchestration emits an audit/evidence record, and each spawned agent's evidence carries a **required** `parent_evidence_id` / `orchestration_run_id` linking it to that record — a MUST, not a convention (without it, aggregation is correlated logs, not recoverable evidence). The per-spawn gate-decision (authorized / refused / escalated + envelope-delta applied) is recorded as a first-class field. An orchestration is not a black box: per-step evidence is recoverable end-to-end.
 6. **Bounded resource envelope.** The orchestration runs under a declared, deterministically-enforced resource ceiling (token, agent-count, and/or wall-clock budget), enforced at every nesting level. Unbounded fan-out or unbounded depth is not conformant.
+7. **Enforcement reach.** Refinement (criteria 2–3) MUST be enforced by a surface that **intercepts the child's actual execution** — at a layer *strictly above the provider/substrate abstraction*. If the orchestrator delegates to a runtime it does not intercept (e.g. a provider-native tool-loop running the child in a subprocess the orchestrator's gate never sees), the lattice degrades to **convention-only** for that child, and the orchestration is not conformant for actions taken across that boundary. The orchestrator must either own the enforcement surface that the child executes through, or refuse to spawn across a boundary it cannot intercept. *(This is the substrate-boundary corollary of criterion 4: a gate the executing runtime routes around is the same failure as a gate inside a probabilistic call.)*
 
 ### Schema-level recommendations (interop)
 
@@ -123,7 +126,19 @@ Implementations that follow these interoperate at the descriptor level; divergen
 - **Agent-invocation shape:** per-step `label`, `phase`, optional `schema` (structured-output contract), optional `model` / `isolation` overrides.
 - **Composition operators:** named `pipeline` (per-item staged, no barrier), `parallel` (barrier), and bounded iteration (loop-until-condition with a declared cap).
 - **Journal record:** `(invocation, inputs, result)` per step, keyed by a run identifier, sufficient to replay an unchanged prefix.
-- **Evidence record (shared OAgents schema):** per spawned agent — `orchestration_run_id`, `parent_evidence_id` (both required, criterion 5), and a `gate_decision` object `{outcome: authorized|refused|escalated, envelope_delta, at: spawn|runtime}`. This is the convergence field for an external gate/eval layer (e.g. a FOrCE consequential-action gate) to emit into the same evidence object.
+- **Evidence record (shared OAgents schema).** Per spawned agent — the canon data contract reconciled with the thinx-aidex FOrCE audit record (cross-ai #62 reciprocal):
+  ```
+  { evidence_id, orchestration_run_id, parent_evidence_id,        // lineage FKs (criterion 5)
+    action: { tool, command_digest },
+    policy_id / gate_tier,                                         // which gate/tier fired (not free-text)
+    authority_context,                                            // the envelope/principal under evaluation
+    gate_decision: { outcome: authorized|refused|escalated|timeout-deny, envelope_delta, at: spawn|runtime },
+    decision_actor,                                               // who resolved (human|gate|policy)
+    determinism_flag,                                             // was the gate enforced deterministically?
+    substrate,                                                    // provider/runtime — so a reviewer knows the gate was binding (criterion 7)
+    ts, latency }
+  ```
+  `determinism_flag` + `substrate` exist because of criterion 7: an evidence object that doesn't record *which* runtime ran the child and *whether* the gate was actually on the path cannot tell a reviewer if refinement held. Operator-authored **annotations** (rating + note) FK to `evidence_id` as the human-judgment layer over the machine record. This object is the canon **pattern-level** data contract; promoting it into the OAgents spec's evidence-emission section is a separate step gated by Micah Longmire's co-authorship (ADR-EA-0008).
 
 ### Interface conformance (optional)
 
