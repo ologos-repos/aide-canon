@@ -1,6 +1,6 @@
 # Workflow-orchestration pattern
 
-> **Status:** Proposed (ratified by [ADR-EA-0027](../decisions/ADR-EA-0027-introduce-workflow-orchestration-pattern.md), open for tuning per [`aide-canon#TBD`](https://github.com/ologos-repos/aide-canon/issues))
+> **Status:** Proposed (introduced by [ADR-EA-0027](../decisions/ADR-EA-0027-introduce-workflow-orchestration-pattern.md) — itself pending JD-Founder ratification; this pattern doc is normative only once ADR-EA-0027 is Accepted)
 
 ## Summary
 
