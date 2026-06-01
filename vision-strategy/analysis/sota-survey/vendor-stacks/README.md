@@ -66,10 +66,21 @@ This forces every entry to engage AIDE specifically, not produce vendor summarie
 
 ## Landed entries
 
-| Entry | Vendor stack | Classification |
+All entries reach the same structural verdict — **different altitude** (build-and-run platform vs governance corpus): they *compose*, they don't compete. The per-axis deltas are what differ.
+
+| Entry | Vendor stack | Per-axis highlights |
 |---|---|---|
-| [`langchain.md`](langchain.md) | LangChain Enterprise (LangChain / LangGraph / LangGraph Platform / LangSmith / Fleet) | Mixed — different altitude (build-and-run platform vs governance corpus); AIDE ahead on authority/envelope/governance, behind on runtime/eval-tooling/adoption |
+| [`langchain.md`](langchain.md) | LangChain Enterprise (LangChain / LangGraph / LangGraph Platform / LangSmith / Fleet) | AIDE ahead on authority/envelope/governance; behind on runtime/eval-tooling (LangSmith)/adoption |
+| [`microsoft.md`](microsoft.md) | Microsoft Foundry · Copilot Studio · Agent Framework · Agent 365 | AIDE-distinctive = governance-of-behavior+authority vs MS's shipped governance-of-access (Agent 365 / Foundry Control Plane GA) |
+| [`aws.md`](aws.md) | Bedrock · **AgentCore** (Runtime/Policy/Identity/Memory/Observability) · Q · Nova | **AgentCore Policy (Cedar)** = strongest *shipped* deterministic enforcement of any vendor — narrows the Morals-enforcement gap |
+| [`google-cloud.md`](google-cloud.md) | Gemini Enterprise Agent Platform (ex Vertex) · ADK · Agent Runtime | Real governance *surface* (cryptographic agent identity); ADK Skill = most rigorous Skill protocol in the field |
+| [`salesforce.md`](salesforce.md) | Agentforce · Atlas Reasoning Engine · Einstein Trust Layer | Trust Layer = real *content-safety* guardrails (in-flight), but no deontic/authority/envelope layer |
+| [`databricks.md`](databricks.md) | Mosaic AI Agent Framework · Agent Bricks · Unity (AI) Gateway · MLflow 3 · Unity Catalog | Unity Catalog best-in-class on **data** governance; AIDE leads on **ordinal authority + envelope** (distinct axes) |
+| [`ibm.md`](ibm.md) | watsonx.ai · **watsonx.governance** · watsonx Orchestrate | **The nuanced one** — genuine AI-governance product → AIDE *not cleanly ahead*; in-flight/partial-parity, AIDE-ahead narrowed to per-action envelope + ordinal authority |
+| [`anthropic.md`](anthropic.md) | Claude (Enterprise) · Agent SDK · Skills · Claude Code · MCP | Most **convergent** — canon adopts SKILL.md verbatim; the substrate the canon's *own* exemplars (Claude Code Workflow, thinx-aidex) run on |
+| [`openai.md`](openai.md) | ChatGPT Enterprise · Agents SDK · AgentKit · Responses/Apps SDK | **No Skill primitive** (behavior on `instructions`); single-vendor-locked → AIDE ahead on Inference-plane portability |
+| [`nvidia.md`](nvidia.md) | NIM · NeMo (+ Guardrails, Agent Toolkit) · Blueprints | INFRASTRUCTURE altitude — **NIM ↦ AEON Inference plane** is the decisive map; NeMo Guardrails = partial envelope component |
 
 ## Status
 
-Scaffolding established 2026-05-22. First vendor entry (LangChain Enterprise) landed 2026-06-01.
+Scaffolding established 2026-05-22. **All ten in-scope vendor entries landed 2026-06-01** (LangChain, Microsoft, AWS, Google Cloud, Salesforce, Databricks, IBM, Anthropic, OpenAI, NVIDIA). Slice is built out; refresh per-entry on vendor product shifts (fast cadence — most carry rebrand-proneness notes).
