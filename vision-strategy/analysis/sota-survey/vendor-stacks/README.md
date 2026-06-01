@@ -64,6 +64,12 @@ Example mapping shape (for a hypothetical vendor X):
 
 This forces every entry to engage AIDE specifically, not produce vendor summaries that float without AIDE context.
 
+## Landed entries
+
+| Entry | Vendor stack | Classification |
+|---|---|---|
+| [`langchain.md`](langchain.md) | LangChain Enterprise (LangChain / LangGraph / LangGraph Platform / LangSmith / Fleet) | Mixed — different altitude (build-and-run platform vs governance corpus); AIDE ahead on authority/envelope/governance, behind on runtime/eval-tooling/adoption |
+
 ## Status
 
-Scaffolding established 2026-05-22. First vendor entries land in subsequent PRs.
+Scaffolding established 2026-05-22. First vendor entry (LangChain Enterprise) landed 2026-06-01.
