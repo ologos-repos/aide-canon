@@ -27,6 +27,7 @@ This subfolder tracks each exemplar over time: what they prove, what they're mis
 | **[Hermetic](hermetic/)** | Reference implementation of AEON six service planes (Pattern B+ per [Hermetic Discussion #38](https://github.com/ologos-repos/Hermetic/discussions/38)) + canonical digital-thread reference impl (per [aide-canon#7](https://github.com/ologos-repos/aide-canon/issues/7) + ADR-EA-0009) | [`hermetic/`](hermetic/) |
 | **[AEON-deployed](aeon-deployed/)** | Live AEON instance at an enterprise-altitude target — TBD deployment | [`aeon-deployed/`](aeon-deployed/) |
 | **[Claude Code Workflow](claude-code-workflow/)** | Reference implementation of the [workflow-orchestration pattern](../../../patterns/workflow-orchestration.md) (per [ADR-EA-0027](../../../decisions/ADR-EA-0027-introduce-workflow-orchestration-pattern.md)) — deterministic agent-orchestration substrate; out-of-tree (Anthropic product), cited for behavior | [`claude-code-workflow/`](claude-code-workflow/) |
+| **[thinx-aidex](thinx-aidex/)** | Operator-altitude reference implementation of the [AIDEX](../../../enterprise-platforms/aidex/) surface — JD's MyAide console (5M+1 meta-harness, 7-plane `means/`, FOrCE gate + OTel-native evidence); out-of-tree, operator-altitude, cited for behavior. Complements the deployment-altitude AIDEX surfaces in NG-AIDE-01 IO4 | [`thinx-aidex/`](thinx-aidex/) |
 
 The two-exemplar framing is intentional:
 
