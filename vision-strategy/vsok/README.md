@@ -10,8 +10,8 @@ For a full guided tour of this slot + the analysis peer, see [`vision-strategy/R
 |---|---|---|
 | [`vision/`](vision/) | Long-horizon outcome the corpus advances toward | **Populated** (1–3 yr AI-speed horizon; *"AI-centric Digital Ecosystems as an exemplar for next-generation Enterprise IT transformation"*) |
 | [`strategy/`](strategy/) | Positioning argument bridging Vision to action — carries *Enterprise Agentic AI Platform Strategy* | **Populated** (relocated from `enterprise-platforms/strategy/` per [ADR-EA-0007](../../decisions/ADR-EA-0007-introduce-vsok-tier-0-and-mode-alpha.md)) |
-| [`objectives/`](objectives/) | Doerr-style qualitative strategic goals deriving from Vision | Methodology locked; content pending SOTA survey |
-| [`key-results/`](key-results/) | Doerr-style quantitative measurable signals anchoring Objectives | Methodology locked; content pending Objectives |
+| [`objectives/`](objectives/) | Doerr-style qualitative strategic goals deriving from Vision | **Populated — v0.2** (SOTA-survey-derived, ratified 2026-06-02; O1–O5) |
+| [`key-results/`](key-results/) | Doerr-style quantitative measurable signals anchoring Objectives | **Populated — v0.2** (KRs for O1–O5; survey-confirmed + KR5.x new) |
 
 ## Methodology
 

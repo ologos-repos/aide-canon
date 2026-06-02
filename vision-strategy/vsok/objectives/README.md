@@ -1,8 +1,8 @@
-# objectives/ — Objectives (v0.1)
+# objectives/ — Objectives (v0.2)
 
 The **Objectives** slot of [VSOK](..) within [Vision-Strategy](../..). Doerr-style qualitative strategic goals deriving from [Vision](../vision/) per [ADR-EA-0010](../../../decisions/ADR-EA-0010-adopt-doerr-okr-methodology.md).
 
-> **v0.1 — strawman.** This first set of Objectives is derived from the Vision README's six "what success looks like" signals, collapsed and shaped per Doerr's 3–5 cardinality. Per [ADR-EA-0010 §2](../../../decisions/ADR-EA-0010-adopt-doerr-okr-methodology.md) the canonical derivation path is SOTA-survey-driven; the survey at [`../../analysis/sota-survey/`](../../analysis/sota-survey/) is scaffolded but content-pending. This v0.1 set will refine as survey findings populate the *AIDE-ahead* / *AIDE-behind* / *in-flight-elsewhere* classifications.
+> **v0.2 — SOTA-survey-derived (ratified 2026-06-02 by JD-Founder).** The v0.1 strawman was derived from the Vision's six success signals pending the survey. The [SOTA survey](../../analysis/sota-survey/) is now **complete** (48 entries across 5 slices), and the [survey→Objectives synthesis](../../analysis/sota-survey/synthesis.md) aggregates the *AIDE-ahead / AIDE-behind / in-flight-elsewhere* classifications into this set. v0.2 **confirms and sharpens** the v0.1 recognition Objectives (O1–O4) with survey evidence and adds **O5** (the survey's clearest gap: conformance-measurability). This is the canonical SOTA-driven derivation the methodology calls for — the strawman has graduated to evidence-based.
 
 ## What this slot holds
 
@@ -18,7 +18,7 @@ Objectives in this slot are constructed per **John Doerr's OKR methodology** (pe
 - **Ambitious** — stretch-calibrated; ~70% attainment indicates a well-calibrated Objective
 - **Time-bound** — each Objective declares its evaluation horizon (this v0.1 set targets the Vision's 1–3 year AI-speed window)
 - **Memorable** — one sentence; one phrase where possible
-- **Cardinality** — 3–5 Objectives at any given horizon (this v0.1: 4)
+- **Cardinality** — 3–5 Objectives at any given horizon (this v0.2: 5)
 
 Objectives derive from the SOTA-vs-AIDE gap analysis (housed at [`../../analysis/`](../../analysis/)). The derivation pattern:
 
@@ -36,6 +36,8 @@ Objectives derive from the SOTA-vs-AIDE gap analysis (housed at [`../../analysis
 
 **Why this matters for Vision:** the Vision's first success signal — *"AIDE is named in industry conversations about enterprise AI architecture"* — is direct evidence of this Objective. Without named recognition, the rest of the Vision (external adoption, governance citation, exemplar uptake) is structurally harder.
 
+**Survey backing (v0.2):** the survey confirms the lead is real and names its measurement floor — **zero** AIDE/OrdSA/OAgents/MxM penetration in any tier-1 or adjacent analyst vocabulary (the [analyst-frames](../../analysis/sota-survey/analyst-frames/) nil-baseline, 2026-06-01), and Gartner's "**agent-washing**" finding is the market feeling the absence of exactly the canon's vocabulary precision. The recognition window is opening (the governance category is forming now).
+
 **Anchored by KRs:** [KR1.1 — KR1.4](../key-results/#o1-key-results)
 
 ---
@@ -48,6 +50,8 @@ Objectives derive from the SOTA-vs-AIDE gap analysis (housed at [`../../analysis
 
 **Why this matters for Vision:** the Vision's second + third signals — *"at least one enterprise outside Ologos has stood up an AIDE-shaped reference"* + *"OrdSA and OAgents have working third-party implementations"* — together constitute the external adoption case. External impls validate the architecture by demonstrating it survives outside its authoring environment.
 
+**Survey backing (v0.2):** the survey splits this Objective cleanly into its two halves. **Differentiate** on the universal gap — *no* surveyed vendor (10/10) or framework (12/12) has OrdSA ordinal authority or the OAgents per-action envelope, so the highest-signal adoption shape is a third party adopting OAgents/OrdSA *as the governance layer over* an existing stack (e.g. LangGraph + OAgents envelope). **Converge** on the settled interface wires — the canon should be seen to *consume* MCP / A2A / OTel-GenAI / OAuth-SPIFFE (it already does for MCP + OTel), not reinvent them.
+
 **Anchored by KRs:** [KR2.1 — KR2.5](../key-results/#o2-key-results)
 
 ---
@@ -59,6 +63,8 @@ Objectives derive from the SOTA-vs-AIDE gap analysis (housed at [`../../analysis
 **Horizon:** 1–3 years; primary measurement window 2028-Q1 → 2028-Q4.
 
 **Why this matters for Vision:** the Vision's fifth signal — *"HCAE appears as the named discipline in at least one operational governance framework or policy document outside Ologos"* — and the underlying argument lineage *AIDK → HCAE → AIDEX → AEON* depend on the foundational claims being recognized externally. If HCAE/AIDK don't anchor, downstream architectural claims are easier to dismiss as ad-hoc.
+
+**Survey backing (v0.2):** the academic slice reinforces HCAE — frontier dangerous-capability evals ([Phuong et al.](../../analysis/sota-survey/academic/phuong-dangerous-capabilities-2024.md)) **support** the eval-gated human-curation thesis, and Reflexion's self-reflection **complicates only the strawman**, not the case (EIF: introspection = hypothesis, not authority). [Agent Behavioral Contracts](../../analysis/sota-survey/academic/bhardwaj-abc-2026.md) is independent-convergent with the OAgents envelope — a concrete cross-citation/lineage surface.
 
 **Anchored by KRs:** [KR3.1 — KR3.4](../key-results/#o3-key-results)
 
@@ -76,9 +82,27 @@ Objectives derive from the SOTA-vs-AIDE gap analysis (housed at [`../../analysis
 
 ---
 
+### O5 — Make OAgents conformance *measurable*
+
+**Shape:** *Catch-up.* The survey's single loudest, most cross-cutting gap. The eval / conformance-MEASURE toolchain appears in **every slice** — vendor (LangSmith, MLflow 3, AgentCore Evaluations, Foundry Observability), OSS ([Inspect AI](../../analysis/sota-survey/oss-frameworks/inspect-ai.md)), academic (SWE-bench, AgentBench, τ-bench), standards (NIST CAISI's **MEASURE** function). The canon holds conformance *criteria* (OAgents) but **no executable harness to produce conformance evidence** — which leaves its strongest lead (OAgents-as-NIST-RMF-profile) un-evidenceable. A conformance spec nobody can *run* is easy to dismiss; this Objective closes that.
+
+**The move:** adopt **Inspect AI** as the reference conformance harness, **OTel-GenAI** as the evidence schema (already adopted, [ADR-EA-0027](../../../decisions/ADR-EA-0027-introduce-workflow-orchestration-pattern.md)), and the benchmark shapes (SWE-bench validation; τ-bench policy-adherence + pass^k) as the measurement model — turning OAgents conformance into something an external party can run, not just read.
+
+**Horizon:** 1–2 years (it gates O1–O3 — measurability is what makes the lead defensible); primary window 2027-Q1 → 2027-Q4.
+
+**Why this matters for Vision:** the Vision's adoption + recognition signals (O1–O3) all rest on the architecture being *credible*. The canon's distinctive claim is governance/conformance; a claim that can't be measured is the easiest one for the market to discount. O5 makes the canon's strongest card playable.
+
+**Corpus-altitude scope (per fork F-S3):** the corpus owns the **conformance-measurability standard** (the Inspect-AI conformance profile + the shared OAgents evidence object); the actual harness *build/deployment* is **instance-altitude** ([ng-aide-01 VSOK](https://github.com/ologos-repos/ng-aide-01/tree/main/vision-strategy/vsok)).
+
+**Anchored by KRs:** [KR5.1 — KR5.4](../key-results/#o5-key-results)
+
+---
+
 ## What's *not* in this set (and why)
 
-A v0.1 set is necessarily smaller than the corpus's full strategic surface. The following candidates were considered and held for future revisions:
+A 3–5 Objective set is necessarily smaller than the corpus's full strategic surface. The following candidates were considered and held:
+
+- **Envelope-lattice first-mover Objective (survey-surfaced; held per fork F-S2).** The survey's symmetry finding — *no* known implementation enforces the `envelope(child) ⊑ envelope(parent)` refinement lattice (Claude Code = convention, FOrCE = per-action-type) — is a genuine first-mover opening: whoever builds the enforced subset-test owns the first realized lattice. **Held to instance altitude**, not promoted to a corpus Objective: it is *built* in the ng-aide-01 α2 `aidex-shell` and tracked in the instance VSOK, where it *produces evidence* for corpus O2 (differentiation) and O5 (conformance). Promote to a corpus Objective only if a second instance or an external party makes it a cross-cutting concern.
 
 - **Operational AEON-deployed Objective.** A standalone Objective like "Demonstrate AIDE operationally via named exemplars (Hermetic + AEON-deployed)" was considered as a 5th Objective. Held: the exemplar work is largely *how* O1–O3 get evidenced (Hermetic adoption is a KR under O2; AEON-deployed go-live is a KR under O2; exemplar conformance assertions feed KRs across O1–O3). Promoting it to peer Objective would double-count. *Instance build + conformance objectives now have a defined home — the instance's own branched VSOK per [ADR-EA-0025](../../../decisions/ADR-EA-0025-instance-vsok-derivation.md) — rather than the corpus register.*
 
@@ -101,16 +125,18 @@ Instance objectives are **downstream** of these corpus objectives: instance conf
 
 **First instance:** NG-AIDE-01 — [`ologos-repos/ng-aide-01` → `vision-strategy/vsok/`](https://github.com/ologos-repos/ng-aide-01/tree/main/vision-strategy/vsok).
 
-## How v0.1 refines into v0.2
+## Refinement history + how v0.2 refines into v0.3
 
-The v0.1 → v0.2 trigger conditions:
+- **v0.1 → v0.2 (2026-06-02): trigger #1 fired.** The SOTA survey completed (48 entries, 5 slices) and the [synthesis](../../analysis/sota-survey/synthesis.md) re-derived the set from gap classifications — confirming/sharpening O1–O4 and adding O5 (conformance-measurability). This is the strawman → evidence-based graduation the methodology specified.
 
-1. **First substantive SOTA findings populate** in `analysis/sota-survey/*` — gap classifications may surface Objectives whose shape (catch-up vs. defend-and-extend) needs revision
-2. **Major strategic event** — vendor pivot, paradigm shift in agentic AI, ratified standard that AIDE constructs conflict with or align with — triggers ad-hoc Objective revision per [ADR-EA-0010 §3](../../../decisions/ADR-EA-0010-adopt-doerr-okr-methodology.md)
-3. **Annual refresh** at the canon's annual review cycle
+The v0.2 → v0.3 trigger conditions (unchanged, per [ADR-EA-0010 §3](../../../decisions/ADR-EA-0010-adopt-doerr-okr-methodology.md)):
 
-Until any of these fire, v0.1 holds. Quarterly check-ins evaluate KR progress without rewriting Objectives.
+1. **Annual refresh** — re-run the aggregate survey read + recompute classifications at the annual OKR cycle.
+2. **Major strategic event** — vendor pivot, paradigm shift, or a ratified standard that AIDE constructs conflict with or align with — triggers ad-hoc revision.
+3. **Promotion of a held candidate** — e.g. the envelope-lattice first-mover (F-S2) becoming a cross-cutting corpus concern.
+
+Until any fire, v0.2 holds. Quarterly check-ins evaluate KR progress without rewriting Objectives.
 
 ## Provenance
 
-v0.1 drafted 2026-05-22 by OlogosAI from the Vision README's six success signals. Methodology per [ADR-EA-0010](../../../decisions/ADR-EA-0010-adopt-doerr-okr-methodology.md). Corpus-level joint authorship per [ADR-EA-0008](../../../decisions/ADR-EA-0008-reframe-corpus-authorship.md).
+v0.1 drafted 2026-05-22 by OlogosAI from the Vision README's six success signals. **v0.2 derived 2026-06-01 by OlogosAI from the completed 48-entry SOTA survey ([synthesis](../../analysis/sota-survey/synthesis.md)); ratified 2026-06-02 by JD-Founder (forks F-S1…F-S4 as-proposed).** Methodology per [ADR-EA-0010](../../../decisions/ADR-EA-0010-adopt-doerr-okr-methodology.md). Corpus-level joint authorship per [ADR-EA-0008](../../../decisions/ADR-EA-0008-reframe-corpus-authorship.md).

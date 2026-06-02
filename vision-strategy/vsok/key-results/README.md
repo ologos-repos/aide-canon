@@ -1,8 +1,8 @@
-# key-results/ — Key Results (v0.1)
+# key-results/ — Key Results (v0.2)
 
 The **Key Results** slot of [VSOK](..) within [Vision-Strategy](../..). Doerr-style quantitative measurable signals that anchor [Objectives](../objectives/) per [ADR-EA-0010](../../../decisions/ADR-EA-0010-adopt-doerr-okr-methodology.md).
 
-> **v0.1 — strawman.** This first set of KRs is calibrated to the Objectives' v0.1 strawman state. Thresholds and measurement dates will refine as the [SOTA survey](../../analysis/sota-survey/) populates and the Objectives revise into v0.2.
+> **v0.2 (ratified 2026-06-02).** Tracks the [Objectives v0.2](../objectives/) (SOTA-survey-derived). The v0.1 KRs for O1–O4 are **survey-confirmed and carried forward unchanged** (the survey sharpened Objective *framing*, not these thresholds); **KR5.1–KR5.4 are new**, anchoring the new O5 (conformance-measurability). Thresholds remain stretch-calibrated for the Vision's 1–3 yr window.
 
 ## What this slot holds
 
@@ -77,6 +77,21 @@ KRs derive from the same SOTA-vs-AIDE gap analysis that produces Objectives. Eac
 
 ---
 
+## O5 Key Results — *Make OAgents conformance measurable*
+
+[Parent Objective](../objectives/#o5--make-oagents-conformance-measurable)
+
+*New in v0.2. Corpus-altitude (the measurability **standard**); the harness build/deployment is instance-altitude (ng-aide-01 VSOK), per fork F-S3.*
+
+| KR | Measurement | Threshold | Target date | Source / verification |
+|---|---|---|---|---|
+| **KR5.1** | A published **OAgents-conformance test profile expressed for [Inspect AI](../../analysis/sota-survey/oss-frameworks/inspect-ai.md)** (Task/Solver/Scorer mapping OAgents conformance levels) in the canon | ≥ 1 profile published | 2027-Q2 | `constructs/oagents/` conformance profile + runnable Inspect task files |
+| **KR5.2** | The **shared OAgents conformance-evidence object** (OTel-GenAI + `parent_evidence_id` + `gate_decision` + `authority_context`) ratified as the canon evidence-emission contract — ideally co-specified with ≥ 1 external party | Ratified + ≥ 1 co-spec | 2027-Q1 | ADR + the cross-ai #62 OAgents-evidence co-specification thread (thinx-aidex) |
+| **KR5.3** | A named exemplar produces a **conformance run emitting the shared evidence object** (Hermetic / thinx-aidex / ng-aide-01) | ≥ 1 run, evidence recoverable end-to-end | 2027-Q3 | Exemplar-tracking entry + the emitted OTel evidence record |
+| **KR5.4** | A **behavioral-envelope conformance test demonstrated in the τ-bench-style shape** (domain-policy adherence + pass^k reliability) — proving the envelope is *measurable*, not only specified | ≥ 1 demonstrated test | 2027-Q4 | Conformance test artifact + result; method per [`academic/yao-tau-bench-2024.md`](../../analysis/sota-survey/academic/yao-tau-bench-2024.md) |
+
+---
+
 ## KR review cadence
 
 Per [ADR-EA-0010 §3](../../../decisions/ADR-EA-0010-adopt-doerr-okr-methodology.md), the canon's OKR cadence is:
@@ -89,4 +104,4 @@ KR attainment is recorded per check-in. A KR scored at 70%+ at its target date i
 
 ## Status
 
-v0.1 populated 2026-05-22 from the Objectives v0.1 strawman. First quarterly check-in: 2026-Q3 (any time after 2026-09-01); annual refresh: 2026-Q4 to 2027-Q1.
+v0.1 populated 2026-05-22 from the Objectives v0.1 strawman. **v0.2 (2026-06-02): O1–O4 KRs carried forward survey-confirmed; KR5.1–KR5.4 added for the new O5, derived from the [SOTA synthesis](../../analysis/sota-survey/synthesis.md) and ratified by JD-Founder.** First quarterly check-in: 2026-Q3 (any time after 2026-09-01); annual refresh: 2026-Q4 to 2027-Q1.
