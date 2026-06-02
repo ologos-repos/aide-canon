@@ -23,6 +23,8 @@ OAgents is one of four peer methodological constructs in the AIDE canon's `const
 
 **Adopter-facing scaffold:** [`reference/`](reference/) ships an example agent harness (CLAUDE.md, hooks, qa-agent, sec-agent, scripts, skills, memory templates) that adopters can use as a starting point.
 
+**Conformance profile (executable):** [`conformance/`](conformance/) expresses the §5 controls + §6 levels as a runnable **Inspect AI** evaluation — a machine-readable control registry, a grading profile that computes the OAgent-Basic/Standard/Autonomous level from emitted evidence, and the shared conformance-evidence object schema. This is the corpus *measurability standard* (VSOK O5 / KR5.1–KR5.2): conformance is established by evidence (§6.1), and this makes that evidence gradable by anyone.
+
 ---
 
 ## What Is OAgents?

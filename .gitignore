@@ -13,3 +13,5 @@
 
 # Local-only render outputs
 *.tmp.pdf
+__pycache__/
+*.pyc
