@@ -72,6 +72,20 @@ Analyst frames are particularly useful for the **"AIDE is named in industry conv
 
 Analyst content is medium-cadence: annual flagship reports (Hype Cycles, Magic Quadrants) + quarterly research notes + ad-hoc analyst commentary. Survey passes align: annual deep read of flagship publications, quarterly check on notable notes.
 
+## Landed entries
+
+Analyst frames are **market lenses, not architecture** — and AIDE correctly **does not appear** in any Hype Cycle / Wave / MarketScape (it's a research/exemplar-stage governance corpus, not a vendor). The value is **market-timing + category-formation** signal, and the recurring finding that the *governance category is forming as a market* validates the canon's trust-gap thesis.
+
+| Entry | Firm | Signal for the canon |
+|---|---|---|
+| [`gartner.md`](gartner.md) | Gartner | Hype Cycle (agentic AI at Peak of Inflated Expectations) + **>40% of agentic projects cancelled by 2027** (cost/value/risk, *not* capability) — validates the OAgents trust-gap thesis; "agent-washing" ↔ the canon's vocab-precision argument |
+| [`forrester.md`](forrester.md) | Forrester | 2026 governance turn ("hype to hard hat", GRC Wave, **AEGIS** six agentic-security dimensions — the best market mirror of the AEON planes); "agentic" enters as a scoring criterion, no standalone agent Wave |
+| [`idc.md`](idc.md) | IDC | Unified AI-**governance** MarketScape (Microsoft Leader) = the governance category formed *as a market*; spending forecast = the adoption-phase clock; canon's per-action altitude is finer than the org-level governance rewarded |
+| [`cb-insights.md`](cb-insights.md) | CB Insights | Funding/market-map lens; independently surfaced **"Oversight"** as an investable layer but collapses Identity/Authority/Evidence into one bucket where AIDE's vocab is precise |
+| [`adjacent-firms.md`](adjacent-firms.md) | HFS · Constellation · Omdia · GigaOm | Roundup (selective-inclusion); "agentic" category forming with **no governance-altitude dimension** across all four |
+
+**The Vision-signal baseline (load-bearing for this slice):** as of 2026-06-01, **zero** penetration of AIDE / OrdSA / OAgents / MxM in any tier-1 or adjacent analyst vocabulary. This is the honest nil baseline for the "AIDE is named in industry conversations" success signal — track it rising over time. The convergent market signal across all five firms — *the governance/oversight/trust category is forming, and capability is not the bottleneck* — is exactly the ground the canon's thesis claims; the canon is early to a category the analysts are now naming.
+
 ## Status
 
-Scaffolding established 2026-05-22. First analyst entries land in subsequent PRs.
+Scaffolding established 2026-05-22. **Five analyst-frame entries landed 2026-06-01** (Gartner, Forrester, IDC, CB Insights, adjacent-firms roundup). Slice is built out — right-sized to firm-level overviews (thinner + paywalled vs the other slices); deepen to per-report entries only when a flagship report materially shifts. With this, **all five SOTA-survey slices are built out.**
