@@ -20,7 +20,7 @@
 # enumerate 25; §12.1 cross-agent coordination is included here as the 26th L3
 # component (named in §6's Level-3 list). Self-healing is also a named L3
 # capability, folded into the autonomy tier as an attribute of cag-01 rather than
-# a separate row. Reconcile against Appendix A's subcategory mapping on the next
+# a separate row. Tracked at aide-canon#59. Reconcile against Appendix A's subcategory mapping on the next
 # spec pass before treating the count as canonical.
 
 version: "0.1"
