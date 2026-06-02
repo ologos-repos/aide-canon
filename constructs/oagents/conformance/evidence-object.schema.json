@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ologos-repos/aide-canon/constructs/oagents/conformance/evidence-object.schema.json",
+  "title": "OAgents shared conformance-evidence object",
+  "description": "The canon data contract for an OAgents conformance/audit evidence record. Reconciles the workflow-orchestration pattern v0.1.2 shared evidence object (ADR-EA-0027) with the thinx-aidex FOrCE audit record (cross-ai #62) and the OAgents §6 evidence model. Both an orchestration run and a conformance check emit this object, so an OAgents conformance harness and a thinx-gated action produce the same record shape. OTel-GenAI is the transport substrate (the base fields map to gen_ai.* span attributes); the governance fields (lineage FK, gate_decision, authority_context, control_id) are the canon EXTENSION OTel lacks. Pattern-level data contract; promotion into the OAgents NIST spec is gated by Micah co-authorship (ADR-EA-0008).",
+  "type": "object",
+  "required": ["evidence_id", "ts", "action", "decision", "substrate", "determinism_flag"],
+  "additionalProperties": true,
+  "properties": {
+    "evidence_id": {
+      "type": "string",
+      "description": "Unique id for this evidence record."
+    },
+    "orchestration_run_id": {
+      "type": ["string", "null"],
+      "description": "The run this record belongs to (the orchestrator's run id). Null for a top-level/standalone action."
+    },
+    "parent_evidence_id": {
+      "type": ["string", "null"],
+      "description": "Lineage FK to the parent evidence record — REQUIRED for any spawned child (workflow-orchestration criterion 5). Null only at the lineage root. Without it, aggregation is correlated logs, not recoverable evidence."
+    },
+    "action": {
+      "type": "object",
+      "description": "What was done.",
+      "required": ["tool"],
+      "properties": {
+        "tool": {"type": "string", "description": "Tool / capability invoked."},
+        "command_digest": {"type": "string", "description": "Hash/digest of the command or args (not the raw secret-bearing command)."}
+      },
+      "additionalProperties": true
+    },
+    "control_id": {
+      "type": ["string", "null"],
+      "description": "OAgents control this record is evidence for (e.g. 'qg-01'), per controls.yaml. Null for non-conformance operational evidence."
+    },
+    "conformance_level": {
+      "type": ["integer", "null"],
+      "enum": [1, 2, 3, null],
+      "description": "OAgents conformance tier the control belongs to (1=Basic, 2=Standard, 3=Autonomous)."
+    },
+    "policy_id": {
+      "type": ["string", "null"],
+      "description": "Which gate/policy/tier fired (an id, not free-text) — e.g. the FOrCE gate tier or the OAgents gate id."
+    },
+    "authority_context": {
+      "type": ["object", "null"],
+      "description": "The envelope/principal under which the action was evaluated (OrdSA authority altitude + principal chain). The 'which authority' an action carried — absent in flat-RBAC systems.",
+      "properties": {
+        "principal": {"type": "string"},
+        "principal_chain": {"type": "array", "items": {"type": "string"}},
+        "authority_altitude": {"type": "string", "description": "OrdSA O-layer, e.g. 'O3'."},
+        "envelope_id": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "gate_decision": {
+      "type": "object",
+      "description": "The gate outcome (the workflow-orchestration / FOrCE gate decision). For a conformance check, `outcome` carries the control verdict.",
+      "required": ["outcome"],
+      "properties": {
+        "outcome": {
+          "type": "string",
+          "enum": ["authorized", "refused", "escalated", "timeout-deny", "pass", "fail", "not-applicable"],
+          "description": "authorized/refused/escalated/timeout-deny for an action gate; pass/fail/not-applicable for a conformance control check."
+        },
+        "envelope_delta": {
+          "type": ["object", "null"],
+          "description": "The refinement applied at spawn — how the child envelope narrows the parent (envelope(child) ⊑ envelope(parent)). Per-limb: permissions/gates/verification/discipline."
+        },
+        "at": {
+          "type": "string",
+          "enum": ["spawn", "runtime", "review"],
+          "description": "When the decision was made — at spawn, mid-run, or at conformance review."
+        }
+      },
+      "additionalProperties": true
+    },
+    "decision_actor": {
+      "type": ["string", "null"],
+      "description": "Who/what resolved the decision: 'gate' | 'policy' | 'human:<id>' | 'scorer'."
+    },
+    "decision": {
+      "type": "string",
+      "description": "Flat decision mirror of gate_decision.outcome, for consumers that read a single field.",
+      "enum": ["authorized", "refused", "escalated", "timeout-deny", "pass", "fail", "not-applicable"]
+    },
+    "determinism_flag": {
+      "type": "boolean",
+      "description": "Was the gate/check enforced deterministically (in the control layer), or inside a probabilistic call? (workflow-orchestration Contribution 2 — a gate the runtime can route around is unreliable.)"
+    },
+    "substrate": {
+      "type": "string",
+      "description": "Provider/runtime the action executed on (e.g. 'openai', 'claude-cli', 'ng-runtime'). Criterion-7 reach: tells a reviewer whether the gate was actually on the path."
+    },
+    "ts": {"type": "string", "format": "date-time", "description": "Timestamp (RFC 3339)."},
+    "latency": {"type": ["number", "null"], "description": "Action/check latency in ms."},
+    "annotation": {
+      "type": ["object", "null"],
+      "description": "Operator-authored human-judgment layer, FK'd to evidence_id (the thinx-aidex annotation model).",
+      "properties": {
+        "rating": {"type": ["string", "null"], "enum": ["up", "down", null]},
+        "note": {"type": ["string", "null"]}
+      },
+      "additionalProperties": true
+    }
+  }
+}
