@@ -21,7 +21,7 @@ Two contributions make it load-bearing for the canon:
 - Follow-up (τ²-bench): [arXiv:2506.07982](https://arxiv.org/abs/2506.07982); code at [`github.com/sierra-research/tau2-bench`](https://github.com/sierra-research/tau2-bench) (the repo now hosts both τ-bench and τ²-bench).
 - Author affiliation: Sierra ([sierra.ai](https://sierra.ai)).
 - In-canon adjacency — the **harness** half of this finding: the eval-engine that would *run* a τ-bench-style policy-adherence suite is surveyed in [`../oss-frameworks/inspect-ai.md`](../oss-frameworks/inspect-ai.md) (Inspect AI as the candidate OAgents conformance harness). τ-bench supplies the *eval shape*; Inspect supplies the *harness*. Adjacent benchmark scoping in [`README.md`](README.md) (Conformance + evaluation cluster).
-- In-canon target — OAgents conformance/evidence model: [`OAgents-v1.0 §6`](../../../../constructs/oagents/spec/versions/OAgents-v1.0.md) (evidence-by-observable-artifact, three verification levels). Deontic-constraint construct: [MxM](../../../../constructs/mxm/) (Morals surface).
+- In-canon target — OAgents conformance/evidence model: [`OAgents v16.0` (conformance & evidence model)](../../../../constructs/oagents/spec/oagents-nist-standard-v16.0.md) (evidence-by-observable-artifact, three verification levels). Deontic-constraint construct: [MxM](../../../../constructs/mxm/) (Morals surface).
 
 ## 3. Map against AIDE
 

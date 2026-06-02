@@ -19,7 +19,7 @@
 - In-canon adjacency:
   - Foundation — [`HCAE`](../../../../foundation/hcae/) (human-curated, AI-enabled — the human-in-the-loop / eval-gated thesis this paper operationalizes) and [`AIDK`](../../../../foundation/aidk/) (AI's structural epistemic limits — the premise that makes pre-deployment evaluation necessary).
   - The **eval thread** in the survey: [`../oss-frameworks/inspect-ai.md`](../oss-frameworks/inspect-ai.md) — UK AISI's Inspect is the *open eval harness* used by DeepMind/Anthropic/others to run exactly this class of capability + safety evaluation; this paper is the *methodology* Inspect-class harnesses execute.
-  - OAgents conformance/evidence — [`OAgents-v1.0 §6`](../../../../constructs/oagents/spec/versions/OAgents-v1.0.md) (evidence-by-artifact, three verification levels) and [`../../../../constructs/oagents/`](../../../../constructs/oagents/).
+  - OAgents conformance/evidence — [`OAgents v16.0` (conformance & evidence model)](../../../../constructs/oagents/spec/oagents-nist-standard-v16.0.md) (evidence-by-artifact, three verification levels) and [`../../../../constructs/oagents/`](../../../../constructs/oagents/).
 
 ## 3. Map against AIDE
 
