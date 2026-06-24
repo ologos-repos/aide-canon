@@ -35,9 +35,9 @@ A walking order for an external reader (or AI) trying to internalize what this t
 
 [`vsok/vision/`](vsok/vision/) carries the corpus's stated long-horizon outcome:
 
-> *"AI-centric Digital Ecosystems as an exemplar for next-generation Enterprise IT transformation."*
+> *"AI-enabled Digital Ecosystems as an exemplar for next-generation Enterprise IT transformation."*
 
-The Vision README unpacks the three load-bearing phrases (*AI-centric Digital Ecosystems*, *exemplar*, *next-generation Enterprise IT transformation*), establishes the 1–3 year horizon (AI-speed compression of "next-generation"), and names what success looks like — six concrete signals calibrated to that window. It also explicitly disclaims what Vision *isn't* (not a roadmap, not a sales motion, not a deadline, not an exclusivity claim).
+The Vision README unpacks the three load-bearing phrases (*AI-enabled Digital Ecosystems*, *exemplar*, *next-generation Enterprise IT transformation*), establishes the 1–3 year horizon (AI-speed compression of "next-generation"), and names what success looks like — six concrete signals calibrated to that window. It also explicitly disclaims what Vision *isn't* (not a roadmap, not a sales motion, not a deadline, not an exclusivity claim).
 
 Reading this first anchors everything else.
 
@@ -134,7 +134,7 @@ Each layer is consumed by the layer below. The vocabulary map ensures vocabulary
 Tier 0 — Vision-Strategy        ← this tier (umbrella)
             ├── vsok/           ← V/S/O/K methodology product
             └── analysis/       ← evidence base informing VSOK + broader canon
-Tier 1 — Mode Alpha             ← synthesizing argument (AI-centric Digital Ecosystem)
+Tier 1 — Mode Alpha             ← synthesizing argument (AI-enabled Digital Ecosystem)
 Tier 2 — Foundation             ← cognitive-theory + training-methodology basis (HCAE, AIDK, RLEG)
 Tier 3 — Constructs             ← peer methodological patterns (DEA, OrdSA, MxM, OAgents)
 Tier 4 — Enterprise Platforms   ← enterprise-altitude instantiations (AEON, AIDEX, OAAD)
@@ -164,4 +164,4 @@ The corpus's identity is jointly authored by **James D. Longmire** ([ORCID 0009-
 
 Cite the corpus as:
 
-> Longmire, J. D., & Longmire, M. (2026). *AI-centric Digital Ecosystem (AIDE) canon* [Software/corpus]. https://github.com/ologos-repos/aide-canon
+> Longmire, J. D., & Longmire, M. (2026). *AI-enabled Digital Ecosystem (AIDE) canon* [Software/corpus]. https://github.com/ologos-repos/aide-canon

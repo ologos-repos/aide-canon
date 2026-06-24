@@ -13,7 +13,7 @@
 
 The canon structure ratified in [cross-ai #40](https://github.com/ologos-corp/cross-ai/issues/40) established a four-tier hierarchy for `ologos-repos/aide-canon`:
 
-- **Tier 1 — Master Thesis:** AI-centric Digital Ecosystem (synthesis)
+- **Tier 1 — Master Thesis:** AI-enabled Digital Ecosystem (synthesis)
 - **Tier 2 — Foundation:** HCAE, AIDK, RLEG
 - **Tier 3 — Constructs:** DEA, OrdSA, MxM, OAgents
 - **Tier 4 — Enterprise Platforms:** Strategy, AEON, AIDEX, OAAD (HCAE moved to Foundation per Refinement B)
@@ -45,7 +45,7 @@ At stand-up time, only the Strategy artifact (existing paper) is populated. Visi
 
 ### 2. Rename Tier 1 — Master Thesis → Mode Alpha
 
-The synthesizing artifact at Tier 1 remains *AI-centric Digital Ecosystem*. The tier label changes from **Master Thesis** to **Mode Alpha** — the corpus's primary orientation mode (α).
+The synthesizing artifact at Tier 1 remains *AI-enabled Digital Ecosystem*. The tier label changes from **Master Thesis** to **Mode Alpha** — the corpus's primary orientation mode (α).
 
 The naming aligns with Greek-letter precedent already present in the corpus's deliberations (cross-ai #40 ADR-prefix decision used Pattern α). It scales naturally: Mode Beta, Mode Gamma reserved for future orientation modes if the corpus's intellectual surface broadens.
 
@@ -71,7 +71,7 @@ aide-canon/
 │       ├── objectives/            # reserved (artifact TBD)
 │       └── key-results/           # reserved (artifact TBD)
 ├── mode-alpha/                    # RENAMED from thesis/ (Tier 1)
-│   └── ...                        # AI-centric Digital Ecosystem synthesis (forthcoming)
+│   └── ...                        # AI-enabled Digital Ecosystem synthesis (forthcoming)
 ├── foundation/                    # unchanged (Tier 2 — HCAE, AIDK, RLEG)
 ├── constructs/                    # unchanged (Tier 3 — DEA, OrdSA, MxM, OAgents)
 ├── enterprise-platforms/          # unchanged shape, three subdirs only (Tier 4)

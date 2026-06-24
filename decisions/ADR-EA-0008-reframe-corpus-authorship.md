@@ -25,7 +25,7 @@ This ADR refines the corpus-level identity to match the working reality without 
 
 **The corpus's identity is jointly authored by JD Longmire and Micah Longmire.** Specifically:
 
-1. **Corpus-level authorship is joint.** The canon README intro, citation block, and any other corpus-identity surface (e.g., LICENSE attribution lines, citation files when added) name both authors. Standard citation form: *Longmire, J. D., & Longmire, M. (2026). AI-centric Digital Ecosystem (AIDE) canon …*
+1. **Corpus-level authorship is joint.** The canon README intro, citation block, and any other corpus-identity surface (e.g., LICENSE attribution lines, citation files when added) name both authors. Standard citation form: *Longmire, J. D., & Longmire, M. (2026). AI-enabled Digital Ecosystem (AIDE) canon …*
 
 2. **Per-artifact authorship is preserved as-is.** Existing artifacts retain their established author attribution at the artifact level (see e.g. `constructs/mxm/` which records the joint authorship at the construct README; foundation artifacts which cite the upstream Zenodo DOIs with their own author records). The corpus-level joint-authorship does **not** retroactively claim joint authorship of artifacts that were sole-authored by one of the co-authors.
 
