@@ -72,7 +72,7 @@ constructs/mxm/
 
 | Pattern | How MxM participates |
 |---|---|
-| [MxH-P synthesis](../../patterns/mxh-p-synthesis.md) ([ADR-EA-0028](../../decisions/ADR-EA-0028-introduce-mxh-p-synthesis-pattern.md)) | MxM is the **orientation and constraint** altitude in the MxM · Hermetic · P/G/E composition. Operational form: **orientation packet** injected at every worker/role spawn (not package renames). |
+| [MxH-P synthesis](../../patterns/mxh-p-synthesis.md) ([ADR-EA-0028](../../decisions/ADR-EA-0028-introduce-mxh-p-synthesis-pattern.md)) | MxM is the **orientation and constraint** altitude in the MxM · Hermetic · P/G/E composition. Operational form: **orientation packet** injected at every worker/role spawn (not package renames). Pattern B+ core: [`ologos-repos/mxh-p`](https://github.com/ologos-repos/mxh-p). |
 | [workflow-orchestration](../../patterns/workflow-orchestration.md) | MxM Morals/Means supply envelope limbs refined under `envelope(child) ⊑ envelope(parent)`. |
 | [epistemic-integrity-floor](../../patterns/epistemic-integrity-floor.md) | Imports into Mind/Morals/Memory. |
 | [digital-thread](../../patterns/digital-thread.md) | Morals gates + Memory/Means evidence along a single work trajectory. |
