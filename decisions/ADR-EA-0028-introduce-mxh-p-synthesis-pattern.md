@@ -9,6 +9,7 @@
   - 2026-07-13 (filed): Pattern + ADR landed as `Proposed` on PR [#61](https://github.com/ologos-repos/aide-canon/pull/61) (`patterns/mxh-p-synthesis.md`, root README, cross-indexes).
   - 2026-07-14 (merged): PR #61 squash-merged to `main` (`2711268`).
   - 2026-07-14 (ratified): JD-Founder accepted as-proposed. Status → `Accepted`. Pattern doc becomes normative. Hermetic#40 pointer comment authorized.
+  - 2026-07-14 (refimpl): Pattern B+ core package published at [`ologos-repos/mxh-p`](https://github.com/ologos-repos/mxh-p) (MxH-P/core v0.1: orientation, P/G/E gate, profiles, safety seed).
 
 ## Context
 

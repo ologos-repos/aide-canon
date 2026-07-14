@@ -105,6 +105,8 @@ Patterns name recurring shapes that emerge when constructs and platforms are dep
 
 **MxH-P** is the composition answer for operator multi-agent delivery: do not treat Hermetic as a substitute for morals, or P/G/E as three markdown files from one context. Partial conformance labels: `MxH-P/core` · `MxH-P/swarm` · `MxH-P/full`. Hermetic remains Pattern B+ out-of-tree ([ADR-EA-0022](decisions/ADR-EA-0022-pattern-bplus-and-canonical-aeon-refimpls.md)); engagement trail under [`vision-strategy/analysis/hermetic-engagement/`](vision-strategy/analysis/hermetic-engagement/).
 
+**Reference impl (Pattern B+):** [`ologos-repos/mxh-p`](https://github.com/ologos-repos/mxh-p) — portable **MxH-P/core** kernel (orientation packet, P/G/E gate, role profiles, safety seed). Not absorbed into this canon.
+
 ---
 
 ## Governance

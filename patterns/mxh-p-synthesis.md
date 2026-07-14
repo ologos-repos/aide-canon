@@ -289,17 +289,18 @@ An implementation is **MxH-P conformant** only if all hold:
 - Hermetic MCP tools for package open / signal emit / gate evaluate  
 - CLI: `pge_package --dispatch`, `pge_gate --required`  
 
-## Reference implementations (fragmentary today)
+## Reference implementations
 
-| Fragment | Where | MxH-P role |
-|---|---|---|
-| MxM construct + operator homes | `constructs/mxm/`; e.g. `ologos-repos/grok-console` `construct/` | Constitution altitude |
-| Hermetic | `ologos-repos/Hermetic` (Pattern B+) | Swarm means |
-| P/G/E dispatched bag | ologos-grok `scripts/pge_*`, `construct/means/agents/`, Morals P13 | Claimable delivery |
-| Workflow-orchestration exemplar | Claude Code Workflow (see exemplar-tracking) | Control-plane supertype |
-| Engagement trail | `vision-strategy/analysis/hermetic-engagement/` | Why packets > renames |
+| Impl / fragment | Where | MxH-P role | Status |
+|---|---|---|---|
+| **mxh-p (canonical core)** | [`ologos-repos/mxh-p`](https://github.com/ologos-repos/mxh-p) | **Pattern B+** portable **MxH-P/core** kernel: orientation packet, P/G/E gate, role profiles, safety seed, construct template | **v0.1 landed** — see repo `docs/canon-mapping.md` |
+| MxM construct + operator homes | `constructs/mxm/`; e.g. `ologos-repos/grok-console` `construct/` | Constitution altitude (prime identity) | Live |
+| Hermetic | `ologos-repos/Hermit` (Pattern B+) | Swarm means for **MxH-P/swarm** | Live; not absorbed into mxh-p |
+| P/G/E bags in primes | e.g. ologos-grok `scripts/pge_*` (extracting toward mxh-p) | Claimable delivery consumers | Partial / extracting |
+| Workflow-orchestration exemplar | Claude Code Workflow (see exemplar-tracking) | Control-plane supertype | Cited |
+| Engagement trail | `vision-strategy/analysis/hermetic-engagement/` | Why packets > renames | Analysis |
 
-No single system is **MxH-P/full** as of this writing. The pattern is **ahead of full realization** by design (same posture as workflow-orchestration’s envelope lattice honesty).
+**Pattern B+:** `mxh-p` is out-of-tree (independent release); the canon cites it; it does not live inside `aide-canon`. No single system is **MxH-P/full** as of this writing. The pattern remains honest about partial labels (`core` / `swarm` / `full`).
 
 ## VSOK implications
 
@@ -311,9 +312,10 @@ No single system is **MxH-P/full** as of this writing. The pattern is **ahead of
 
 ## Related
 
+- **[ologos-repos/mxh-p](https://github.com/ologos-repos/mxh-p)** — Pattern B+ **MxH-P/core** reference implementation  
 - [ADR-EA-0028](../decisions/ADR-EA-0028-introduce-mxh-p-synthesis-pattern.md) — introduce this pattern  
 - [ADR-EA-0027](../decisions/ADR-EA-0027-introduce-workflow-orchestration-pattern.md) — workflow-orchestration  
-- [ADR-EA-0022](../decisions/ADR-EA-0022-pattern-bplus-and-canonical-aeon-refimpls.md) — Hermetic Pattern B+  
+- [ADR-EA-0022](../decisions/ADR-EA-0022-pattern-bplus-and-canonical-aeon-refimpls.md) — Pattern B+ discipline  
 - [ADR-EA-0005](../constructs/mxm/decisions/ADR-EA-0005-clarify-mxm-archetype.md) — MxM scale-invariant archetype  
 - [ADR-EA-0009](../decisions/ADR-EA-0009-introduce-digital-thread-pattern.md) — digital-thread  
 - [hermetic-engagement/](../vision-strategy/analysis/hermetic-engagement/) — #38–#40 trail  
