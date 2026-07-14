@@ -1,10 +1,14 @@
 # ADR-EA-0028 — Introduce MxH-P synthesis pattern (MxM · Hermetic · P/G/E)
 
-- **Status:** Proposed
+- **Status:** Accepted (ratified 2026-07-14 by JD-Founder)
 - **Date:** 2026-07-13
 - **Author:** ologos-grok (operator-altitude synthesis, filed into canon per JD direction)
-- **Reviewers:** pending JD-Founder ratification; optional peer-AI second opinion (thinx / OlogosAI)
+- **Reviewers:** JD Longmire (Founder ratification, 2026-07-14)
 - **Related:** Hermetic discussions [#38](https://github.com/ologos-repos/Hermetic/discussions/38)–[#40](https://github.com/ologos-repos/Hermetic/discussions/40); [ADR-EA-0022](ADR-EA-0022-pattern-bplus-and-canonical-aeon-refimpls.md); [ADR-EA-0027](ADR-EA-0027-introduce-workflow-orchestration-pattern.md); [ADR-EA-0005](../constructs/mxm/decisions/ADR-EA-0005-clarify-mxm-archetype.md)
+- **Ratification trail:**
+  - 2026-07-13 (filed): Pattern + ADR landed as `Proposed` on PR [#61](https://github.com/ologos-repos/aide-canon/pull/61) (`patterns/mxh-p-synthesis.md`, root README, cross-indexes).
+  - 2026-07-14 (merged): PR #61 squash-merged to `main` (`2711268`).
+  - 2026-07-14 (ratified): JD-Founder accepted as-proposed. Status → `Accepted`. Pattern doc becomes normative. Hermetic#40 pointer comment authorized.
 
 ## Context
 
@@ -38,7 +42,7 @@ A new cross-cutting pattern, peer to digital-thread, workflow-orchestration, EIF
 |---|---|
 | Cuts across tiers/constructs/planes | Yes — MxM + Hermetic/AEON means + OAgents-style roles + OrdSA oracle altitude + digital-thread evidence |
 | Reference implementation(s) citable | Yes — fragmentary but real: MxM homes, Hermetic, ologos-grok P/G/E bag, Claude Code Workflow as control-plane supertype |
-| ADR-ratified | This ADR (status Proposed until Founder accept) |
+| ADR-ratified | This ADR (Accepted 2026-07-14) |
 
 ### 2. Name the pattern
 
@@ -90,7 +94,7 @@ Land **packet + P/G/E gate + DAG** before multi-worker Hermetic. Do not require 
 
 **Negative / risk:**
 
-- **Pattern lead vs realization.** No single system is `MxH-P/full` today; the pattern must stay honest about partial conformance (same honesty as the envelope lattice in ADR-EA-0027).
+- **Pattern lead vs realization.** No single system is `MxH-P/full` today; the pattern stays honest about partial conformance (same honesty as the envelope lattice in ADR-EA-0027).
 - **Name collision.** “Hermit” (org/brand) vs “Hermetic” (product) vs cashapp hermit toolchain — the pattern doc uses **Hermetic** for the runtime and **MxH-P** as the short name to reduce confusion.
 - **Ceremony pressure.** Misread as “always run Hermetic + P/G/E”; the proportionality rule and partial labels exist to counter this.
 - **OAgents / Micah co-authorship.** Envelope refinement remains pattern-level; absorbing into OAgents NIST text stays out of scope (ADR-EA-0008).

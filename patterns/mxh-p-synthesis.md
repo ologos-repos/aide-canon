@@ -1,6 +1,6 @@
 # MxH-P synthesis pattern (MxM · Hermetic · P/G/E)
 
-> **Status:** Proposed — [ADR-EA-0028](../decisions/ADR-EA-0028-introduce-mxh-p-synthesis-pattern.md)  
+> **Status:** Accepted — normative (ratified 2026-07-14 by JD-Founder via [ADR-EA-0028](../decisions/ADR-EA-0028-introduce-mxh-p-synthesis-pattern.md))  
 > **Short name:** **MxH-P** (MxM + Hermetic + P/G/E)  
 > **Also called:** oriented multi-agent claimable delivery
 

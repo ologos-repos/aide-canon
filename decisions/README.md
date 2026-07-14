@@ -26,7 +26,7 @@ Canon-level Architecture Decision Records (ADRs) for the AIDE corpus. Append-onl
 | [ADR-EA-0024](ADR-EA-0024-governed-context-management-hook-mediated-tier.md) | Governed Context Management §8 hook-mediated tier: mechanized re-grounding where the host harness exposes compaction-lifecycle hooks (refines §8) | Proposed |
 | [ADR-EA-0025](ADR-EA-0025-instance-vsok-derivation.md) | Instance VSOK derivation | see file |
 | [ADR-EA-0027](ADR-EA-0027-introduce-workflow-orchestration-pattern.md) | Introduce workflow-orchestration pattern; envelope composition + determinism gate-surface | Accepted |
-| [ADR-EA-0028](ADR-EA-0028-introduce-mxh-p-synthesis-pattern.md) | Introduce MxH-P synthesis pattern (MxM · Hermetic · P/G/E) | Proposed |
+| [ADR-EA-0028](ADR-EA-0028-introduce-mxh-p-synthesis-pattern.md) | Introduce MxH-P synthesis pattern (MxM · Hermetic · P/G/E) | Accepted |
 
 ## Per-construct ADRs
 

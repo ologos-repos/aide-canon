@@ -99,7 +99,7 @@ Patterns name recurring shapes that emerge when constructs and platforms are dep
 |---|---|---|
 | **[digital-thread](patterns/digital-thread.md)** | Six-layer FK-linked traceability for a single piece of AI work | [ADR-EA-0009](decisions/ADR-EA-0009-introduce-digital-thread-pattern.md) |
 | **[workflow-orchestration](patterns/workflow-orchestration.md)** | Deterministic control program composing agent invocations under envelope refinement | [ADR-EA-0027](decisions/ADR-EA-0027-introduce-workflow-orchestration-pattern.md) |
-| **[MxH-P](patterns/mxh-p-synthesis.md)** | **MxM · Hermetic · P/G/E synthesis** — MxM orients/constrains; Hermetic schedules/coordinates; P/G/E proves substantial work was planned, built, and skeptically accepted. Orientation packet + claimable delivery + oracle×morals split | [ADR-EA-0028](decisions/ADR-EA-0028-introduce-mxh-p-synthesis-pattern.md) (Proposed) |
+| **[MxH-P](patterns/mxh-p-synthesis.md)** | **MxM · Hermetic · P/G/E synthesis** — MxM orients/constrains; Hermetic schedules/coordinates; P/G/E proves substantial work was planned, built, and skeptically accepted. Orientation packet + claimable delivery + oracle×morals split | [ADR-EA-0028](decisions/ADR-EA-0028-introduce-mxh-p-synthesis-pattern.md) (Accepted) |
 | **[epistemic-integrity-floor](patterns/epistemic-integrity-floor.md)** | Agent-side calibrated confidence + defeater floor (imports into MxM) | [ADR-EA-0014](decisions/ADR-EA-0014-introduce-epistemic-integrity-floor-pattern.md) |
 | **[governed-context-management](patterns/governed-context-management.md)** | Harness-owned context budgeting, compaction, re-hydration | [ADR-EA-0019](decisions/ADR-EA-0019-introduce-governed-context-management-pattern.md) |
 
