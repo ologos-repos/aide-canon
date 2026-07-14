@@ -22,6 +22,7 @@ Hermetic instantiates patterns from multiple AIDE constructs:
 | **AEON** (full six-plane composition) | Identity (Worker Roster) / Authority (Oracle Bus + L0–L3) / Evidence (Eidolon PLM + audit log) / Integration (Sub-Prime Federation + Telegram bridge) / Capability composition (worker affinity + capability tags) / Orchestration runtime (Prime main loop + dispatch loop + TUI) | Full mapping — Pattern B+ canonical |
 | **OrdSA** | L0–L3 escalation hierarchy (Worker → Oracle → Prime → Sub-Prime Federation) | Lineage — uses OrdSA's ordinal-altitude pattern but at a different layering depth (L0–L3 not O0–O6); see #38 discussion for the precision |
 | **MxM** | Resume-driven worker identity injection ≈ MxM MISSION/MEMORY/MORALS at the worker scale | Solid — direct correspondence; #40 refactor proposal could deepen this if value-additive |
+| **MxH-P** ([pattern](../../../patterns/mxh-p-synthesis.md)) | Hermetic as **swarm schedule/coordinate** altitude under MxM orientation packets + optional P/G/E signal/gate packages | Pattern proposed ([ADR-EA-0028](../../../decisions/ADR-EA-0028-introduce-mxh-p-synthesis-pattern.md)); Hermetic is the multi-worker means fragment — not a substitute for MxM or claimable P/G/E |
 | **OAgents** | Eidolon's phase gates + audit log + oracle approval ≈ OAgents behavioral envelope enacted in code | Partial — Eidolon is OAgents-compatible but predates the published OAgents spec; cross-reference work in flight (Hermetic#37 + Hermetic discussion #39) |
 
 ## Tracking artifacts to maintain
@@ -42,6 +43,7 @@ For now, the existing engagement artifacts at [`../../hermetic-engagement/`](../
   - [#38 canon-mapping](https://github.com/ologos-repos/Hermetic/discussions/38) — six-plane mapping audit, Pattern B+ position
   - [#39 means inventory](https://github.com/ologos-repos/Hermetic/discussions/39) — 31 packages canon-adoption analysis
   - [#40 MxM refactor](https://github.com/ologos-repos/Hermetic/discussions/40) — conditional yes + AEON-fallback contingency
+- **Composition pattern:** [MxH-P](../../../patterns/mxh-p-synthesis.md) ([ADR-EA-0028](../../../decisions/ADR-EA-0028-introduce-mxh-p-synthesis-pattern.md)) — MxM · Hermetic · P/G/E
 - **Canon-side issues:**
   - [`aide-canon#5`](https://github.com/ologos-repos/aide-canon/issues/5) — Adopt Hermetic as canonical AEON reference impl
   - [`aide-canon#7`](https://github.com/ologos-repos/aide-canon/issues/7) — Digital-thread pattern proposal (PR #10)
