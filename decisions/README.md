@@ -24,6 +24,9 @@ Canon-level Architecture Decision Records (ADRs) for the AIDE corpus. Append-onl
 | [ADR-EA-0022](ADR-EA-0022-pattern-bplus-and-canonical-aeon-refimpls.md) | Pattern B+ adoption discipline; Hermetic and NG-AIDE-01 as canonical AEON reference implementations | Accepted |
 | [ADR-EA-0023](ADR-EA-0023-thinx-discipline-refinements.md) | Reference-impl-derived discipline refinements + canonical-ref-impl pin (founder-override pattern + GCM §8 + EIF §6 operationalization + thinx canonical MxM/EIF pin) | Proposed |
 | [ADR-EA-0024](ADR-EA-0024-governed-context-management-hook-mediated-tier.md) | Governed Context Management §8 hook-mediated tier: mechanized re-grounding where the host harness exposes compaction-lifecycle hooks (refines §8) | Proposed |
+| [ADR-EA-0025](ADR-EA-0025-instance-vsok-derivation.md) | Instance VSOK derivation | see file |
+| [ADR-EA-0027](ADR-EA-0027-introduce-workflow-orchestration-pattern.md) | Introduce workflow-orchestration pattern; envelope composition + determinism gate-surface | Accepted |
+| [ADR-EA-0028](ADR-EA-0028-introduce-mxh-p-synthesis-pattern.md) | Introduce MxH-P synthesis pattern (MxM · Hermetic · P/G/E) | Proposed |
 
 ## Per-construct ADRs
 
@@ -33,6 +36,7 @@ Per Pattern α, construct-internal ADRs live with their construct:
 - [ADR-EA-0004](../constructs/mxm/decisions/ADR-EA-0004-add-mx-modes-as-spine-construct.md) — Add Mx-Modes as a spine construct (Accepted; at [`constructs/mxm/decisions/`](../constructs/mxm/decisions/))
 - [ADR-EA-0005](../constructs/mxm/decisions/ADR-EA-0005-clarify-mxm-archetype.md) — Clarify MxM as the harness archetype across all levels (Accepted; at [`constructs/mxm/decisions/`](../constructs/mxm/decisions/))
 - [ADR-EA-0013](../constructs/mxm/decisions/ADR-EA-0013-define-mxm-root-file-mode-element.md) — Define the MxM root file (the "mode" element) as harness-attach + operating-mode activator + routing, not a governing altitude (Accepted; at [`constructs/mxm/decisions/`](../constructs/mxm/decisions/))
+- [ADR-EA-0026](../constructs/mxm/decisions/ADR-EA-0026-introduce-methods-surface.md) — Introduce METHODS surface (Accepted; at [`constructs/mxm/decisions/`](../constructs/mxm/decisions/))
 - [ADR-EA-0018](../constructs/aicp/decisions/ADR-EA-0018-introduce-aicp-construct.md) — Introduce AICP as a Tier-3 construct (Accepted; at [`constructs/aicp/decisions/`](../constructs/aicp/decisions/))
 
 ## Numbering

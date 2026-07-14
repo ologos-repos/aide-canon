@@ -21,6 +21,7 @@ For VSOK derivation, Hermetic provides:
 | [`Hermetic#38`](https://github.com/ologos-repos/Hermetic/discussions/38) | [`38-canon-mapping/`](38-canon-mapping/) | Canon-mapping audit. Maps Hermetic to AEON's six service planes; cross-construct touch-points (OrdSA, MxM, OAgents); proposes Pattern B adoption. |
 | [`Hermetic#39`](https://github.com/ologos-repos/Hermetic/discussions/39) | [`39-means-inventory/`](39-means-inventory/) | Hermetic's execution-layer capabilities (means in 4M vocabulary). Identifies opportunities for the canon to adopt Hermetic patterns as conventions or reference impls. |
 | [`Hermetic#40`](https://github.com/ologos-repos/Hermetic/discussions/40) | [`40-mxm-refactor/`](40-mxm-refactor/) | Proposes reorganizing Hermetic's `internal/` from function-grouped to MxM-five-surface-grouped. Asks whether the refactor adds value vs churn. |
+| *(composition, post-#40)* | Canon pattern **[MxH-P](../../../patterns/mxh-p-synthesis.md)** ([ADR-EA-0028](../../../decisions/ADR-EA-0028-introduce-mxh-p-synthesis-pattern.md)) | Names how **MxM · Hermetic · P/G/E** compose: orientation packet (not folder rename), P/G/E as signal/gate claimable delivery, oracle×morals escalation split. Partial labels `core` / `swarm` / `full`. |
 
 Each subfolder contains:
 - `discussion-source.md` — cached body of the discussion thread (so the analysis reads coherently regardless of upstream changes)
@@ -36,6 +37,7 @@ Aggregate implications from this engagement that inform VSOK directly:
 | Pattern B (out-of-tree reference impl) is the right adoption mode | **Objective** — canon-side ADR ratifying Pattern B as the standard for reference impls (matches `oagent-core` precedent) |
 | Cross-construct touch-points (OrdSA, MxM, OAgents) are partial, not full | **Strategy** — be honest about conformance scope; specify *which* envelope controls / ordinal layers / surfaces are enacted, not wholesale claims |
 | MxM-surface refactor is canon-aligned but operationally unclear | **Objective** (low priority) — let the canon-alignment value materialize from operational utility (orientation packet, mxm-describe), not from naming alignment alone |
+| MxH-P synthesis (2026-07-13) names the post-#40 composition | **Strategy / Objectives** — cite [`patterns/mxh-p-synthesis.md`](../../../patterns/mxh-p-synthesis.md); pursue `MxH-P/core` on operator primes (packet + P/G/E gate) before Hermetic multi-worker |
 | **Contingency direction** (JD, 2026-05-22): AEON-deployed carries the AIDE exemplar role if Hermetic MxM-refactor is not value-added — see [`40-mxm-refactor/ologosai-response.md` § Addendum](40-mxm-refactor/ologosai-response.md) | **Strategy** — both branches preserve AEON-deployment as a central observable; the *MxM-multi-agent reference impl* role is the part that branches |
 
 ## Provenance

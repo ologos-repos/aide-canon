@@ -26,14 +26,14 @@ Five content tiers stratified by altitude and role:
 | **3** | **[`constructs/`](constructs/)** | Peer methodological patterns, transverse to altitude | DEA · OrdSA · MxM · OAgents · AICP |
 | **4** | **[`enterprise-platforms/`](enterprise-platforms/)** | Enterprise-altitude instantiations of the constructs | AEON · AIDEX · OAAD |
 | *—* | **[`related-work/`](related-work/)** | Allied research that informs the canon without being part of its spine | Theseus |
-| *—* | **[`patterns/`](patterns/)** | Cross-cutting architectural patterns that traverse multiple tiers/constructs | digital-thread |
+| *—* | **[`patterns/`](patterns/)** | Cross-cutting architectural patterns that traverse multiple tiers/constructs | digital-thread · workflow-orchestration · **[MxH-P](patterns/mxh-p-synthesis.md)** · EIF · GCM · … |
 
 Two cross-cutting directories:
 
 - **[`decisions/`](decisions/)** — canon-level Architecture Decision Records (umbrella + structural)
 - **[`infographics/`](infographics/)** — canon-level visuals (cross-construct, cross-platform)
 
-The tier numbering was introduced by [ADR-EA-0007](decisions/ADR-EA-0007-introduce-vsok-tier-0-and-mode-alpha.md) — it adds Vision-Strategy as Tier 0 above the synthesis and renames the synthesizing tier from *Master Thesis* to *Mode Alpha*. The shape preserves the four-tier intellectual content from [ADR-EA-0006](decisions/ADR-EA-0006-migrate-corpus-to-aide-canon.md) (foundation / constructs / enterprise-platforms / related-work) and lifts Strategy out of the enterprise-platforms tier into Vision-Strategy / VSOK / Strategy at Tier 0. [ADR-EA-0009](decisions/ADR-EA-0009-introduce-digital-thread-pattern.md) adds the [`patterns/`](patterns/) tier alongside related-work for cross-cutting architectural patterns; the digital-thread pattern is the first entry.
+The tier numbering was introduced by [ADR-EA-0007](decisions/ADR-EA-0007-introduce-vsok-tier-0-and-mode-alpha.md) — it adds Vision-Strategy as Tier 0 above the synthesis and renames the synthesizing tier from *Master Thesis* to *Mode Alpha*. The shape preserves the four-tier intellectual content from [ADR-EA-0006](decisions/ADR-EA-0006-migrate-corpus-to-aide-canon.md) (foundation / constructs / enterprise-platforms / related-work) and lifts Strategy out of the enterprise-platforms tier into Vision-Strategy / VSOK / Strategy at Tier 0. [ADR-EA-0009](decisions/ADR-EA-0009-introduce-digital-thread-pattern.md) adds the [`patterns/`](patterns/) tier alongside related-work for cross-cutting architectural patterns (digital-thread first; full index in [`patterns/README.md`](patterns/README.md)).
 
 ---
 
@@ -91,6 +91,22 @@ HCAE is **not** an enterprise-platform peer — it sits at `foundation/hcae/` up
 
 ---
 
+## Patterns — cross-cutting deployment shapes
+
+Patterns name recurring shapes that emerge when constructs and platforms are deployed together. Full index: [`patterns/README.md`](patterns/README.md).
+
+| Pattern | What it names | ADR |
+|---|---|---|
+| **[digital-thread](patterns/digital-thread.md)** | Six-layer FK-linked traceability for a single piece of AI work | [ADR-EA-0009](decisions/ADR-EA-0009-introduce-digital-thread-pattern.md) |
+| **[workflow-orchestration](patterns/workflow-orchestration.md)** | Deterministic control program composing agent invocations under envelope refinement | [ADR-EA-0027](decisions/ADR-EA-0027-introduce-workflow-orchestration-pattern.md) |
+| **[MxH-P](patterns/mxh-p-synthesis.md)** | **MxM · Hermetic · P/G/E synthesis** — MxM orients/constrains; Hermetic schedules/coordinates; P/G/E proves substantial work was planned, built, and skeptically accepted. Orientation packet + claimable delivery + oracle×morals split | [ADR-EA-0028](decisions/ADR-EA-0028-introduce-mxh-p-synthesis-pattern.md) (Proposed) |
+| **[epistemic-integrity-floor](patterns/epistemic-integrity-floor.md)** | Agent-side calibrated confidence + defeater floor (imports into MxM) | [ADR-EA-0014](decisions/ADR-EA-0014-introduce-epistemic-integrity-floor-pattern.md) |
+| **[governed-context-management](patterns/governed-context-management.md)** | Harness-owned context budgeting, compaction, re-hydration | [ADR-EA-0019](decisions/ADR-EA-0019-introduce-governed-context-management-pattern.md) |
+
+**MxH-P** is the composition answer for operator multi-agent delivery: do not treat Hermetic as a substitute for morals, or P/G/E as three markdown files from one context. Partial conformance labels: `MxH-P/core` · `MxH-P/swarm` · `MxH-P/full`. Hermetic remains Pattern B+ out-of-tree ([ADR-EA-0022](decisions/ADR-EA-0022-pattern-bplus-and-canonical-aeon-refimpls.md)); engagement trail under [`vision-strategy/analysis/hermetic-engagement/`](vision-strategy/analysis/hermetic-engagement/).
+
+---
+
 ## Governance
 
 The canon adopts the **OrdSA development process** ratified for the corpus in [ADR-EA-0001](decisions/ADR-EA-0001-adopt-ordsa-development-process.md): `dev` branch + PR flow; append-only ADRs under `decisions/` for substantive decisions; ordinary content PRs for new papers, refinements, infographics. Direct commits to `main` are not permitted.
@@ -112,7 +128,8 @@ For readers walking the canon top-down:
 3. **Constructs (foundation methodology)** — [DEA](constructs/dea/) for general-EA coherence; [OrdSA](constructs/ordsa/) for authority/evidence layering
 4. **Enterprise platforms** — [AEON](enterprise-platforms/aeon/) (the control plane), [AIDEX](enterprise-platforms/aidex/) (the experience subdomain), [OAAD](enterprise-platforms/oaad/) (the capability platform)
 5. **Constructs (harness + agent + identity)** — [MxM](constructs/mxm/) for per-harness orientation; [OAgents](constructs/oagents/) for the agent domain model; [AICP](constructs/aicp/) for portable agent identity
-6. **Related work** — [Theseus](related-work/theseus/) for the cognitive-architecture context
+6. **Patterns (composition)** — [MxH-P](patterns/mxh-p-synthesis.md) for how MxM, Hermetic swarm means, and claimable P/G/E compose; [workflow-orchestration](patterns/workflow-orchestration.md) and [digital-thread](patterns/digital-thread.md) for control and evidence
+7. **Related work** — [Theseus](related-work/theseus/) for the cognitive-architecture context
 
 ---
 

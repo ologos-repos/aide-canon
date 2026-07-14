@@ -68,6 +68,15 @@ constructs/mxm/
 └── spec/                          # reserved (buildable spec)
 ```
 
+## Related patterns
+
+| Pattern | How MxM participates |
+|---|---|
+| [MxH-P synthesis](../../patterns/mxh-p-synthesis.md) ([ADR-EA-0028](../../decisions/ADR-EA-0028-introduce-mxh-p-synthesis-pattern.md)) | MxM is the **orientation and constraint** altitude in the MxM · Hermetic · P/G/E composition. Operational form: **orientation packet** injected at every worker/role spawn (not package renames). |
+| [workflow-orchestration](../../patterns/workflow-orchestration.md) | MxM Morals/Means supply envelope limbs refined under `envelope(child) ⊑ envelope(parent)`. |
+| [epistemic-integrity-floor](../../patterns/epistemic-integrity-floor.md) | Imports into Mind/Morals/Memory. |
+| [digital-thread](../../patterns/digital-thread.md) | Morals gates + Memory/Means evidence along a single work trajectory. |
+
 ## Citation
 
 [`10.5281/zenodo.20349200`](https://doi.org/10.5281/zenodo.20349200) — Longmire, J. D., & Longmire, M. (2026). *Mx-Modes: A Meta-Harness Framework for Multi-Mode AI Operation*. Zenodo.
