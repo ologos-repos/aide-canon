@@ -7,6 +7,7 @@
 - **Related:** [`vision-strategy/analysis/aide-vocabulary-map.md`](../vision-strategy/analysis/aide-vocabulary-map.md) (catalog reference) · [`constructs/oagents/`](../constructs/oagents/) (distinguishes from formal "agent") · [`constructs/mxm/`](../constructs/mxm/) (the harness an AI-aide operates within) · [`constructs/ordsa/`](../constructs/ordsa/) (the principal-aide authority structure aide-de-camp etymologically names)
 - **Ratification trail:**
   - 2026-05-24 (ratified): JD Longmire adopts **AI-aide** (class noun, etymology: aide-de-camp) and **MyAide** (operator-perspective possessive / personal-address form) together as the canon's source-of-truth vocabulary for AI systems acting as subordinate assistants to a principal within AIDE governance. Two terms, two positions — the class noun for canon/taxonomy/papers; the personal-address form for operator-facing surfaces. Vocabulary-level decision; downstream prose updates in existing canon artifacts and future paper revisions roll the terms in as those artifacts are edited.
+  - 2026-06-23 (amended): the canonical expansion of **AIDE** is revised from *"AI-centric Digital Ecosystem"* to **"AI-enabled Digital Ecosystem,"** per cross-ai [ADR-GOV-0004](https://github.com/ologos-repos/cross-ai/blob/main/reference/governance/decisions/ADR-GOV-0004-aide-expands-ai-enabled-digital-ecosystem.md) (JD-ratified; OlogosAI canon-prime authorship). Rationale: the acronym names an *aide* — a helper that serves a principal — and the MxM construct is authority-down / mission-centered (AI is governed, not sovereign). "AI-**centric**" places AI at the center, contradicting that model; "AI-**enabled**" names AI as the means that empowers a mission-governed ecosystem. (Altitude note: an individual platform may be characterized "AI-native" — a construction descriptor, not the corpus identity.) Corpus propagation assigned to thinx-Claude; this amendment plus the in-repo prose swaps land the term across aide-canon.
 
 ## Context
 
@@ -84,7 +85,7 @@ The historical aide-de-camp role maps cleanly onto the canon's already-ratified 
 | Trusted with privileged information but not the principal's authority | Per the OpenCode runtime-harness governance principle (NG-AIDE-01 PR #13): sandboxed, MCP-only-hands, creds-behind-gates — the aide effects high-altitude change only through escalation, never holds privileged creds |
 | Acts as confidential counsel within scope | Per HCAE: human-curated where it matters; per EIF: epistemic-integrity floor at every turn |
 
-The recursion is intentional and load-bearing: **AIDE deploys AI-aides**. The corpus name (AI-centric Digital Ecosystem) and the role name (AI-aide) share the etymological root. This is not a pun — it is the surface signal of the structural relationship: AIDE is the *ecosystem* AI-aides operate within; the same ordering and discipline shape both.
+The recursion is intentional and load-bearing: **AIDE deploys AI-aides**. The corpus name (AI-enabled Digital Ecosystem) and the role name (AI-aide) share the etymological root. This is not a pun — it is the surface signal of the structural relationship: AIDE is the *ecosystem* AI-aides operate within; the same ordering and discipline shape both.
 
 ### Distinctions the terms preserve
 

@@ -4,7 +4,7 @@ The corpus's **primary orientation mode** — the synthesizing argument that tie
 
 ## What this tier holds
 
-A forthcoming synthesizing work titled **AI-centric Digital Ecosystem**: the integrative architectural argument that explains *how the parts of the canon cohere* — how Foundation (HCAE / AIDK / RLEG) grounds Constructs (DEA / OrdSA / MxM / OAgents), how Constructs compose into Enterprise Platforms (AEON / AIDEX / OAAD), and how the whole stack realizes the Vision-Strategy frame above it.
+A forthcoming synthesizing work titled **AI-enabled Digital Ecosystem**: the integrative architectural argument that explains *how the parts of the canon cohere* — how Foundation (HCAE / AIDK / RLEG) grounds Constructs (DEA / OrdSA / MxM / OAgents), how Constructs compose into Enterprise Platforms (AEON / AIDEX / OAAD), and how the whole stack realizes the Vision-Strategy frame above it.
 
 The synthesis is **not** an academic-degree submission. The label *Mode Alpha* replaces the earlier *Master Thesis* placeholder per [ADR-EA-0007](../decisions/ADR-EA-0007-introduce-vsok-tier-0-and-mode-alpha.md) (the synthesizing artifact's identity is the *primary orientation mode*, not a degree product).
 

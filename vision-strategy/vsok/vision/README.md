@@ -4,11 +4,11 @@ The **Vision** slot of [VSOK](..) within [Vision-Strategy](../..). The long-hori
 
 ## The Vision
 
-> **AI-centric Digital Ecosystems as an exemplar for next-generation Enterprise IT transformation.**
+> **AI-enabled Digital Ecosystems as an exemplar for next-generation Enterprise IT transformation.**
 
 ## Unpacking
 
-**AI-centric Digital Ecosystems** — the canon's namesake (AIDE). Enterprise IT composed *around* AI capability rather than retrofitted to absorb it. The four-plane architecture (control, runtime, experience, capability) ordered by [OrdSA](../../../constructs/ordsa/), oriented by [MxM](../../../constructs/mxm/), populated by [OAgents](../../../constructs/oagents/)-conformant agents, grounded in [HCAE](../../../foundation/hcae/)'s human-curated practice discipline. Not a vendor stack; an enterprise-owned, sovereign architecture.
+**AI-enabled Digital Ecosystems** — the canon's namesake (AIDE). Enterprise IT composed *around* AI capability rather than retrofitted to absorb it. The four-plane architecture (control, runtime, experience, capability) ordered by [OrdSA](../../../constructs/ordsa/), oriented by [MxM](../../../constructs/mxm/), populated by [OAgents](../../../constructs/oagents/)-conformant agents, grounded in [HCAE](../../../foundation/hcae/)'s human-curated practice discipline. Not a vendor stack; an enterprise-owned, sovereign architecture.
 
 **As an exemplar** — AIDE is not claimed as the *only* path to enterprise AI architecture. It is the *worked example* — the canonical reference that demonstrates a coherent way to compose enterprise IT for the agentic era. Other paths exist; AIDE is the one developed and proven through this corpus.
 

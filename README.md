@@ -1,8 +1,8 @@
 # aide-canon
 
-**AI-centric Digital Ecosystem (AIDE)** — the canonical home for the AIDE corpus. Independent research by **James D. Longmire** (Northrop Grumman Fellow, Chief Architect – Digital Ecosystems; ORCID [0009-0009-1383-7698](https://orcid.org/0009-0009-1383-7698)) and **Micah Longmire** (Sr. AI Architect; ORCID [0009-0006-7608-9322](https://orcid.org/0009-0006-7608-9322)).
+**AI-enabled Digital Ecosystem (AIDE)** — the canonical home for the AIDE corpus. Independent research by **James D. Longmire** (Northrop Grumman Fellow, Chief Architect – Digital Ecosystems; ORCID [0009-0009-1383-7698](https://orcid.org/0009-0009-1383-7698)) and **Micah Longmire** (Sr. AI Architect; ORCID [0009-0006-7608-9322](https://orcid.org/0009-0006-7608-9322)).
 
-This canon consolidates the foundational, methodological, enterprise-altitude, and related work into a single navigable structure. The canon's identity is **AI-centric Digital Ecosystem (AIDE)** — the architectural surface a digitally-realized enterprise must compose to operate trustworthy AI at scale.
+This canon consolidates the foundational, methodological, enterprise-altitude, and related work into a single navigable structure. The canon's identity is **AI-enabled Digital Ecosystem (AIDE)** — the architectural surface a digitally-realized enterprise must compose to operate trustworthy AI at scale.
 
 > *This canon presents independent research and reflects the views of the authors. It does not represent the position of any employer or program.*
 
@@ -21,7 +21,7 @@ Five content tiers stratified by altitude and role:
 | Tier | Directory | What it holds | Members |
 |---|---|---|---|
 | **0** | **[`vision-strategy/`](vision-strategy/)** | Umbrella concept — the corpus's enterprise-strategic frame. VSOK is the structured artifact (V/S/O/K methodology) within it | VSOK (Vision · Strategy · Objectives · Key Results) |
-| **1** | **[`mode-alpha/`](mode-alpha/)** | The corpus's primary orientation mode — synthesizing argument tying the umbrella to the methodological tiers below (forthcoming) | *AI-centric Digital Ecosystem* synthesis |
+| **1** | **[`mode-alpha/`](mode-alpha/)** | The corpus's primary orientation mode — synthesizing argument tying the umbrella to the methodological tiers below (forthcoming) | *AI-enabled Digital Ecosystem* synthesis |
 | **2** | **[`foundation/`](foundation/)** | Upstream cognitive-theory + training-methodology grounding for the AIDE architecture | HCAE · AIDK · RLEG |
 | **3** | **[`constructs/`](constructs/)** | Peer methodological patterns, transverse to altitude | DEA · OrdSA · MxM · OAgents · AICP |
 | **4** | **[`enterprise-platforms/`](enterprise-platforms/)** | Enterprise-altitude instantiations of the constructs | AEON · AIDEX · OAAD |
@@ -143,6 +143,6 @@ The canon is licensed under [Creative Commons Attribution 4.0 International (CC 
 
 Cite individual artifacts by their published DOI where available (foundation tier; per-platform/per-construct Zenodo records as they mint). For the canon as a whole, cite:
 
-> Longmire, J. D., & Longmire, M. (2026). *AI-centric Digital Ecosystem (AIDE) canon* [Software/corpus]. https://github.com/ologos-repos/aide-canon
+> Longmire, J. D., & Longmire, M. (2026). *AI-enabled Digital Ecosystem (AIDE) canon* [Software/corpus]. https://github.com/ologos-repos/aide-canon
 
 Per-artifact authorship may differ from corpus-level authorship — some artifacts are sole-authored by one of the co-authors, others jointly. Authorship at the artifact level is recorded at the artifact's location (see e.g. [`constructs/mxm/`](constructs/mxm/) where joint authorship is explicit). See [ADR-EA-0008](decisions/ADR-EA-0008-reframe-corpus-authorship.md) for the corpus-vs-artifact authorship discipline.

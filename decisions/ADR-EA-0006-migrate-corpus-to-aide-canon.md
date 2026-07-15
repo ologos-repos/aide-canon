@@ -38,12 +38,12 @@ This ADR's adoption touches multiple non-waivable triggers from CONTRIBUTING.md:
 
 - **New canonical home** (repository identity change)
 - **Multi-construct corpus expansion** (4 peer methodological constructs + 3 foundational artifacts in scope; previously one repo's worth)
-- **Audience and positioning shift** (corpus identity becomes "AI-centric Digital Ecosystem" — AIDE — with the AI-EA portion as one altitude rather than the corpus's full scope)
+- **Audience and positioning shift** (corpus identity becomes "AI-enabled Digital Ecosystem" — AIDE — with the AI-EA portion as one altitude rather than the corpus's full scope)
 - **Governance carry-forward** (OrdSA process per ADR-EA-0001 carries to the new canon)
 
 ## Decision
 
-**Migrate the corpus from `osa-ai-org/enterprise-ai` to `ologos-repos/aide-canon` as the canonical home.** The new canon name encodes the corpus identity: **AI-centric Digital Ecosystem (AIDE)** — the architectural surface a digitally-realized enterprise composes to operate trustworthy AI at scale. Concretely:
+**Migrate the corpus from `osa-ai-org/enterprise-ai` to `ologos-repos/aide-canon` as the canonical home.** The new canon name encodes the corpus identity: **AI-enabled Digital Ecosystem (AIDE)** — the architectural surface a digitally-realized enterprise composes to operate trustworthy AI at scale. Concretely:
 
 1. **Four-tier content structure under `aide-canon/`:**
    - `foundation/` — upstream cognitive-theory + training-methodology basis (`hcae/`, `aidk/`, `rleg/`)
@@ -111,7 +111,7 @@ It does **not**:
 
 ## Alternatives considered
 
-1. **Stay at `osa-ai-org/enterprise-ai`; restructure in place.** Reorganize the existing repo's `docs/` into the four-tier shape; ordsa-ai and OAgents-standard remain separate. Rejected because the corpus identity has shifted from "AI EA" to "AIDE" (AI-centric Digital Ecosystem) — keeping the `enterprise-ai` repository name preserves a label that no longer matches scope. The `aide-canon` naming reflects what the corpus actually is now. Also: restructure-in-place would not solve the OrdSA + OAgents history-preservation problem — they would either need to stay as external links (defeating the canonical-home goal) or be force-merged with rewrites the existing repo can't cleanly absorb.
+1. **Stay at `osa-ai-org/enterprise-ai`; restructure in place.** Reorganize the existing repo's `docs/` into the four-tier shape; ordsa-ai and OAgents-standard remain separate. Rejected because the corpus identity has shifted from "AI EA" to "AIDE" (AI-enabled Digital Ecosystem) — keeping the `enterprise-ai` repository name preserves a label that no longer matches scope. The `aide-canon` naming reflects what the corpus actually is now. Also: restructure-in-place would not solve the OrdSA + OAgents history-preservation problem — they would either need to stay as external links (defeating the canonical-home goal) or be force-merged with rewrites the existing repo can't cleanly absorb.
 
 2. **Split into multiple canonical homes** (one per tier: `ai-foundation-canon`, `ai-constructs-canon`, `ai-platforms-canon`). Rejected because the cross-tier argument (`AIDK → HCAE → AIDEX → AEON`) becomes harder to traverse when separated by repo boundaries. The canon's primary affordance is reading the architecture top-down; multi-repo split would force readers to traverse out and back in.
 
